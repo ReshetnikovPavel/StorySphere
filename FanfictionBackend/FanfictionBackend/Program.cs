@@ -22,16 +22,15 @@ app.UseSwaggerUI(c =>
 });
 
 app.MapGet("/", () => "Hello World!");
-app.MapGet("/fanfics", async (FanficDb db) => await db.Fanfics.ToListAsync());
+app.MapGet("/fanfics", async (FanficDb db) => await db.fanfics.ToArrayAsync());
 
-app.MapPost("/fanfic", async (FanficDb db, Fanfic fanfic) =>
+app.MapPost("/fanfics", async (FanficDb db, Fanfic fanfic) =>
 {
-    await db.Fanfics.AddAsync(fanfic);
-    await db.SaveChangesAsync();
+    await db.AddFanfic(fanfic);
     return Results.Created($"/fanfic/{fanfic.Id}", fanfic);
 });
 
-app.MapGet("/fanfic/{id}", async (FanficDb db, int id) => await db.Fanfics.FindAsync(id));
+app.MapGet("/fanfics/{id}", async (FanficDb db, int id) => await db.GetById(id));
 
 
 app.Run();

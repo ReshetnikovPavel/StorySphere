@@ -41,3 +41,46 @@
 /home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerUI.dll
 /home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/FanfictionBackend.MvcApplicationPartsAssemblyInfo.cs
 /home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/FanfictionBackend.csproj.CopyComplete
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\bin\Debug\net7.0\appsettings.Development.json
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\bin\Debug\net7.0\appsettings.json
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\bin\Debug\net7.0\FanfictionBackend.exe
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\bin\Debug\net7.0\FanfictionBackend.deps.json
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\bin\Debug\net7.0\FanfictionBackend.runtimeconfig.json
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\bin\Debug\net7.0\FanfictionBackend.dll
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\bin\Debug\net7.0\FanfictionBackend.pdb
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\bin\Debug\net7.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\bin\Debug\net7.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\bin\Debug\net7.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\bin\Debug\net7.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\bin\Debug\net7.0\Microsoft.Extensions.Logging.dll
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\bin\Debug\net7.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\bin\Debug\net7.0\Microsoft.Extensions.Primitives.dll
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\bin\Debug\net7.0\Microsoft.OpenApi.dll
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\obj\Debug\net7.0\FanfictionBackend.csproj.AssemblyReference.cache
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\obj\Debug\net7.0\FanfictionBackend.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\obj\Debug\net7.0\FanfictionBackend.AssemblyInfoInputs.cache
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\obj\Debug\net7.0\FanfictionBackend.AssemblyInfo.cs
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\obj\Debug\net7.0\FanfictionBackend.csproj.CoreCompileInputs.cache
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\obj\Debug\net7.0\FanfictionBackend.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\obj\Debug\net7.0\FanfictionBackend.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\obj\Debug\net7.0\staticwebassets\msbuild.FanfictionBackend.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\obj\Debug\net7.0\staticwebassets\msbuild.build.FanfictionBackend.props
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.FanfictionBackend.props
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.FanfictionBackend.props
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\obj\Debug\net7.0\staticwebassets.pack.json
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\obj\Debug\net7.0\staticwebassets.build.json
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\obj\Debug\net7.0\staticwebassets.development.json
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\obj\Debug\net7.0\scopedcss\bundle\FanfictionBackend.styles.css
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\obj\Debug\net7.0\FanfictionBackend.csproj.CopyComplete
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\obj\Debug\net7.0\FanfictionBackend.dll
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\obj\Debug\net7.0\refint\FanfictionBackend.dll
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\obj\Debug\net7.0\FanfictionBackend.pdb
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\obj\Debug\net7.0\FanfictionBackend.genruntimeconfig.cache
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\obj\Debug\net7.0\ref\FanfictionBackend.dll
