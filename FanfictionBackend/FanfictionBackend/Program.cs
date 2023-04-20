@@ -1,4 +1,5 @@
 using FanfictionBackend;
+using FanfictionBackend.Interfaces;
 using FanfictionBackend.Models;
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
@@ -12,7 +13,7 @@ builder.Services.AddSwaggerGen(c =>
         Title = "Fanfiction API",
         Version = "v1" });
 });
-builder.Services.AddDbContext<FanficDb>(options => options.UseInMemoryDatabase("items"));
+builder.Services.AddDbContext<IFanficRepo, FanficDb>(options => options.UseInMemoryDatabase("items"));
 
 var app = builder.Build();
 app.UseSwagger();
@@ -22,15 +23,15 @@ app.UseSwaggerUI(c =>
 });
 
 app.MapGet("/", () => "Hello World!");
-app.MapGet("/fanfics", async (FanficDb db) => await db.GetAll());
+app.MapGet("/fanfics", async (IFanficRepo db) => await db.GetAll());
 
-app.MapPost("/fanfics", async (FanficDb db, Fanfic fanfic) =>
+app.MapPost("/fanfics", async (IFanficRepo db, Fanfic fanfic) =>
 {
     await db.AddFanfic(fanfic);
     return Results.Created($"/fanfic/{fanfic.Id}", fanfic);
 });
 
-app.MapGet("/fanfics/{id}", async (FanficDb db, int id) => await db.GetById(id));
+app.MapGet("/fanfics/{id}", async (IFanficRepo db, int id) => await db.GetById(id));
 
 
 app.Run();
