@@ -22,7 +22,7 @@ app.UseSwaggerUI(c =>
 });
 
 app.MapGet("/", () => "Hello World!");
-app.MapGet("/fanfics", async (FanficDb db) => await db.fanfics.ToArrayAsync());
+app.MapGet("/fanfics", async (FanficDb db) => await db.GetAll());
 
 app.MapPost("/fanfics", async (FanficDb db, Fanfic fanfic) =>
 {
