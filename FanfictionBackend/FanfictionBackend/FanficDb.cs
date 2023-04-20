@@ -7,21 +7,21 @@ namespace FanfictionBackend;
 public class FanficDb : DbContext, IFanficRepo 
 {
     public FanficDb(DbContextOptions options) : base(options) { }
-    
-    public readonly DbSet<Fanfic> fanfics = null!;
+
+    public DbSet<Fanfic> Fanfics { get; set; }
     public async Task<Fanfic[]> GetAll()
     {
-        return await fanfics.ToArrayAsync();
+        return await Fanfics.ToArrayAsync();
     }
 
     public async Task AddFanfic(Fanfic fanfic)
     {
-        await fanfics.AddAsync(fanfic);
+        await Fanfics.AddAsync(fanfic);
         await SaveChangesAsync();
     }
 
     public async Task<Fanfic?> GetById(int id)
     {
-        return await fanfics.FindAsync(id);
+        return await Fanfics.FindAsync(id);
     }
 }
