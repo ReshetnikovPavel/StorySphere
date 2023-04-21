@@ -15,7 +15,7 @@ builder.Services.AddSwaggerGen(c =>
         Title = "Fanfiction API",
         Version = "v1" });
 });
-builder.Services.AddDbContext<IFanficRepo, FanficDb>(options => options.UseInMemoryDatabase("items"));
+
 
 var app = builder.BuildWithEndpoints(new FanficAppDefinition());
 app.UseSwagger();

@@ -1,5 +1,6 @@
 ﻿using FanfictionBackend.Interfaces;
 using FanfictionBackend.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace FanfictionBackend.EndpointDefinitions;
 
@@ -21,5 +22,6 @@ public class FanficAppDefinition : IAppDefinition
 
     public void DefineServices(IServiceCollection services)
     {
+        services.AddDbContext<IFanficRepo, FanficDb>(options => options.UseInMemoryDatabase("items"));
     }
 }
