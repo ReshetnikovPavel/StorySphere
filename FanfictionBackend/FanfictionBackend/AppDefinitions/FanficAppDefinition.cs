@@ -6,7 +6,7 @@ namespace FanfictionBackend.EndpointDefinitions;
 
 public class FanficAppDefinition : IAppDefinition
 {
-    public void DefineEndpoints(WebApplication app)
+    public void DefineApp(WebApplication app)
     {
         app.MapGet("/", () => "Hello World!");
         app.MapGet("/fanfics", async (IFanficRepo db) => await db.GetAll());

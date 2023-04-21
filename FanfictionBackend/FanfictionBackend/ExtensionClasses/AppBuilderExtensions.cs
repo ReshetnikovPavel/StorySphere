@@ -11,7 +11,7 @@ public static class ApplicationBuilderExtensions
             def.DefineServices(builder.Services);
         var app = builder.Build();
         foreach (var def in endpointDefs)
-            def.DefineEndpoints(app);
+            def.DefineApp(app);
 
         return app;
     }
