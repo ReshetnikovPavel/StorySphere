@@ -1,5 +1,4 @@
 namespace FanfictionBackend.Models;
-using Microsoft.EntityFrameworkCore;
 
 public class Fanfic
 {

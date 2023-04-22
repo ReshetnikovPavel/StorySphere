@@ -3,7 +3,6 @@ using FanfictionBackend.Models;
 using FanfictionBackend.Repos;
 using Microsoft.EntityFrameworkCore;
 
-
 namespace FanfictionBackend.EndpointDefinitions;
 
 public class FanficAppDefinition : IAppDefinition

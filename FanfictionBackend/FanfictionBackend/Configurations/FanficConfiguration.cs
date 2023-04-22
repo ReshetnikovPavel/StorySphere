@@ -9,7 +9,7 @@ public class FanficConfiguration : IEntityTypeConfiguration<Fanfic>
     public void Configure(EntityTypeBuilder<Fanfic> builder)
     {
         builder.HasKey(f => f.Id);
-        
+
         builder.Property(f => f.Title)
             .IsRequired();
 
@@ -29,6 +29,5 @@ public class FanficConfiguration : IEntityTypeConfiguration<Fanfic>
 
         builder.HasMany<Tag>(f => f.Tags)
             .WithMany(t => t.Fanfics);
-        
     }
 }

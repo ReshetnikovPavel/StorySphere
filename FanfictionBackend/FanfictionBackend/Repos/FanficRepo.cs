@@ -12,6 +12,7 @@ public class FanficRepo : IFanficRepo
     {
         _dataContext = dataContext;
     }
+
     public async Task<IList<Fanfic>> GetAll()
     {
         return await _dataContext.Fanfics.ToArrayAsync();

@@ -1,17 +1,15 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace FanfictionBackend.Models
+namespace FanfictionBackend.Models;
+
+public class TagConfiguration : IEntityTypeConfiguration<Tag>
 {
-    public class TagConfiguration : IEntityTypeConfiguration<Tag>
+    public void Configure(EntityTypeBuilder<Tag> builder)
     {
-        public void Configure(EntityTypeBuilder<Tag> builder)
-        {
-            builder.HasKey(t => t.Name);
+        builder.HasKey(t => t.Name);
 
-            builder.HasMany<Fanfic>(t => t.Fanfics)
-                .WithMany(f => f.Tags);
-        }
+        builder.HasMany<Fanfic>(t => t.Fanfics)
+            .WithMany(f => f.Tags);
     }
-
 }
