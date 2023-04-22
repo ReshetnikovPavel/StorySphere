@@ -21,5 +21,6 @@ public class FanficAppDefinition : IAppDefinition
 
     public void DefineServices(IServiceCollection services)
     {
+        services.AddDbContext<FanficDb>();
     }
 }

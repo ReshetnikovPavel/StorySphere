@@ -9,7 +9,7 @@ public class FanficDb : DbContext, IFanficRepo
     public FanficDb(DbContextOptions options) : base(options) { }
     public DbSet<Fanfic> Fanfics { get; set; }
     
-    public async Task<Fanfic[]> GetAll()
+    public async Task<IList<Fanfic>> GetAll()
     {
         return await Fanfics.ToArrayAsync();
     }
