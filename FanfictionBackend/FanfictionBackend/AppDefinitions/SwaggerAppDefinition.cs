@@ -15,7 +15,7 @@ public class SwaggerAppDefinition : IAppDefinition
         });
     }
 
-    public void DefineServices(IServiceCollection services)
+    public void DefineServices(IServiceCollection services, IConfiguration config)
     {
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen(c =>

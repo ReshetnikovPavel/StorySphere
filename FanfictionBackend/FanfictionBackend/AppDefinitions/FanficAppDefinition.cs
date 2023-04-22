@@ -1,9 +1,8 @@
-﻿using System.Collections.Immutable;
-using FanfictionBackend.Configurations;
-using FanfictionBackend.Interfaces;
+﻿using FanfictionBackend.Interfaces;
 using FanfictionBackend.Models;
 using FanfictionBackend.Repos;
 using Microsoft.EntityFrameworkCore;
+
 
 namespace FanfictionBackend.EndpointDefinitions;
 
@@ -23,9 +22,10 @@ public class FanficAppDefinition : IAppDefinition
         app.MapGet("/fanfics/{id:int}", async (IFanficRepo db, int id) => await db.GetById(id));
     }
 
-    public void DefineServices(IServiceCollection services)
+    public void DefineServices(IServiceCollection services, IConfiguration config)
     {
-        services.AddDbContext<FanficDb>(options => options.UseInMemoryDatabase("items"));
+        services.AddDbContext<FanficDb>(options =>
+            options.UseNpgsql(config.GetConnectionString("FanfictionDatabase")));
         services.AddScoped<IFanficRepo, FanficRepo>();
     }
 }

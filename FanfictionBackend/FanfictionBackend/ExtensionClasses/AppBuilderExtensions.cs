@@ -8,7 +8,7 @@ public static class ApplicationBuilderExtensions
         params IAppDefinition[] endpointDefs)
     {
         foreach(var def in endpointDefs)
-            def.DefineServices(builder.Services);
+            def.DefineServices(builder.Services, builder.Configuration);
         var app = builder.Build();
         foreach (var def in endpointDefs)
             def.DefineApp(app);
