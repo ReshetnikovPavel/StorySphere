@@ -16,7 +16,7 @@ public class FanficAppDefinition : IAppDefinition
         app.MapPost("/fanfics", async (IFanficRepo db, Fanfic fanfic) =>
         {
             await db.AddFanfic(fanfic);
-            return Results.Created($"/fanfic/{fanfic.Id}", fanfic);
+            return Results.Created($"/fanfics/{fanfic.Id}", fanfic);
         });
 
         app.MapGet("/fanfics/{id:int}", async (IFanficRepo db, int id) => await db.GetById(id));
