@@ -1,5 +1,8 @@
-﻿using FanfictionBackend.Interfaces;
+﻿using System.Collections.Immutable;
+using FanfictionBackend.Configurations;
+using FanfictionBackend.Interfaces;
 using FanfictionBackend.Models;
+using FanfictionBackend.Repos;
 using Microsoft.EntityFrameworkCore;
 
 namespace FanfictionBackend.EndpointDefinitions;
@@ -22,6 +25,7 @@ public class FanficAppDefinition : IAppDefinition
 
     public void DefineServices(IServiceCollection services)
     {
-        services.AddDbContext<IFanficRepo, FanficDb>(options => options.UseInMemoryDatabase("items"));
+        services.AddDbContext<FanficDb>(options => options.UseInMemoryDatabase("items"));
+        services.AddScoped<IFanficRepo, FanficRepo>();
     }
 }
