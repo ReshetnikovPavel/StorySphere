@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Сайт с фанфиками</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #333;
+      color: white;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 10px;
+    }
+    h1 {
+      margin: 0;
+    }
+    nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li {
+      margin: 0 10px;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    nav ul li a:hover {
+      color: yellow;
+    }
+    form {
+      display: flex;
+      flex-wrap: nowrap;
+      margin: 10px 0;
+      width: 100%;
+    }
+    form input[type="text"] {
+      flex: 1;
+      font-size: 1.1em;
+      padding: 10px;
+    }
+    form button {
+      background-color: #6495ED;
+      border: none;
+      color: white;
+      font-size: 1.1em;
+      padding: 10px 20px;
+    }
+    form button:hover {
+      background-color: #4169E1;
+      cursor: pointer;
+    }
+    a {
+      color: #6495ED;
+      font-size: 1.1em;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    a:hover {
+      color: #4169E1;
+    }
+    h2 {
+      margin: 10px 0;
+    }
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    ul li {
+      margin: 10px 0;
+    }
+    ul li a {
+      color: #4169E1;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    ul li a:hover {
+      color: #6495ED;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+    <header>
+      <h1>Сайт с фанфиками</h1>
+      <nav>
+        <ul>
+          <li><a href="#recent">Недавно обновленные работы</a></li>
+          <li><a href="#authors">Список авторов</a></li>
+        </ul>
+      </nav>
+      <form>
+        <input type="text" id="searchInput" placeholder="Поиск по названию работы">
+        <button type="submit" onclick="search()">Найти</button>
+      </form>
+      <a href="#login">Вход / Регистрация</a>
+    </header>
+  
+    <main>
+      <section id="recent">
+        <h2>Недавно обновленные работы</h2>
+        <ul>
+          <li><a href="#">Название работы 1</a></li>
+          <li><a href="#">Название работы 2</a></li>
+          <li><a href="#">Название работы 3</a></li>
+        </ul>
+      </section>
+  
+      <section id="authors">
+        <h2>Список авторов</h2>
+        <ul>
+          <li><a href="#">Автор 1</a></li>
+          <li><a href="#">Автор 2</a></li>
+          <li><a href="#">Автор 3</a></li>
+        </ul>
+      </section>
+    </main>
+  
+    <script>
+      function search() {
+        const input = document.getElementById('searchInput').value;
+        alert(`Вы искали работу с названием "${input}"`);
+      }
+    </script>
+  </body>
+  
+  </html>
