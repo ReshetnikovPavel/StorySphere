@@ -85,26 +85,65 @@
 <body>
   <header>
     <h1>Сайт с фанфиками</h1>
-    <form>
-      <input type="text" placeholder="Логин">
-      <input type="password" placeholder="Пароль">
-      <input type="submit" value="Войти">
+    <nav>
+      <ul>
+        <li><a href="#">Недавно обновленные работы</a></li>
+        <li><a href="#">Список авторов</a></li>
+      </ul>
+    </nav>
+    <form id="loginForm">
+      <input type="text" id="loginInput" placeholder="Логин">
+      <input type="password" id="passwordInput" placeholder="Пароль">
+      <button type="button" onclick="login()">Войти</button>
     </form>
-    <a href="#">Регистрация</a>
+    <a href="#" id="registerLink">Регистрация</a>
   </header>
 
   <main>
-    <form>
+    <form id="registerForm" style="display: none;">
       <h2>Регистрация</h2>
-      <input type="text" placeholder="Имя">
-      <input type="text" placeholder="Фамилия">
-      <input type="text" placeholder="E-mail">
-      <input type="text" placeholder="Логин">
-      <input type="password" placeholder="Пароль">
-      <input type="submit" value="Зарегистрироваться">
+      <input type="text" id="nameInput" placeholder="Имя">
+      <input type="text" id="surnameInput" placeholder="Фамилия">
+      <input type="text" id="emailInput" placeholder="E-mail">
+      <input type="text" id="registerLoginInput" placeholder="Логин">
+      <input type="password" id="registerPasswordInput" placeholder="Пароль">
+      <button type="button" onclick="register()">Зарегистрироваться</button>
     </form>
   </main>
 
+  <script>
+    const loginForm = document.getElementById('loginForm');
+    const loginInput = document.getElementById('loginInput');
+    const passwordInput = document.getElementById('passwordInput');
+    const registerForm = document.getElementById('registerForm');
+    const nameInput = document.getElementById('nameInput');
+    const surnameInput = document.getElementById('surnameInput');
+    const emailInput = document.getElementById('emailInput');
+    const registerLoginInput = document.getElementById('registerLoginInput');
+    const registerPasswordInput = document.getElementById('registerPasswordInput');
+    const registerLink = document.getElementById('registerLink');
+
+    function login() {
+      const login = loginInput.value.trim();
+      const password = passwordInput.value.trim();
+      alert(`Вы вошли как ${login}`);
+    }
+
+    function register() {
+      const name = nameInput.value.trim();
+      const surname = surnameInput.value.trim();
+      const email = emailInput.value.trim();
+      const login = registerLoginInput.value.trim();
+      const password = registerPasswordInput.value.trim();
+      alert(`Вы зарегистрировались как ${email}, ${name} ${surname} (${login})`);
+    }
+
+    registerLink.addEventListener('click', (event) => {
+      event.preventDefault();
+      loginForm.style.display = 'none';
+      registerForm.style.display = 'block';
+    });
+  </script>
 </body>
 
 </html>
