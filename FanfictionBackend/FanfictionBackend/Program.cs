@@ -3,7 +3,7 @@ using FanfictionBackend.ExtensionClasses;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var app = builder.BuildWithEndpoints(
+var app = builder.BuildByDefinitions(
     new FanficAppDefinition(),
     new SwaggerAppDefinition()
 );

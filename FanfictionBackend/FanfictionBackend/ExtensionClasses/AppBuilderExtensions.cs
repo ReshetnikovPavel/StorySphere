@@ -4,7 +4,7 @@ namespace FanfictionBackend.ExtensionClasses;
 
 public static class ApplicationBuilderExtensions
 {
-    public static WebApplication BuildWithEndpoints(this WebApplicationBuilder builder,
+    public static WebApplication BuildByDefinitions(this WebApplicationBuilder builder,
         params IAppDefinition[] endpointDefs)
     {
         foreach (var def in endpointDefs)
