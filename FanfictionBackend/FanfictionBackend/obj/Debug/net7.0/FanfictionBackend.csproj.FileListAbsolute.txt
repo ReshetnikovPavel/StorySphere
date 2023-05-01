@@ -1,0 +1,136 @@
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/appsettings.Development.json
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/appsettings.json
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/FanfictionBackend
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/FanfictionBackend.deps.json
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/FanfictionBackend.runtimeconfig.json
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/FanfictionBackend.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/FanfictionBackend.pdb
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/FanfictionBackend.csproj.AssemblyReference.cache
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/FanfictionBackend.GeneratedMSBuildEditorConfig.editorconfig
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/FanfictionBackend.AssemblyInfoInputs.cache
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/FanfictionBackend.AssemblyInfo.cs
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/FanfictionBackend.csproj.CoreCompileInputs.cache
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/FanfictionBackend.MvcApplicationPartsAssemblyInfo.cache
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/staticwebassets/msbuild.FanfictionBackend.Microsoft.AspNetCore.StaticWebAssets.props
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/staticwebassets/msbuild.build.FanfictionBackend.props
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/staticwebassets/msbuild.buildMultiTargeting.FanfictionBackend.props
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/staticwebassets/msbuild.buildTransitive.FanfictionBackend.props
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/staticwebassets.pack.json
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/staticwebassets.build.json
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/staticwebassets.development.json
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/scopedcss/bundle/FanfictionBackend.styles.css
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/FanfictionBackend.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/refint/FanfictionBackend.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/FanfictionBackend.pdb
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/FanfictionBackend.genruntimeconfig.cache
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/ref/FanfictionBackend.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.InMemory.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.Extensions.Caching.Abstractions.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.Extensions.Caching.Memory.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.Extensions.DependencyInjection.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.Extensions.Logging.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.Extensions.Logging.Abstractions.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.Extensions.Options.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.Extensions.Primitives.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.OpenApi.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Swashbuckle.AspNetCore.Swagger.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/FanfictionBackend.MvcApplicationPartsAssemblyInfo.cs
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/FanfictionBackend.csproj.CopyComplete
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/appsettings.Development.json
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/appsettings.json
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/FanfictionBackend.exe
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/FanfictionBackend.deps.json
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/FanfictionBackend.runtimeconfig.json
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/FanfictionBackend.dll
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/FanfictionBackend.pdb
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.dll
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.InMemory.dll
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.Extensions.Caching.Abstractions.dll
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.Extensions.Caching.Memory.dll
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.Extensions.DependencyInjection.dll
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.Extensions.Logging.dll
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.Extensions.Logging.Abstractions.dll
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.Extensions.Options.dll
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.Extensions.Primitives.dll
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.OpenApi.dll
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Swashbuckle.AspNetCore.Swagger.dll
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/FanfictionBackend.csproj.AssemblyReference.cache
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/FanfictionBackend.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/FanfictionBackend.AssemblyInfoInputs.cache
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/FanfictionBackend.AssemblyInfo.cs
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/FanfictionBackend.csproj.CoreCompileInputs.cache
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/FanfictionBackend.MvcApplicationPartsAssemblyInfo.cs
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/FanfictionBackend.MvcApplicationPartsAssemblyInfo.cache
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/staticwebassets/msbuild.FanfictionBackend.Microsoft.AspNetCore.StaticWebAssets.props
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/staticwebassets/msbuild.build.FanfictionBackend.props
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/staticwebassets/msbuild.buildMultiTargeting.FanfictionBackend.props
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/staticwebassets/msbuild.buildTransitive.FanfictionBackend.props
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/staticwebassets.pack.json
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/staticwebassets.build.json
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/staticwebassets.development.json
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/scopedcss/bundle/FanfictionBackend.styles.css
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/FanfictionBackend.csproj.CopyComplete
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/FanfictionBackend.dll
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/refint/FanfictionBackend.dll
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/FanfictionBackend.pdb
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/FanfictionBackend.genruntimeconfig.cache
+C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/ref/FanfictionBackend.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Azure.Core.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Azure.Identity.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.Bcl.AsyncInterfaces.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.Data.SqlClient.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Relational.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.SqlServer.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.Extensions.Configuration.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.Extensions.Configuration.Abstractions.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.Identity.Client.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.Identity.Client.Extensions.Msal.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.IdentityModel.Abstractions.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.IdentityModel.Logging.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.IdentityModel.Tokens.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.SqlServer.Server.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.Win32.SystemEvents.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/System.Configuration.ConfigurationManager.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/System.Drawing.Common.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/System.IdentityModel.Tokens.Jwt.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/System.Memory.Data.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/System.Runtime.Caching.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/System.Security.Cryptography.ProtectedData.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/System.Security.Permissions.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/System.Windows.Extensions.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/runtimes/unix/lib/net6.0/Microsoft.Data.SqlClient.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/runtimes/win/lib/net6.0/Microsoft.Data.SqlClient.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/runtimes/win/lib/net6.0/Microsoft.Win32.SystemEvents.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/runtimes/unix/lib/net6.0/System.Drawing.Common.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/runtimes/win/lib/net6.0/System.Drawing.Common.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/runtimes/win/lib/net6.0/System.Runtime.Caching.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/runtimes/win/lib/net6.0/System.Security.Cryptography.ProtectedData.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/runtimes/win/lib/net6.0/System.Windows.Extensions.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Humanizer.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Design.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.Extensions.DependencyModel.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Mono.TextTemplating.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/System.CodeDom.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/System.Text.Encodings.Web.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/System.Text.Json.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/runtimes/browser/lib/net7.0/System.Text.Encodings.Web.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Relational.Design.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Npgsql.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/Npgsql.EntityFrameworkCore.PostgreSQL.Design.dll
