@@ -1,5 +1,6 @@
 using FanfictionBackend.Interfaces;
 using FanfictionBackend.Models;
+using FanfictionBackend.Pagination;
 using Microsoft.EntityFrameworkCore;
 
 namespace FanfictionBackend.Repos;

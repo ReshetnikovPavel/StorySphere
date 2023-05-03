@@ -1,3 +1,2 @@
 ﻿<Project>
   <Import Project="..\buildMultiTargeting\FanfictionBackend.props" />
-</Project>

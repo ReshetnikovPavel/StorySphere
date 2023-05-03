@@ -1,4 +1,5 @@
 ﻿using FanfictionBackend.Models;
+using FanfictionBackend.Pagination;
 
 namespace FanfictionBackend.Interfaces;
 

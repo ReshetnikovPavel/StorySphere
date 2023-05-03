@@ -4470,8 +4470,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\FanfictionBackend.csproj": {
-              "projectPath": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\FanfictionBackend.csproj"
+            "/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/FanfictionBackend.csproj": {
+              "projectPath": "/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/FanfictionBackend.csproj"
             }
           }
         }
@@ -4535,4 +4535,3 @@
       }
     }
   }
-}
