@@ -1,25 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/FanfictionBackend.csproj": {}
+    "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\FanfictionBackend.csproj": {}
   },
   "projects": {
-    "/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/FanfictionBackend.csproj": {
+    "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\FanfictionBackend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/FanfictionBackend.csproj",
+        "projectUniqueName": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\FanfictionBackend.csproj",
         "projectName": "FanfictionBackend",
-        "projectPath": "/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/FanfictionBackend.csproj",
-        "packagesPath": "/home/pavel-reshetnikov/.nuget/packages/",
-        "outputPath": "/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/obj/",
+        "projectPath": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\FanfictionBackend.csproj",
+        "packagesPath": "C:\\Users\\Andrew Kuklinov\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/home/pavel-reshetnikov/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Andrew Kuklinov\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -88,7 +95,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/7.0.203/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
