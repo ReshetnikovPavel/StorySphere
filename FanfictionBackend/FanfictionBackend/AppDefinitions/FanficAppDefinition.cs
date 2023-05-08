@@ -10,10 +10,11 @@ public class FanficAppDefinition : IAppDefinition
 {
     public void DefineApp(WebApplication app)
     {
-        app.MapGet("/", HelloWorld);
-        app.MapGet("/fanfics", GetAllFanfics);
-        app.MapPost("/fanfics", AddFanfic);
-        app.MapGet("/fanfics/{id:int}", GetFanficById);
+        app.MapGet("/", GetRecentlyUpdatedFanfics);
+        app.MapGet("/", GetFanficByName);
+        app.MapGet("/", LoginUser);
+        app.MapGet("/", RegisterUser);
+        app.MapGet("/authors", GetAllUsers);
     }
 
     public void DefineServices(IServiceCollection services, IConfiguration config)
@@ -23,24 +24,28 @@ public class FanficAppDefinition : IAppDefinition
         services.AddScoped<IFanficRepo, FanficRepo>();
     }
     
-    public static string HelloWorld()
+    public static async Task<IEnumerable<Fanfic>> GetRecentlyUpdatedFanfics(IFanficRepo repo)
     {
-        return "Hello World!";
+        throw new NotImplementedException();
     }
 
-    public static async Task<IEnumerable<Fanfic>> GetAllFanfics(IFanficRepo db)
+    public static async Task<IEnumerable<User>> GetAllUsers(IFanficRepo repo)
     {
-        return await db.GetAll();
+        throw new NotImplementedException();
     }
 
-    public static async Task<IResult> AddFanfic(IFanficRepo db, Fanfic fanfic)
+    public static async Task<IResult> GetFanficByName(IFanficRepo repo, string name)
     {
-        await db.AddFanfic(fanfic);
-        return Results.Created($"/fanfics/{fanfic.Id}", fanfic);
+        throw new NotImplementedException();
     }
 
-    public static async Task<Fanfic> GetFanficById(IFanficRepo db, int id)
+    public static async Task<IResult> RegisterUser(IFanficRepo repo, User user)
     {
-        return await db.GetById(id);
+        throw new NotImplementedException();
+    }
+
+    public static async Task<IResult> LoginUser(IFanficRepo repo, string username, string password)
+    {
+        throw new NotImplementedException();
     }
 }
