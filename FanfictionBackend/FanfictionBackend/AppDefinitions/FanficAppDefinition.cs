@@ -14,8 +14,8 @@ public class FanficAppDefinition : IAppDefinition
         app.MapGet("/", LoginUser);
         app.MapGet("/", RegisterUser);
         app.MapGet("/authors", GetAllUsers);
-        app.MapGet("/fanfics", GetFanficByName);
-        app.MapGet("/fanfics/{id}", GetFanficById);
+        app.MapGet("/fanfic", GetFanficByName);
+        app.MapGet("/fanfic/{id}", GetFanficById);
     }
 
     public void DefineServices(IServiceCollection services, IConfiguration config)
