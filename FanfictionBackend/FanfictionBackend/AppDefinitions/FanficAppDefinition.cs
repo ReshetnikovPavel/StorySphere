@@ -11,10 +11,11 @@ public class FanficAppDefinition : IAppDefinition
     public void DefineApp(WebApplication app)
     {
         app.MapGet("/", GetRecentlyUpdatedFanfics);
-        app.MapGet("/", GetFanficByName);
         app.MapGet("/", LoginUser);
         app.MapGet("/", RegisterUser);
         app.MapGet("/authors", GetAllUsers);
+        app.MapGet("/fanfics", GetFanficByName);
+        app.MapGet("/fanfics/{id}", GetFanficById);
     }
 
     public void DefineServices(IServiceCollection services, IConfiguration config)
@@ -47,5 +48,10 @@ public class FanficAppDefinition : IAppDefinition
     public static async Task<IResult> LoginUser(IFanficRepo repo, string username, string password)
     {
         throw new NotImplementedException();
+    }
+    
+    public static async Task<Fanfic?> GetFanficById(IFanficRepo repo, int id)
+    {
+        return await repo.GetById(id);
     }
 }
