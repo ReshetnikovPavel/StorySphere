@@ -18,8 +18,9 @@ public class FanficAppDefinitionShould
         var mockRepo = new Mock<IFanficRepo>();
         const int id = 1;
         var fakeFanfic = new Fanfic { Id = id };
-
-        mockRepo.Setup(repo => repo.GetById(id)).ReturnsAsync(fakeFanfic);
+        var fanfics = new[] { fakeFanfic };
+        
+        mockRepo.Setup(repo => repo.GetById(id)).ReturnsAsync(fanfics.First(x => x.Id == id));
 
         // Act
         var result = await FanficAppDefinition.GetFanficById(mockRepo.Object, id);
@@ -36,7 +37,10 @@ public class FanficAppDefinitionShould
         var mockRepo = new Mock<IFanficRepo>();
         const int id = 1;
         var fakeFanfic = new Fanfic { Id = id };
-
+        var fanfics = new[] { fakeFanfic };
+        
+        mockRepo.Setup(repo => repo.GetById(id)).ReturnsAsync(fanfics.First(x => x.Id == id));
+        
         // Act
         const int wrongId = 2;
         var result = await FanficAppDefinition.GetFanficById(mockRepo.Object, wrongId);
