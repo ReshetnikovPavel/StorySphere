@@ -1,7 +1,7 @@
 ﻿using FanfictionBackend.Interfaces;
 using FanfictionBackend.Models;
 using FanfictionBackend.Repos;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 
 namespace FanfictionBackend.EndpointDefinitions;
@@ -50,8 +50,9 @@ public class FanficAppDefinition : IAppDefinition
         throw new NotImplementedException();
     }
     
-    public static async Task<Fanfic?> GetFanficById(IFanficRepo repo, int id)
+    public static async Task<IResult> GetFanficById(IFanficRepo repo, int id)
     {
-        return await repo.GetById(id);
+        var fanfic = await repo.GetById(id);
+        return fanfic == null ? TypedResults.NotFound() : TypedResults.Ok(fanfic);
     }
 }

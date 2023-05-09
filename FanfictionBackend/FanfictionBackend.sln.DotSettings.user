@@ -1,7 +1,10 @@
 ﻿<wpf:ResourceDictionary xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xml:space="preserve">
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=176df244_002Dbdff_002D452e_002D8ebb_002D98dedb865b18/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="ToPageList_ShouldThrowArgumentException_WhenArgumentsAreNotPositive" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::5C6F9EC4-4AF7-4917-8A56-8D915396F856::net7.0::Tests.QueryableExtensionsShould&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
+  &lt;Or&gt;&#xD;
+    &lt;TestAncestor&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::5C6F9EC4-4AF7-4917-8A56-8D915396F856::net7.0::Tests.QueryableExtensionsShould&lt;/TestId&gt;&#xD;
+    &lt;/TestAncestor&gt;&#xD;
+    &lt;ProjectFile&gt;5C6F9EC4-4AF7-4917-8A56-8D915396F856/f:FanficAppDefinitionShould.cs&lt;/ProjectFile&gt;&#xD;
+  &lt;/Or&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:Boolean x:Key="/Default/UserDictionary/Words/=Fanfiction/@EntryIndexedValue">True</s:Boolean></wpf:ResourceDictionary>
