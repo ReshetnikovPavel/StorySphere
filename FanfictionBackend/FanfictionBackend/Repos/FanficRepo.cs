@@ -28,4 +28,9 @@ public class FanficRepo : IFanficRepo
     {
         return await _dataContext.Fanfics.FindAsync(id);
     }
+
+    public async Task<Fanfic?> GetByTitle(string title)
+    {
+        return await _dataContext.Fanfics.FirstOrDefaultAsync(f => f.Title == title);
+    }
 }

@@ -14,7 +14,7 @@ public class FanficAppDefinition : IAppDefinition
         app.MapGet("/", LoginUser);
         app.MapGet("/", RegisterUser);
         app.MapGet("/authors", GetAllUsers);
-        app.MapGet("/fanfic", GetFanficByName);
+        app.MapGet("/fanfic", GetFanficByTitle);
         app.MapGet("/fanfic/{id:int}", GetFanficById);
     }
 
@@ -35,9 +35,10 @@ public class FanficAppDefinition : IAppDefinition
         throw new NotImplementedException();
     }
 
-    public static async Task<IResult> GetFanficByName(IFanficRepo repo, string name)
+    public static async Task<IResult> GetFanficByTitle(IFanficRepo repo, string title)
     {
-        throw new NotImplementedException();
+        var fanfic = await repo.GetByTitle(title);
+        return fanfic == null ? Results.NotFound() : Results.Redirect($"/fanfics/{fanfic.Id}");
     }
 
     public static async Task<IResult> RegisterUser(IFanficRepo repo, User user)

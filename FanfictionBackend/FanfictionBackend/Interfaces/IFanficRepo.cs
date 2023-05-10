@@ -7,4 +7,5 @@ public interface IFanficRepo
     public Task<IList<Fanfic>> GetAll();
     public Task AddFanfic(Fanfic fanfic);
     public Task<Fanfic?> GetById(int id);
+    public Task<Fanfic?> GetByTitle(string title);
 }
