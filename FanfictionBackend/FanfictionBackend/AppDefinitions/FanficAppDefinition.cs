@@ -35,10 +35,12 @@ public class FanficAppDefinition : IAppDefinition
         throw new NotImplementedException();
     }
 
-    public static async Task<IResult> GetFanficByTitle(IFanficRepo repo, string title)
+    public static async Task<IResult> GetFanficByTitle(IFanficRepo repo, string? title)
     {
+        if (title == null)
+            return TypedResults.BadRequest("Given fanfic title is null");
         var fanfic = await repo.GetByTitle(title);
-        return fanfic == null ? Results.NotFound() : Results.Redirect($"/fanfics/{fanfic.Id}");
+        return fanfic == null ? TypedResults.NotFound() : TypedResults.Redirect($"/fanfics/{fanfic.Id}");
     }
 
     public static async Task<IResult> RegisterUser(IFanficRepo repo, User user)
