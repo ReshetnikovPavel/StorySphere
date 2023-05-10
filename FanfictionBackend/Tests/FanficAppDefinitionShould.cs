@@ -60,4 +60,24 @@ public class FanficAppDefinitionShould
         Assert.That((result as RedirectHttpResult)!.Url, Is.EqualTo($"/fanfics/{TestFanfic.Id}"));
     }
 
+    [Test]
+    public async Task GetFanficByTitle_ShouldReturnNotFound_WhenFanficNotFound()
+    {
+        // Act
+        const string wrongTitle = "Wrong Title";
+        var result = await FanficAppDefinition.GetFanficByTitle(MockRepo.Object, wrongTitle);
+
+        // Assert
+        Assert.That(result, Is.InstanceOf(typeof(NotFound)));
+    }
+    
+    [Test]
+    public async Task GetFanficByTitle_ShouldReturnBadRequestWithMessage_WhenTitleIsNull()
+    {
+        // Act
+        var result = await FanficAppDefinition.GetFanficByTitle(MockRepo.Object, null);
+
+        // Assert
+        Assert.That(result, Is.InstanceOf(typeof(BadRequest<string>)));
+    }
 }
