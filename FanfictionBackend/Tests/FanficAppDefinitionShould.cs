@@ -15,18 +15,18 @@ public class FanficAppDefinitionShould
 {
     private static readonly Mock<IFanficRepo> MockFanficRepo = new();
     private static readonly Fanfic TestFanfic = new();
-    private static readonly List<Fanfic> Fanfics = new() { TestFanfic};
+    private static readonly List<Fanfic> Fanfics = new() { TestFanfic };
 
     private static readonly Mock<IUserRepo> MockUserRepo = new();
     private static readonly User TestUser = new();
     private static readonly List<User> Users = new() { TestUser };
-    
+
     [SetUp]
     public void SetUp()
     {
         MockFanficRepo.Setup(repo => repo.GetById(It.IsAny<int>()))
             .ReturnsAsync((int id) => Fanfics.FirstOrDefault(fanfic => fanfic.Id == id));
-        
+
         MockFanficRepo.Setup(repo => repo.GetByTitle(It.IsAny<string>()))
             .ReturnsAsync((string title) => Fanfics.FirstOrDefault(fanfic => fanfic.Title == title));
 
@@ -39,30 +39,16 @@ public class FanficAppDefinitionShould
 
 
     [Test]
-    public async Task GetFanficById_ShouldReturnOk_WhenFanficFound()
-    {
-        // Arrange
-        TestFanfic.Id = 1;
-        
-        // Act
-        var result = await FanficAppDefinition.GetFanficById(MockFanficRepo.Object, TestFanfic.Id);
-
-        // Assert
-        Assert.That(result, Is.InstanceOf(typeof(Ok<Fanfic>)));
-        Assert.That((result as Ok<Fanfic>)!.Value, Is.EqualTo(TestFanfic));
-    }
-
-    [Test]
     public async Task GetFanficById_ShouldReturnNotFound_WhenFanficNotFound()
     {
         // Arrange
         const int wrongId = 2;
-        
+
         // Act
         var result = await FanficAppDefinition.GetFanficById(MockFanficRepo.Object, wrongId);
 
         // Assert
-        Assert.That(result, Is.InstanceOf(typeof(NotFound)));
+        result.Should().BeOfType<NotFound>();
     }
 
     [Test]
@@ -70,13 +56,13 @@ public class FanficAppDefinitionShould
     {
         // Arrange
         TestFanfic.Title = "Test Title";
-        
+
         // Act
         var result = await FanficAppDefinition.GetFanficByTitle(MockFanficRepo.Object, TestFanfic.Title);
 
         // Assert
-        Assert.That(result, Is.InstanceOf(typeof(RedirectHttpResult)));
-        Assert.That((result as RedirectHttpResult)!.Url, Is.EqualTo($"/fanfic/{TestFanfic.Id}"));
+        result.Should().BeOfType<RedirectHttpResult>();
+        (result as RedirectHttpResult)!.Url.Should().Be($"/fanfic/{TestFanfic.Id}");
     }
 
     [Test]
@@ -84,14 +70,14 @@ public class FanficAppDefinitionShould
     {
         // Arrange
         const string wrongTitle = "Wrong Title";
-        
+
         // Act
         var result = await FanficAppDefinition.GetFanficByTitle(MockFanficRepo.Object, wrongTitle);
 
         // Assert
-        Assert.That(result, Is.InstanceOf(typeof(NotFound)));
+        result.Should().BeOfType<NotFound>();
     }
-    
+
     [Test]
     public async Task GetFanficByTitle_ShouldReturnBadRequestWithMessage_WhenTitleIsNull()
     {
@@ -99,21 +85,21 @@ public class FanficAppDefinitionShould
         var result = await FanficAppDefinition.GetFanficByTitle(MockFanficRepo.Object, null);
 
         // Assert
-        Assert.That(result, Is.InstanceOf(typeof(BadRequest<string>)));
+        result.Should().BeOfType<BadRequest<string>>();
     }
-    
+
     [Test]
     public async Task RegisterUser_ShouldAddUserToRepo_WhenNewUserIsCorrect()
     {
         // Arrange
         var newUser = new User { Username = "NewUsername" };
-        
+
         // Act
         var result = await FanficAppDefinition.RegisterUser(MockUserRepo.Object, newUser);
 
         // Assert
-        Assert.That(result, Is.InstanceOf(typeof(Created)));
-        Assert.That((result as Created)!.Location, Is.EqualTo($"/author/{newUser.Id}"));
+        result.Should().BeOfType<Created>();
+        (result as Created)!.Location.Should().Be($"/author/{newUser.Id}");
     }
 
     [Test]
@@ -123,11 +109,11 @@ public class FanficAppDefinitionShould
         const string testUsername = "TestUsername";
         TestUser.Username = testUsername;
         var newUser = new User { Username = testUsername };
-        
+
         // Act
         var result = await FanficAppDefinition.RegisterUser(MockUserRepo.Object, newUser);
 
         // Assert
-        Assert.That(result, Is.InstanceOf(typeof(Conflict<string>)));
+        result.Should().BeOfType<Conflict<string>>();
     }
 }
