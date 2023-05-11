@@ -41,8 +41,10 @@ public class FanficAppDefinitionShould
     [Test]
     public async Task GetFanficById_ShouldReturnOk_WhenFanficFound()
     {
-        // Act
+        // Arrange
         TestFanfic.Id = 1;
+        
+        // Act
         var result = await FanficAppDefinition.GetFanficById(MockFanficRepo.Object, TestFanfic.Id);
 
         // Assert
@@ -53,8 +55,10 @@ public class FanficAppDefinitionShould
     [Test]
     public async Task GetFanficById_ShouldReturnNotFound_WhenFanficNotFound()
     {
-        // Act
+        // Arrange
         const int wrongId = 2;
+        
+        // Act
         var result = await FanficAppDefinition.GetFanficById(MockFanficRepo.Object, wrongId);
 
         // Assert
@@ -64,8 +68,10 @@ public class FanficAppDefinitionShould
     [Test]
     public async Task GetFanficByTitle_ShouldRedirect_WhenFanficFound()
     {
-        // Act
+        // Arrange
         TestFanfic.Title = "Test Title";
+        
+        // Act
         var result = await FanficAppDefinition.GetFanficByTitle(MockFanficRepo.Object, TestFanfic.Title);
 
         // Assert
@@ -76,8 +82,10 @@ public class FanficAppDefinitionShould
     [Test]
     public async Task GetFanficByTitle_ShouldReturnNotFound_WhenFanficNotFound()
     {
-        // Act
+        // Arrange
         const string wrongTitle = "Wrong Title";
+        
+        // Act
         var result = await FanficAppDefinition.GetFanficByTitle(MockFanficRepo.Object, wrongTitle);
 
         // Assert
@@ -97,8 +105,10 @@ public class FanficAppDefinitionShould
     [Test]
     public async Task RegisterUser_ShouldAddUserToRepo_WhenNewUserIsCorrect()
     {
-        // Act
+        // Arrange
         var newUser = new User { Username = "NewUsername" };
+        
+        // Act
         var result = await FanficAppDefinition.RegisterUser(MockUserRepo.Object, newUser);
 
         // Assert
@@ -109,10 +119,12 @@ public class FanficAppDefinitionShould
     [Test]
     public async Task RegisterUser_ShouldReturnConflictWithMessage_WhenUserAlreadyExists()
     {
-        // Act
+        // Arrange
         const string testUsername = "TestUsername";
         TestUser.Username = testUsername;
         var newUser = new User { Username = testUsername };
+        
+        // Act
         var result = await FanficAppDefinition.RegisterUser(MockUserRepo.Object, newUser);
 
         // Assert
