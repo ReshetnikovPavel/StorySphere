@@ -39,22 +39,22 @@ public class FanficAppDefinitionShould
         
         MockPasswordHasher
             .Setup(m =>
-                m.HashPassword(It.IsAny<string>(), out It.Ref<byte[]>.IsAny))
-            .Returns((string password, out byte[] salt) =>
+                m.HashPassword(It.IsAny<string>()))
+            .Returns((string password) =>
             {
-                salt = RandomNumberGenerator.GetBytes(8);
+                var salt = RandomNumberGenerator.GetBytes(8);
                 var jointSalt = Convert.ToBase64String(salt);
-                var hashedPassword = $"{password}_{jointSalt}";
-                return hashedPassword;
+                var hash = $"{password}_{jointSalt}";
+                return new HashedString(hash, salt);
             });
         MockPasswordHasher
             .Setup(m =>
-                m.VerifyPassword(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<byte[]>()))
-            .Returns((string password, string hash, byte[] salt) =>
+                m.VerifyPassword(It.IsAny<string>(), It.IsAny<HashedString>()))
+            .Returns((string password, HashedString hashedPassword) =>
             {
-                var jointSalt = Convert.ToBase64String(salt);
+                var jointSalt = Convert.ToBase64String(hashedPassword.Salt);
                 var expectedHash = $"{password}_{jointSalt}";
-                return hash == expectedHash;
+                return hashedPassword.Hash == expectedHash;
             });
 
     }
@@ -124,7 +124,7 @@ public class FanficAppDefinitionShould
         // Assert
         result.Should().BeOfType<Created>();
         (result as Created)!.Location.Should().Be($"/author/{newUser.Id}");
-        MockPasswordHasher.Object.VerifyPassword(password, newUser.HashedPassword, newUser.PasswordSalt);
+        MockPasswordHasher.Object.VerifyPassword(password, newUser.Password);
     }
 
     [Test]
@@ -143,4 +143,21 @@ public class FanficAppDefinitionShould
         // Assert
         result.Should().BeOfType<Conflict<string>>();
     }
+    
+    // [Test]
+    // public async Task LoginUser_ShouldReturnOkWithUser_WhenUserLoginIsCorrect()
+    // {
+    //     // Arrange
+    //     const string testUsername = "TestUsername";
+    //     const string password = "TestPassword";
+    //     TestUser.Username = testUsername;
+    //     TestUser.Password = MockPasswordHasher.Object.HashPassword(password);
+    //
+    //     // Act
+    //     var result = await FanficAppDefinition.RegisterUser(
+    //         MockPasswordHasher.Object, MockUserRepo.Object, newUser, password);
+    //
+    //     // Assert
+    //     result.Should().BeOfType<Conflict<string>>();
+    // }
 }

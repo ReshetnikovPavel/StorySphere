@@ -1,6 +1,7 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
 using FanfictionBackend.Interfaces;
+using FanfictionBackend.Models;
 
 namespace FanfictionBackend.Services;
 
@@ -10,25 +11,22 @@ public class PasswordHasher : IPasswordHasher
     private const int Iterations = 350000;
     private readonly HashAlgorithmName _hashAlgorithm = HashAlgorithmName.SHA512;
     
-    public string HashPassword(string password, out byte[] salt)
+    public HashedString HashPassword(string password)
     {
-        salt = RandomNumberGenerator.GetBytes(KeySize);
+        var salt = RandomNumberGenerator.GetBytes(KeySize);
 
         var hash = Rfc2898DeriveBytes.Pbkdf2(
-            Encoding.UTF8.GetBytes(password),
-            salt,
-            Iterations,
-            _hashAlgorithm,
-            KeySize);
+            Encoding.UTF8.GetBytes(password), salt, Iterations, _hashAlgorithm, KeySize);
 
-        return Convert.ToHexString(hash);
+        return new HashedString(Convert.ToHexString(hash), salt);
     }
 
-    public bool VerifyPassword(string password, string hash, byte[] salt)
+    public bool VerifyPassword(string password, HashedString hashedPassword)
     {
-        var hashToCompare = Rfc2898DeriveBytes.Pbkdf2(password, salt, Iterations, _hashAlgorithm, KeySize);
+        var hashToCompare = Rfc2898DeriveBytes.Pbkdf2(
+            password, hashedPassword.Salt, Iterations, _hashAlgorithm, KeySize);
 
-        return CryptographicOperations.FixedTimeEquals(hashToCompare, Convert.FromHexString(hash));
+        return CryptographicOperations.FixedTimeEquals(hashToCompare, Convert.FromHexString(hashedPassword.Hash));
     }
 
 }

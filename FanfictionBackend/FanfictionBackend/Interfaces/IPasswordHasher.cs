@@ -1,7 +1,9 @@
-﻿namespace FanfictionBackend.Interfaces;
+﻿using FanfictionBackend.Models;
+
+namespace FanfictionBackend.Interfaces;
 
 public interface IPasswordHasher
 {
-    public string HashPassword(string password, out byte[] salt);
-    public bool VerifyPassword(string password, string hash, byte[] salt);
+    public HashedString HashPassword(string password);
+    public bool VerifyPassword(string password, HashedString hashedPassword);
 }

@@ -56,17 +56,15 @@ public class FanficAppDefinition : IAppDefinition
         var existingUser = repo.GetByUsername(user.Username);
         if (existingUser.Result != null)
             return TypedResults.Conflict("Username already registered");
-        var hashedPassword = hasher.HashPassword(password, out var salt);
-        user.HashedPassword = hashedPassword;
-        user.PasswordSalt = salt;
+        user.Password = hasher.HashPassword(password);
         await repo.AddUser(user);
         return TypedResults.Created($"/author/{user.Id}");
     }
 
-    public static async Task<IResult> LoginUser(IUserRepo repo, string username, string password)
+    public static async Task<IResult> LoginUser(IPasswordHasher hasher, IUserRepo repo, string username, string password)
     {
         var user = await repo.GetByUsername(username);
-        if (user == null) // TODO: check password
+        if (user == null || !hasher.VerifyPassword(password, user.Password))
             return TypedResults.NotFound("Invalid username or password");
         return Results.Ok(user);
     }

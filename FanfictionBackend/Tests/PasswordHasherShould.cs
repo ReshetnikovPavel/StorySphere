@@ -15,8 +15,8 @@ public class PasswordHasherShould
         const string password2 = "password2";
         
         // Act
-        var h1 = _hasher.HashPassword(password1, out var s1);
-        var h2 = _hasher.HashPassword(password2, out var s2);
+        var h1 = _hasher.HashPassword(password1);
+        var h2 = _hasher.HashPassword(password2);
         
         // Assert
         h1.Should().NotBeEquivalentTo(h2);
@@ -27,10 +27,10 @@ public class PasswordHasherShould
     {
         // Arrange
         var password = "password";
-        var hash = _hasher.HashPassword(password, out var salt);
+        var hashedPassword = _hasher.HashPassword(password);
         
         // Act
-        var result = _hasher.VerifyPassword(password, hash, salt);
+        var result = _hasher.VerifyPassword(password, hashedPassword);
         
         // Assert
         result.Should().BeTrue();
@@ -41,11 +41,11 @@ public class PasswordHasherShould
     {
         // Arrange
         var password = "password";
-        var hash = _hasher.HashPassword(password, out var salt);
+        var hashedPassword = _hasher.HashPassword(password);
         var wrongPassword = "wrongPassword";
         
         // Act
-        var result = _hasher.VerifyPassword(wrongPassword, hash, salt);
+        var result = _hasher.VerifyPassword(wrongPassword, hashedPassword);
         
         // Assert
         result.Should().BeFalse();
