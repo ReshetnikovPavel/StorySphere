@@ -58,9 +58,12 @@ public class FanficAppDefinition : IAppDefinition
         return TypedResults.Created($"/author/{user.Id}");
     }
 
-    public static async Task<IResult> LoginUser(IFanficRepo repo, string username, string password)
+    public static async Task<IResult> LoginUser(IUserRepo repo, string username, string password)
     {
-        throw new NotImplementedException();
+        var user = await repo.GetByUsername(username);
+        if (user == null) // TODO: check password
+            return TypedResults.NotFound("Invalid username or password");
+        return Results.Ok(user);
     }
     
     public static async Task<IResult> GetFanficById(IFanficRepo repo, int id)
