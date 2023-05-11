@@ -51,11 +51,14 @@ public class FanficAppDefinition : IAppDefinition
         return fanfic == null ? TypedResults.NotFound() : TypedResults.Redirect($"/fanfic/{fanfic.Id}");
     }
 
-    public static async Task<IResult> RegisterUser(IUserRepo repo, User user)
+    public static async Task<IResult> RegisterUser(IPasswordHasher hasher, IUserRepo repo, User user, string password)
     {
         var existingUser = repo.GetByUsername(user.Username);
         if (existingUser.Result != null)
             return TypedResults.Conflict("Username already registered");
+        var hashedPassword = hasher.HashPassword(password, out var salt);
+        user.HashedPassword = hashedPassword;
+        user.PasswordSalt = salt;
         await repo.AddUser(user);
         return TypedResults.Created($"/author/{user.Id}");
     }

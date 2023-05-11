@@ -1,4 +1,5 @@
-﻿using FanfictionBackend.AppDefinitions;
+﻿using System.Security.Cryptography;
+using FanfictionBackend.AppDefinitions;
 using FanfictionBackend.EndpointDefinitions;
 using FanfictionBackend.Interfaces;
 using FanfictionBackend.Models;
@@ -21,20 +22,41 @@ public class FanficAppDefinitionShould
     private static readonly User TestUser = new();
     private static readonly List<User> Users = new() { TestUser };
 
+    private static readonly Mock<IPasswordHasher> MockPasswordHasher = new();
+
     [SetUp]
     public void SetUp()
     {
         MockFanficRepo.Setup(repo => repo.GetById(It.IsAny<int>()))
             .ReturnsAsync((int id) => Fanfics.FirstOrDefault(fanfic => fanfic.Id == id));
-
         MockFanficRepo.Setup(repo => repo.GetByTitle(It.IsAny<string>()))
             .ReturnsAsync((string title) => Fanfics.FirstOrDefault(fanfic => fanfic.Title == title));
 
         MockUserRepo.Setup(repo => repo.AddUser(It.IsAny<User>()))
             .Callback((User user) => Users.Add(user));
-
         MockUserRepo.Setup(repo => repo.GetByUsername(It.IsAny<string>()))
             .ReturnsAsync((string username) => Users.FirstOrDefault(user => user.Username == username));
+        
+        MockPasswordHasher
+            .Setup(m =>
+                m.HashPassword(It.IsAny<string>(), out It.Ref<byte[]>.IsAny))
+            .Returns((string password, out byte[] salt) =>
+            {
+                salt = RandomNumberGenerator.GetBytes(8);
+                var jointSalt = Convert.ToBase64String(salt);
+                var hashedPassword = $"{password}_{jointSalt}";
+                return hashedPassword;
+            });
+        MockPasswordHasher
+            .Setup(m =>
+                m.VerifyPassword(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<byte[]>()))
+            .Returns((string password, string hash, byte[] salt) =>
+            {
+                var jointSalt = Convert.ToBase64String(salt);
+                var expectedHash = $"{password}_{jointSalt}";
+                return hash == expectedHash;
+            });
+
     }
 
 
@@ -89,17 +111,20 @@ public class FanficAppDefinitionShould
     }
 
     [Test]
-    public async Task RegisterUser_ShouldAddUserToRepo_WhenNewUserIsCorrect()
+    public async Task RegisterUser_ShouldAddUserToRepoWithCorrectHashedPassword_WhenNewUserIsCorrect()
     {
         // Arrange
         var newUser = new User { Username = "NewUsername" };
+        const string password = "TestPassword";
 
         // Act
-        var result = await FanficAppDefinition.RegisterUser(MockUserRepo.Object, newUser);
+        var result = await FanficAppDefinition.RegisterUser(
+            MockPasswordHasher.Object, MockUserRepo.Object, newUser, password);
 
         // Assert
         result.Should().BeOfType<Created>();
         (result as Created)!.Location.Should().Be($"/author/{newUser.Id}");
+        MockPasswordHasher.Object.VerifyPassword(password, newUser.HashedPassword, newUser.PasswordSalt);
     }
 
     [Test]
@@ -107,12 +132,14 @@ public class FanficAppDefinitionShould
     {
         // Arrange
         const string testUsername = "TestUsername";
+        const string password = "TestPassword";
         TestUser.Username = testUsername;
         var newUser = new User { Username = testUsername };
-
+    
         // Act
-        var result = await FanficAppDefinition.RegisterUser(MockUserRepo.Object, newUser);
-
+        var result = await FanficAppDefinition.RegisterUser(
+            MockPasswordHasher.Object, MockUserRepo.Object, newUser, password);
+    
         // Assert
         result.Should().BeOfType<Conflict<string>>();
     }
