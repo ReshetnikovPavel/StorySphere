@@ -1,6 +1,7 @@
 ﻿using FanfictionBackend.Interfaces;
 using FanfictionBackend.Models;
 using FanfictionBackend.Repos;
+using FanfictionBackend.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace FanfictionBackend.AppDefinitions;
@@ -24,6 +25,7 @@ public class FanficAppDefinition : IAppDefinition
             options.UseNpgsql(config.GetConnectionString("FanfictionDatabase")));
         services.AddScoped<IFanficRepo, FanficRepo>();
         services.AddScoped<IUserRepo, UserRepo>();
+        services.AddScoped<IPasswordHasher, PasswordHasher>();
     }
     
     public static async Task<IEnumerable<Fanfic>> GetRecentlyUpdatedFanfics(IFanficRepo repo)
