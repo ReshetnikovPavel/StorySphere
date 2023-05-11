@@ -19,7 +19,7 @@ public class FanficAppDefinitionShould
     private static readonly List<Fanfic> Fanfics = new() { TestFanfic };
 
     private static readonly Mock<IUserRepo> MockUserRepo = new();
-    private static readonly User TestUser = new();
+    private static readonly User TestUser = new User { Username = "TestUsername" };
     private static readonly List<User> Users = new() { TestUser };
 
     private static readonly Mock<IPasswordHasher> MockPasswordHasher = new();
@@ -56,7 +56,6 @@ public class FanficAppDefinitionShould
                 var expectedHash = $"{password}_{jointSalt}";
                 return hashedPassword.Hash == expectedHash;
             });
-
     }
 
 
@@ -124,7 +123,7 @@ public class FanficAppDefinitionShould
         // Assert
         result.Should().BeOfType<Created>();
         (result as Created)!.Location.Should().Be($"/author/{newUser.Id}");
-        MockPasswordHasher.Object.VerifyPassword(password, newUser.Password);
+        MockPasswordHasher.Object.VerifyPassword(password, newUser.Password).Should().BeTrue();
     }
 
     [Test]
@@ -132,32 +131,63 @@ public class FanficAppDefinitionShould
     {
         // Arrange
         const string testUsername = "TestUsername";
-        const string password = "TestPassword";
+        const string testPassword = "TestPassword";
         TestUser.Username = testUsername;
         var newUser = new User { Username = testUsername };
     
         // Act
         var result = await FanficAppDefinition.RegisterUser(
-            MockPasswordHasher.Object, MockUserRepo.Object, newUser, password);
+            MockPasswordHasher.Object, MockUserRepo.Object, newUser, testPassword);
     
         // Assert
         result.Should().BeOfType<Conflict<string>>();
     }
     
-    // [Test]
-    // public async Task LoginUser_ShouldReturnOkWithUser_WhenUserLoginIsCorrect()
-    // {
-    //     // Arrange
-    //     const string testUsername = "TestUsername";
-    //     const string password = "TestPassword";
-    //     TestUser.Username = testUsername;
-    //     TestUser.Password = MockPasswordHasher.Object.HashPassword(password);
-    //
-    //     // Act
-    //     var result = await FanficAppDefinition.RegisterUser(
-    //         MockPasswordHasher.Object, MockUserRepo.Object, newUser, password);
-    //
-    //     // Assert
-    //     result.Should().BeOfType<Conflict<string>>();
-    // }
+    [Test]
+    public async Task LoginUser_ShouldReturnOkWithUser_WhenUserLoginIsCorrect()
+    {
+        // Arrange
+        const string testPassword = "TestPassword";
+        TestUser.Password = MockPasswordHasher.Object.HashPassword(testPassword);
+    
+        // Act
+        var result = await FanficAppDefinition.LoginUser(
+            MockPasswordHasher.Object, MockUserRepo.Object, TestUser.Username, testPassword);
+    
+        // Assert
+        result.Should().BeOfType<Ok<User>>();
+        (result as Ok<User>)!.Value.Should().BeEquivalentTo(TestUser);
+    }
+    
+    [Test]
+    public async Task LoginUser_ShouldReturnNotFoundWithMessage_WhenPasswordIsInvalid()
+    {
+        // Arrange
+        const string testPassword = "TestPassword";
+        TestUser.Password = MockPasswordHasher.Object.HashPassword(testPassword);
+        const string wrongPassword = "WrongPassword";
+    
+        // Act
+        var result = await FanficAppDefinition.LoginUser(
+            MockPasswordHasher.Object, MockUserRepo.Object, TestUser.Username, wrongPassword);
+    
+        // Assert
+        result.Should().BeOfType<NotFound<string>>();
+    }
+    
+    [Test]
+    public async Task LoginUser_ShouldReturnNotFoundWithMessage_WhenUsernameIsInvalid()
+    {
+        // Arrange
+        const string testPassword = "TestPassword";
+        TestUser.Password = MockPasswordHasher.Object.HashPassword(testPassword);
+        const string wrongUsername = "WrongUsername";
+    
+        // Act
+        var result = await FanficAppDefinition.LoginUser(
+            MockPasswordHasher.Object, MockUserRepo.Object, wrongUsername, testPassword);
+    
+        // Assert
+        result.Should().BeOfType<NotFound<string>>();
+    }
 }
