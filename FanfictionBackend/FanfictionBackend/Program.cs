@@ -1,3 +1,4 @@
+using FanfictionBackend.AppDefinitions;
 using FanfictionBackend.EndpointDefinitions;
 using FanfictionBackend.ExtensionClasses;
 

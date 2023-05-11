@@ -1,10 +1,9 @@
 ﻿using FanfictionBackend.Interfaces;
 using FanfictionBackend.Models;
 using FanfictionBackend.Repos;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 
-namespace FanfictionBackend.EndpointDefinitions;
+namespace FanfictionBackend.AppDefinitions;
 
 public class FanficAppDefinition : IAppDefinition
 {
@@ -14,6 +13,7 @@ public class FanficAppDefinition : IAppDefinition
         app.MapGet("/", LoginUser);
         app.MapGet("/", RegisterUser);
         app.MapGet("/authors", GetAllUsers);
+        app.MapGet("/author/{id:int}", GetUserById);
         app.MapGet("/fanfic", GetFanficByTitle);
         app.MapGet("/fanfic/{id:int}", GetFanficById);
     }
@@ -23,6 +23,7 @@ public class FanficAppDefinition : IAppDefinition
         services.AddDbContext<FanficDb>(options =>
             options.UseNpgsql(config.GetConnectionString("FanfictionDatabase")));
         services.AddScoped<IFanficRepo, FanficRepo>();
+        services.AddScoped<IUserRepo, UserRepo>();
     }
     
     public static async Task<IEnumerable<Fanfic>> GetRecentlyUpdatedFanfics(IFanficRepo repo)
@@ -35,17 +36,26 @@ public class FanficAppDefinition : IAppDefinition
         throw new NotImplementedException();
     }
 
+    public static async Task<User> GetUserById(IUserRepo repo, int id)
+    {
+        throw new NotImplementedException();
+    }
+    
     public static async Task<IResult> GetFanficByTitle(IFanficRepo repo, string? title)
     {
         if (title == null)
-            return TypedResults.BadRequest("Given fanfic title is null");
+            return TypedResults.BadRequest("Fanfic title can't be null");
         var fanfic = await repo.GetByTitle(title);
-        return fanfic == null ? TypedResults.NotFound() : TypedResults.Redirect($"/fanfics/{fanfic.Id}");
+        return fanfic == null ? TypedResults.NotFound() : TypedResults.Redirect($"/fanfic/{fanfic.Id}");
     }
 
-    public static async Task<IResult> RegisterUser(IFanficRepo repo, User user)
+    public static async Task<IResult> RegisterUser(IUserRepo repo, User user)
     {
-        throw new NotImplementedException();
+        var existingUser = repo.GetByUsername(user.Username);
+        if (existingUser.Result != null)
+            return TypedResults.Conflict("Username already registered");
+        await repo.AddUser(user);
+        return TypedResults.Created($"/author/{user.Id}");
     }
 
     public static async Task<IResult> LoginUser(IFanficRepo repo, string username, string password)
