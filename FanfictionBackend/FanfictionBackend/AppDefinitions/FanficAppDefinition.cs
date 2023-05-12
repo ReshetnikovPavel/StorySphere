@@ -1,11 +1,10 @@
 ﻿using AutoMapper;
-using FanfictionBackend.AutoMapper;
 using FanfictionBackend.Dto;
 using FanfictionBackend.Interfaces;
 using FanfictionBackend.Models;
 using FanfictionBackend.Repos;
 using FanfictionBackend.Services;
-using FanfictionBackend.Pagination;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace FanfictionBackend.AppDefinitions;
@@ -23,6 +22,7 @@ public class FanficAppDefinition : IAppDefinition
         app.MapGet("/fanfic/{id:int}", GetFanficById);
 
         app.MapPost("/fanfic", AddFanfic);
+        app.MapPost("/chapter", AddChapter);
     }
 
     public void DefineServices(IServiceCollection services, IConfiguration config)
@@ -32,6 +32,7 @@ public class FanficAppDefinition : IAppDefinition
         
         services.AddScoped<IFanficRepo, FanficRepo>();
         services.AddScoped<IUserRepo, UserRepo>();
+        services.AddScoped<IChapterRepo, ChapterRepo>();
         services.AddScoped<IPasswordHasher, PasswordHasher>();
         services.AddScoped<IDateTimeProvider, UtcDateTimeProvider>();
         
@@ -99,6 +100,14 @@ public class FanficAppDefinition : IAppDefinition
         fanfic.Updated = fanfic.Created;
         
         await repo.AddFanfic(fanfic);
+        return TypedResults.Ok();
+    }
+
+    public static async Task<IResult> AddChapter(IChapterRepo repo, IMapper mapper, ChapterDto chapterDto)
+    {
+        var chapter = mapper.Map<ChapterDto, Chapter>(chapterDto);
+        await repo.AddChapter(chapter);
+
         return TypedResults.Ok();
     }
 }

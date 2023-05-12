@@ -2,7 +2,7 @@ using AutoMapper;
 using FanfictionBackend.Dto;
 using FanfictionBackend.Models;
 
-namespace FanfictionBackend.AutoMapper;
+namespace FanfictionBackend.Services;
 
 public class MappingProfile : Profile
 {

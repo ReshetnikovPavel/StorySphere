@@ -8,7 +8,7 @@ public class ChapterConfiguration : IEntityTypeConfiguration<Chapter>
 {
     public void Configure(EntityTypeBuilder<Chapter> builder)
     {
-        builder.HasKey(c => c.FanficId);
+        builder.HasKey(c => c.Id);
         
         builder.Property(c => c.Title)
             .IsRequired()
