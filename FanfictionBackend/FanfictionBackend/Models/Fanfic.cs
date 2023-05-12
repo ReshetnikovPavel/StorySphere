@@ -13,4 +13,5 @@ public class Fanfic
     public AgeLimit AgeLimit { get; set; }
     public Category Category { get; set; }
     public List<Chapter> Chapters { get; set; }
+    public List<Like> Likes { get; set; }
 }

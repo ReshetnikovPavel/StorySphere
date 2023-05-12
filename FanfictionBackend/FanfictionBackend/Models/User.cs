@@ -8,4 +8,5 @@ public class User
     public string? LastName { get; set; }
     public List<Fanfic> Fanfics { get; set; }
     public HashedString Password { get; set; }
+    public List<Like> Likes { get; set; }
 }
