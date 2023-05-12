@@ -7,6 +7,6 @@ public class User
     public string? FirstName { get; set; }
     public string? LastName { get; set; }
     public List<Fanfic> Fanfics { get; set; }
-    public HashedString Password { get; set; }
+    public Password Password { get; set; }
     public List<Like> Likes { get; set; }
 }

@@ -45,12 +45,12 @@ public class FanficAppDefinitionShould
                 var salt = RandomNumberGenerator.GetBytes(8);
                 var jointSalt = Convert.ToBase64String(salt);
                 var hash = $"{password}_{jointSalt}";
-                return new HashedString(hash, salt);
+                return new Password(hash, salt);
             });
         MockPasswordHasher
             .Setup(m =>
-                m.VerifyPassword(It.IsAny<string>(), It.IsAny<HashedString>()))
-            .Returns((string password, HashedString hashedPassword) =>
+                m.VerifyPassword(It.IsAny<string>(), It.IsAny<Password>()))
+            .Returns((string password, Password hashedPassword) =>
             {
                 var jointSalt = Convert.ToBase64String(hashedPassword.Salt);
                 var expectedHash = $"{password}_{jointSalt}";

@@ -2,11 +2,11 @@ using System.Collections;
 
 namespace FanfictionBackend.Pagination;
 
-public class PaginationList<T> : IEnumerable<T>
+public class Pagination<T> : IEnumerable<T>
 {
     private readonly List<T> _entries;
 
-    public PaginationList(List<T> entries, bool hasPreviousPage, bool hasNextPage)
+    public Pagination(List<T> entries, bool hasPreviousPage, bool hasNextPage)
     {
         _entries = entries;
         HasPreviousPage = hasPreviousPage;

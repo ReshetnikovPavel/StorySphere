@@ -4,7 +4,7 @@ namespace FanfictionBackend.ExtensionClasses;
 
 public static class QueryableExtensions
 {
-    public static PaginationList<T> ToPaginationList<T>(this IQueryable<T> source, int pageNumber, int pageSize)
+    public static Pagination<T> ToPaginationList<T>(this IQueryable<T> source, int pageNumber, int pageSize)
     {
         if (pageNumber <= 0 || pageSize <= 0)
             throw new ArgumentException("Arguments cannot be negative");
@@ -17,6 +17,6 @@ public static class QueryableExtensions
             .Take(pageSize)
             .ToList();
 
-        return new PaginationList<T>(list, pageNumber != 1, pageNumber != pageCount);
+        return new Pagination<T>(list, pageNumber != 1, pageNumber != pageCount);
     }
 }
