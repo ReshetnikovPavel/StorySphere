@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "mvPl8Hec2+P0dR8DzMUWcPZ+9yDPaEBjB6PhzzpH4sW7h3PuwHWuRFURqQ5N4/UbWexvhdtu82J2htp9YlhRhQ==",
+  "dgSpecHash": "BcgcbaPWhVvK0jBSDl/wCXH0giivXqQWj+VqYXADcTbtMdbAjxC+yvPOz1xxMIvryEoMIPVi3h1Tml2Xoxuksg==",
   "success": true,
   "projectFilePath": "/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/Tests/Tests.csproj",
   "expectedPackageFiles": [
+    "/home/pavel-reshetnikov/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
+    "/home/pavel-reshetnikov/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.1/automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "/home/pavel-reshetnikov/.nuget/packages/azure.core/1.25.0/azure.core.1.25.0.nupkg.sha512",
     "/home/pavel-reshetnikov/.nuget/packages/azure.identity/1.7.0/azure.identity.1.7.0.nupkg.sha512",
     "/home/pavel-reshetnikov/.nuget/packages/castle.core/5.1.1/castle.core.5.1.1.nupkg.sha512",
@@ -11,7 +13,7 @@
     "/home/pavel-reshetnikov/.nuget/packages/fluentassertions/6.11.0/fluentassertions.6.11.0.nupkg.sha512",
     "/home/pavel-reshetnikov/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.1/microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "/home/pavel-reshetnikov/.nuget/packages/microsoft.codecoverage/17.5.0/microsoft.codecoverage.17.5.0.nupkg.sha512",
-    "/home/pavel-reshetnikov/.nuget/packages/microsoft.csharp/4.5.0/microsoft.csharp.4.5.0.nupkg.sha512",
+    "/home/pavel-reshetnikov/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
     "/home/pavel-reshetnikov/.nuget/packages/microsoft.data.sqlclient/5.1.0/microsoft.data.sqlclient.5.1.0.nupkg.sha512",
     "/home/pavel-reshetnikov/.nuget/packages/microsoft.data.sqlclient.sni.runtime/5.1.0/microsoft.data.sqlclient.sni.runtime.5.1.0.nupkg.sha512",
     "/home/pavel-reshetnikov/.nuget/packages/microsoft.entityframeworkcore/8.0.0-preview.3.23174.2/microsoft.entityframeworkcore.8.0.0-preview.3.23174.2.nupkg.sha512",

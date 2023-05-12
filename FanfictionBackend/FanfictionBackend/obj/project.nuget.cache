@@ -1,14 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "TvQfnnFsTV+VKn6P/Trrt8W5u0RJj/Fh96J/N2X0+b6y+1mFq6zHYbX+Atpoof8hDmhRpbZxebKI04x6lk7cew==",
+  "dgSpecHash": "S+dw8nwWBiyFh6iAKA9XC6oB+wYn7RDNm2OXMYdfojEqy4L+n/1fYB91TryVQ2PtACQOoUiP6fJPEejMMR8Rqg==",
   "success": true,
   "projectFilePath": "/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/FanfictionBackend.csproj",
   "expectedPackageFiles": [
+    "/home/pavel-reshetnikov/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
+    "/home/pavel-reshetnikov/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.1/automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "/home/pavel-reshetnikov/.nuget/packages/azure.core/1.25.0/azure.core.1.25.0.nupkg.sha512",
     "/home/pavel-reshetnikov/.nuget/packages/azure.identity/1.7.0/azure.identity.1.7.0.nupkg.sha512",
     "/home/pavel-reshetnikov/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/home/pavel-reshetnikov/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.1/microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
-    "/home/pavel-reshetnikov/.nuget/packages/microsoft.csharp/4.5.0/microsoft.csharp.4.5.0.nupkg.sha512",
+    "/home/pavel-reshetnikov/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
     "/home/pavel-reshetnikov/.nuget/packages/microsoft.data.sqlclient/5.1.0/microsoft.data.sqlclient.5.1.0.nupkg.sha512",
     "/home/pavel-reshetnikov/.nuget/packages/microsoft.data.sqlclient.sni.runtime/5.1.0/microsoft.data.sqlclient.sni.runtime.5.1.0.nupkg.sha512",
     "/home/pavel-reshetnikov/.nuget/packages/microsoft.entityframeworkcore/8.0.0-preview.3.23174.2/microsoft.entityframeworkcore.8.0.0-preview.3.23174.2.nupkg.sha512",

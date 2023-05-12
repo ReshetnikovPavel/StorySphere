@@ -1,4 +1,7 @@
-﻿using FanfictionBackend.Interfaces;
+﻿using AutoMapper;
+using FanfictionBackend.AutoMapper;
+using FanfictionBackend.Dto;
+using FanfictionBackend.Interfaces;
 using FanfictionBackend.Models;
 using FanfictionBackend.Repos;
 using FanfictionBackend.Services;
@@ -26,9 +29,14 @@ public class FanficAppDefinition : IAppDefinition
     {
         services.AddDbContext<FanficDb>(options =>
             options.UseNpgsql(config.GetConnectionString("FanfictionDatabase")));
+        
         services.AddScoped<IFanficRepo, FanficRepo>();
         services.AddScoped<IUserRepo, UserRepo>();
         services.AddScoped<IPasswordHasher, PasswordHasher>();
+        services.AddScoped<IDateTimeProvider, UtcDateTimeProvider>();
+        
+        services.AddAutoMapper(typeof(MappingProfile));
+
     }
     public static async Task<IResult> GetRecentlyUpdatedFanfics(IFanficRepo repo, int pageNumber, int pageSize)
     {
@@ -84,8 +92,12 @@ public class FanficAppDefinition : IAppDefinition
         return fanfic == null ? TypedResults.NotFound() : TypedResults.Ok(fanfic);
     }
 
-    public static async Task<IResult> AddFanfic(IFanficRepo repo, Fanfic fanfic)
+    public static async Task<IResult> AddFanfic(IFanficRepo repo, IMapper mapper, IDateTimeProvider datetimeProvider, FanficDto fanficDto)
     {
+        var fanfic = mapper.Map<FanficDto, Fanfic>(fanficDto);
+        fanfic.Created = datetimeProvider.Now;
+        fanfic.Updated = fanfic.Created;
+        
         await repo.AddFanfic(fanfic);
         return TypedResults.Ok();
     }

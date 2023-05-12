@@ -184,3 +184,5 @@ C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/Fanfic
 C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/FanfictionBackend.pdb
 C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/FanfictionBackend.genruntimeconfig.cache
 C:/Users/Andrew Kuklinov/YandexDisk/College/Semester 4/Project/fanfiction/FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/ref/FanfictionBackend.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/AutoMapper.dll
+/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
