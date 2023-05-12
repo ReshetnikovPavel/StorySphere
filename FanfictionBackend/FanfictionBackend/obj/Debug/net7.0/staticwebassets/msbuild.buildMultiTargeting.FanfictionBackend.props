@@ -1,2 +1,3 @@
 ﻿<Project>
-  <Import Project="..\build\FanfictionBackend.props" />
+  <Import Project="../build/FanfictionBackend.props" />
+</Project>

@@ -2,7 +2,7 @@
   "version": 2,
   "dgSpecHash": "mvPl8Hec2+P0dR8DzMUWcPZ+9yDPaEBjB6PhzzpH4sW7h3PuwHWuRFURqQ5N4/UbWexvhdtu82J2htp9YlhRhQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\Tests\\Tests.csproj",
+  "projectFilePath": "/home/pavel-reshetnikov/RiderProjects/fanfiction/FanfictionBackend/Tests/Tests.csproj",
   "expectedPackageFiles": [
     "/home/pavel-reshetnikov/.nuget/packages/azure.core/1.25.0/azure.core.1.25.0.nupkg.sha512",
     "/home/pavel-reshetnikov/.nuget/packages/azure.identity/1.7.0/azure.identity.1.7.0.nupkg.sha512",
@@ -88,3 +88,4 @@
     "/home/pavel-reshetnikov/.nuget/packages/system.windows.extensions/6.0.0/system.windows.extensions.6.0.0.nupkg.sha512"
   ],
   "logs": []
+}

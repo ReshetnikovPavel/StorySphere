@@ -16,10 +16,7 @@ public class FanficConfiguration : IEntityTypeConfiguration<Fanfic>
         builder.Property(f => f.Description)
             .HasMaxLength(500);
 
-        builder.Property(f => f.Text)
-            .IsRequired();
-
-        builder.Property(f => f.PostedOn)
+        builder.Property(f => f.Created)
             .IsRequired();
 
         builder.HasOne<User>(f => f.Author)
@@ -29,5 +26,9 @@ public class FanficConfiguration : IEntityTypeConfiguration<Fanfic>
 
         builder.HasMany<Tag>(f => f.Tags)
             .WithMany(t => t.Fanfics);
+
+        builder.HasMany<Chapter>(f => f.Chapters)
+            .WithOne(c => c.Fanfic)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }
