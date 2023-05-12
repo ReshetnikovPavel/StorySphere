@@ -18,6 +18,8 @@ public class FanficAppDefinition : IAppDefinition
         app.MapGet("/author/{id:int}", GetUserById);
         app.MapGet("/fanfic", GetFanficByTitle);
         app.MapGet("/fanfic/{id:int}", GetFanficById);
+
+        app.MapPost("/fanfic", AddFanfic);
     }
 
     public void DefineServices(IServiceCollection services, IConfiguration config)
@@ -28,7 +30,6 @@ public class FanficAppDefinition : IAppDefinition
         services.AddScoped<IUserRepo, UserRepo>();
         services.AddScoped<IPasswordHasher, PasswordHasher>();
     }
-    
     public static async Task<IResult> GetRecentlyUpdatedFanfics(IFanficRepo repo, int pageNumber, int pageSize)
     {
         try
@@ -81,5 +82,11 @@ public class FanficAppDefinition : IAppDefinition
     {
         var fanfic = await repo.GetById(id);
         return fanfic == null ? TypedResults.NotFound() : TypedResults.Ok(fanfic);
+    }
+
+    public static async Task<IResult> AddFanfic(IFanficRepo repo, Fanfic fanfic)
+    {
+        await repo.AddFanfic(fanfic);
+        return TypedResults.Ok();
     }
 }
