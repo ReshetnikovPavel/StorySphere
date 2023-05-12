@@ -2,6 +2,7 @@
 using FanfictionBackend.Models;
 using FanfictionBackend.Repos;
 using FanfictionBackend.Services;
+using FanfictionBackend.Pagination;
 using Microsoft.EntityFrameworkCore;
 
 namespace FanfictionBackend.AppDefinitions;
@@ -10,9 +11,9 @@ public class FanficAppDefinition : IAppDefinition
 {
     public void DefineApp(WebApplication app)
     {
-        app.MapGet("/", GetRecentlyUpdatedFanfics);
-        app.MapGet("/", LoginUser);
-        app.MapGet("/", RegisterUser);
+        app.MapGet("/fanfic/recent", GetRecentlyUpdatedFanfics);
+        app.MapGet("/login", LoginUser);
+        //app.MapGet("/register", RegisterUser);
         app.MapGet("/authors", GetAllUsers);
         app.MapGet("/author/{id:int}", GetUserById);
         app.MapGet("/fanfic", GetFanficByTitle);
@@ -28,9 +29,16 @@ public class FanficAppDefinition : IAppDefinition
         services.AddScoped<IPasswordHasher, PasswordHasher>();
     }
     
-    public static async Task<IEnumerable<Fanfic>> GetRecentlyUpdatedFanfics(IFanficRepo repo)
+    public static async Task<IResult> GetRecentlyUpdatedFanfics(IFanficRepo repo, int pageNumber, int pageSize)
     {
-        throw new NotImplementedException();
+        try
+        {
+            return TypedResults.Ok(repo.GetRecentlyUpdated(pageNumber, pageSize));
+        }
+        catch (ArgumentException e)
+        {
+            return TypedResults.BadRequest(e);
+        }
     }
 
     public static async Task<IEnumerable<User>> GetAllUsers(IFanficRepo repo)

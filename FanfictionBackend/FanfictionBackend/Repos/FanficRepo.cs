@@ -1,6 +1,7 @@
 using FanfictionBackend.Interfaces;
 using FanfictionBackend.Models;
 using FanfictionBackend.Pagination;
+using FanfictionBackend.ExtensionClasses;
 using Microsoft.EntityFrameworkCore;
 
 namespace FanfictionBackend.Repos;
@@ -33,5 +34,10 @@ public class FanficRepo : IFanficRepo
     public async Task<Fanfic?> GetByTitle(string title)
     {
         return await _dataContext.Fanfics.FirstOrDefaultAsync(f => f.Title == title);
+    }
+
+    public async Task<Pagination<Fanfic>?> GetRecentlyUpdated(int pageNumber, int pageSize)
+    {
+        return _dataContext.Fanfics.OrderByDescending(f => f.Updated).ToPaginationList(pageNumber, pageSize);
     }
 }

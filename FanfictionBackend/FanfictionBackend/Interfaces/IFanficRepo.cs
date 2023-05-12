@@ -9,4 +9,6 @@ public interface IFanficRepo
     public Task AddFanfic(Fanfic fanfic);
     public Task<Fanfic?> GetById(int id);
     public Task<Fanfic?> GetByTitle(string title);
+
+    public Task<Pagination<Fanfic>?> GetRecentlyUpdated(int pageNumber, int pageSize);
 }
