@@ -14,15 +14,16 @@ public class FanficAppDefinition : IAppDefinition
     public void DefineApp(WebApplication app)
     {
         app.MapGet("/fanfics/recent", GetRecentlyUpdatedFanfics);
-        app.MapGet("/login", LoginUser);
-        //app.MapGet("/register", RegisterUser);
-        app.MapGet("/authors", GetAllUsers);
-        app.MapGet("/author/{id:int}", GetUserById);
         app.MapGet("/fanfic", GetFanficByTitle);
         app.MapGet("/fanfic/{id:int}", GetFanficById);
+        app.MapPost("/fanfics", AddFanfic);
+        app.MapPost("/fanfic/{id:int}/chapters", AddChapter);
 
-        app.MapPost("/fanfic", AddFanfic);
-        app.MapPost("/chapter", AddChapter);
+        app.MapGet("/authors", GetAllUsers);
+        app.MapGet("/author/{id:int}", GetUserById);
+        app.MapPost("/authors", RegisterUser);
+        
+        app.MapGet("/session", LoginUser);
     }
 
     public void DefineServices(IServiceCollection services, IConfiguration config)
@@ -103,8 +104,9 @@ public class FanficAppDefinition : IAppDefinition
         return TypedResults.Ok();
     }
 
-    public static async Task<IResult> AddChapter(IChapterRepo repo, IMapper mapper, ChapterDto chapterDto)
+    public static async Task<IResult> AddChapter(IChapterRepo repo, IMapper mapper, ChapterDto chapterDto, int id)
     {
+        // TODO: use id parameter
         var chapter = mapper.Map<ChapterDto, Chapter>(chapterDto);
         await repo.AddChapter(chapter);
 
