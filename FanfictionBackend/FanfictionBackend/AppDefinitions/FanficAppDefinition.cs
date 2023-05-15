@@ -108,8 +108,8 @@ public class FanficAppDefinition : IAppDefinition
     {
         var chapter = mapper.Map<ChapterDto, Chapter>(chapterDto);
         chapter.FanficId = id;
+        
         await repo.AddChapter(chapter);
-
         return TypedResults.Ok();
     }
 }
