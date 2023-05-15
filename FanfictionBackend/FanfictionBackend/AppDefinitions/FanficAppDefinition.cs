@@ -13,7 +13,7 @@ public class FanficAppDefinition : IAppDefinition
 {
     public void DefineApp(WebApplication app)
     {
-        app.MapGet("/fanfic/recent", GetRecentlyUpdatedFanfics);
+        app.MapGet("/fanfics/recent", GetRecentlyUpdatedFanfics);
         app.MapGet("/login", LoginUser);
         //app.MapGet("/register", RegisterUser);
         app.MapGet("/authors", GetAllUsers);
@@ -43,7 +43,7 @@ public class FanficAppDefinition : IAppDefinition
     {
         try
         {
-            return TypedResults.Ok(repo.GetRecentlyUpdated(pageNumber, pageSize));
+            return TypedResults.Ok(await repo.GetRecentlyUpdated(pageNumber, pageSize));
         }
         catch (ArgumentException e)
         {
