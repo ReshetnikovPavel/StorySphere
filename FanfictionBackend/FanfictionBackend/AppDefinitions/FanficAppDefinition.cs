@@ -106,8 +106,8 @@ public class FanficAppDefinition : IAppDefinition
 
     public static async Task<IResult> AddChapter(IChapterRepo repo, IMapper mapper, ChapterDto chapterDto, int id)
     {
-        // TODO: use id parameter
         var chapter = mapper.Map<ChapterDto, Chapter>(chapterDto);
+        chapter.FanficId = id;
         await repo.AddChapter(chapter);
 
         return TypedResults.Ok();
