@@ -3,6 +3,14 @@
     --secondary-size: larger;
 }
 
+html, body { /* Это нужно, чтобы избавиться от белого пространства вокруг хэдера */
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
+
 * {
     color: #af7162ff;
     font-family: 'Jost', sans-serif;
@@ -15,7 +23,10 @@ body {
 
 header {
     background-color: #d1a597ff;
-    height: 11.7vh;
+    height: 11vh;
+    width: 100%;
+    margin-top: 0;
+    padding-top: 0;
 }
 
 h1 {
