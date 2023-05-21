@@ -1,5 +1,6 @@
 <head>
   <link rel="stylesheet" href="../FanfictionFrontend/AddChapter.css" /> <!--Полетит, как переместим, i think-->
+  <link rel="stylesheet" href="https://indestructibletype.com/fonts/Jost.css" type="text/css" charset="utf-8" />
 <meta charset="UTF-8">
 <title>Регистрация</title>
 </head>
@@ -13,27 +14,16 @@
 </nav>
 <main>
   <form>
-    <h1>Регистрация</h1>
-    <div class="labels">
+    <h1>Добавить главу</h1>
+    <div сlass="left-column">
     <div class="label-container">
-    <label for="email">Электронная почта</label>
-      <input type="email" id="email">
+    <label for="name">Название главы *</label>
+      <input type="text" id="name" required>
     </div>
-    <div class="label-container">
-    <label for="password">Пароль</label>
-      <input type="password" id="password">
+    <div>
+    <label for="name">Содержание</label>
+      <textarea id="text" rows="15" cols="100"></textarea>
     </div>
-    <div class="label-container">
-    <label for="confirm-password">Подтвердить пароль</label>
-      <input type="password" id="confirm-password">
-    </div>
-    <div class="label-container">
-      <label for="name">Имя пользователя</label>
-      <input type="text" id="name">
-    </div>
-    </div>
-    <div class="button-container">
-<input type="submit" value="Зарегистрироваться">
 </div>
   </form>
 </main>
