@@ -13,8 +13,23 @@ body {
     background-color: #FDEBDF;
 }
 
+header {
+    background-color: #d1a597ff;
+    height: 11.7vh;
+}
+
 h1 {
- font-size: var(--heading-size);
+    font-size: var(--heading-size);
+}
+
+button {
+    background-color: white;
+    border: none;
+    border-radius: 8px;
+    width: 24.31vw;
+    height: 6.83vh;
+    font-size: var(--secondary-size);
+    overflow: hidden;
 }
 
 .main-page-heading {
@@ -31,13 +46,4 @@ h1 {
 .button-container > * {
     margin-right: 3.125%;
     margin-left: 3.125%;
-}
-
-button {
-    background-color: white;
-    border: none;
-    border-radius: 8px;
-    width: 24.31vw;
-    height: 6.83vh;
-    font-size: var(--secondary-size);
 }
