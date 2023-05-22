@@ -2,14 +2,14 @@
     cursor: pointer;
     position: absolute;
     left: 4%;
-    height: 80%;
+    height: 60%;
 }
 
 .main-page-button {
     cursor: pointer;
     position: absolute;
     right: 4%;
-    height: 80%;
+    height: 60%;
 }
 
 .search-bar {
@@ -17,7 +17,7 @@
     display: flex;
     align-items: center;
     background-color: white;
-    width: 25%;
+    width: 40%;
     height: 50%;
     border-radius: 1.46vh;
 }
