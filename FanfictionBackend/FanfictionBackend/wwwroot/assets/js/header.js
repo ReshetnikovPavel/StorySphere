@@ -1,7 +1,21 @@
-﻿const ENTER = 13
+﻿const header = document.createElement('header');
+
+header.innerHTML = `
+  <div class="header-container">
+    <img class="profile-button" src="/assets/images/profile.svg" alt="Go to profile" />
+    <div class="search-bar">
+      <input id="search-input" type="text" placeholder="Поиск" />
+      <img id="search-icon" src="/assets/images/search_icon.svg" alt="Search" />
+    </div>
+    <img class="main-page-button" src="/assets/images/logo.svg" alt="Back to main page" />
+  </div>
+`;
+document.body.appendChild(header);
+
 
 const searchInput = document.querySelector('#search-input');
 const searchIcon = document.querySelector('#search-icon');
+const ENTER = 13
 
 searchIcon.addEventListener('click', event => {
     search(searchInput.value);
@@ -29,5 +43,3 @@ function search(fanficName) {
             console.log('Error:', error);
         });
 }
-
-

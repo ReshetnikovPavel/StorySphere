@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7Qpl4SZ7j3LbEaF/YEWuQ7UsSnAq639zw9zo0SELOJs=",
+  "Hash": "3NKPcMCINRhknp5TcB19UnuQVenggIpeGseoJQ55zy4=",
   "Source": "FanfictionBackend",
   "BasePath": "_content/FanfictionBackend",
   "Mode": "Default",
@@ -187,12 +187,12 @@
       "OriginalItemSpec": "wwwroot\\assets\\images\\search_icon.svg"
     },
     {
-      "Identity": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\js\\search.js",
+      "Identity": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\js\\header.js",
       "SourceId": "FanfictionBackend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\",
       "BasePath": "_content/FanfictionBackend",
-      "RelativePath": "assets/js/search.js",
+      "RelativePath": "assets/js/header.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -201,7 +201,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\js\\search.js"
+      "OriginalItemSpec": "wwwroot\\assets\\js\\header.js"
     },
     {
       "Identity": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\AuthorsList.html",
