@@ -1,13 +1,13 @@
 :root {
     --heading-size: xx-large;
-    --secondary-size: larger;
+    --secondary-size: ;
     --font-family: 'Jost', sans-serif;
-    --text-color: rgba(142, 61, 44, 0.7);
+    --text-color: #af7162ff;
 }
 
 * {
-    color: #af7162ff;
-    font-family: 'Jost', sans-serif;
+    color: var(--text-color);
+    font-family: var(--font-family);
     font-weight: normal;
 }
 
