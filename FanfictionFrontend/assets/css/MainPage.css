@@ -63,3 +63,48 @@ button {
     margin-right: 3.125vw;
     margin-left: 3.125vw;
 }
+
+
+/* HEADER */
+
+.profile-button {
+    cursor: pointer;
+    position: absolute;
+    left: 4%;
+    height: 80%;
+}
+
+.main-page-button {
+    cursor: pointer;
+    position: absolute;
+    right: 4%;
+    height: 80%;
+}
+
+.search-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    width: 25%;
+    height: 50%;
+    border-radius: 1.46vh;
+}
+
+.search-bar input {
+    left: 5%;
+    position: absolute;
+    width: 80%;
+    border: none;
+    outline: none;
+    height: 90%;
+    background-color: transparent;
+}
+
+.search-bar img {
+    cursor: pointer;
+    position: absolute;
+    max-height: 70%;
+    right: 3%;
+    max-width: 7%;
+}
