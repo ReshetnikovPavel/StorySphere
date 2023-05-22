@@ -1,31 +1,3 @@
-:root {
-    --heading-size: xx-large;
-    --secondary-size: larger;
-}
-
-html, body { /* Это нужно, чтобы избавиться от белого пространства вокруг хэдера */
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
-    overflow-x: hidden;
-}
-
-* {
-    color: #af7162ff;
-    font-family: 'Jost', sans-serif;
-    font-weight: normal;
-}
-
-body {
-    background-color: #FDEBDF;
-}
-
-header {
-    background-color: #d1a597ff;
-    height: 11vh;
-}
-
 h1 {
     font-size: var(--heading-size);
 }
