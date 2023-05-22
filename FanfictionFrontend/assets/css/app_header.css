@@ -1,6 +1,6 @@
 header {
     background-color: #d1a597ff;
-    height: 11vh;
+    height: 4.5rem;
 }
 
 .header-container {
@@ -39,7 +39,7 @@ header {
 .search-bar input {
     left: 5%;
     position: absolute;
-    width: 80%;
+    width: 82%;
     border: none;
     outline: none;
     height: 90%;

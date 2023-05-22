@@ -1,8 +1,6 @@
-  /* body {
-    max-width: fit-content;
+  body {
     min-width: 1000px;
-  } */
-  /* Этот код закомментирован, потому что он портит шапку. TODO: Спросить Аню/Пашу, зачем он нужен */
+  }
 
 form {
     padding-left: 80px;
@@ -66,7 +64,7 @@ form {
     width: 200px;
   }
 
-  input[type="text"] {
+  input[type="text"], input[type="password"], input[type="email"] {
     width: 200px;
   }
 
