@@ -1,22 +1,54 @@
+.left-column {
+  background-color: black;
+  width: 150px;
+}
+
+.right-column {
+  background-color: black;
+  width: 100px;
+}
+
+.second-row {
+  height: 20px;
+  width: 100%;
+  background-color: black;
+}
+
+.third-row {
+  height: 20px;
+  width: 100%;
+  background-color: black;
+}
+
 .row-container {
-  display: inline-block;
-  width: 70rem;
-  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.column-container {
-    display: flex;
-    justify-content: center;
+.row-container > * {
+  width: 50rem;
 }
 
-.column-container > * {
-    margin-right: 5%;
-    margin-left: 5%;
+.row-container > * {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
-.column {
-  width: 30rem;
+.first-row {
+  display: flex;
+  justify-content: space-between;
 }
+
+.first-row > * {
+  margin-left: 10px;
+  matgin-right: 10px;
+  height: 200px;
+}
+
+/* A dark past */
 
 .labels {
     display: table;
@@ -102,18 +134,3 @@ textarea {
     font-size: 18px;
     resize: none;
   }
-
-.notes {
-  width: 100%;
-}
-
-.notes-container {
-  width: 100%;
-  position: absolute;
-}
-
-.short-description {
-    margin-right: 1rem;
-    min-width: 25rem;
-    height: 75%;
-}
