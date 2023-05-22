@@ -28,6 +28,10 @@ h1 {
     font-size: var(--heading-size);
 }
 
+label {
+    font-size: var(--secondary-size);
+}
+
 button {
     background-color: white;
     border: none;
