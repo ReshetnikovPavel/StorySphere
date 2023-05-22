@@ -1,9 +1,21 @@
-  body {
-    min-width: 1000px;
-  }
+.row-container {
+  display: inline-block;
+  width: 70rem;
+  position: relative;
+}
 
-form {
-    padding-left: 80px;
+.column-container {
+    display: flex;
+    justify-content: center;
+}
+
+.column-container > * {
+    margin-right: 5%;
+    margin-left: 5%;
+}
+
+.column {
+  width: 30rem;
 }
 
 .labels {
@@ -64,8 +76,8 @@ form {
     width: 200px;
   }
 
-  input[type="text"], input[type="password"], input[type="email"] {
-    width: 200px;
+  input[type="text"], input[type="password"], input[type="email"], select {
+    min-width: 20rem;
   }
 
   select {
@@ -76,7 +88,6 @@ form {
     border-style: solid;
     border-width: 0px 10px;
     border-color: #8E3D2C90;
-    width: 200px;
   }
 
 textarea {
@@ -92,16 +103,17 @@ textarea {
     resize: none;
   }
 
-  .left-column {
-    height: auto;
-    box-sizing: border-box;
-    float: left;
-    clear: both;
-  }
+.notes {
+  width: 100%;
+}
 
-  .right-column {
-    height: auto;
-    box-sizing: border-box;
-    float: left;
-    margin-left: 20px;
-  }
+.notes-container {
+  width: 100%;
+  position: absolute;
+}
+
+.short-description {
+    margin-right: 1rem;
+    min-width: 25rem;
+    height: 75%;
+}

@@ -26,6 +26,7 @@ body {
 
 h1 {
     font-size: var(--heading-size);
+    text-align: center;
 }
 
 label {
@@ -44,14 +45,9 @@ button {
     cursor: pointer;
 }
 
-.button-container {
+.central-container {
     display: flex;
     justify-content: center;
-}
-
-.button-container > * {
-    margin-right: 5%;
-    margin-left: 5%;
 }
 
 
