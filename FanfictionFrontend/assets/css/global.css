@@ -1,6 +1,6 @@
 :root {
-    --heading-size: 1.5rem;
-    --secondary-size: 1rem;
+    --heading-size: 2rem;
+    --secondary-size: 1.33rem;
     --font-family: 'Jost', sans-serif;
     --text-color: #af7162ff;
 }
@@ -30,8 +30,9 @@ button {
     background-color: white;
     border: none;
     border-radius: 0.7rem;
-    width: 11rem;
-    height: 2.5rem;
+    width: 16rem;
+    min-width: 11rem;
+    height: 2.9rem;
     font-size: var(--secondary-size);
     overflow: hidden;
     cursor: pointer;
