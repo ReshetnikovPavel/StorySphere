@@ -29,9 +29,9 @@ h1 {
 button {
     background-color: white;
     border: none;
-    border-radius: 1.46vh;
-    width: 24.31vw;
-    height: 6.83vh;
+    border-radius: 0.7rem;
+    width: 11rem;
+    height: 2.5rem;
     font-size: var(--secondary-size);
     overflow: hidden;
     cursor: pointer;
@@ -43,8 +43,8 @@ button {
 }
 
 .button-container > * {
-    margin-right: 3.125vw;
-    margin-left: 3.125vw;
+    margin-right: 5%;
+    margin-left: 5%;
 }
 
 
