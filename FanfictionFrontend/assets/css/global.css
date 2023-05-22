@@ -1,6 +1,8 @@
 :root {
     --heading-size: xx-large;
     --secondary-size: larger;
+    --font-family: 'Jost', sans-serif;
+    --text-color: rgba(142, 61, 44, 0.7);
 }
 
 * {
@@ -20,3 +22,30 @@ html, body { /* Это нужно, чтобы избавиться от бело
 body {
     background-color: #FDEBDF;
 }
+
+h1 {
+    font-size: var(--heading-size);
+}
+
+button {
+    background-color: white;
+    border: none;
+    border-radius: 1.46vh;
+    width: 24.31vw;
+    height: 6.83vh;
+    font-size: var(--secondary-size);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.button-container > * {
+    margin-right: 3.125vw;
+    margin-left: 3.125vw;
+}
+
+
