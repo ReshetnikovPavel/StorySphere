@@ -29,7 +29,7 @@ public class FanficAppDefinition : IAppDefinition
     public void DefineServices(IServiceCollection services, IConfiguration config)
     {
         services.AddDbContext<FanficDb>(options =>
-            options.UseNpgsql(config.GetConnectionString("FanfictionDatabase")));
+            options.UseInMemoryDatabase("FanfictionDatabase"));
         
         services.AddScoped<IFanficRepo, FanficRepo>();
         services.AddScoped<IUserRepo, UserRepo>();

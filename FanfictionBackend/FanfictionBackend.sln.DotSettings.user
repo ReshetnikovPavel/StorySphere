@@ -1,5 +1,5 @@
 ﻿<wpf:ResourceDictionary xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xml:space="preserve">
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=176df244_002Dbdff_002D452e_002D8ebb_002D98dedb865b18/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="ToPageList_ShouldThrowArgumentException_WhenArgumentsAreNotPositive" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;Project Location="\home\pavel-reshetnikov\RiderProjects\fanfiction\FanfictionBackend\Tests" Presentation="&amp;lt;Tests&amp;gt;" /&gt;&#xD;
+  &lt;Project Location="C:\Users\hp\Documents\GitHub\StorySphere\FanfictionBackend\Tests" Presentation="&amp;lt;Tests&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 </wpf:ResourceDictionary>
