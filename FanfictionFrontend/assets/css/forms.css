@@ -64,7 +64,7 @@ form {
     width: 200px;
   }
 
-  input[type="text"] {
+  input[type="text"], input[type="password"], input[type="email"] {
     width: 200px;
   }
 
