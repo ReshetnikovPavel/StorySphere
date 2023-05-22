@@ -1,149 +1,58 @@
-<!DOCTYPE html>
-<html>
-
 <head>
-  <title>Вход / Регистрация - Сайт с фанфиками</title>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: #333;
-      color: white;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      padding: 10px;
-    }
-    h1 {
-      margin: 0;
-    }
-    nav ul {
-      display: flex;
-      flex-wrap: wrap;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-    nav ul li {
-      margin: 0 10px;
-    }
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-    nav ul li a:hover {
-      color: yellow;
-    }
-    form {
-      background-color: #f2f2f2;
-      border-radius: 5px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-      margin: 20px auto;
-      max-width: 500px;
-      padding: 20px;
-    }
-    h2 {
-      margin: 0 0 20px;
-    }
-    input[type="text"],
-    input[type="password"] {
-      border: none;
-      border-radius: 3px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-      display: block;
-      font-size: 1.1em;
-      margin: 10px 0;
-      padding: 10px;
-      width: 100%;
-    }
-    input[type="submit"] {
-      background-color: #6495ED;
-      border: none;
-      border-radius: 5px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-      color: white;
-      cursor: pointer;
-      display: block;
-      font-size: 1.1em;
-      margin: 20px auto;
-      padding: 10px;
-      width: 50%;
-    }
-    input[type="submit"]:hover {
-      background-color: #4169E1;
-    }
-  </style>
+  <link rel="stylesheet" href="/assets/css/global.css">
+  <link rel="stylesheet" href="/assets/css/app_header.css">
+  <link rel="stylesheet" href="/assets/css/forms.css">
+  <link rel="stylesheet" href="https://indestructibletype.com/fonts/Jost.css" type="text/css" charset="utf-8" />
+  <meta charset="UTF-8">
+  <title>Регистрация</title>
 </head>
 
 <body>
-  <header>
-    <h1>Сайт с фанфиками</h1>
-    <nav>
-      <ul>
-        <li><a href="#">Недавно обновленные работы</a></li>
-        <li><a href="#">Список авторов</a></li>
-      </ul>
-    </nav>
-    <form id="loginForm">
-      <input type="text" id="loginInput" placeholder="Логин">
-      <input type="password" id="passwordInput" placeholder="Пароль">
-      <button type="button" onclick="login()">Войти</button>
-    </form>
-    <a href="#" id="registerLink">Регистрация</a>
-  </header>
-
-  <main>
-    <form id="registerForm" style="display: none;">
-      <h2>Регистрация</h2>
-      <input type="text" id="nameInput" placeholder="Имя">
-      <input type="text" id="surnameInput" placeholder="Фамилия">
-      <input type="text" id="emailInput" placeholder="E-mail">
-      <input type="text" id="registerLoginInput" placeholder="Логин">
-      <input type="password" id="registerPasswordInput" placeholder="Пароль">
-      <button type="button" onclick="register()">Зарегистрироваться</button>
-    </form>
-  </main>
-
-  <script>
-    const loginForm = document.getElementById('loginForm');
-    const loginInput = document.getElementById('loginInput');
-    const passwordInput = document.getElementById('passwordInput');
-    const registerForm = document.getElementById('registerForm');
-    const nameInput = document.getElementById('nameInput');
-    const surnameInput = document.getElementById('surnameInput');
-    const emailInput = document.getElementById('emailInput');
-    const registerLoginInput = document.getElementById('registerLoginInput');
-    const registerPasswordInput = document.getElementById('registerPasswordInput');
-    const registerLink = document.getElementById('registerLink');
-
-    function login() {
-      const login = loginInput.value.trim();
-      const password = passwordInput.value.trim();
-      alert(`Вы вошли как ${login}`);
-    }
-
-    function register() {
-      const name = nameInput.value.trim();
-      const surname = surnameInput.value.trim();
-      const email = emailInput.value.trim();
-      const login = registerLoginInput.value.trim();
-      const password = registerPasswordInput.value.trim();
-      alert(`Вы зарегистрировались как ${email}, ${name} ${surname} (${login})`);
-    }
-
-    registerLink.addEventListener('click', (event) => {
-      event.preventDefault();
-      loginForm.style.display = 'none';
-      registerForm.style.display = 'block';
-    });
-  </script>
+<header>
+  <div class="header-container">
+    <img class="profile-button" src="/assets/images/profile.svg" alt="Go to profile" />
+    <div class="search-bar">
+      <input type="text" placeholder="Поиск" />
+      <img src="/assets/images/search_icon.svg" alt="Search" />
+    </div>
+    <img class="main-page-button" src="/assets/images/logo.svg" alt="Back to main page" />
+  </div>
+</header>
+<nav>
+  <!-- navigation content here -->
+</nav>
+<main>
+  <form>
+    <h1>Регистрация</h1>
+    <div class="labels">
+    <div class="label-container">
+    <label for="email">Электронная почта</label>
+      <input type="email" id="email">
+    </div>
+    <div class="label-container">
+    <label for="password">Пароль</label>
+      <input type="password" id="password">
+    </div>
+    <div class="label-container">
+    <label for="confirm-password">Подтвердить пароль</label>
+      <input type="password" id="confirm-password">
+    </div>
+    <div class="label-container">
+      <label for="name">Имя пользователя</label>
+      <input type="text" id="name">
+    </div>
+    </div>
+    <div class="button-container">
+<input type="submit" value="Зарегистрироваться">
+</div>
+  </form>
+</main>
+<aside>
+  <!-- aside content here -->
+</aside>
+<footer>
+  <!-- footer content here -->
+</footer>
 </body>
 
 </html>

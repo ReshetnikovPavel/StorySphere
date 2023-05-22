@@ -1,110 +1,47 @@
-<!DOCTYPE html>
-<html>
-
 <head>
-  <title>Сайт с фанфиками - Добавить новую главу</title>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background-color: #333;
-      color: white;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      padding: 10px;
-    }
-
-    h1 {
-      margin: 0;
-    }
-
-    nav ul {
-      display: flex;
-      flex-wrap: wrap;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav ul li {
-      margin: 0 10px;
-    }
-
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    nav ul li a:hover {
-      color: yellow;
-    }
-
-    main {
-      padding: 20px;
-    }
-
-    form label {
-      display: block;
-      margin-bottom: 10px;
-    }
-
-    form input[type="text"],
-    form textarea {
-      width: 100%;
-      padding: 10px;
-      border-radius: 5px;
-      border: 1px solid #ddd;
-      margin-bottom: 20px;
-    }
-
-    form input[type="submit"] {
-      background-color: #333;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-  </style>
+  <link rel="stylesheet" href="/assets/css/global.css">
+  <link rel="stylesheet" href="/assets/css/app_header.css">
+  <link rel="stylesheet" href="/assets/css/forms.css">
+  <link rel="stylesheet" href="https://indestructibletype.com/fonts/Jost.css" type="text/css" charset="utf-8" />
+  <meta charset="UTF-8">
+<title>Добавить главу</title>
 </head>
 
 <body>
-  <header>
-    <h1>Сайт с фанфиками</h1>
-    <nav>
-      <ul>
-        <li><a href="#">Новые работы</a></li>
-        <li><a href="#">Избранные работы</a></li>
-        <li><a href="#">Написать новую работу</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main>
-    <form>
-      <label for="title">Название</label>
-      <input type="text" id="title" name="title" readonly value="Название работы">
-
-      <label for="chapter-number">Номер главы</label>
-      <input type="text" id="chapter-number" name="chapter-number" required>
-
-      <label for="content">Содержание</label>
-      <textarea id="content" name="content" rows="10" required></textarea>
-
-      <input type="submit" value="Сохранить">
-    </form>
-  </main>
-
+<header>
+  <div class="header-container">
+    <img class="profile-button" src="/assets/images/profile.svg" alt="Go to profile" />
+    <div class="search-bar">
+      <input type="text" placeholder="Поиск" />
+      <img src="/assets/images/search_icon.svg" alt="Search" />
+    </div>
+    <img class="main-page-button" src="/assets/images/logo.svg" alt="Back to main page" />
+  </div>
+</header>
+<nav>
+  <!-- navigation content here -->
+</nav>
+<main>
+  <form>
+    <h1>Добавить главу</h1>
+    <div сlass="left-column">
+    <div class="label-container">
+    <label for="name">Название главы *</label>
+      <input type="text" id="name" required>
+    </div>
+    <div>
+    <label for="name">Содержание</label>
+      <textarea id="text" rows="15" cols="100"></textarea>
+    </div>
+</div>
+  </form>
+</main>
+<aside>
+  <!-- aside content here -->
+</aside>
+<footer>
+  <!-- footer content here -->
+</footer>
 </body>
 
 </html>
-
