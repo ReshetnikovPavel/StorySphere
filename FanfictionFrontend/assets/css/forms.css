@@ -1,8 +1,6 @@
-  /* body {
-    max-width: fit-content;
+  body {
     min-width: 1000px;
-  } */
-  /* Этот код закомментирован, потому что он портит шапку. TODO: Спросить Аню/Пашу, зачем он нужен */
+  }
 
 form {
     padding-left: 80px;

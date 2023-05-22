@@ -16,7 +16,6 @@ html, body { /* Это нужно, чтобы избавиться от бело
     height: 100%;
     margin: 0px;
     padding: 0px;
-    overflow-x: hidden;
 }
 
 body {
