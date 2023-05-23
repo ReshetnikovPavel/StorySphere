@@ -1,6 +1,29 @@
 .left-column {
   background-color: black;
   width: 25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.left-column > * {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  height: 1rem;
+}
+
+.left-column > *:first-child {
+  margin-top: 0;
+}
+
+.left-column > *:last-child {
+  margin-bottom: 0;
+}
+
+.field-row {
+  background-color: blueviolet;
 }
 
 .right-column {
@@ -53,7 +76,15 @@
 .row-container > * > * {
   margin-left: 1rem;
   margin-right: 1rem;
-  background-color:wheat;
+  background-color:wheat; 
+}
+
+.row-container > * > *:first-child {
+  margin-left: 0;
+}
+
+.row-container > * > *:last-child {
+  margin-right: 0;
 }
 
 /* A dark past */
