@@ -1,6 +1,7 @@
+
 .left-column {
-  background-color: black;
-  width: 25rem;
+  /* background-color: black; */
+  width: 30rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -8,10 +9,10 @@
 }
 
 .left-column > * {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-top: 0.1rem;
+  margin-bottom: 0.1rem;
   width: 100%;
-  height: 1rem;
+  height: 2.5rem;
 }
 
 .left-column > *:first-child {
@@ -23,24 +24,27 @@
 }
 
 .field-row {
-  background-color: blueviolet;
+  /* background-color: blueviolet; */
 }
 
 .right-column {
-  background-color: black;
-  width: 25rem;
+  /* background-color: black; */
+  width: 18rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .second-row {
   height: 10rem;
   width: 100%;
-  background-color: black;
+  /* background-color: black; */
 }
 
 .third-row {
   height: 3.5rem;
   width: 100%;
-  background-color: black;
+  /* background-color: black; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -66,7 +70,7 @@
 .first-row {
   display: flex;
   justify-content: space-between;
-  background-color:black;
+  /* background-color:black; */
 }
 
 .first-row > * {
@@ -76,7 +80,7 @@
 .row-container > * > * {
   margin-left: 1rem;
   margin-right: 1rem;
-  background-color:wheat; 
+  /* background-color:wheat;  */
 }
 
 .row-container > * > *:first-child {
@@ -93,21 +97,27 @@
     display: table;
   }
   
-  .label-container {
-    display: table-row;
+  .label-container, .select-container {
+    display: flex;
+    justify-content: space-between;
   }
 
-  .select-container {
-    display: table-row;
+  .checkbox-container {
+    display: flex;
+    align-items: start;
   }
 
-  .textarea-container {
-    display: table-row;
+  .text-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   .selects {
-        display: table;
-    }
+    display: table;
+  }
   
   label,
   select,
@@ -116,22 +126,32 @@
   }
   
   label {
-    padding: 10px;
+    padding-right: 1rem;
+    margin-top: 0.2rem;
   }
   
-  input {
-    border-radius: 100px;
-    padding: 5px;
-    padding-top: 8px;
-    padding-bottom: 8px;
+  input, select, textarea {
+    border-radius: 30px;
+    padding: 0.5rem;
     border-style: solid;
-    border-width: 0px 10px;
+    border-width: 0px 0.7rem;
     border-color: #8E3D2C90;
+    font-family: 'Jost', sans-serif;
+    font-size: 1rem;
+  }
+
+  select {
+    width: 17.5rem;
+  }
+
+  input {
+    width: 15rem;
   }
 
   input[type="checkbox"] {
     transform: scale(2);
-    margin: 5px;
+    margin: 1rem;
+    width: 1.5rem;
   }
   
   input[type="submit"] {
@@ -147,29 +167,9 @@
     width: 200px;
   }
 
-  input[type="text"], input[type="password"], input[type="email"], select {
-    min-width: 20rem;
-  }
-
-  select {
-    border-radius: 100px;
-    padding: 5px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    border-style: solid;
-    border-width: 0px 10px;
-    border-color: #8E3D2C90;
-  }
-
 textarea {
-    border-radius: 30px;
-    border-style: solid;
-    border-width: 0px 10px;
-    border-color: #8E3D2C90;
-    padding: 5px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    font-family: 'Jost', sans-serif;
-    font-size: 18px;
-    resize: none;
+  box-sizing: border-box;
+  resize: none;
+  width: 100%;
+  height: 100%;
   }
