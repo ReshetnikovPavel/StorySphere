@@ -1,0 +1,93 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\AddChapter.html",
+      "PackagePath": "staticwebassets\\AddChapter.html"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\AddFanfic.html",
+      "PackagePath": "staticwebassets\\AddFanfic.html"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\AppHeader.html",
+      "PackagePath": "staticwebassets\\AppHeader.html"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\AuthorsList.html",
+      "PackagePath": "staticwebassets\\AuthorsList.html"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\Fanfic.html",
+      "PackagePath": "staticwebassets\\Fanfic.html"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\FanficsList.html",
+      "PackagePath": "staticwebassets\\FanficsList.html"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\Profile.html",
+      "PackagePath": "staticwebassets\\Profile.html"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\ProfileSettings.html",
+      "PackagePath": "staticwebassets\\ProfileSettings.html"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\Registration.html",
+      "PackagePath": "staticwebassets\\Registration.html"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\css\\app_header.css",
+      "PackagePath": "staticwebassets\\assets\\css\\app_header.css"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\css\\forms.css",
+      "PackagePath": "staticwebassets\\assets\\css\\forms.css"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\css\\global.css",
+      "PackagePath": "staticwebassets\\assets\\css\\global.css"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\css\\main_page.css",
+      "PackagePath": "staticwebassets\\assets\\css\\main_page.css"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\images\\logo.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\logo.svg"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\images\\profile.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\profile.svg"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\images\\search_icon.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\search_icon.svg"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\js\\header.js",
+      "PackagePath": "staticwebassets\\assets\\js\\header.js"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.FanfictionBackend.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.FanfictionBackend.props",
+      "PackagePath": "build\\FanfictionBackend.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.FanfictionBackend.props",
+      "PackagePath": "buildMultiTargeting\\FanfictionBackend.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.FanfictionBackend.props",
+      "PackagePath": "buildTransitive\\FanfictionBackend.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

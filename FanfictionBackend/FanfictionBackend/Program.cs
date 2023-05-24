@@ -9,4 +9,5 @@ var app = builder.BuildByDefinitions(
     new SwaggerAppDefinition()
 );
 
+app.UseFileServer();
 app.Run();

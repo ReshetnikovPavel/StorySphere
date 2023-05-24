@@ -21,4 +21,16 @@
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="wwwroot\AddChapter.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\AddFanfic.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\AuthorsList.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\Fanfic.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\FanficsList.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\index.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\Profile.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\ProfileSettings.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\Registration.html" />
+    </ItemGroup>
+
 </Project>
