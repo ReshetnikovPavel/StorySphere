@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "3NKPcMCINRhknp5TcB19UnuQVenggIpeGseoJQ55zy4=",
+  "Hash": "ple4ST1g3fZCvJlLbsS7MdJ5ULpZot+PLinrV/lCgJQ=",
   "Source": "FanfictionBackend",
   "BasePath": "_content/FanfictionBackend",
   "Mode": "Default",
@@ -51,23 +51,6 @@
       "OriginalItemSpec": "wwwroot\\AddFanfic.html"
     },
     {
-      "Identity": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\AppHeader.html",
-      "SourceId": "FanfictionBackend",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\",
-      "BasePath": "_content/FanfictionBackend",
-      "RelativePath": "AppHeader.html",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\AppHeader.html"
-    },
-    {
       "Identity": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\css\\app_header.css",
       "SourceId": "FanfictionBackend",
       "SourceType": "Discovered",
@@ -83,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\css\\app_header.css"
+    },
+    {
+      "Identity": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\css\\authors_list.css",
+      "SourceId": "FanfictionBackend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\",
+      "BasePath": "_content/FanfictionBackend",
+      "RelativePath": "assets/css/authors_list.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\css\\authors_list.css"
     },
     {
       "Identity": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\css\\forms.css",
