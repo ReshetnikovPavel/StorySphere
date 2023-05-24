@@ -14,7 +14,7 @@
   <body>
     <script src="assets/js/header.js"></script>
     <h1 class="main-page-heading">Регистрация</h1>
-
+    <form>
     <div class="row-container">
       <div class="registration-form">
 
@@ -25,12 +25,12 @@
 
         <div class="label-container">
           <label for="password">Пароль</label>
-          <input type="password" id="password" required>
+          <input type="password" id="password" onchange="validatePassword()" required>
         </div>
 
         <div class="label-container">
           <label for="confirm-password">Подтвердить пароль</label>
-          <input type="password" id="confirm-password" required>
+          <input type="password" id="confirm-password" onchange="validatePassword()" required>
         </div>
 
         <div class="label-container">
@@ -39,11 +39,12 @@
         </div>
 
         <div class="registration-button">
-          <button>Зарегистрироваться</button>
+          <input type="submit" value="Зарегистрироваться">
         </div>
       </div>
     </div>
-
+    </form>
+    <script src="assets/js/registration.js"></script>
   </body>
 
 </html>

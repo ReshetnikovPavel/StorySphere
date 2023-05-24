@@ -69,6 +69,10 @@
       "PackagePath": "staticwebassets\\assets\\js\\header.js"
     },
     {
+      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\js\\registration.js",
+      "PackagePath": "staticwebassets\\assets\\js\\registration.js"
+    },
+    {
       "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },
