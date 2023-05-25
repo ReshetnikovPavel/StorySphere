@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "mLtyicjFdiu+oCuoxUlzv+pl5bvF6z0qiUnAjOu8/vY=",
+  "Hash": "3NKPcMCINRhknp5TcB19UnuQVenggIpeGseoJQ55zy4=",
   "Source": "FanfictionBackend",
   "BasePath": "_content/FanfictionBackend",
   "Mode": "Default",
@@ -17,12 +17,12 @@
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\add-chapter.html",
+      "Identity": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\AddChapter.html",
       "SourceId": "FanfictionBackend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\",
       "BasePath": "_content/FanfictionBackend",
-      "RelativePath": "add-chapter.html",
+      "RelativePath": "AddChapter.html",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -31,15 +31,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\add-chapter.html"
+      "OriginalItemSpec": "wwwroot\\AddChapter.html"
     },
     {
-      "Identity": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\add-fanfic.html",
+      "Identity": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\AddFanfic.html",
       "SourceId": "FanfictionBackend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\",
       "BasePath": "_content/FanfictionBackend",
-      "RelativePath": "add-fanfic.html",
+      "RelativePath": "AddFanfic.html",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -48,15 +48,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\add-fanfic.html"
+      "OriginalItemSpec": "wwwroot\\AddFanfic.html"
     },
     {
-      "Identity": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\css\\app-header.css",
+      "Identity": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\AppHeader.html",
       "SourceId": "FanfictionBackend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\",
       "BasePath": "_content/FanfictionBackend",
-      "RelativePath": "assets/css/app-header.css",
+      "RelativePath": "AppHeader.html",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -65,15 +65,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\css\\app-header.css"
+      "OriginalItemSpec": "wwwroot\\AppHeader.html"
     },
     {
-      "Identity": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\css\\authors-list.css",
+      "Identity": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\css\\app_header.css",
       "SourceId": "FanfictionBackend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\",
       "BasePath": "_content/FanfictionBackend",
-      "RelativePath": "assets/css/authors-list.css",
+      "RelativePath": "assets/css/app_header.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -82,7 +82,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\css\\authors-list.css"
+      "OriginalItemSpec": "wwwroot\\assets\\css\\app_header.css"
     },
     {
       "Identity": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\css\\forms.css",
@@ -119,12 +119,12 @@
       "OriginalItemSpec": "wwwroot\\assets\\css\\global.css"
     },
     {
-      "Identity": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\css\\main-page.css",
+      "Identity": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\css\\main_page.css",
       "SourceId": "FanfictionBackend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\",
       "BasePath": "_content/FanfictionBackend",
-      "RelativePath": "assets/css/main-page.css",
+      "RelativePath": "assets/css/main_page.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -133,7 +133,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\css\\main-page.css"
+      "OriginalItemSpec": "wwwroot\\assets\\css\\main_page.css"
     },
     {
       "Identity": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\images\\logo.svg",
@@ -204,12 +204,12 @@
       "OriginalItemSpec": "wwwroot\\assets\\js\\header.js"
     },
     {
-      "Identity": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\js\\registration.js",
+      "Identity": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\AuthorsList.html",
       "SourceId": "FanfictionBackend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\",
       "BasePath": "_content/FanfictionBackend",
-      "RelativePath": "assets/js/registration.js",
+      "RelativePath": "AuthorsList.html",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -218,15 +218,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\js\\registration.js"
+      "OriginalItemSpec": "wwwroot\\AuthorsList.html"
     },
     {
-      "Identity": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\authors-list.html",
+      "Identity": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\Fanfic.html",
       "SourceId": "FanfictionBackend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\",
       "BasePath": "_content/FanfictionBackend",
-      "RelativePath": "authors-list.html",
+      "RelativePath": "Fanfic.html",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -235,15 +235,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\authors-list.html"
+      "OriginalItemSpec": "wwwroot\\Fanfic.html"
     },
     {
-      "Identity": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\fanfic.html",
+      "Identity": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\FanficsList.html",
       "SourceId": "FanfictionBackend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\",
       "BasePath": "_content/FanfictionBackend",
-      "RelativePath": "fanfic.html",
+      "RelativePath": "FanficsList.html",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -252,24 +252,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\fanfic.html"
-    },
-    {
-      "Identity": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\fanfics-list.html",
-      "SourceId": "FanfictionBackend",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\",
-      "BasePath": "_content/FanfictionBackend",
-      "RelativePath": "fanfics-list.html",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\fanfics-list.html"
+      "OriginalItemSpec": "wwwroot\\FanficsList.html"
     },
     {
       "Identity": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\index.html",
@@ -289,12 +272,12 @@
       "OriginalItemSpec": "wwwroot\\index.html"
     },
     {
-      "Identity": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\profile-settings.html",
+      "Identity": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\Profile.html",
       "SourceId": "FanfictionBackend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\",
       "BasePath": "_content/FanfictionBackend",
-      "RelativePath": "profile-settings.html",
+      "RelativePath": "Profile.html",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -303,15 +286,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\profile-settings.html"
+      "OriginalItemSpec": "wwwroot\\Profile.html"
     },
     {
-      "Identity": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\profile.html",
+      "Identity": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\ProfileSettings.html",
       "SourceId": "FanfictionBackend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\",
       "BasePath": "_content/FanfictionBackend",
-      "RelativePath": "profile.html",
+      "RelativePath": "ProfileSettings.html",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -320,15 +303,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\profile.html"
+      "OriginalItemSpec": "wwwroot\\ProfileSettings.html"
     },
     {
-      "Identity": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\registration.html",
+      "Identity": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\Registration.html",
       "SourceId": "FanfictionBackend",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\",
       "BasePath": "_content/FanfictionBackend",
-      "RelativePath": "registration.html",
+      "RelativePath": "Registration.html",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -337,7 +320,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\registration.html"
+      "OriginalItemSpec": "wwwroot\\Registration.html"
     }
   ]
 }

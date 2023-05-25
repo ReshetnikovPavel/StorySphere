@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Сайт с фанфиками - Авторы</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 10px;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin: 0 10px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: yellow;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    .author-container {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      padding: 20px;
+    }
+
+    .author-container h2 {
+      margin-top: 0;
+    }
+
+    .author-container p {
+      font-size: 1.2em;
+      margin: 10px 0;
+    }
+  </style>
+  <script>
+    let start = 0;
+    const limit = 10;
+    let isLoading = false;
+
+    function loadAuthors() {
+      if (!isLoading) {
+        isLoading = true;
+
+        // Fetch data here and append authors to the author container
+        const authorContainer = document.querySelector('#authorContainer');
+        for (let i = start; i < start + limit; i++) {
+          const authorElement = document.createElement('div');
+          authorElement.classList.add('author-container');
+          authorElement.innerHTML = `<h2>Автор ${i}</h2>
+                                   <p>Количество работ: ${i * 2}</p>
+                                   <p>Рейтинг: ${i}</p>`;
+          authorContainer.appendChild(authorElement);
+        }
+        start += limit;
+        isLoading = false;
+      }
+    }
+
+    window.addEventListener('scroll', () => {
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 1000) {
+        loadAuthors();
+      }
+    });
+
+    // Load initial authors
+    loadAuthors();
+  </script>
+</head>
+
+<body>
+  <header>
+    <h1>Сайт с фанфиками</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Новые работы</a></li>
+        <li><a href="#">Избранные работы</a></li>
+        <li><a href="#">Написать новую работу</a></li>
+        <li><a href="#">Авторы</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+    <main>
+      <div id="authorContainer"></div>
+    </main>
+  
+  </body>
+  
+  </html>
+  

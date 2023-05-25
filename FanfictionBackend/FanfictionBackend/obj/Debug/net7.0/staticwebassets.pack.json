@@ -1,20 +1,44 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\add-chapter.html",
-      "PackagePath": "staticwebassets\\add-chapter.html"
+      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\AddChapter.html",
+      "PackagePath": "staticwebassets\\AddChapter.html"
     },
     {
-      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\add-fanfic.html",
-      "PackagePath": "staticwebassets\\add-fanfic.html"
+      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\AddFanfic.html",
+      "PackagePath": "staticwebassets\\AddFanfic.html"
     },
     {
-      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\css\\app-header.css",
-      "PackagePath": "staticwebassets\\assets\\css\\app-header.css"
+      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\AppHeader.html",
+      "PackagePath": "staticwebassets\\AppHeader.html"
     },
     {
-      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\css\\authors-list.css",
-      "PackagePath": "staticwebassets\\assets\\css\\authors-list.css"
+      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\AuthorsList.html",
+      "PackagePath": "staticwebassets\\AuthorsList.html"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\Fanfic.html",
+      "PackagePath": "staticwebassets\\Fanfic.html"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\FanficsList.html",
+      "PackagePath": "staticwebassets\\FanficsList.html"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\Profile.html",
+      "PackagePath": "staticwebassets\\Profile.html"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\ProfileSettings.html",
+      "PackagePath": "staticwebassets\\ProfileSettings.html"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\Registration.html",
+      "PackagePath": "staticwebassets\\Registration.html"
+    },
+    {
+      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\css\\app_header.css",
+      "PackagePath": "staticwebassets\\assets\\css\\app_header.css"
     },
     {
       "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\css\\forms.css",
@@ -25,8 +49,8 @@
       "PackagePath": "staticwebassets\\assets\\css\\global.css"
     },
     {
-      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\css\\main-page.css",
-      "PackagePath": "staticwebassets\\assets\\css\\main-page.css"
+      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\css\\main_page.css",
+      "PackagePath": "staticwebassets\\assets\\css\\main_page.css"
     },
     {
       "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\images\\logo.svg",
@@ -45,36 +69,8 @@
       "PackagePath": "staticwebassets\\assets\\js\\header.js"
     },
     {
-      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\js\\registration.js",
-      "PackagePath": "staticwebassets\\assets\\js\\registration.js"
-    },
-    {
-      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\authors-list.html",
-      "PackagePath": "staticwebassets\\authors-list.html"
-    },
-    {
-      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\fanfic.html",
-      "PackagePath": "staticwebassets\\fanfic.html"
-    },
-    {
-      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\fanfics-list.html",
-      "PackagePath": "staticwebassets\\fanfics-list.html"
-    },
-    {
       "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
-    },
-    {
-      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\profile-settings.html",
-      "PackagePath": "staticwebassets\\profile-settings.html"
-    },
-    {
-      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\profile.html",
-      "PackagePath": "staticwebassets\\profile.html"
-    },
-    {
-      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\registration.html",
-      "PackagePath": "staticwebassets\\registration.html"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.FanfictionBackend.Microsoft.AspNetCore.StaticWebAssets.props",
