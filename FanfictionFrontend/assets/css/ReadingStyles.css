@@ -1,6 +1,6 @@
 body {
     background-color: #FDEBDF;
-    font-size: 18px;
+    font-size: 1.33rem;
     font-family: 'Jost', sans-serif;
 }
 
@@ -9,7 +9,7 @@ body {
     opacity: 70%;
     padding-right: 50px;
     padding-bottom: 10px;
-    font-size: 36px;
+    font-size: 2rem;
 }
 
 .container {
@@ -37,12 +37,13 @@ body {
     color: #8E3D2C;
     opacity: 90%;
     margin-right: 30px;
-    font-size: 14px;
+    font-size: 18px;
     text-decoration: underline;
 }
 
 .gallery {
     margin-left: 876px;
+    scale: 80%;
 }
 
 .container3 {
@@ -66,7 +67,7 @@ body {
     text-align: center;
     color: #8E3D2C;
     opacity: 70%;
-    font-size: 36px;
+    font-size: 2rem;
     padding-top: 41px;
     padding-bottom: 41px;
 }
@@ -75,4 +76,25 @@ article {
     color: #8E3D2C;
     opacity: 70%;
     margin-left: 101px;
+    margin-bottom: 44px;
+}
+
+.container5 {
+    justify-content: space-between;
+}
+
+.average-button {
+    width: 350px;
+    height: 70px;
+    background-color: #FFF;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 1.33rem;
+    border: none;
+    color: #8E3D2C;
+    opacity: 70%;
+}
+
+.like-button {
+    scale: 80%;
 }
