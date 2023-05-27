@@ -1,4 +1,6 @@
 const modal = document.createElement('modal');
+const profileBtn = document.querySelector(".profile-button");
+const closeBtn = document.querySelector(".close-button");
 
 modal.innerHTML = `
     <div class="modal">
@@ -22,4 +24,19 @@ modal.innerHTML = `
     </div>
 `;
 document.body.appendChild(modal);
+
+// profileBtn.onclick = function() {
+//   modal.style.display = "flex";
+// };
+
+// closeBtn.onclick = function() {
+//   modal.style.display = "none";
+// };
+
+// window.onclick = function(e) {
+//   if (e.target == modal) {
+//     modal.style.display = "none";
+//   }
+// };
+
 
