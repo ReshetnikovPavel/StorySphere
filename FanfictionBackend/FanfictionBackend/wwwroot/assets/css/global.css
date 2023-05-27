@@ -3,6 +3,7 @@
     --secondary-size: 1.33rem;
     --font-family: 'Jost', sans-serif;
     --text-color: #af7162ff;
+    --background-color: #FDEBDF;
 }
 
 * {
@@ -21,7 +22,7 @@ html, body {
 }
 
 body {
-    background-color: #FDEBDF;
+    background-color: var(--background-color);
 }
 
 h1 {
