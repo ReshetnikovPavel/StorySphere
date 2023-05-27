@@ -2,12 +2,12 @@
 
 header.innerHTML = `
   <div class="header-container">
-    <img class="profile-button" src="/assets/images/profile.svg" alt="Go to profile" />
+    <img class="main-page-button" src="/assets/images/logo.svg" alt="Back to main page" />
     <div class="search-bar">
       <input id="search-input" type="text" placeholder="Поиск" />
       <img id="search-icon" src="/assets/images/search_icon.svg" alt="Search" />
     </div>
-    <img class="main-page-button" src="/assets/images/logo.svg" alt="Back to main page" />
+    <img class="profile-button" src="/assets/images/profile.svg" alt="Go to profile" /> 
   </div>
 `;
 document.body.appendChild(header);
