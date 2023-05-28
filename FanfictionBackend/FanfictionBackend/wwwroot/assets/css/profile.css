@@ -1,0 +1,118 @@
+.profile-row-container {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    /* background-color: aqua; */
+}
+
+.profile-row-container > * {
+    width: 60rem;
+}
+  
+.profile-row-container > * {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.profile-author-container {
+    height: 15rem;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    /* background-color: aqua; */
+}
+
+.profile-author-container > * {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    /* background-color:wheat; */
+    align-items: center;
+}
+
+.profile-author-avatar {
+    width: 12rem;
+    height: 12rem;
+    border-radius: 50%;
+    display: flex;
+    align-self: center;
+    /* background-color: rgb(112, 36, 20, 0.3); */
+}
+
+.profile-author-name-and-time-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+
+.profile-author-name-and-time-container > * {
+    margin: 0.2rem;
+}
+
+.profile-author-name-and-time-container h1 {
+    display: flex;
+    justify-content: start;
+    align-self: start;
+    padding: 0;
+    margin-left: 0.2rem;
+}
+
+.profile-author-time-container {
+    font-size: 1.5rem;
+    /* color: rgb(112, 36, 20); */
+    display: flex;
+    justify-content: column;
+}
+
+.profile-author-time-container > * {
+    margin: 0.2rem;
+    font-size: medium;
+}
+
+.profile-author-time-container label {
+    font-size: 1.5rem;
+    /* color: rgb(112, 36, 20); */
+    margin-left: 0;
+    font-size: medium;
+}
+
+.profile-author-time {
+    width: fit-content;
+    height: fit-content;
+    background-color: #FFFFFF;
+    border-radius: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.profile-fanfics-row {
+    height: 15rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: aqua; */
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.profile-fanfics-row > * {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    background-color:wheat;
+}
+
+.profile-fanfics-row > *:first-child {
+    margin-left: 0rem;
+}
+
+.profile-fanfics-row > *:last-child {
+    margin-right: 0rem;
+}
+
+.profile-buttons-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+}
