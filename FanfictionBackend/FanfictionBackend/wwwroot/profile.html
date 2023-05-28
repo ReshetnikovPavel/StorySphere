@@ -2,151 +2,95 @@
 <html>
 
 <head>
-  <title>Профиль - Сайт с фанфиками</title>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background-color: #333;
-      color: white;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      padding: 10px;
-    }
-
-    h1 {
-      margin: 0;
-    }
-
-    nav ul {
-      display: flex;
-      flex-wrap: wrap;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav ul li {
-      margin: 0 10px;
-    }
-
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    nav ul li a:hover {
-      color: yellow;
-    }
-
-    main div {
-      margin: 20px auto;
-      max-width: 600px;
-      padding: 20px;
-    }
-
-    img {
-      border-radius: 50%;
-      height: 150px;
-      margin-right: 20px;
-      width: 150px;
-    }
-
-    h2 {
-      margin: 0;
-      font-size: 2em;
-    }
-
-    p {
-      margin: 0;
-      font-size: 1.2em;
-    }
-
-    a {
-      color: blue;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-   
-    ul {
-      margin: 0;
-      padding: 0;
-    }
-
-    ul li {
-      list-style: none;
-      margin: 10px 0;
-    }
-
-    ul li a {
-      color: black;
-      text-decoration: none;
-    }
-
-    ul li a:hover {
-      text-decoration: underline;
-    }
-
-    button {
-      background-color: #6495ED;
-      border: none;
-      border-radius: 5px;
-      color: white;
-      cursor: pointer;
-      font-size: 1.1em;
-      margin: 0 0 20px;
-      padding: 10px 20px;
-    }
-
-    button:hover {
-      background-color: #4169E1;
-    }
-  </style>
+  <title>Профиль автора</title>
+  <link rel="stylesheet" href="/assets/css/global.css">
+  <link rel="stylesheet" href="/assets/css/app-header.css">
+  <link rel="stylesheet" href="/assets/css/profile.css">
+  <link rel="stylesheet" href="/assets/css/search-result.css">
+  <link rel="stylesheet" href="https://indestructibletype.com/fonts/Jost.css" type="text/css" charset="utf-8" />
+  <meta charset="UTF-8">
 </head>
 
 <body>
-  <header>
-    <h1>Сайт с фанфиками</h1>
-    <nav>
-      <ul>
-        <li><a href="#">Новые работы</a></li>
-        <li><a href="#">Избранные работы</a></li>
-        <li><a href="#">Написать новую работу</a></li>
-      </ul>
-    </nav>
-  </header>
+  <script src="assets/js/header.js"></script>
+  <div class="profile-row-container">
 
-  <main>
-    <div>
-      <img src="avatar.png" alt="Аватар">
-      <h2>Никнейм пользователя</h2>
-      <p>Написано работ: N</p>
-      <p>Зарегистрирован на сайте: ДД.ММ.ГГГГ</p>
-      <p>Был в последний раз: ДД.ММ.ГГГГ в ЧЧ:ММ</p>
-      <h3>Список работ:</h3>
-      <ul>
-        <li><a href="#">Название работы 1</a></li>
-        <li><a href="#">Название работы 2</a></li>
-        <li><a href="#">Название работы 3</a></li>
-      </ul>
-      <button>Настройки профиля</button>
+    <div class="profile-author-container">
+
+      <div class="profile-author-avatar-container">
+        <img class="profile-author-avatar" src="/assets/images/profile-author.svg" alt="profile_avatar" />
+      </div>
+
+      <div class="profile-author-name-and-time-container">
+        <h1>SoftOwl256</h1>
+        <div class="profile-author-time-container">
+          <label>Был в сети</label>
+          <div class="profile-author-time">7 минут назад</div>
+        </div>
+      </div>
+
     </div>
-  </main>
 
-</body>
+    <div class="profile-fanfics-row">
+
+      <div class="work-container">
+        <div class="likes-row">
+          <div class="likes-container ">
+            <label>200000</label> <!-- Надеюсь, больше 999999 не будет-->
+            <img class="star_likes_icon" src="/assets/images/star_likes.svg" alt="star_likes" />
+          </div>
+        </div>
+        <div class="work-name-container">
+          <label> Гарри поттер и методы рационального мышления </label>
+        </div>
+        <div class="work-description-container">
+          <p>
+            aaaaaaaaa aaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaa  aaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaa aaaaa aaa aaa
+          </p>
+        </div>
+      </div>
+
+      <div class="work-container">
+        <div class="likes-row">
+          <div class="likes-container ">
+            <label>200000</label> <!-- Надеюсь, больше 999999 не будет-->
+            <img class="star_likes_icon" src="/assets/images/star_likes.svg" alt="star_likes" />
+          </div>
+        </div>
+        <div class="work-name-container">
+          <label> Гарри поттер и методы рационального мышления </label>
+        </div>
+        <div class="work-description-container">
+          <p>
+            aaaaaaaaa aaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaa  aaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaa aaaaa aaa aaa
+          </p>
+        </div>
+      </div>
+
+      <div class="work-container">
+        <div class="likes-row">
+          <div class="likes-container ">
+            <label>200000</label> <!-- Надеюсь, больше 999999 не будет-->
+            <img class="star_likes_icon" src="/assets/images/star_likes.svg" alt="star_likes" />
+          </div>
+        </div>
+        <div class="work-name-container">
+          <label> ФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФФ </label>
+        </div>
+        <div class="work-description-container">
+          <p>
+            aaaaaaaaa aaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaa  aaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaa aaaaa aaa aaa
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="profile-buttons-row">
+      <button>Все работы</button>
+      <button>Выход</button>
+    </div>
+
+  </div>
 
 </html>
