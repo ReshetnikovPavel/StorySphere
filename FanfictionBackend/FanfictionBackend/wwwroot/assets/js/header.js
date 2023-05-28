@@ -30,7 +30,7 @@ function initLoginModal() {
     const closeButton = document.querySelector('#login-close-button');
     const registerButton = document.querySelector('#register-button');
     const profileButton = document.querySelector('#profile-button');
-    const modal = document.querySelector('#modal');
+    const modal = document.querySelector('.modal');
 
     profileButton.addEventListener("click", function() {
         openModal(loginModal);
@@ -46,8 +46,10 @@ function initLoginModal() {
         closeModal(loginModal);
     });
 
-    modal.addEventListener("click", function() {
-        closeModal(loginModal);
+    window.addEventListener("click", function handleClick(e) {
+        if (e.target == modal) {
+            closeModal(loginModal);
+        }
     });
 }
 
@@ -70,7 +72,7 @@ function createHeader() {
 function createLoginModal() {
     const loginModal = document.createElement('modal');
     loginModal.innerHTML = `
-        <div id="modal" class="modal">
+        <div id="login-modal" class="modal">
             <div class="modal-content">
                 <img src="/assets/images/cross-icon.svg" class="close-button" id="login-close-button"/>
                 <h1>Вход</h1>
