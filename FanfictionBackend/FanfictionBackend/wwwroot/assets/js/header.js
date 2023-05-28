@@ -14,7 +14,6 @@
                         <label for="password">Пароль:</label>
                         <input type="password" id="password" required/>
                     </div>
-                    
                     <button>Войти</button>
                     <button>Зарегистрироваться</button>
                 </form>
@@ -31,8 +30,8 @@ function createHeader() {
     <div class="header-container">
         <img class="main-page-button" src="/assets/images/logo.svg" alt="Back to main page" />
         <div class="search-bar">
-        <input id="search-input" type="text" placeholder="Поиск" />
-        <img id="search-icon" src="/assets/images/search_icon.svg" alt="Search" />
+            <input id="search-input" type="text" placeholder="Поиск" />
+            <img id="search-icon" src="/assets/images/search_icon.svg" alt="Search" />
         </div>
         <img class="profile-button" src="/assets/images/profile.svg" alt="Go to profile" /> 
     </div>
@@ -41,13 +40,13 @@ function createHeader() {
     return header;
 }
 
+const ENTER = 13;
 
 const header = createHeader();
-const loginModal = createLoginModal();
+// const loginModal = createLoginModal();
 
 const searchInput = document.querySelector('#search-input');
 const searchIcon = document.querySelector('#search-icon');
-const ENTER = 13
 
 searchIcon.addEventListener('click', event => {
     search(searchInput.value);
