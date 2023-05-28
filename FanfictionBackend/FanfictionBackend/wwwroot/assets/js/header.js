@@ -1,39 +1,50 @@
 ﻿const ENTER = 13;
 
-const header = createHeader();
-const loginModal = createLoginModal();
+addHeaderEvents();
 
-const searchInput = document.querySelector('#search-input');
-const searchIcon = document.querySelector('#search-icon');
-const profileButton = document.querySelector('#profile-button');
-const closeButton = document.querySelector('#login-close-button');
-const registerButton = document.querySelector('#register-button');
-
-
-searchIcon.addEventListener('click', event => {
-    search(searchInput.value);
+window.addEventListener("load", () => {
+    addLoginModalEvents();
 });
 
-searchInput.addEventListener('keydown', event => {
-    if (event.keyCode === ENTER) {
-        event.preventDefault();
+function addHeaderEvents() {
+    const header = createHeader();
+    
+    const searchInput = document.querySelector('#search-input');
+    const searchIcon = document.querySelector('#search-icon');
+
+    searchIcon.addEventListener('click', event => {
         search(searchInput.value);
-    }
-});
+    });
+    
+    searchInput.addEventListener('keydown', event => {
+        if (event.keyCode === ENTER) {
+            event.preventDefault();
+            search(searchInput.value);
+        }
+    });
+}
 
-profileButton.addEventListener("click", function() {
-    loginModal.style.display = "block";
-});
+function addLoginModalEvents() {
+    const loginModal = createLoginModal();
 
-closeButton.addEventListener("click", function() {
-    loginModal.style.display = "none";
-});
+    const closeButton = document.querySelector('#login-close-button');
+    const registerButton = document.querySelector('#register-button');
+    const profileButton = document.querySelector('#profile-button');
 
-registerButton.addEventListener("click", function(e) {
-    e.preventDefault();
-    location.href='/registration.html';
-    loginModal.style.display = "none";
-});
+    profileButton.addEventListener("click", function() {
+        loginModal.style.display = "block";
+    });
+    
+    closeButton.addEventListener("click", function() {
+        loginModal.style.display = "none";
+    });
+    
+    registerButton.addEventListener("click", function(e) {
+        e.preventDefault();
+        location.href='/registration.html';
+        loginModal.style.display = "none";
+    });
+}
 
 function createHeader() {
     const header = document.createElement('header');
