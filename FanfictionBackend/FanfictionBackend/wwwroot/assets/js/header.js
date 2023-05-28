@@ -30,19 +30,24 @@ function initLoginModal() {
     const closeButton = document.querySelector('#login-close-button');
     const registerButton = document.querySelector('#register-button');
     const profileButton = document.querySelector('#profile-button');
+    const modal = document.querySelector('#modal');
 
     profileButton.addEventListener("click", function() {
-        loginModal.style.display = "block";
+        openModal(loginModal);
     });
     
     closeButton.addEventListener("click", function() {
-        loginModal.style.display = "none";
+        closeModal(loginModal);
     });
     
     registerButton.addEventListener("click", function(e) {
         e.preventDefault();
         location.href='/registration.html';
-        loginModal.style.display = "none";
+        closeModal(loginModal);
+    });
+
+    modal.addEventListener("click", function() {
+        closeModal(loginModal);
     });
 }
 
@@ -65,7 +70,7 @@ function createHeader() {
 function createLoginModal() {
     const loginModal = document.createElement('modal');
     loginModal.innerHTML = `
-        <div class="modal">
+        <div id="modal" class="modal">
             <div class="modal-content">
                 <img src="/assets/images/cross-icon.svg" class="close-button" id="login-close-button"/>
                 <h1>Вход</h1>
@@ -103,4 +108,12 @@ function search(fanficName) {
         .catch(error => {
             console.log('Error:', error);
         });
+}
+
+function closeModal(modal) {
+    modal.style.display = "none";
+}
+
+function openModal(modal) {
+    modal.style.display = "block";
 }
