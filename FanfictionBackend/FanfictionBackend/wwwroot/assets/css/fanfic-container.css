@@ -62,11 +62,13 @@
   overflow: hidden;
   text-overflow: ellipsis;
   max-height: 11%;
+
 }
 
 .work-name-container label {
   color: #8E4130;
   padding: 0.5rem;
+  display: inline;
 }
 
 .work-description-container {
