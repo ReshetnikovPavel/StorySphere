@@ -15,7 +15,7 @@
                         <input type="password" id="password" required/>
                     </div>
                     <button>Войти</button>
-                    <button onclick="location.href='/registration.html';">Зарегистрироваться</button>
+                    <button>Зарегистрироваться</button>
                 </form>
             </div>
         </div>
