@@ -15,7 +15,7 @@
                         <input type="password" id="password" required/>
                     </div>
                     <button>Войти</button>
-                    <button>Зарегистрироваться</button>
+                    <button onclick="location.href='/registration.html';">Зарегистрироваться</button>
                 </form>
             </div>
         </div>
@@ -43,7 +43,7 @@ function createHeader() {
 const ENTER = 13;
 
 const header = createHeader();
-// const loginModal = createLoginModal();
+const loginModal = createLoginModal();
 
 const searchInput = document.querySelector('#search-input');
 const searchIcon = document.querySelector('#search-icon');
