@@ -1,12 +1,12 @@
 ﻿const ENTER = 13;
 
-addHeaderEvents();
+initHeader();
 
 window.addEventListener("load", () => {
-    addLoginModalEvents();
+    initLoginModal();
 });
 
-function addHeaderEvents() {
+function initHeader() {
     const header = createHeader();
     
     const searchInput = document.querySelector('#search-input');
@@ -24,7 +24,7 @@ function addHeaderEvents() {
     });
 }
 
-function addLoginModalEvents() {
+function initLoginModal() {
     const loginModal = createLoginModal();
 
     const closeButton = document.querySelector('#login-close-button');
