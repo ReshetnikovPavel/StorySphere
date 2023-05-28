@@ -13,7 +13,7 @@ body {
 }
 
 .container {
-    width: 1440px;
+    width: 100%;
     display: flex;
     align-items: center;
     margin-left: 105px;
@@ -31,6 +31,7 @@ body {
 .average-text {
     color: #8E3D2C;
     opacity: 70%;
+    margin-top: 41px;
 }
 
 .author-name {
@@ -48,17 +49,17 @@ body {
 
 .container3 {
     display: block;
-    width: 850px;
-    margin-right: 55px;
+    width: 630px;
+    margin-right: 5px;
 }
 
 .container4 {
     display: block;
-    width: 850px;
+    width: 630px;
 }
 
 .inner-container {
-    width: 850px;
+    width: 1257px;
     display: flex;
     align-items: flex-start;
 }
@@ -80,6 +81,7 @@ article {
 }
 
 .container5 {
+    width: 1330px;
     justify-content: space-between;
 }
 
@@ -97,4 +99,48 @@ article {
 
 .like-button {
     scale: 80%;
+}
+
+.chapter-field {
+    margin-left: 105px;
+    margin-bottom: 44px;
+}
+
+.block-wrapper {
+    display: flex;
+}
+
+.block {
+    box-sizing: border-box;
+    background: #FFF;
+    border-width: 0 20px;
+    border-style: solid;
+    border-color: rgba(142, 61, 44, 0.5);
+    border-radius: 50px;
+    color: #8E3D2C;
+    opacity: 70%;
+    text-align: start;
+    padding: 10px 15px;
+    text-overflow: clip;
+}
+
+.wrapper1 .block1 {
+    width: 610px;
+    height: 119px;
+}
+
+.wrapper2 .block2 {
+    width: 610px;
+    height: 395px;
+}
+
+.wrapper3 {
+    margin-left: 105px;
+    margin-top: 41px;
+    margin-bottom: 36px;
+}
+
+.wrapper3 .block3 {
+    width: 1330px;
+    height: 580px;
 }
