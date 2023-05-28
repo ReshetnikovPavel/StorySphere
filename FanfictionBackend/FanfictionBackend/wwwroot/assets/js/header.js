@@ -5,8 +5,10 @@ const loginModal = createLoginModal();
 
 const searchInput = document.querySelector('#search-input');
 const searchIcon = document.querySelector('#search-icon');
-const closeButton = document.querySelector('#login-close-button');
 const profileButton = document.querySelector('#profile-button');
+const closeButton = document.querySelector('#login-close-button');
+const registerButton = document.querySelector('#register-button');
+
 
 searchIcon.addEventListener('click', event => {
     search(searchInput.value);
@@ -24,6 +26,12 @@ profileButton.addEventListener("click", function() {
 });
 
 closeButton.addEventListener("click", function() {
+    loginModal.style.display = "none";
+});
+
+registerButton.addEventListener("click", function(e) {
+    e.preventDefault();
+    location.href='/registration.html';
     loginModal.style.display = "none";
 });
 
@@ -60,7 +68,7 @@ function createLoginModal() {
                         <input type="password" id="password" required/>
                     </div>
                     <button>Войти</button>
-                    <button>Зарегистрироваться</button>
+                    <button id="register-button">Зарегистрироваться</button>
                 </form>
             </div>
         </div>
