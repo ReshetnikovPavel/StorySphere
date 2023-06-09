@@ -100,7 +100,7 @@
 .profile-fanfics-row > * {
     margin-left: 1rem;
     margin-right: 1rem;
-    background-color:wheat;
+    /* background-color:wheat; */
 }
 
 .profile-fanfics-row > *:first-child {

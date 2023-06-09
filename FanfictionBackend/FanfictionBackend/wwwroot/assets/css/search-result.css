@@ -19,7 +19,7 @@
 .search-result-row-container > * > * {
     margin-left: 1rem;
     margin-right: 1rem;
-    background-color:wheat;
+    /* background-color:wheat; */
 }
 
 .search-result-row-container > * > *:first-child {
