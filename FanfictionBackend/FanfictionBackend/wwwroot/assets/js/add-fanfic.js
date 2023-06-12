@@ -1,5 +1,11 @@
-const form = document.querySelector('form');
-form.addEventListener('submit', handleSubmit);
+// const form = document.querySelector('form');
+// form.addEventListener('submit', handleSubmit);
+
+const publish = document.querySelector('#publish');
+const addImage = document.querySelector('#addArt');
+
+publish.addEventListener("click", handleSubmit);
+addImage.addEventListener("click", addArt);
 
 const name = document.getElementById('name');
 const fandom = document.getElementById('fandom');
@@ -45,8 +51,9 @@ async function publishFanfic(data) {
     return await response.json();
 }
 
-  function addArt() {
-    const uploadBtn = document.getElementById('uploadBtn');
+  function addArt(event) {
+    event.preventDefault();
+    const uploadBtn = document.getElementById('addArt');
   const fileList = document.getElementById('fileList');
   const uploadedFiles = new Set();
 
