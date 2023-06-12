@@ -14,6 +14,7 @@
   <body>
     <script src="assets/js/header.js"></script>
     <h1 class="main-page-heading">Создать работу</h1>
+    <form>
     <div class="row-container">
 
       <div class="first-row">
@@ -147,10 +148,13 @@
       </div>
 
       <div class="third-row">
-        <button>Добавить арты</button>
-        <button>Опубликовать</button>
+        <button id="uploadBtn" onclick="addArt()">Добавить арты</button>
+        <button id="publish">Опубликовать</button>
       </div>
+      <ul id="fileList">Выбранные файлы (нажмите для удаления):</ul>
   </div>
-  </body>
+</form>
+<script src="assets/js/add-fanfic.js"></script>
+</body>
 
 </html>
