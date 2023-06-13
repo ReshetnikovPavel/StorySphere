@@ -86,7 +86,6 @@
   word-wrap: break-word;
   height: calc(95% - 0.5rem);
   max-height: 100%;
-  padding: 0.2rem;
   margin: 0;
   overflow: hidden;
   display: -webkit-box;
