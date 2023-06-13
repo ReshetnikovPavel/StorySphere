@@ -14,7 +14,7 @@
   <body>
     <script src="assets/js/header.js"></script>
     <h1 class="main-page-heading">Добавить главу</h1>
-
+    <form>
     <div class="row-container">
       <div class="name-chapter">
         <label for="name">Название главы *</label>
@@ -29,10 +29,12 @@
       </div>
       
       <div class="button-chapter">
-        <button>Опубликовать</button>
-        <button>Сохранить черновик</button>
+        <button id="publish">Опубликовать</button>
+        <button id="draft">Сохранить черновик</button>
       </div>
     </div>
+    </form>
+    <script src="assets/js/add-chapter.js"></script>
   </body>
 
 </html>

@@ -4,10 +4,7 @@
 const publish = document.querySelector('#publish');
 const addImage = document.querySelector('#addArt');
 
-publish.addEventListener("click", handleSubmit);
-addImage.addEventListener("click", addArt);
-
-const name = document.getElementById('name');
+const _name = document.getElementById('name');
 const fandom = document.getElementById('fandom');
 const persons = document.getElementById('persons');
 const pairings = document.getElementById('pairings');
@@ -20,10 +17,12 @@ const translation = document.getElementById('translation');
 const shortDescription = document.getElementById('shortDescription');
 const note = document.getElementById('note');
 
+publish.addEventListener("click", handleSubmit);
+addImage.addEventListener("click", addArt);
 function handleSubmit(event) {
     event.preventDefault();
     const data = {
-        name: name.value,
+        name: _name.value,
         fandom: fandom.value,
         persons: persons.value,
         pairings: pairings.value,
