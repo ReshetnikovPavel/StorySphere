@@ -16,16 +16,27 @@
   </head>
 
   <body>
+
     <script src="/assets/js/header.js"></script>
-    <h1 class="main-page-heading">Как Андрей в ДнД играл</h1> <!-- в адд-фанфик ограничение на 35 символов, все ок -->
-    <!-- ✓ … ? -->
+    <h1 class="main-page-heading" id="fanficName"></h1> <!-- в адд-фанфик ограничение на 35 символов, все ок -->
+
+    <div id="modal" class="modal-img">
+      <div class="modal-content-img">
+        <h1>Галерея</h1>
+        <img src="/assets/images/cross-icon.svg" class="close"/>
+        <div class="img-in-modal" id="image-container">
+        </div>
+      </div>
+    </div>
+
     <div class="fanfic-page-row-container">
 
       <div class="fanfic-name-row-container">
-        <div class="fanfic-rating-and-status-container"><label>NC-17</label></div>
-        <div class="fanfic-rating-and-status-container"><label>✓</label></div>
+        <div class="fanfic-rating-and-status-container"><label id="rating"></label></div>
+        <div class="fanfic-rating-and-status-container"><label id="status"></label></div>    <!-- ✓ … ? -->
+        <div class="fanfic-rating-and-status-container"><label id="focus"></label></div>    <!-- ⚣ ⚤ ⚢ ⚔︎ ◯ ✒ 〰 -->
         <div class="fanfic-page-likes-container ">
-          <label>2001</label> <!-- Надеюсь, больше 999999 не будет-->
+          <label id="likes"></label> <!-- Надеюсь, больше 999999 не будет-->
           <img class="fanfic-page-star_likes_icon" src="/assets/images/star_likes.svg" alt="star_likes" />
         </div>
       </div>
@@ -33,39 +44,39 @@
       <div class="fanfic-author-name-container">
         <div class="fanfic-author-container">
           <label>Автор:</label>
-          <div class="fanfic-author-name">SoftOwl256</div>
+          <div class="fanfic-author-name" id="author"></div>
         </div>
-        <img class="fanfic-image-icon" src="/assets/images/image-icon.svg" alt="gallery"/>
+        <img class="fanfic-image-icon" id="gallery" src="/assets/images/image-icon.svg" alt="gallery"/>
       </div>
 
       <div class="info-row">
         <div class="info-left-column">
           <div class="info-size-container">
             <label>Размер:</label>
-            <div class="info-size">20</div>
+            <div class="info-size" id="sizeChapters"></div>
             <label>глав,</label>
-            <div class="info-size">200</div>
+            <div class="info-size" id="sizePages"></div>
             <label>страниц</label>
           </div>
 
           <div class="info-container">
-            <label for="shortDescription">Персонажи</label>
+            <label>Персонажи</label>
             <div class="info-text-container">
-              <textarea id="shortDescription" readonly>Андрей Куклинов, Паша Решетников, Ангелина Шманцарь, Соколова Анна</textarea>
+              <textarea id="characters" readonly></textarea>
             </div>
           </div>
 
           <div class="info-container">
-            <label for="shortDescription">Пейринги</label>
+            <label>Пейринги</label>
             <div class="info-text-container">
-              <textarea id="shortDescription" readonly>Соня Мелькова/Глеб Иванов, Аня Васильева/Никита Гаврилов, Паша Решетников/Rust</textarea>
+              <textarea id="pairings" readonly></textarea>
             </div>
           </div>
 
           <div class="info-container">
-            <label for="shortDescription">Жанры</label>
+            <label>Жанры</label>
             <div class="info-text-container">
-              <textarea id="shortDescription" readonly></textarea>
+              <textarea id="genres" readonly></textarea>
             </div>
           </div>
         </div>
@@ -74,32 +85,32 @@
           <div class="info-container">
             <label>Описание</label>
             <div class="info-big-text-container">
-              <textarea id="description" readonly>AAAA</textarea>
+              <textarea id="description" readonly></textarea>
             </div>
           </div>
 
           <div class="info-container">
-            <label for="shortDescription">Предупреждения</label>
+            <label>Предупреждения</label>
             <div class="info-text-container">
-              <textarea id="shortDescription" readonly></textarea>
+              <textarea id="warnings" readonly></textarea>
             </div>
           </div>
         </div>
       </div>
 
-      <h1>Глава 2: Софья Мелькова ищет информацию</h1>
+      <h1 id="nameChapter"></h1>
       <div class="fanfic-text-container">
-        <div contenteditable>Соня ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет, и ищет. А потом находит и довольная.</div>
+        <div contenteditable id="contentChapter"></div>
       </div>
 
       <div class="button-row">
-        <button>Предыдущая глава</button>
+        <button id="prevChapter">Предыдущая глава</button>
         <button>
-          <img class="button-star-icon" src="assets/images/star2.svg" alt="like">
+          <img class="button-star-icon" src="assets/images/star2.svg" alt="like" id="likeBtn">
         </button>
-        <button>Следующая глава</button>
+        <button id="nextChapter">Следующая глава</button>
       </div>
     </div>
-
+    <script src="assets/js/fanfic-page.js"></script>
   </body>
 </html>
