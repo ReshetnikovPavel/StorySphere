@@ -15,8 +15,8 @@ containers.forEach(container => {
   const name = container.querySelector(`#nameFanfic`);
   const description = container.querySelector(`#descriptionFanfic`);
 
-  const [nameInfo, likesInfo, descriptionInfo] = fanficsInfo[id];
-  console.log([nameInfo, likesInfo, descriptionInfo]);
+  const [nameInfo, likesInfo, descriptionInfo, link] = fanficsInfo[id];
+  //console.log([nameInfo, likesInfo, descriptionInfo]);
 
   if (nameInfo === null || descriptionInfo === null) {
     container.remove();
@@ -26,6 +26,12 @@ containers.forEach(container => {
   }
 
   likes.textContent = likesInfo || 0;
+
+  name.setAttribute('data-link', link);
+  name.addEventListener('click', () => {
+    const link = name.getAttribute('data-link');
+    window.location.href = link;
+  });
 });
 
 const allWorksBtn = document.querySelector('#allWorks');
@@ -53,9 +59,9 @@ function getAvatar() {
 }
 
 function getFanfics() {
-    return [['Автомобилисты плачут и платят', '9', 'Это история о том, как бедный студент Василий решил преобрести себе машину, чтобы ездить на пары. Но он не знал, оо! Он не знал, что есть бензин и налоги. А еще кривые дороги!'], 
-['Юра и пельмехи', '999', 'Юра решил сварить пельмехи. Кто знал, что в этот момент в его стене откроется портал в другое измерение и оттуда выпадет жуткое существо? Что ж, теперь ужин не будет таким одиноким'],
-[null, null, '1']];
+    return [['Автомобилисты плачут и платят', '9', 'Это история о том, как бедный студент Василий решил преобрести себе машину, чтобы ездить на пары. Но он не знал, оо! Он не знал, что есть бензин и налоги. А еще кривые дороги!', 'fanfic-page.html'], 
+['Юра и пельмехи', '999', 'Юра решил сварить пельмехи. Кто знал, что в этот момент в его стене откроется портал в другое измерение и оттуда выпадет жуткое существо? Что ж, теперь ужин не будет таким одиноким', 'fanfic-page.html'],
+[null, null, null, null]];
 }
 
 function exit() {
