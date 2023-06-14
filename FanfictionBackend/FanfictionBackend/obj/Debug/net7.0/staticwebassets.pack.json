@@ -1,80 +1,172 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\add-chapter.html",
+      "Id": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\add-chapter.html",
       "PackagePath": "staticwebassets\\add-chapter.html"
     },
     {
-      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\add-fanfic.html",
+      "Id": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\add-fanfic.html",
       "PackagePath": "staticwebassets\\add-fanfic.html"
     },
     {
-      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\css\\app-header.css",
+      "Id": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\all-author's-work.html",
+      "PackagePath": "staticwebassets\\all-author's-work.html"
+    },
+    {
+      "Id": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\css\\app-header.css",
       "PackagePath": "staticwebassets\\assets\\css\\app-header.css"
     },
     {
-      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\css\\authors-list.css",
+      "Id": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\css\\authors-list.css",
       "PackagePath": "staticwebassets\\assets\\css\\authors-list.css"
     },
     {
-      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\css\\forms.css",
+      "Id": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\css\\fanfic-container.css",
+      "PackagePath": "staticwebassets\\assets\\css\\fanfic-container.css"
+    },
+    {
+      "Id": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\css\\fanfic-page.css",
+      "PackagePath": "staticwebassets\\assets\\css\\fanfic-page.css"
+    },
+    {
+      "Id": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\css\\forms.css",
       "PackagePath": "staticwebassets\\assets\\css\\forms.css"
     },
     {
-      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\css\\global.css",
+      "Id": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\css\\global.css",
       "PackagePath": "staticwebassets\\assets\\css\\global.css"
     },
     {
-      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\css\\main-page.css",
+      "Id": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\css\\main-page.css",
       "PackagePath": "staticwebassets\\assets\\css\\main-page.css"
     },
     {
-      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\images\\logo.svg",
+      "Id": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\css\\modal.css",
+      "PackagePath": "staticwebassets\\assets\\css\\modal.css"
+    },
+    {
+      "Id": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\css\\profile.css",
+      "PackagePath": "staticwebassets\\assets\\css\\profile.css"
+    },
+    {
+      "Id": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\css\\search-result.css",
+      "PackagePath": "staticwebassets\\assets\\css\\search-result.css"
+    },
+    {
+      "Id": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\images\\chapter.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\chapter.svg"
+    },
+    {
+      "Id": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\images\\characters.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\characters.svg"
+    },
+    {
+      "Id": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\images\\cross-icon.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\cross-icon.svg"
+    },
+    {
+      "Id": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\images\\description.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\description.svg"
+    },
+    {
+      "Id": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\images\\gallery.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\gallery.svg"
+    },
+    {
+      "Id": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\images\\image-icon.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\image-icon.svg"
+    },
+    {
+      "Id": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\images\\like-subs.png",
+      "PackagePath": "staticwebassets\\assets\\images\\like-subs.png"
+    },
+    {
+      "Id": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\images\\logo.svg",
       "PackagePath": "staticwebassets\\assets\\images\\logo.svg"
     },
     {
-      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\images\\profile.svg",
+      "Id": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\images\\profile-author.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\profile-author.svg"
+    },
+    {
+      "Id": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\images\\profile.svg",
       "PackagePath": "staticwebassets\\assets\\images\\profile.svg"
     },
     {
-      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\images\\search_icon.svg",
+      "Id": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\images\\rect.png",
+      "PackagePath": "staticwebassets\\assets\\images\\rect.png"
+    },
+    {
+      "Id": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\images\\search_icon.svg",
       "PackagePath": "staticwebassets\\assets\\images\\search_icon.svg"
     },
     {
-      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\js\\header.js",
+      "Id": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\images\\star2.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\star2.svg"
+    },
+    {
+      "Id": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\images\\star_likes.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\star_likes.svg"
+    },
+    {
+      "Id": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\js\\add-chapter.js",
+      "PackagePath": "staticwebassets\\assets\\js\\add-chapter.js"
+    },
+    {
+      "Id": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\js\\add-fanfic.js",
+      "PackagePath": "staticwebassets\\assets\\js\\add-fanfic.js"
+    },
+    {
+      "Id": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\js\\header.js",
       "PackagePath": "staticwebassets\\assets\\js\\header.js"
     },
     {
-      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\js\\registration.js",
+      "Id": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\js\\hello.js",
+      "PackagePath": "staticwebassets\\assets\\js\\hello.js"
+    },
+    {
+      "Id": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\js\\index.js",
+      "PackagePath": "staticwebassets\\assets\\js\\index.js"
+    },
+    {
+      "Id": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\js\\profile.js",
+      "PackagePath": "staticwebassets\\assets\\js\\profile.js"
+    },
+    {
+      "Id": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\js\\registration.js",
       "PackagePath": "staticwebassets\\assets\\js\\registration.js"
     },
     {
-      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\authors-list.html",
+      "Id": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\authors-list.html",
       "PackagePath": "staticwebassets\\authors-list.html"
     },
     {
-      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\fanfic.html",
-      "PackagePath": "staticwebassets\\fanfic.html"
+      "Id": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\fanfic-page.html",
+      "PackagePath": "staticwebassets\\fanfic-page.html"
     },
     {
-      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\fanfics-list.html",
+      "Id": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\fanfics-list.html",
       "PackagePath": "staticwebassets\\fanfics-list.html"
     },
     {
-      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\index.html",
+      "Id": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },
     {
-      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\profile-settings.html",
+      "Id": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\profile-settings.html",
       "PackagePath": "staticwebassets\\profile-settings.html"
     },
     {
-      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\profile.html",
+      "Id": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\profile.html",
       "PackagePath": "staticwebassets\\profile.html"
     },
     {
-      "Id": "C:\\Users\\hp\\Documents\\GitHub\\StorySphere\\FanfictionBackend\\FanfictionBackend\\wwwroot\\registration.html",
+      "Id": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\registration.html",
       "PackagePath": "staticwebassets\\registration.html"
+    },
+    {
+      "Id": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\search-result.html",
+      "PackagePath": "staticwebassets\\search-result.html"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.FanfictionBackend.Microsoft.AspNetCore.StaticWebAssets.props",

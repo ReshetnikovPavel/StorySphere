@@ -13,6 +13,8 @@ public class FanficAppDefinition : IAppDefinition
 {
     public void DefineApp(WebApplication app)
     {
+        app.MapGet("/hello", HelloWorld);
+    
         app.MapGet("/fanfics/recent", GetRecentlyUpdatedFanfics);
         app.MapGet("/fanfic", GetFanficByTitle);
         app.MapGet("/fanfic/{id:int}", GetFanficById);
@@ -26,6 +28,13 @@ public class FanficAppDefinition : IAppDefinition
         app.MapGet("/session", LoginUser);
     }
 
+    private static async Task<IResult> HelloWorld()
+    {
+        async Task<Fanfic> CreateAsync() => new() { Title = "Greetings, thou cosmos!" };
+        var res = await CreateAsync();
+        return TypedResults.Ok(res);
+    }
+    
     public void DefineServices(IServiceCollection services, IConfiguration config)
     {
         services.AddDbContext<FanficDb>(options =>
