@@ -15,6 +15,8 @@ containers.forEach(container => {
   const name = container.querySelector(`#nameFanfic`);
   const description = container.querySelector(`#descriptionFanfic`);
 
+  name.setAttribute('style', 'cursor: pointer;');
+
   const [nameInfo, likesInfo, descriptionInfo, link] = fanficsInfo[id];
   //console.log([nameInfo, likesInfo, descriptionInfo]);
 
@@ -44,18 +46,46 @@ allWorksBtn.addEventListener('click', () => {
 const exitBtn = document.querySelector('#exit');
 exitBtn.addEventListener("click", exit);
 
-const imageContainer = document.getElementById('profileAvatar');
-const image = document.createElement('img');
-image.src = getAvatar();
-imageContainer.appendChild(image);
+const image = document.getElementById('profileAvatar');
+image.setAttribute('style', 'cursor: pointer;');
+image.setAttribute('src', getAvatar());
+image.addEventListener('click', () => {
+  setAvatar();
+});
 
 function getAvatar() {
-    if (true) {
-        return "/assets/images/profile-author.svg";
+    return localStorage.getItem('currentAvatar') || "/assets/images/profile-author.svg";
+}
+
+function setAvatar() {
+  const input = document.createElement('input');
+  input.type = 'file';
+  input.multiple = false;
+  input.accept = '.png, .jpg, .jpeg';
+  input.addEventListener('change', () => {
+    const files = input.files;
+    for (let i = 0; i < files.length; i++) {
+      const file = new Image();
+      file.src = URL.createObjectURL(files[i]);
+      const fileName = files[i].name;
+      file.onload = function() {
+        if (file.width !== file.height) {
+          console.log(file.width, file.height);
+          alert('Файл ' + fileName + ' имеет разные высоту и ширину. Ваша картинка должна быть квадратной!');
+          return;
+        }
+
+        loadingAvatarToDataBase();
+        localStorage.setItem('currentAvatar', '/assets/images/' + fileName);
+        image.setAttribute('src', getAvatar());
+      };
     }
-    else {
-        return "/assets/images/profile-author.svg";
-    }
+  })
+  input.click();
+}
+
+function loadingAvatarToDataBase() {
+  alert('Аватар загружен в базу данных');
 }
 
 function getFanfics() {
