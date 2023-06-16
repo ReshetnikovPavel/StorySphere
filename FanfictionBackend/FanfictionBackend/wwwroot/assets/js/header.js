@@ -51,6 +51,21 @@ function initLoginModal() {
             closeModal(loginModal);
         }
     });
+
+    const email = document.getElementById('email');
+    const password = document.getElementById('password');
+
+    const loginButton = document.querySelector('#login-button');
+
+    loginButton.addEventListener("click", function(e) {
+        e.preventDefault();
+        login(email, password);
+        closeModal(loginModal);
+    });
+}
+
+function login(email, password) {
+    alert('Вы вошли, мистер');
 }
 
 function createHeader() {
@@ -85,7 +100,7 @@ function createLoginModal() {
                         <label for="password">Пароль:</label>
                         <input type="password" id="password" required/>
                     </div>
-                    <button>Войти</button>
+                    <button id="login-button">Войти</button>
                     <button id="register-button">Зарегистрироваться</button>
                 </form>
             </div>
