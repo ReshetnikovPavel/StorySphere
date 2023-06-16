@@ -5,6 +5,15 @@ namespace FanfictionBackend.Services;
 
 public class UserService : IUserService
 {
+    private readonly IUserRepo _userRepo;
+    private readonly IPasswordHasher _hasher;
+    
+    public UserService(IUserRepo userRepo, IPasswordHasher hasher)
+    {
+        _userRepo = userRepo;
+        _hasher = hasher;
+    }
+    
     public async Task<IResult> GetAllUsers()
     {
         throw new NotImplementedException();
@@ -17,11 +26,19 @@ public class UserService : IUserService
 
     public async Task<IResult> RegisterUser(User user, string password)
     {
-        throw new NotImplementedException();
+        var existingUser = _userRepo.GetByUsername(user.Username);
+        if (existingUser.Result != null)
+            return TypedResults.Conflict("Username already registered");
+        user.Password = _hasher.HashPassword(password);
+        await _userRepo.AddUser(user);
+        return TypedResults.Created($"/author/{user.Id}");
     }
 
     public async Task<IResult> LoginUser(string username, string password)
     {
-        throw new NotImplementedException();
+        var user = await _userRepo.GetByUsername(username);
+        if (user == null || !_hasher.VerifyPassword(password, user.Password))
+            return TypedResults.NotFound("Invalid username or password");
+        return Results.Ok(user);
     }
 }

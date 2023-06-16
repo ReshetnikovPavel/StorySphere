@@ -5,18 +5,22 @@ namespace FanfictionBackend.Services;
 
 public class FanficService : IFanficService
 {
-    private readonly IFanficRepo _repo;
+    private readonly IFanficRepo _fanficRepo;
+    private readonly IChapterRepo _chapterRepo;
+    private readonly IDateTimeProvider _dateTimeProvider;
     
-    public FanficService(IFanficRepo repo)
+    public FanficService(IFanficRepo fanficRepo, IChapterRepo chapterRepo, IDateTimeProvider dateTimeProvider)
     {
-        _repo = repo;
+        _fanficRepo = fanficRepo;
+        _chapterRepo = chapterRepo;
+        _dateTimeProvider = dateTimeProvider;
     }
     
     public async Task<IResult> GetRecentlyUpdatedFanfics(int pageNumber, int pageSize)
     {
         try
         {
-            return TypedResults.Ok(await _repo.GetRecentlyUpdated(pageNumber, pageSize));
+            return TypedResults.Ok(await _fanficRepo.GetRecentlyUpdated(pageNumber, pageSize));
         }
         catch (ArgumentException e)
         {
@@ -28,23 +32,30 @@ public class FanficService : IFanficService
     {
         if (title == null)
             return TypedResults.BadRequest("Fanfic title can't be null");
-        var fanfic = await _repo.GetByTitle(title);
+        var fanfic = await _fanficRepo.GetByTitle(title);
         return fanfic == null ? TypedResults.NotFound() : TypedResults.Redirect($"/fanfic/{fanfic.Id}");
     }
 
     public async Task<IResult> GetFanficById(int id)
     {
-        var fanfic = await _repo.GetById(id);
+        var fanfic = await _fanficRepo.GetById(id);
         return fanfic == null ? TypedResults.NotFound() : TypedResults.Ok(fanfic);
     }
 
     public async Task<IResult> AddFanfic(Fanfic fanfic)
     {
-        throw new NotImplementedException();
+        fanfic.Created = _dateTimeProvider.Now;
+        fanfic.Updated = fanfic.Created;
+        
+        await _fanficRepo.AddFanfic(fanfic);
+        return TypedResults.Ok();
     }
 
     public async Task<IResult> AddChapter(Chapter chapter, int id)
     {
-        throw new NotImplementedException();
+        chapter.FanficId = id;
+        
+        await _chapterRepo.AddChapter(chapter);
+        return TypedResults.Ok();
     }
 }
