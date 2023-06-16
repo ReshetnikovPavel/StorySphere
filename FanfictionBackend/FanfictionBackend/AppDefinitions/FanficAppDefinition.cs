@@ -13,19 +13,9 @@ public class FanficAppDefinition : IAppDefinition
 {
     public void DefineApp(WebApplication app)
     {
-        app.MapGet("/hello", HelloWorld);
-    
-        app.MapGet("/fanfics/recent", GetRecentlyUpdatedFanfics);
-        app.MapGet("/fanfic", GetFanficByTitle);
-        app.MapGet("/fanfic/{id:int}", GetFanficById);
-        app.MapPost("/fanfics", AddFanfic);
-        app.MapPost("/fanfic/{id:int}/chapters", AddChapter);
-
-        app.MapGet("/authors", GetAllUsers);
-        app.MapGet("/author/{id:int}", GetUserById);
-        app.MapPost("/authors", RegisterUser);
-        
-        app.MapGet("/session", LoginUser);
+        app.MapGet("/", HelloWorld);
+        DefineFanficEndpoints(app);
+        DefineUserEndpoints(app);
     }
 
     public void DefineServices(IServiceCollection services, IConfiguration config)
@@ -44,6 +34,39 @@ public class FanficAppDefinition : IAppDefinition
         services.AddAutoMapper(typeof(MappingProfile));
     }
 
+    private static void DefineFanficEndpoints(IEndpointRouteBuilder app)
+    {
+        app.MapGet("/fanfics/recent", async (IFanficService fs, int pageNumber, int pageSize)
+            => await fs.GetRecentlyUpdatedFanfics(pageNumber, pageSize));
+        
+        app.MapGet("/fanfic", async (IFanficService fs, string? title)
+            => await fs.GetFanficByTitle(title));
+        
+        app.MapGet("/fanfic/{id:int}", async (IFanficService fs, int id)
+            => await fs.GetFanficById(id));
+        
+        app.MapPost("/fanfics", async (IFanficService fs, Fanfic fanfic)
+            => await fs.AddFanfic(fanfic));
+        
+        app.MapPost("/fanfic/{id:int}/chapters", async (IFanficService fs, Chapter chapter, int id)
+            => await fs.AddChapter(chapter, id));
+    }
+
+    private static void DefineUserEndpoints(IEndpointRouteBuilder app)
+    {
+        app.MapGet("/authors", async (IUserService us)
+            => await us.GetAllUsers());
+        
+        app.MapGet("/author/{id:int}", async (IUserService us, int id)
+            => await us.GetUserById(id));
+        
+        app.MapPost("/authors", async (IUserService us, User user, string password)
+            => await us.RegisterUser(user, password));
+        
+        app.MapGet("/session", async (IUserService us, string username, string password)
+            => await us.LoginUser(username, password));
+    }
+
     private static async Task<IResult> HelloWorld()
     {
         async Task<Fanfic> CreateAsync() => new() { Title = "Greetings, thou cosmos!" };
@@ -51,24 +74,6 @@ public class FanficAppDefinition : IAppDefinition
         return TypedResults.Ok(res);
     }
     
-    public static async Task<IResult> GetRecentlyUpdatedFanfics(IFanficService fanficService, int pageNumber,
-        int pageSize)
-        => await fanficService.GetRecentlyUpdatedFanfics(pageNumber, pageSize);
-
-    public static async Task<IResult> GetFanficByTitle(IFanficRepo repo, string? title)
-    {
-        if (title == null)
-            return TypedResults.BadRequest("Fanfic title can't be null");
-        var fanfic = await repo.GetByTitle(title);
-        return fanfic == null ? TypedResults.NotFound() : TypedResults.Redirect($"/fanfic/{fanfic.Id}");
-    }
-    
-    public static async Task<IResult> GetFanficById(IFanficRepo repo, int id)
-    {
-        var fanfic = await repo.GetById(id);
-        return fanfic == null ? TypedResults.NotFound() : TypedResults.Ok(fanfic);
-    }
-
     public static async Task<IResult> AddFanfic(IFanficRepo repo, IMapper mapper, IDateTimeProvider datetimeProvider, FanficDto fanficDto)
     {
         var fanfic = mapper.Map<FanficDto, Fanfic>(fanficDto);

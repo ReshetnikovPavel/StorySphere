@@ -26,12 +26,16 @@ public class FanficService : IFanficService
 
     public async Task<IResult> GetFanficByTitle(string? title)
     {
-        throw new NotImplementedException();
+        if (title == null)
+            return TypedResults.BadRequest("Fanfic title can't be null");
+        var fanfic = await _repo.GetByTitle(title);
+        return fanfic == null ? TypedResults.NotFound() : TypedResults.Redirect($"/fanfic/{fanfic.Id}");
     }
 
     public async Task<IResult> GetFanficById(int id)
     {
-        throw new NotImplementedException();
+        var fanfic = await _repo.GetById(id);
+        return fanfic == null ? TypedResults.NotFound() : TypedResults.Ok(fanfic);
     }
 
     public async Task<IResult> AddFanfic(Fanfic fanfic)
