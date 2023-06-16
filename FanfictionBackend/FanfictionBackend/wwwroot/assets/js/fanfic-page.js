@@ -5,6 +5,14 @@ const _status = document.getElementById('status');
 const _focus = document.getElementById('focus');
 const likes = document.getElementById('likes');
 const author = document.getElementById('author');
+
+author.setAttribute('data-link', 'profile.html');
+author.setAttribute('style', 'cursor: pointer;')
+author.addEventListener('click', () => {
+    const link = author.getAttribute('data-link');
+    window.location.href = link;
+});
+
 const sizeChapters = document.getElementById('sizeChapters');
 const sizePages = document.getElementById('sizePages');
 const characters = document.getElementById('characters');
@@ -72,18 +80,19 @@ prevButton.addEventListener('click', () => {
     }
   });
 
-  const likeButton = document.querySelector('#likeBtn');
-  let IsLike = getIsLike();
+const likeButton = document.querySelector('#likeBtn');
+let IsLike = getIsLike();
 
-  if (IsLike) likeButton.style.backgroundColor = 'rgb(112, 36, 20, 0.3)';
+if (IsLike) likeButton.style.backgroundColor = 'rgb(112, 36, 20, 0.3)';
 
-  likeButton.addEventListener('click', () => {
-    IsLike = !IsLike;
-    likeButton.style.backgroundColor = IsLike ? 'rgb(112, 36, 20, 0.3)' : 'white';
-    setLikeValue();
-  });
+likeButton.addEventListener('click', () => {
+IsLike = !IsLike;
+likeButton.style.backgroundColor = IsLike ? 'rgb(112, 36, 20, 0.3)' : 'white';
+setLikeValue();
+});
 
-  const openModalButton = document.getElementById('gallery');
+const openModalButton = document.getElementById('gallery');
+openModalButton.setAttribute('style', 'cursor: pointer;');
 const modal = document.getElementById('modal');
 const closeButton = modal.querySelector('.close');
 

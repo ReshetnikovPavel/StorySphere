@@ -15,6 +15,8 @@ containers.forEach(container => {
   const name = container.querySelector(`#nameFanfic`);
   const description = container.querySelector(`#descriptionFanfic`);
 
+  name.setAttribute('style', 'cursor: pointer;');
+
   const [nameInfo, likesInfo, descriptionInfo, link] = fanficsInfo[id];
   //console.log([nameInfo, likesInfo, descriptionInfo]);
 

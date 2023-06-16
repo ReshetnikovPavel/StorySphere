@@ -78,6 +78,7 @@ function addSearchResultRow() {
         const nameFanfic = document.createElement('label');
         nameFanfic.setAttribute('id', 'nameFanfic');
         nameFanfic.textContent = info[0];
+        nameFanfic.setAttribute('style', 'cursor: pointer;');
 
         nameFanfic.setAttribute('data-link', info[3]);
         nameFanfic.addEventListener('click', () => {
