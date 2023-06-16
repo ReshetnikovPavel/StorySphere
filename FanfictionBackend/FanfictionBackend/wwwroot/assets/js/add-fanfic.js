@@ -51,8 +51,8 @@ async function publishFanfic(data) {
 }
 
   function addArt(event) {
-    event.preventDefault();
-    const uploadBtn = document.getElementById('addArt');
+  event.preventDefault();
+  const uploadBtn = document.getElementById('addArt');
   const fileList = document.getElementById('fileList');
   const uploadedFiles = new Set();
 
