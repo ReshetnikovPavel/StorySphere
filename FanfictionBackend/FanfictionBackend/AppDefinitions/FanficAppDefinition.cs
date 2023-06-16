@@ -13,7 +13,7 @@ public class FanficAppDefinition : IAppDefinition
 {
     public void DefineApp(WebApplication app)
     {
-        app.MapGet("/", HelloWorld);
+        // app.MapGet("/", HelloWorld);
         DefineFanficEndpoints(app);
         DefineUserEndpoints(app);
     }
