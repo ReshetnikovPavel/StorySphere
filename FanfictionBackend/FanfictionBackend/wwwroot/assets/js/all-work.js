@@ -20,22 +20,14 @@ if (dataLength === 0) {
     });
 }
 
-addSearchResultRow();
-addSearchResultRow();
-addSearchResultRow();
-
-window.addEventListener('scroll', function() {
-      addSearchResultRow();
-  });
-
 function addSearchResultRow() {
     const searchResultRowContainer = document.getElementById('search-result-row-container');
-    rowIndex++;
+
     // Создание search-result-row и добавление его в searchResultRowContainer с разными data-id
     const searchResultRow = document.createElement('div');
     searchResultRow.classList.add('search-result-row');
     searchResultRow.setAttribute('data-id', rowIndex); // Установка разных data-id
-
+    rowIndex++;
     // Создание и добавление трех work-container в каждый search-result-row
     for (let j = 0; j < 3; j++) {
 

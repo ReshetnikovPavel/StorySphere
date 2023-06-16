@@ -46,14 +46,12 @@ allWorksBtn.addEventListener('click', () => {
 const exitBtn = document.querySelector('#exit');
 exitBtn.addEventListener("click", exit);
 
-const imageContainer = document.getElementById('profileAvatar');
-const image = document.createElement('img');
-image.src = getAvatar();
-imageContainer.appendChild(image);
+const image = document.getElementById('profileAvatar');
+image.setAttribute('src', getAvatar());
 
 function getAvatar() {
     if (true) {
-        return "/assets/images/profile-author.svg";
+        return "/assets/images/img5.png";
     }
     else {
         return "/assets/images/profile-author.svg";
