@@ -28,13 +28,6 @@ public class FanficAppDefinition : IAppDefinition
         app.MapGet("/session", LoginUser);
     }
 
-    private static async Task<IResult> HelloWorld()
-    {
-        async Task<Fanfic> CreateAsync() => new() { Title = "Greetings, thou cosmos!" };
-        var res = await CreateAsync();
-        return TypedResults.Ok(res);
-    }
-    
     public void DefineServices(IServiceCollection services, IConfiguration config)
     {
         services.AddDbContext<FanficDb>(options =>
@@ -45,56 +38,29 @@ public class FanficAppDefinition : IAppDefinition
         services.AddScoped<IChapterRepo, ChapterRepo>();
         services.AddScoped<IPasswordHasher, PasswordHasher>();
         services.AddScoped<IDateTimeProvider, UtcDateTimeProvider>();
+        services.AddScoped<IUserService, UserService>();
+        services.AddScoped<IFanficService, FanficService>();
         
         services.AddAutoMapper(typeof(MappingProfile));
-
-    }
-    public static async Task<IResult> GetRecentlyUpdatedFanfics(IFanficRepo repo, int pageNumber, int pageSize)
-    {
-        try
-        {
-            return TypedResults.Ok(await repo.GetRecentlyUpdated(pageNumber, pageSize));
-        }
-        catch (ArgumentException e)
-        {
-            return TypedResults.BadRequest(e);
-        }
     }
 
-    public static async Task<IEnumerable<User>> GetAllUsers(IFanficRepo repo)
+    private static async Task<IResult> HelloWorld()
     {
-        throw new NotImplementedException();
-    }
-
-    public static async Task<User> GetUserById(IUserRepo repo, int id)
-    {
-        throw new NotImplementedException();
+        async Task<Fanfic> CreateAsync() => new() { Title = "Greetings, thou cosmos!" };
+        var res = await CreateAsync();
+        return TypedResults.Ok(res);
     }
     
+    public static async Task<IResult> GetRecentlyUpdatedFanfics(IFanficService fanficService, int pageNumber,
+        int pageSize)
+        => await fanficService.GetRecentlyUpdatedFanfics(pageNumber, pageSize);
+
     public static async Task<IResult> GetFanficByTitle(IFanficRepo repo, string? title)
     {
         if (title == null)
             return TypedResults.BadRequest("Fanfic title can't be null");
         var fanfic = await repo.GetByTitle(title);
         return fanfic == null ? TypedResults.NotFound() : TypedResults.Redirect($"/fanfic/{fanfic.Id}");
-    }
-
-    public static async Task<IResult> RegisterUser(IPasswordHasher hasher, IUserRepo repo, User user, string password)
-    {
-        var existingUser = repo.GetByUsername(user.Username);
-        if (existingUser.Result != null)
-            return TypedResults.Conflict("Username already registered");
-        user.Password = hasher.HashPassword(password);
-        await repo.AddUser(user);
-        return TypedResults.Created($"/author/{user.Id}");
-    }
-
-    public static async Task<IResult> LoginUser(IPasswordHasher hasher, IUserRepo repo, string username, string password)
-    {
-        var user = await repo.GetByUsername(username);
-        if (user == null || !hasher.VerifyPassword(password, user.Password))
-            return TypedResults.NotFound("Invalid username or password");
-        return Results.Ok(user);
     }
     
     public static async Task<IResult> GetFanficById(IFanficRepo repo, int id)
@@ -120,5 +86,33 @@ public class FanficAppDefinition : IAppDefinition
         
         await repo.AddChapter(chapter);
         return TypedResults.Ok();
+    }
+
+    public static async Task<IEnumerable<User>> GetAllUsers(IFanficRepo repo)
+    {
+        throw new NotImplementedException();
+    }
+
+    public static async Task<User> GetUserById(IUserRepo repo, int id)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public static async Task<IResult> RegisterUser(IPasswordHasher hasher, IUserRepo repo, User user, string password)
+    {
+        var existingUser = repo.GetByUsername(user.Username);
+        if (existingUser.Result != null)
+            return TypedResults.Conflict("Username already registered");
+        user.Password = hasher.HashPassword(password);
+        await repo.AddUser(user);
+        return TypedResults.Created($"/author/{user.Id}");
+    }
+
+    public static async Task<IResult> LoginUser(IPasswordHasher hasher, IUserRepo repo, string username, string password)
+    {
+        var user = await repo.GetByUsername(username);
+        if (user == null || !hasher.VerifyPassword(password, user.Password))
+            return TypedResults.NotFound("Invalid username or password");
+        return Results.Ok(user);
     }
 }
