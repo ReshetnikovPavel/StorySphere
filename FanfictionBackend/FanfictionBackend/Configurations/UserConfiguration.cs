@@ -21,7 +21,7 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
             .HasMaxLength(50);
 
         builder
-            .HasOne(u => u.Password)
+            .HasOne(u => u.Password);
             // .WithOne()
             // .HasForeignKey<Password>("UserId")
             // .IsRequired();
