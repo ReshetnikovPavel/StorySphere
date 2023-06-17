@@ -1,6 +1,6 @@
 const fanficsInfo = getFanfics();
 
-let j = 0; // текущий фанфик в массиве
+let dataIndex = 0; // текущий фанфик в массиве
 const dataLength = fanficsInfo.length; //всего фф
 const searchResultRowContainer = document.getElementById('search-result-row-container');
 let rowIndex = 0; //строчка фф
@@ -31,11 +31,11 @@ function addFanficsRow() {
     // Создание и добавление трех work-container в каждый search-result-row
     for (let j = 0; j < 3; j++) {
 
-        const info = fanficsInfo[j];
+        const info = fanficsInfo[dataIndex];
 
         const workContainer = document.createElement('section');
         workContainer.classList.add('work-container');
-        workContainer.setAttribute('data-id', cycle * dataLength + j)
+        workContainer.setAttribute('data-id', cycle * dataLength + dataIndex)
 
         // Добавление других div в каждый work-container
 
@@ -90,9 +90,9 @@ function addFanficsRow() {
         workDescriptionContainer.appendChild(descriptionFanfic);
         workContainer.appendChild(workDescriptionContainer);
 
-        j++;
-        if (j === dataLength) {
-            j = 0;
+        dataIndex++;
+        if (dataIndex === dataLength) {
+            dataIndex = 0;
             cycle++;
         }
         // Добавление work-container в search-result-row
