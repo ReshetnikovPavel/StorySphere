@@ -13,7 +13,7 @@ public class PasswordConfiguration : IEntityTypeConfiguration<Password>
         builder.Property(p => p.Hash).IsRequired();
 
         builder.Property(p => p.Salt).IsRequired();
-
-        builder.Property(p => p.UserId).IsRequired();
+        //
+        // builder.Property(p => p.UserId).IsRequired();
     }
 }
