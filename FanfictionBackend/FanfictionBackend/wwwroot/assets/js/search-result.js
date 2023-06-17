@@ -24,7 +24,7 @@ function addSearchResultRow() {
     const searchResultRowContainer = document.getElementById('search-result-row-container');
     rowIndex++;
     // Создание search-result-row и добавление его в searchResultRowContainer с разными data-id
-    const searchResultRow = document.createElement('div');
+    const searchResultRow = document.createElement('section');
     searchResultRow.classList.add('search-result-row');
     searchResultRow.setAttribute('data-id', rowIndex); // Установка разных data-id
 
@@ -33,7 +33,7 @@ function addSearchResultRow() {
 
         const info = fanficsInfo[dataIndex];
 
-        const workContainer = document.createElement('div');
+        const workContainer = document.createElement('section');
         workContainer.classList.add('work-container');
         workContainer.setAttribute('data-id', cycle * dataLength + dataIndex)
 
@@ -67,7 +67,7 @@ function addSearchResultRow() {
         const workNameContainer = document.createElement('div');
         workNameContainer.classList.add('work-name-container');
 
-        const nameFanfic = document.createElement('label');
+        const nameFanfic = document.createElement('h3');
         nameFanfic.setAttribute('id', 'nameFanfic');
         nameFanfic.textContent = info[0];
         nameFanfic.setAttribute('style', 'cursor: pointer;');
