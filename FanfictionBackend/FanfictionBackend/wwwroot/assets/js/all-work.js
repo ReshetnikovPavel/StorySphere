@@ -11,9 +11,9 @@ if (dataLength === 0) {
     sorry.textContent = 'Извините, ничего не найдено :( Даже печенек с чаем нет!'
     searchResultRowContainer.appendChild(sorry);
 } else {
-    addFanficsRow();
-    addFanficsRow();
-    addFanficsRow();
+    for(let i = 0; i < 6; i++){
+        addSearchResultRow();
+    }
 
     window.addEventListener('scroll', function() {
         addFanficsRow();
