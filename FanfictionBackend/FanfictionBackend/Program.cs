@@ -1,5 +1,4 @@
 using FanfictionBackend.AppDefinitions;
-using FanfictionBackend.EndpointDefinitions;
 using FanfictionBackend.ExtensionClasses;
 using FanfictionBackend.Interfaces;
 using FanfictionBackend.Services;

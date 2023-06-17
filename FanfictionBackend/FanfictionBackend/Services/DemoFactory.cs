@@ -1,4 +1,5 @@
-﻿using FanfictionBackend.Interfaces;
+﻿using FanfictionBackend.Dto;
+using FanfictionBackend.Interfaces;
 using FanfictionBackend.Models;
 
 // ReSharper disable StaticMemberInitializerReferesToMemberBelow
@@ -24,19 +25,19 @@ public class DemoFactory
     
     private void InitUsers()
     {
-        _userService.RegisterUser(new User
+        _userService.RegisterUser(new UserDto
         {
             Username = "Capitulation",
             Email = "Andreydolphin@mail.ru"
         }, "Capitulation");
         
-        _userService.RegisterUser(new User
+        _userService.RegisterUser(new UserDto
         {
             Username = "SoftOwl",
-            Email = "AnyaSok@mail.ru"
+            Email = "anna.sok.03@mail.ru"
         }, "SoftOwl");
         
-        _userService.RegisterUser(new User
+        _userService.RegisterUser(new UserDto
         {
             Username = "PavelResh",
             Email = "pasha.keyzet@yandex.ru"

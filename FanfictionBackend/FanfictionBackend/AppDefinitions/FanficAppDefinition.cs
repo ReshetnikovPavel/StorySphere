@@ -13,7 +13,7 @@ public class FanficAppDefinition : IAppDefinition
 {
     public void DefineApp(WebApplication app)
     {
-        app.MapGet("/", StartApp);
+        // app.MapGet("/", StartApp);
         DefineFanficEndpoints(app);
         DefineUserEndpoints(app);
     }
@@ -61,7 +61,7 @@ public class FanficAppDefinition : IAppDefinition
         app.MapGet("/author/{id:int}", async (IUserService us, int id)
             => await us.GetUserById(id));
         
-        app.MapPost("/authors", async (IUserService us, User user, string password)
+        app.MapPost("/authors", async (IUserService us, UserDto user, string password)
             => await us.RegisterUser(user, password));
         
         app.MapGet("/session", async (IUserService us, string username, string password)

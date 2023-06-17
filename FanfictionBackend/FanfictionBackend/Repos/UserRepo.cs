@@ -19,7 +19,7 @@ public class UserRepo : IUserRepo
         return await _dataContext.Users.ToListAsync();
     }
 
-    public async Task AddUser(UserDto user)
+    public async Task AddUser(User user)
     {
         await _dataContext.Users.AddAsync(user);
         await _dataContext.SaveChangesAsync();
@@ -28,5 +28,10 @@ public class UserRepo : IUserRepo
     public async Task<User?> GetByUsername(string username)
     {
         return await _dataContext.Users.FirstOrDefaultAsync(user => user.Username == username);
+    }
+    
+    public async Task<User?> GetByEmail(string email)
+    {
+        return await _dataContext.Users.FirstOrDefaultAsync(user => user.Email == email);
     }
 }
