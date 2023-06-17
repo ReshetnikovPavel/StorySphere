@@ -50,7 +50,7 @@ async function publishFanfic(data) {
     return await response.json();
 }
 
-  function addArt(event) {
+function addArt(event) {
   event.preventDefault();
   const uploadBtn = document.getElementById('addArt');
   const fileList = document.getElementById('fileList');
@@ -83,4 +83,4 @@ async function publishFanfic(data) {
       event.target.remove();
     }
   });
-  }
+}

@@ -20,7 +20,7 @@ window.addEventListener('scroll', function() {
 
 function addAuthorInList(column) {
     info = authorsInfo[dataIndex];
-    const authorRow = document.createElement('div');
+    const authorRow = document.createElement('section');
     authorRow.classList.add('authors-list-author-row');
     authorRow.setAttribute('data-id', cycle * dataLength + dataIndex);
 
@@ -43,6 +43,10 @@ function addAuthorInList(column) {
     name.textContent = info[0];
     name.setAttribute('style', 'cursor: pointer;');
     name.setAttribute('data-link', info[4]);
+    name.addEventListener('click', () => {
+        const link = name.getAttribute('data-link');
+        window.location.href = link;
+    });
 
     authorName.appendChild(name);
     authorRow.appendChild(authorName);

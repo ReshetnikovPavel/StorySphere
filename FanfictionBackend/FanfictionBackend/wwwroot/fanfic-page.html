@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 
   <head>
     <title>Страница фанфика</title>
@@ -11,46 +11,47 @@
     <link rel="stylesheet" href="/assets/css/fanfic-container.css">
     <link rel="stylesheet" href="/assets/css/profile.css">
     <link rel="stylesheet" href="/assets/css/fanfic-page.css">
-    <link rel="stylesheet" href="https://indestructibletype.com/fonts/Jost.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="https://indestructibletype.com/fonts/Jost.css" type="text/css">
     <meta charset="UTF-8">
   </head>
 
   <body>
 
     <script src="/assets/js/header.js"></script>
-    <h1 class="main-page-heading" id="fanficName"></h1> <!-- в адд-фанфик ограничение на 35 символов, все ок -->
+    <h1 class="main-page-heading" id="fanficName"></h1>
 
     <div id="modal" class="modal-img">
       <div class="modal-content-img">
         <h1>Галерея</h1>
-        <img src="/assets/images/cross-icon.svg" class="close"/>
+        <img src="/assets/images/cross-icon.svg" class="close" alt="close-button">
         <div class="img-in-modal" id="image-container">
         </div>
       </div>
     </div>
 
-    <div class="fanfic-page-row-container">
+    <section class="fanfic-page-row-container">
 
-      <div class="fanfic-name-row-container">
+      <section class="fanfic-name-row-container">
         <div class="fanfic-rating-and-status-container"><label id="rating"></label></div>
         <div class="fanfic-rating-and-status-container"><label id="status"></label></div>    <!-- ✓ … ? -->
         <div class="fanfic-rating-and-status-container"><label id="focus"></label></div>    <!-- ⚣ ⚤ ⚢ ⚔︎ ◯ ✒ 〰 -->
         <div class="fanfic-page-likes-container ">
-          <label id="likes"></label> <!-- Надеюсь, больше 999999 не будет-->
-          <img class="fanfic-page-star_likes_icon" src="/assets/images/star_likes.svg" alt="star_likes" />
+          <label id="likes"></label>
+          <img class="fanfic-page-star_likes_icon" src="/assets/images/star_likes.svg" alt="star_likes">
         </div>
-      </div>
+      </section>
 
-      <div class="fanfic-author-name-container">
+      <section class="fanfic-author-name-container">
         <div class="fanfic-author-container">
           <label>Автор:</label>
           <div class="fanfic-author-name" id="author"></div>
         </div>
-        <img class="fanfic-image-icon" id="gallery" src="/assets/images/image-icon.svg" alt="gallery"/>
-      </div>
+        <img class="fanfic-image-icon" id="gallery" src="/assets/images/image-icon.svg" alt="gallery">
+      </section>
 
-      <div class="info-row">
-        <div class="info-left-column">
+      <section class="info-row">
+
+        <section class="info-left-column">
           <div class="info-size-container">
             <label>Размер:</label>
             <div class="info-size" id="sizeChapters"></div>
@@ -79,9 +80,9 @@
               <textarea id="genres" readonly></textarea>
             </div>
           </div>
-        </div>
+        </section>
 
-        <div class="info-right-column">
+        <section class="info-right-column">
           <div class="info-container">
             <label>Описание</label>
             <div class="info-big-text-container">
@@ -95,22 +96,26 @@
               <textarea id="warnings" readonly></textarea>
             </div>
           </div>
+        </section>
+
+      </section>
+
+      <article>
+        <h1 id="nameChapter"></h1>
+        <div class="fanfic-text-container">
+          <div contenteditable id="contentChapter"></div>
         </div>
-      </div>
+      </article>
 
-      <h1 id="nameChapter"></h1>
-      <div class="fanfic-text-container">
-        <div contenteditable id="contentChapter"></div>
-      </div>
-
-      <div class="button-row">
+      <nav class="button-row">
         <button id="prevChapter">Предыдущая глава</button>
         <button class="like-Btn" id="likeBtn">
           <img class="button-star-icon" src="assets/images/star2.svg" alt="like">
         </button>
         <button id="nextChapter">Следующая глава</button>
-      </div>
-    </div>
+      </nav>
+
+    </section>
     <script src="assets/js/fanfic-page.js"></script>
   </body>
 </html>

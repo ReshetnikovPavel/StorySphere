@@ -1,94 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 
 <head>
   <title>Профиль автора</title>
   <link rel="stylesheet" href="/assets/css/global.css">
   <link rel="stylesheet" href="/assets/css/app-header.css">
   <link rel="stylesheet" href="/assets/css/modal.css">
-    <link rel="stylesheet" href="/assets/css/forms.css">
+  <link rel="stylesheet" href="/assets/css/forms.css">
   <link rel="stylesheet" href="/assets/css/profile.css">
   <link rel="stylesheet" href="/assets/css/search-result.css">
   <link rel="stylesheet" href="/assets/css/fanfic-container.css">
-  <link rel="stylesheet" href="https://indestructibletype.com/fonts/Jost.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="https://indestructibletype.com/fonts/Jost.css" type="text/css">
   <meta charset="UTF-8">
 </head>
 
 <body>
   <script src="assets/js/header.js"></script>
-  <div class="profile-row-container">
+  <main class="profile-row-container" id="profile-row-container">
 
-    <div class="profile-author-container">
+    <section class="profile-author-container">
 
       <div class="profile-author-avatar-container">
-        <img class="profile-author-avatar" alt="profile_avatar" id="profileAvatar"/>
+        <img class="profile-author-avatar" alt="profile_avatar" id="profileAvatar" src="/assets/images/profile-author.svg">
       </div>
 
       <div class="profile-author-name-and-time-container">
         <h1 id="author-name"></h1>
         <div class="profile-author-time-container">
           <label>Был в сети</label>
-          <div class="profile-author-time" id="online-time"></div>
+          <p class="profile-author-time" id="online-time"></p>
         </div>
       </div>
 
-    </div>
+    </section>
 
-    <div class="profile-fanfics-row">
+    <section class="profile-fanfics-row" id="profile-fanfics-row"></section>
 
-      <div class="work-container" data-id="0">
-        <div class="likes-row">
-          <div class="likes-container">
-            <label id="likes"></label> <!-- Надеюсь, больше 999999 не будет-->
-            <img class="star_likes_icon" src="/assets/images/star_likes.svg" alt="star_likes" />
-          </div>
-        </div>
-        <div class="work-name-container">
-          <label id="nameFanfic"></label>
-        </div>
-        <div class="work-description-container">
-          <p id="descriptionFanfic"></p>
-        </div>
-      </div>
-
-      <div class="work-container" data-id="1">
-        <div class="likes-row">
-          <div class="likes-container ">
-            <label id="likes"></label> <!-- Надеюсь, больше 999999 не будет-->
-            <img class="star_likes_icon" src="/assets/images/star_likes.svg" alt="star_likes" />
-          </div>
-        </div>
-        <div class="work-name-container">
-          <label id="nameFanfic"></label>
-        </div>
-        <div class="work-description-container">
-          <p id="descriptionFanfic"></p>
-        </div>
-      </div>
-
-      <div class="work-container" data-id="2">
-        <div class="likes-row">
-          <div class="likes-container ">
-            <label id="likes"></label> <!-- Надеюсь, больше 999999 не будет-->
-            <img class="star_likes_icon" src="/assets/images/star_likes.svg" alt="star_likes" />
-          </div>
-        </div>
-        <div class="work-name-container">
-          <label id="nameFanfic"></label>
-        </div>
-        <div class="work-description-container">
-          <p id="descriptionFanfic"></p>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="profile-buttons-row">
-      <button id="allWorks">Все работы</button>
+    <nav class="profile-buttons-row">
+      <button id="allWorks">Все работы автора</button>
+      <button id="addWork">Добавить работу</button>
       <button id="exit">Выход</button>
-    </div>
+    </nav>
 
-  </div>
+  </main>
   <script src="assets/js/profile.js"></script>
 </body>
 

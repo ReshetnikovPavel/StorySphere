@@ -1,4 +1,3 @@
-
 const fanficName = document.getElementById('fanficName');
 const rating = document.getElementById('rating');
 const _status = document.getElementById('status');

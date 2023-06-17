@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 
   <head>
     <title>Создать работу</title>
@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/assets/css/app-header.css">
     <link rel="stylesheet" href="/assets/css/modal.css">
     <link rel="stylesheet" href="/assets/css/forms.css">
-    <link rel="stylesheet" href="https://indestructibletype.com/fonts/Jost.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="https://indestructibletype.com/fonts/Jost.css" type="text/css">
     <meta charset="UTF-8">
   </head>
 
@@ -15,146 +15,165 @@
     <script src="assets/js/header.js"></script>
     <h1 class="main-page-heading">Создать работу</h1>
     <form>
-    <div class="row-container">
+      <div class="row-container">
 
-      <div class="first-row">
-        <div class="left-column">
-          <div class="field-row">
-            <div class="label-container">
-              <label for="name">Название</label>
-              <input type="text" id="name" maxlength="35" required>
-            </div>
-          </div>
-          <div class="field-row">
-            <div class="label-container">
-              <label for="fandom">Фандом</label>
-              <input type="text" id="fandom" required>
-            </div>
-          </div>
-          <div class="field-row">
-            <div class="label-container">
-              <label for="persons">Персонажи</label>
-              <input type="text" id="persons" required>
-            </div>
-          </div>
-          <div class="field-row">
-            <div class="label-container">
-              <label for="pairings">Пэйринги</label>
-              <input type="text" id="pairings" required>
-            </div>
-          </div>
-          <div class="field-row">
-            <div class="select-container">
-              <label for="rating">Рейтинг</label>
-              <select id="rating" required>
-                <option value="G"> 
-                  G
-                </option>
-                <option value="PG-13"> 
-                  PG-13
-                </option>
-                <option value="R"> 
-                  R
-                </option>
-                <option value="NC-17"> 
-                  NC-17
-                </option>
-                <option value="E"> 
-                  NC-21
-                </option>
-              </select>
-            </div>
-          </div>
-          <div class="field-row">
-            <div class="select-container">
-              <label for="focus">Направленность</label>
-              <select id="focus" required>
-                <option value="Slash"> 
-                  Слэш
-                </option>
-                <option value="Femslash"> 
-                  Фемслэш
-                </option>
-                <option value="Hetero"> 
-                  Гет
-                </option>
-                <option value="General"> 
-                  Джен
-                </option>
-                <option value="Mixed"> 
-                  Смешанная
-                </option>
-                <option value="Article"> 
-                  Статья
-                </option>
-                <option value="Other"> 
-                  Другое
-                </option>
-              </select>
-            </div>
-          </div>
-          <div class="field-row">
-            <div class="label-container">
-              <label for="genre">Жанры</label>
-              <input type="text" id="genre" required>
-            </div>
-          </div>
-          <div class="field-row">
-            <div class="label-container">
-              <label for="warning">Предупреждения</label>
-              <input type="text" id="warning" required>
-            </div>
-          </div>
-          <div class="field-row">
-            <div class="select-container">
-              <label for="parameters">Параметры</label>
-              <select id="parameters" required>
-                <option value="None"> 
-                  Не указано
-                </option>
-                <option value="NoCriticism"> 
-                  Без критики
-                </option>
-                <option value="SoftCriticism"> 
-                  Мягкая критика
-                </option>
-                <option value="AnyCriticism"> 
-                  Любая критика
-                </option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="right-column">
-          <div class="field-row">
-            <div class="checkbox-container">
-              <label for="translation">Перевод</label>
-              <input type="checkbox" id="translation">
-            </div>
-          </div>
+        <section class="first-row">
+          <section class="left-column">
 
-          <div class="text-container">
-            <label for="shortDescription">Краткое описание</label>
-            <textarea id="shortDescription" required maxlength="500"></textarea>
-          </div>
-        </div>  
-      </div>
-  
-      <div class="second-row">
-        <div class="text-container" >
-          <label for="note">Примечания</label>
-          <textarea id="note" maxlength="500"></textarea>
-        </div>
-      </div>
+            <div class="field-row">
+              <div class="label-container">
+                <label for="name">Название</label>
+                <input type="text" id="name" maxlength="35" required>
+              </div>
+            </div>
 
-      <div class="third-row">
-        <button id="addArt">Добавить арты</button>
-        <button id="publish">Опубликовать</button>
+            <div class="field-row">
+              <div class="label-container">
+                <label for="fandom">Фандом</label>
+                <input type="text" id="fandom" required>
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="label-container">
+                <label for="persons">Персонажи</label>
+                <input type="text" id="persons" required>
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="label-container">
+                <label for="pairings">Пэйринги</label>
+                <input type="text" id="pairings" required>
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="select-container">
+                <label for="rating">Рейтинг</label>
+                <select id="rating" required>
+                  <option value="" disabled selected>
+                    Не указано
+                  </option>
+                  <option value="G"> 
+                    G
+                  </option>
+                  <option value="PG-13"> 
+                    PG-13
+                  </option>
+                  <option value="R"> 
+                    R
+                  </option>
+                  <option value="NC-17"> 
+                    NC-17
+                  </option>
+                  <option value="NC-21"> 
+                    NC-21
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="select-container">
+                <label for="focus">Направленность</label>
+                <select id="focus" required>
+                  <option value="" disabled selected>
+                    Не указано
+                  </option>
+                  <option value="Slash">
+                    ⚣ Слэш
+                  </option>
+                  <option value="Femslash"> 
+                    ⚢ Фемслэш
+                  </option>
+                  <option value="Hetero"> 
+                    ⚤ Гет
+                  </option>
+                  <option value="General"> 
+                    ⚔︎ Джен
+                  </option>
+                  <option value="Mixed"> 
+                    〰 Смешанная
+                  </option>
+                  <option value="Article"> 
+                    ✒ Статья
+                  </option>
+                  <option value="Other"> 
+                    ◯ Другое
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="label-container">
+                <label for="genre">Жанры</label>
+                <input type="text" id="genre" required>
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="label-container">
+                <label for="warning">Предупреждения</label>
+                <input type="text" id="warning" required>
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="select-container">
+                <label for="parameters">Параметры</label>
+                <select id="parameters" required>
+                  <option value="">
+                    Не указано
+                  </option>
+                  <option value="NoCriticism"> 
+                    Без критики
+                  </option>
+                  <option value="SoftCriticism"> 
+                    Мягкая критика
+                  </option>
+                  <option value="AnyCriticism"> 
+                    Любая критика
+                  </option>
+                </select>
+              </div>
+            </div>
+
+          </section>
+
+          <section class="right-column">
+            <div class="field-row">
+              <div class="checkbox-container">
+                <label for="translation">Перевод</label>
+                <input type="checkbox" id="translation">
+              </div>
+            </div>
+
+            <div class="text-container">
+              <label for="shortDescription">Краткое описание</label>
+              <textarea id="shortDescription" required maxlength="500"></textarea>
+            </div>
+          </section>
+
+        </section>
+    
+        <section class="second-row">
+          <div class="text-container" >
+            <label for="note">Примечания</label>
+            <textarea id="note" maxlength="500"></textarea>
+          </div>
+        </section>
+
+        <nav class="third-row">
+          <button id="addArt">Добавить арты</button>
+          <button id="publish">Опубликовать</button>
+        </nav>
+        <label>Выбранные файлы (нажмите для удаления):</label>
+        <ul id="fileList"></ul>
       </div>
-      <ul id="fileList">Выбранные файлы (нажмите для удаления):</ul>
-  </div>
-</form>
-<script src="assets/js/add-fanfic.js"></script>
-</body>
+    </form>
+    <script src="assets/js/add-fanfic.js"></script>
+  </body>
 
 </html>

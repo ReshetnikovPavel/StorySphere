@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 
   <head>
     <title>Добавить главу</title>
@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/assets/css/app-header.css">
     <link rel="stylesheet" href="/assets/css/modal.css">
     <link rel="stylesheet" href="/assets/css/forms.css">
-    <link rel="stylesheet" href="https://indestructibletype.com/fonts/Jost.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="https://indestructibletype.com/fonts/Jost.css" type="text/css">
     <meta charset="UTF-8">
   </head>
 
@@ -15,24 +15,24 @@
     <script src="assets/js/header.js"></script>
     <h1 class="main-page-heading">Добавить главу</h1>
     <form>
-    <div class="row-container">
-      <div class="name-chapter">
-        <label for="name">Название главы *</label>
-        <input type="text" id="name" required>
-      </div>
-
-      <div class="content-chapter">
-        <div class="text-container" >
-          <label for="content">Содержание</label>
-          <textarea id="content" rows="300"></textarea>
+      <div class="row-container">
+        <div class="name-chapter">
+          <label for="name">Название главы *</label>
+          <input type="text" id="name" required>
         </div>
+
+        <div class="content-chapter">
+          <div class="text-container" >
+            <label for="content">Содержание</label>
+            <textarea id="content" rows="300"></textarea>
+          </div>
+        </div>
+        
+        <nav class="button-chapter">
+          <button id="publish">Опубликовать</button>
+          <button id="draft">Сохранить черновик</button>
+        </nav>
       </div>
-      
-      <div class="button-chapter">
-        <button id="publish">Опубликовать</button>
-        <button id="draft">Сохранить черновик</button>
-      </div>
-    </div>
     </form>
     <script src="assets/js/add-chapter.js"></script>
   </body>

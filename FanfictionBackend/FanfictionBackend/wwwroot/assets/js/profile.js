@@ -7,34 +7,8 @@ const authorTime = getOnlineTime();
 loadingData(authorTime, timeInput);
 
 const fanficsInfo = getFanfics();
-const containers = document.querySelectorAll('.work-container[data-id]');
 
-containers.forEach(container => {
-  const id = container.dataset.id;
-  const likes = container.querySelector(`#likes`);
-  const name = container.querySelector(`#nameFanfic`);
-  const description = container.querySelector(`#descriptionFanfic`);
-
-  name.setAttribute('style', 'cursor: pointer;');
-
-  const [nameInfo, likesInfo, descriptionInfo, link] = fanficsInfo[id];
-  //console.log([nameInfo, likesInfo, descriptionInfo]);
-
-  if (nameInfo === null || descriptionInfo === null) {
-    container.remove();
-  } else {
-    name.textContent = nameInfo;
-    description.textContent = descriptionInfo;
-  }
-
-  likes.textContent = likesInfo || 0;
-
-  name.setAttribute('data-link', link);
-  name.addEventListener('click', () => {
-    const link = name.getAttribute('data-link');
-    window.location.href = link;
-  });
-});
+addFanficsRow();
 
 const allWorksBtn = document.querySelector('#allWorks');
 const hrefAllWorks = getHrefAllWorks();
@@ -52,6 +26,79 @@ image.setAttribute('src', getAvatar());
 image.addEventListener('click', () => {
   setAvatar();
 });
+
+const addWorkBtn = document.querySelector('#addWork');
+addWorkBtn.addEventListener('click', () => {
+  window.location.href = 'add-fanfic.html';
+})
+
+function addFanficsRow() {
+  const profileFanficRow = document.getElementById('profile-fanfics-row');
+
+  for (let j = 0; j < 3; j++) {
+      const info = fanficsInfo[j];
+      if (info[0] == null) continue;
+      const workContainer = createWorkContainer(info, j);
+      profileFanficRow.appendChild(workContainer);
+  }
+}
+
+function createWorkContainer(info, number) {
+  const workContainer = document.createElement('section');
+  workContainer.classList.add('work-container');
+  workContainer.setAttribute('data-id', number)
+
+  //Добавление лайков
+  const likesRow = document.createElement('div');
+  likesRow.classList.add('likes-row');
+
+  const likesContainer = document.createElement('div');
+  likesContainer.classList.add('likes-container');
+
+  const labelLikes = document.createElement('label');
+  labelLikes.textContent = info[1] || 0;
+
+  const starLikesIcon = document.createElement('img');
+  starLikesIcon.classList.add('star_likes_icon');
+  starLikesIcon.setAttribute('src', 'assets/images/star_likes.svg');
+  starLikesIcon.setAttribute('alt', 'star_likes');
+
+  likesContainer.appendChild(labelLikes);
+  likesContainer.appendChild(starLikesIcon);
+
+  likesRow.appendChild(likesContainer);
+
+  workContainer.appendChild(likesRow);
+
+  //Добавление имени фанфика
+  const workNameContainer = document.createElement('div');
+  workNameContainer.classList.add('work-name-container');
+
+  const nameFanfic = document.createElement('h3');
+  nameFanfic.textContent = info[0];
+  nameFanfic.setAttribute('style', 'cursor: pointer;');
+
+  nameFanfic.setAttribute('data-link', info[3]);
+  nameFanfic.addEventListener('click', () => {
+      const link = nameFanfic.getAttribute('data-link');
+      window.location.href = link;
+  });
+
+  workNameContainer.appendChild(nameFanfic);
+  workContainer.appendChild(workNameContainer);
+
+  //Добавление описания фанфика
+  const workDescriptionContainer = document.createElement('div');
+  workDescriptionContainer.classList.add('work-description-container');
+
+  const descriptionFanfic = document.createElement('p');
+  descriptionFanfic.textContent = info[2];
+
+  workDescriptionContainer.appendChild(descriptionFanfic);
+  workContainer.appendChild(workDescriptionContainer);
+
+  return workContainer;
+}
 
 function getAvatar() {
     return localStorage.getItem('currentAvatar') || "/assets/images/profile-author.svg";
