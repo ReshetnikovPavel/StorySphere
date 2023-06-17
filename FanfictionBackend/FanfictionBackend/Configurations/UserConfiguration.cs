@@ -22,9 +22,9 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
 
         builder
             .HasOne(u => u.Password)
-            .WithOne()
-            .HasForeignKey<Password>("UserId")
-            .IsRequired();
+            // .WithOne()
+            // .HasForeignKey<Password>("UserId")
+            // .IsRequired();
 
         builder.HasMany<Fanfic>(u => u.Fanfics)
             .WithOne(f => f.Author)
