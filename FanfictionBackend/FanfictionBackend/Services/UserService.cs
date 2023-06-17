@@ -21,7 +21,7 @@ public class UserService : IUserService
     public async Task<IResult> GetAllUsers()
     {
         var res = await _userRepo.GetAllUsers();
-        return TypedResults.Ok(res);
+        return TypedResults.Ok(_mapper.Map<IEnumerable<User>, IEnumerable<UserDto>>(res));
     }
 
     public async Task<IResult> GetUserByUsername(string name)
