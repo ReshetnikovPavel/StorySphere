@@ -22,6 +22,7 @@ public class UserRepo : IUserRepo
     public async Task AddUser(User user)
     {
         await _dataContext.Users.AddAsync(user);
+        await _dataContext.Passwords.AddAsync(user.Password);
         await _dataContext.SaveChangesAsync();
     }
 
@@ -32,6 +33,8 @@ public class UserRepo : IUserRepo
     
     public async Task<User?> GetByEmail(string email)
     {
-        return await _dataContext.Users.FirstOrDefaultAsync(user => user.Email == email);
+        return await _dataContext.Users
+            .Include(u => u.Password)
+            .FirstOrDefaultAsync(user => user.Email == email);
     }
 }

@@ -41,6 +41,7 @@ public class UserService : IUserService
         
         var user = _mapper.Map<UserDto, User>(userDto);
         user.Password = _hasher.HashPassword(password);
+        user.FirstName = "PashaPashaPashaPashaPasha";
         await _userRepo.AddUser(user);
         // return TypedResults.Created($"/author/{user.Id}");
         return TypedResults.Ok(new object[] { user, password });

@@ -20,7 +20,11 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
         builder.Property(u => u.LastName)
             .HasMaxLength(50);
 
-        builder.HasOne<Password>();
+        builder
+            .HasOne(u => u.Password)
+            .WithOne()
+            .HasForeignKey<Password>("UserId")
+            .IsRequired();
 
         builder.HasMany<Fanfic>(u => u.Fanfics)
             .WithOne(f => f.Author)
