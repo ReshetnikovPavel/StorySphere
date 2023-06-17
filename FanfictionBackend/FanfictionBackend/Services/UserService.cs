@@ -16,7 +16,8 @@ public class UserService : IUserService
     
     public async Task<IResult> GetAllUsers()
     {
-        throw new NotImplementedException();
+        var res = await _userRepo.GetAllUsers();
+        return TypedResults.Ok(res);
     }
 
     public async Task<IResult> GetUserById(int id)

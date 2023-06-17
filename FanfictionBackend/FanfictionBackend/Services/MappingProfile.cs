@@ -14,5 +14,7 @@ public class MappingProfile : Profile
         CreateMap<ChapterDto, Chapter>();
         CreateMap<Tag, TagDto>();
         CreateMap<TagDto, Tag>();
+        CreateMap<User, UserDto>();
+        CreateMap<UserDto, User>();
     }
 }

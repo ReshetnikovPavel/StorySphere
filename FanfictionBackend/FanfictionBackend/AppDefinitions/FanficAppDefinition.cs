@@ -13,7 +13,7 @@ public class FanficAppDefinition : IAppDefinition
 {
     public void DefineApp(WebApplication app)
     {
-        // app.MapGet("/", HelloWorld);
+        app.MapGet("/", StartApp);
         DefineFanficEndpoints(app);
         DefineUserEndpoints(app);
     }
@@ -30,6 +30,7 @@ public class FanficAppDefinition : IAppDefinition
         services.AddScoped<IDateTimeProvider, UtcDateTimeProvider>();
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<IFanficService, FanficService>();
+        services.AddScoped<DemoFactory>();
         
         services.AddAutoMapper(typeof(MappingProfile));
     }
@@ -67,10 +68,16 @@ public class FanficAppDefinition : IAppDefinition
             => await us.LoginUser(username, password));
     }
 
+    private static async Task<IResult> StartApp(DemoFactory demoFactory)
+    {
+        demoFactory.InitData();
+        return TypedResults.Redirect("/index.html");
+    }
+    
     private static async Task<IResult> HelloWorld()
     {
-        async Task<Fanfic> CreateAsync() => new() { Title = "Greetings, thou cosmos!" };
-        var res = await CreateAsync();
+        async Task<Fanfic> CreateAsync(string title) => new() { Title = title };
+        var res = await CreateAsync("Greetings, thou cosmos!");
         return TypedResults.Ok(res);
     }
 }

@@ -1,3 +1,4 @@
+using FanfictionBackend.Dto;
 using FanfictionBackend.Interfaces;
 using FanfictionBackend.Models;
 using Microsoft.EntityFrameworkCore;
@@ -13,7 +14,12 @@ public class UserRepo : IUserRepo
         _dataContext = dataContext;
     }
 
-    public async Task AddUser(User user)
+    public async Task<IEnumerable<User>> GetAllUsers()
+    {
+        return await _dataContext.Users.ToListAsync();
+    }
+
+    public async Task AddUser(UserDto user)
     {
         await _dataContext.Users.AddAsync(user);
         await _dataContext.SaveChangesAsync();

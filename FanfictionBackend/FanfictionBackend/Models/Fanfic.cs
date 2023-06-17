@@ -9,7 +9,7 @@ public class Fanfic
     public DateTimeOffset Created { get; set; }
     public DateTimeOffset Updated { get; set; }
     public int AuthorId { get; set; }
-    public User Author { get; set; }
+    public User? Author { get; set; }
     public AgeLimit AgeLimit { get; set; }
     public Category Category { get; set; }
     public List<Chapter> Chapters { get; set; }
