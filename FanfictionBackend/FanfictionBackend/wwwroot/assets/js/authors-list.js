@@ -43,6 +43,10 @@ function addAuthorInList(column) {
     name.textContent = info[0];
     name.setAttribute('style', 'cursor: pointer;');
     name.setAttribute('data-link', info[4]);
+    name.addEventListener('click', () => {
+        const link = name.getAttribute('data-link');
+        window.location.href = link;
+    });
 
     authorName.appendChild(name);
     authorRow.appendChild(authorName);
