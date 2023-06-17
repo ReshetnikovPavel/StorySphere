@@ -9,7 +9,7 @@ const searchResultRowContainer = document.getElementById('search-result-row-cont
 const leftColumn = document.getElementById('left-column');
 const rightColumn = document.getElementById('right-column');
 
-for (let i = 0; i < 7; i++)
+for (let i = 0; i < 15; i++)
     addAuthorInList(leftColumn);
     addAuthorInList(rightColumn);
 
