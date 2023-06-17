@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "vQwhnFikdFDtgy4V6AnemYbgcuw5NTOMfS/aFcR2hLU=",
+  "Hash": "BNYA7LXBUkKA1EZws6nkBtJV9AMDvKFlB4ZkP+awAVo=",
   "Source": "FanfictionBackend",
   "BasePath": "_content/FanfictionBackend",
   "Mode": "Default",
@@ -782,23 +782,6 @@
       "OriginalItemSpec": "wwwroot\\fanfic-page.html"
     },
     {
-      "Identity": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\fanfics-list.html",
-      "SourceId": "FanfictionBackend",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\",
-      "BasePath": "_content/FanfictionBackend",
-      "RelativePath": "fanfics-list.html",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\fanfics-list.html"
-    },
-    {
       "Identity": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\index.html",
       "SourceId": "FanfictionBackend",
       "SourceType": "Discovered",
@@ -814,23 +797,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\index.html"
-    },
-    {
-      "Identity": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\profile-settings.html",
-      "SourceId": "FanfictionBackend",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\",
-      "BasePath": "_content/FanfictionBackend",
-      "RelativePath": "profile-settings.html",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\profile-settings.html"
     },
     {
       "Identity": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\profile.html",
