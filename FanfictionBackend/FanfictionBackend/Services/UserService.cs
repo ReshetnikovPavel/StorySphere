@@ -24,13 +24,20 @@ public class UserService : IUserService
         return TypedResults.Ok(res);
     }
 
-    public async Task<IResult> GetUserById(int id)
+    public async Task<IResult> GetUserByUsername(string name)
     {
-        throw new NotImplementedException();
+        var res = await _userRepo.GetByUsername(name);
+        if (res == null)
+            return TypedResults.NotFound("User not found");
+
+        return TypedResults.Ok(_mapper.Map<User, UserDto>(res));
     }
 
     public async Task<IResult> RegisterUser(UserDto userDto, string password)
     {
+        userDto.Username = userDto.Username.ToLower();
+        userDto.Email = userDto.Email.ToLower();
+        
         var existingUser = _userRepo.GetByUsername(userDto.Username);
         if (existingUser.Result != null)
             return TypedResults.Conflict("Username already taken");
@@ -43,8 +50,7 @@ public class UserService : IUserService
         user.Password = _hasher.HashPassword(password);
         user.FirstName = "PashaPashaPashaPashaPasha";
         await _userRepo.AddUser(user);
-        // return TypedResults.Created($"/author/{user.Id}");
-        return TypedResults.Ok(new object[] { user, password });
+        return TypedResults.Created($"/author/{user.Id}");
     }
 
     public async Task<IResult> LoginUser(string email, string password)

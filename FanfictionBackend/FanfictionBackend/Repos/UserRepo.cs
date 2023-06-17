@@ -28,13 +28,13 @@ public class UserRepo : IUserRepo
 
     public async Task<User?> GetByUsername(string username)
     {
-        return await _dataContext.Users.FirstOrDefaultAsync(user => user.Username == username);
+        return await _dataContext.Users.FirstOrDefaultAsync(user => user.Username == username.ToLower());
     }
     
     public async Task<User?> GetByEmail(string email)
     {
         return await _dataContext.Users
             .Include(u => u.Password)
-            .FirstOrDefaultAsync(user => user.Email == email);
+            .FirstOrDefaultAsync(user => user.Email == email.ToLower());
     }
 }

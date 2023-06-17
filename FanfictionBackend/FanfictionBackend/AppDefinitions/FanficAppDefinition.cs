@@ -58,8 +58,8 @@ public class FanficAppDefinition : IAppDefinition
         app.MapGet("/authors", async (IUserService us)
             => await us.GetAllUsers());
         
-        app.MapGet("/author/{id:int}", async (IUserService us, int id)
-            => await us.GetUserById(id));
+        app.MapGet("/author/{username}", async (IUserService us, string username)
+            => await us.GetUserByUsername(username));
         
         app.MapPost("/authors", async (IUserService us, UserDto user, string password)
             => await us.RegisterUser(user, password));
