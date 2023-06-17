@@ -10,5 +10,11 @@ var app = builder.BuildByDefinitions(
     new SwaggerAppDefinition()
 );
 
+using (var scope = app.Services.CreateScope())
+{
+    var demoFactory = scope.ServiceProvider.GetRequiredService<DemoFactory>();
+    demoFactory.InitData();
+}
+
 app.UseFileServer();
 app.Run();
