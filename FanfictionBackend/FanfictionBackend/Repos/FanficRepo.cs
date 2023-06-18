@@ -36,9 +36,11 @@ public class FanficRepo : IFanficRepo
         return await _dataContext.Fanfics.FirstOrDefaultAsync(f => f.Title == title);
     }
 
-    public async Task<Pagination<Fanfic>?> GetRecentlyUpdated(int pageNumber, int pageSize)
+    public async Task<PagedList<Fanfic>> GetRecentlyUpdated(PagingParameters pagingParameters)
     {
-        var result = _dataContext.Fanfics.OrderByDescending(f => f.Updated).ToPaginationList(pageNumber, pageSize);
+        var result = _dataContext.Fanfics
+            .OrderByDescending(f => f.Updated)
+            .ToPagedList(pagingParameters);
         return await Task.FromResult(result);
     }
 

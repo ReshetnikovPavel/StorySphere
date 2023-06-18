@@ -10,5 +10,6 @@ public class User
     public List<Fanfic> Fanfics { get; set; }
     
     public Password Password { get; set; }
-    public List<Like> Likes { get; set; }
+    public List<Like> LikedFanfics { get; set; }
+    public int NumLikes { get; set; }
 }

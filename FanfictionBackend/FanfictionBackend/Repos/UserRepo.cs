@@ -1,6 +1,8 @@
 using FanfictionBackend.Dto;
+using FanfictionBackend.ExtensionClasses;
 using FanfictionBackend.Interfaces;
 using FanfictionBackend.Models;
+using FanfictionBackend.Pagination;
 using Microsoft.EntityFrameworkCore;
 
 namespace FanfictionBackend.Repos;
@@ -14,9 +16,11 @@ public class UserRepo : IUserRepo
         _dataContext = dataContext;
     }
 
-    public async Task<IEnumerable<User>> GetAllUsers()
+    public IEnumerable<User> GetUsers(PagingParameters pagingParameters)
     {
-        return await _dataContext.Users.ToListAsync();
+        return _dataContext.Users
+            .OrderByDescending(u => u.NumLikes)
+            .ToPagedList(pagingParameters);
     }
 
     public async Task AddUser(User user)

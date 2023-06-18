@@ -1,5 +1,6 @@
 ﻿using FanfictionBackend.Interfaces;
 using FanfictionBackend.Models;
+using FanfictionBackend.Pagination;
 
 namespace FanfictionBackend.Services;
 
@@ -16,11 +17,11 @@ public class FanficService : IFanficService
         _dateTimeProvider = dateTimeProvider;
     }
     
-    public async Task<IResult> GetRecentlyUpdatedFanfics(int pageNumber, int pageSize)
+    public async Task<IResult> GetRecentlyUpdatedFanfics(PagingParameters pagingParameters)
     {
         try
         {
-            return TypedResults.Ok(await _fanficRepo.GetRecentlyUpdated(pageNumber, pageSize));
+            return TypedResults.Ok(await _fanficRepo.GetRecentlyUpdated(pagingParameters));
         }
         catch (ArgumentException e)
         {

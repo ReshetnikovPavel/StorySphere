@@ -2,6 +2,7 @@
 using FanfictionBackend.Dto;
 using FanfictionBackend.Interfaces;
 using FanfictionBackend.Models;
+using FanfictionBackend.Pagination;
 using FanfictionBackend.Repos;
 using FanfictionBackend.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -13,7 +14,6 @@ public class FanficAppDefinition : IAppDefinition
 {
     public void DefineApp(WebApplication app)
     {
-        // app.MapGet("/", StartApp);
         DefineFanficEndpoints(app);
         DefineUserEndpoints(app);
     }
@@ -37,8 +37,8 @@ public class FanficAppDefinition : IAppDefinition
 
     private static void DefineFanficEndpoints(IEndpointRouteBuilder app)
     {
-        app.MapGet("/fanfics/recent", async (IFanficService fs, int pageNumber, int pageSize)
-            => await fs.GetRecentlyUpdatedFanfics(pageNumber, pageSize));
+        app.MapGet("/fanfics/recent", async (IFanficService fs, int? pageSize, int? pageNumber)
+            => await fs.GetRecentlyUpdatedFanfics(new PagingParameters(pageSize, pageNumber)));
         
         app.MapGet("/fanfic", async (IFanficService fs, string? title)
             => await fs.GetFanficByTitle(title));
@@ -55,8 +55,8 @@ public class FanficAppDefinition : IAppDefinition
 
     private static void DefineUserEndpoints(IEndpointRouteBuilder app)
     {
-        app.MapGet("/authors", async (IUserService us)
-            => await us.GetAllUsers());
+        app.MapGet("/authors", (IUserService us, int? pageSize, int? pageNumber)
+            => us.GetUsers(new PagingParameters(pageSize, pageNumber)));
         
         app.MapGet("/author/{username}", async (IUserService us, string username)
             => await us.GetUserByUsername(username));
@@ -68,12 +68,6 @@ public class FanficAppDefinition : IAppDefinition
             => await us.LoginUser(username, password));
     }
 
-    private static async Task<IResult> StartApp(DemoFactory demoFactory)
-    {
-        demoFactory.InitData();
-        return TypedResults.Redirect("/index.html");
-    }
-    
     private static async Task<IResult> HelloWorld()
     {
         async Task<Fanfic> CreateAsync(string title) => new() { Title = title };

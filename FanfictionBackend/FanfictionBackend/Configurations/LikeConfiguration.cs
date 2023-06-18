@@ -11,7 +11,7 @@ public class LikeConfiguration : IEntityTypeConfiguration<Like>
         builder.HasKey(l => new { l.UserId, l.FanficId });
 
         builder.HasOne(l => l.User)
-            .WithMany(u => u.Likes)
+            .WithMany(u => u.LikedFanfics)
             .HasForeignKey(l => l.UserId)
             .OnDelete(DeleteBehavior.Cascade);
 

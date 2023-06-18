@@ -2,6 +2,7 @@
 using FanfictionBackend.Dto;
 using FanfictionBackend.Interfaces;
 using FanfictionBackend.Models;
+using FanfictionBackend.Pagination;
 
 namespace FanfictionBackend.Services;
 
@@ -18,9 +19,9 @@ public class UserService : IUserService
         _mapper = mapper;
     }
     
-    public async Task<IResult> GetAllUsers()
+    public IResult GetUsers(PagingParameters pagingParameters)
     {
-        var res = await _userRepo.GetAllUsers();
+        var res = _userRepo.GetUsers(pagingParameters);
         return TypedResults.Ok(_mapper.Map<IEnumerable<User>, IEnumerable<UserDto>>(res));
     }
 
