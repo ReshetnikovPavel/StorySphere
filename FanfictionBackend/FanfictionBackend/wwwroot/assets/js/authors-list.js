@@ -9,9 +9,10 @@ const searchResultRowContainer = document.getElementById('search-result-row-cont
 const leftColumn = document.getElementById('left-column');
 const rightColumn = document.getElementById('right-column');
 
-for (let i = 0; i < 15; i++)
+for (let i = 0; i < 15; i++) {
     addAuthorInList(leftColumn);
     addAuthorInList(rightColumn);
+}
 
 window.addEventListener('scroll', function() {
     addAuthorInList(leftColumn);
@@ -19,6 +20,10 @@ window.addEventListener('scroll', function() {
 });
 
 function addAuthorInList(column) {
+    if (dataIndex + 1 > dataLength) {
+        return;
+    }
+
     info = authorsInfo[dataIndex];
     const authorRow = document.createElement('section');
     authorRow.classList.add('authors-list-author-row');
@@ -82,10 +87,6 @@ function addAuthorInList(column) {
     column.appendChild(authorRow);
 
     dataIndex++;
-    if (dataIndex === dataLength) {
-        dataIndex = 0;
-        cycle++;
-    }
 }
 
 function getAuthorsInfo() {
