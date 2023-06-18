@@ -39,7 +39,7 @@ public class FanficRepo : IFanficRepo
     public async Task<PagedList<Fanfic>> GetRecentlyUpdated(PagingParameters pagingParameters)
     {
         var result = _dataContext.Fanfics
-            .OrderByDescending(f => f.Updated)
+            .OrderByDescending(f => f.LastUpdated)
             .ToPagedList(pagingParameters);
         return await Task.FromResult(result);
     }

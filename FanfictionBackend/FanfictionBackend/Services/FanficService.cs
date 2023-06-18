@@ -46,7 +46,7 @@ public class FanficService : IFanficService
     public async Task<IResult> AddFanfic(Fanfic fanfic)
     {
         fanfic.Created = _dateTimeProvider.Now;
-        fanfic.Updated = fanfic.Created;
+        fanfic.LastUpdated = fanfic.Created;
         
         await _fanficRepo.AddFanfic(fanfic);
         return TypedResults.Ok();
