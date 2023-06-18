@@ -25,13 +25,13 @@ addWorkBtn.addEventListener('click', () => {
   window.location.href = 'add-fanfic.html';
 })
 
-const profileAvatar = document.getElementById('profileAvatar');
-profileAvatar.setAttribute('style', 'cursor: pointer;');
-profileAvatar.setAttribute('src', getAvatar());
+const openModalButton = document.getElementById('profileAvatar');
+openModalButton.setAttribute('style', 'cursor: pointer;');
+openModalButton.setAttribute('src', getAvatar());
 const modal = document.getElementById('modal');
 const closeButton = modal.querySelector('.close');
 
-profileAvatar.addEventListener('click', () => {
+openModalButton.addEventListener('click', () => {
   modal.style.display = 'block';
 });
 
@@ -48,7 +48,7 @@ for(let i = 0; i < images.length; i++) {
     image.setAttribute('id', `avatar${i + 1}`);
     image.addEventListener('click', () => {
       setAvatar(`avatar${i + 1}`);
-      profileAvatar.setAttribute('src', getAvatar());
+      openModalButton.setAttribute('src', getAvatar());
       closeButton.click();
     });
 

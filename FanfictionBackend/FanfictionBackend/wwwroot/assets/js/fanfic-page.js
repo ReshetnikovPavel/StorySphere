@@ -91,11 +91,11 @@ likeButton.addEventListener('click', () => {
 });
 
 const openModalButton = document.getElementById('gallery');
-profileAvatar.setAttribute('style', 'cursor: pointer;');
+openModalButton.setAttribute('style', 'cursor: pointer;');
 const modal = document.getElementById('modal');
 const closeButton = modal.querySelector('.close');
 
-profileAvatar.addEventListener('click', () => {
+openModalButton.addEventListener('click', () => {
   modal.style.display = 'block';
 });
 
@@ -119,14 +119,16 @@ for(let i = 0; i < images.length; i++) {
 }
 
 function getIsLike() {
-    return false;
+    return localStorage.getItem('like') || false;
 }
 
 function setLikeValue() {
     if (IsLike) {
         alert('Вы лайкнули работу!')
+        localStorage.setItem('like', true);
     } else {
         alert('Вы убрали лайк с работы!')
+        localStorage.setItem('like', false);
     }
 }
 
