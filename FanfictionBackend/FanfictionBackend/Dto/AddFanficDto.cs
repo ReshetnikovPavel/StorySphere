@@ -1,11 +1,9 @@
-using FanfictionBackend.Models;
+﻿using FanfictionBackend.Models;
 
 namespace FanfictionBackend.Dto;
 
-public class FanficDto
+public class AddFanficDto
 {
-    public int Id { get; set; }
-    public string AuthorName { get; set; }
     public string Title { get; set; }
     public string Fandom { get; set; }
     public string Characters { get; set; }
@@ -17,8 +15,4 @@ public class FanficDto
     public string AuthorNotes { get; set; }
     public string Description { get; set; }
     public bool IsTranslation { get; set; }
-    
-    public int NumLikes { get; set; }
-    public DateTimeOffset Created { get; set; }
-    public DateTimeOffset LastUpdated { get; set; }
 }
