@@ -19,7 +19,7 @@ public class UserRepo : IUserRepo
     public PagedList<User> GetUsers(PagingParameters pagingParameters)
     {
         return _dataContext.Users
-            .OrderByDescending(u => u.NumLikes)
+            .OrderByDescending(u => u.ReceivedLikes)
             .ToPagedList(pagingParameters);
     }
 

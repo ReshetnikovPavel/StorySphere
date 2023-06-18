@@ -15,6 +15,7 @@ public class Fanfic
     public string AuthorNotes { get; set; }
     public string Description { get; set; }
     public bool IsTranslation { get; set; }
+    
     public List<Chapter> Chapters { get; set; }
     public List<Like> Likes { get; set; }
     public DateTimeOffset Created { get; set; }
