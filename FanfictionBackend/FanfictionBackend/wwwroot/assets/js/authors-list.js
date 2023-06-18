@@ -98,6 +98,7 @@ function getAuthorsInfo() {
 
 // Пример применения fetchAuthorsPage. Выводит полученный список авторов в консоль
 // Предлагаю раскомментировать и запустить, чтобы посмотреть на объект, который он выведет.
+// pageSize - размер одной страницы, pageNumber - номер текущей страницы.
 // fetchAuthorsPage(2, 1) 
 //     .then((pagedList) => {
 //         console.log(pagedList); 
