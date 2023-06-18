@@ -37,20 +37,14 @@ public class FanficAppDefinition : IAppDefinition
 
     private static void DefineFanficEndpoints(IEndpointRouteBuilder app)
     {
-        app.MapGet("/fanfics/recent", async (IFanficService fs, int? pageSize, int? pageNumber)
-            => await fs.GetRecentlyUpdatedFanfics(new PagingParameters(pageSize, pageNumber)));
+        app.MapGet("/fanfics/recent",  (IFanficService fs, int? pageSize, int? pageNumber)
+            => fs.GetRecentlyUpdatedFanfics(new PagingParameters(pageSize, pageNumber)));
         
-        app.MapGet("/fanfic", async (IFanficService fs, string? title)
-            => await fs.GetFanficByTitle(title));
-        
-        app.MapGet("/fanfic/{id:int}", async (IFanficService fs, int id)
-            => await fs.GetFanficById(id));
-        
-        app.MapPost("/fanfics", async (IFanficService fs, Fanfic fanfic)
-            => await fs.AddFanfic(fanfic));
-        
-        app.MapPost("/fanfic/{id:int}/chapters", async (IFanficService fs, Chapter chapter, int id)
-            => await fs.AddChapter(chapter, id));
+        app.MapGet("/fanfic",  (IFanficService fs, string title)
+            => fs.GetFanficByTitle(title));
+
+        app.MapPost("/fanfics",  (IFanficService fs, FanficDto fanfic)
+            => fs.AddFanfic(fanfic));
     }
 
     private static void DefineUserEndpoints(IEndpointRouteBuilder app)
@@ -58,14 +52,14 @@ public class FanficAppDefinition : IAppDefinition
         app.MapGet("/authors", (IUserService us, int? pageSize, int? pageNumber)
             => us.GetUsers(new PagingParameters(pageSize, pageNumber)));
         
-        app.MapGet("/author/{username}", async (IUserService us, string username)
-            => await us.GetUserByUsername(username));
+        app.MapGet("/author/{username}",  (IUserService us, string username)
+            => us.GetUserByUsername(username));
         
-        app.MapPost("/authors", async (IUserService us, UserDto user, string password)
-            => await us.RegisterUser(user, password));
+        app.MapPost("/authors",  (IUserService us, UserDto user, string password)
+            => us.RegisterUser(user, password));
         
-        app.MapGet("/session", async (IUserService us, string username, string password)
-            => await us.LoginUser(username, password));
+        app.MapGet("/session",  (IUserService us, string email, string password)
+            => us.LoginUser(email, password));
     }
 
     private static async Task<IResult> HelloWorld()

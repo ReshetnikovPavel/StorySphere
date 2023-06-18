@@ -1,13 +1,12 @@
-using FanfictionBackend.Dto;
 using FanfictionBackend.Models;
 using FanfictionBackend.Pagination;
 
-namespace FanfictionBackend.Interfaces;
+namespace FanfictionBackend.Repos;
 
 public interface IUserRepo
 {
     public PagedList<User> GetUsers(PagingParameters pagingParameters);
-    public Task AddUser(User user);
-    public Task<User?> GetByUsername(string name);
-    public Task<User?> GetByEmail(string email);
+    public void AddUser(User user);
+    public User? GetByUsername(string name);
+    public User? GetByEmail(string email);
 }

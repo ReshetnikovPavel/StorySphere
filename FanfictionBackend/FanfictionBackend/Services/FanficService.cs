@@ -1,4 +1,5 @@
-﻿using FanfictionBackend.Interfaces;
+﻿using FanfictionBackend.Dto;
+using FanfictionBackend.Interfaces;
 using FanfictionBackend.Models;
 using FanfictionBackend.Pagination;
 
@@ -16,52 +17,29 @@ public class FanficService : IFanficService
         _chapterRepo = chapterRepo;
         _dateTimeProvider = dateTimeProvider;
     }
-    
-    public async Task<IResult> GetRecentlyUpdatedFanfics(PagingParameters pagingParameters)
-    {
-        try
-        {
-            return TypedResults.Ok(await _fanficRepo.GetRecentlyUpdated(pagingParameters));
-        }
-        catch (ArgumentException e)
-        {
-            return TypedResults.BadRequest(e);
-        }
-    }
 
-    public async Task<IResult> GetFanficByTitle(string? title)
-    {
-        if (title == null)
-            return TypedResults.BadRequest("Fanfic title can't be null");
-        var fanfic = await _fanficRepo.GetByTitle(title);
-        return fanfic == null ? TypedResults.NotFound() : TypedResults.Redirect($"/fanfic/{fanfic.Id}");
-    }
-
-    public async Task<IResult> GetFanficById(int id)
-    {
-        var fanfic = await _fanficRepo.GetById(id);
-        return fanfic == null ? TypedResults.NotFound() : TypedResults.Ok(fanfic);
-    }
-
-    public async Task<IResult> AddFanfic(Fanfic fanfic)
-    {
-        fanfic.Created = _dateTimeProvider.Now;
-        fanfic.LastUpdated = fanfic.Created;
-        
-        await _fanficRepo.AddFanfic(fanfic);
-        return TypedResults.Ok();
-    }
-
-    public async Task<IResult> AddChapter(Chapter chapter, int id)
+    public IResult GetRecentlyUpdatedFanfics(PagingParameters pagingParameters)
     {
         throw new NotImplementedException();
-        // var fanfic = await _fanficRepo.GetById(id);
-        // if (fanfic == null)
-        //     return TypedResults.NotFound("No fanfic with this id exists");
-        //
-        // chapter.Fanfic.Id = id;
-        // await _chapterRepo.AddChapter(chapter);
-        // fanfic.Updated = _dateTimeProvider.Now;
-        // return TypedResults.Ok();
+    }
+
+    public IResult GetFanficByTitle(string title)
+    {
+        throw new NotImplementedException();
+    }
+
+    public IResult GetFanficsByAuthor(string authorName, PagingParameters pagingParameters)
+    {
+        throw new NotImplementedException();
+    }
+
+    public IResult AddFanfic(FanficDto fanfic)
+    {
+        throw new NotImplementedException();
+    }
+
+    public IResult AddChapter(ChapterDto chapter, FanficDto toFanfic)
+    {
+        throw new NotImplementedException();
     }
 }

@@ -15,33 +15,18 @@ public class FanficRepo : IFanficRepo
         _dataContext = dataContext;
     }
 
-    public async Task<IList<Fanfic>> GetAll()
+    public void AddFanfic(Fanfic fanfic)
     {
-        return await _dataContext.Fanfics.ToArrayAsync();
+        throw new NotImplementedException();
     }
 
-    public async Task AddFanfic(Fanfic fanfic)
+    public Fanfic? GetByTitle(string title)
     {
-        await _dataContext.Fanfics.AddAsync(fanfic);
-        await _dataContext.SaveChangesAsync();
+        throw new NotImplementedException();
     }
 
-    public async Task<Fanfic?> GetById(int id)
+    public PagedList<Fanfic> GetRecentlyUpdated(PagingParameters pagingParameters)
     {
-        return await _dataContext.Fanfics.FindAsync(id);
+        throw new NotImplementedException();
     }
-
-    public async Task<Fanfic?> GetByTitle(string title)
-    {
-        return await _dataContext.Fanfics.FirstOrDefaultAsync(f => f.Title == title);
-    }
-
-    public async Task<PagedList<Fanfic>> GetRecentlyUpdated(PagingParameters pagingParameters)
-    {
-        var result = _dataContext.Fanfics
-            .OrderByDescending(f => f.LastUpdated)
-            .ToPagedList(pagingParameters);
-        return await Task.FromResult(result);
-    }
-
 }

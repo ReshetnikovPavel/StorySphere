@@ -5,9 +5,8 @@ namespace FanfictionBackend.Interfaces;
 
 public interface IFanficRepo
 {
-    public Task AddFanfic(Fanfic fanfic);
-    public Task<Fanfic?> GetById(int id);
-    public Task<Fanfic?> GetByTitle(string title);
+    public void AddFanfic(Fanfic fanfic);
+    public Fanfic? GetByTitle(string title);
 
-    public Task<PagedList<Fanfic>> GetRecentlyUpdated(PagingParameters pagingParameters);
+    public PagedList<Fanfic> GetRecentlyUpdated(PagingParameters pagingParameters);
 }

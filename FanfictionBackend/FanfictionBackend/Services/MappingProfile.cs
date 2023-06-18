@@ -12,7 +12,9 @@ public class MappingProfile : Profile
         CreateMap<FanficDto, Fanfic>();
         CreateMap<Chapter, ChapterDto>();
         CreateMap<ChapterDto, Chapter>();
-        CreateMap<User, UserDto>();
+        CreateMap<User, UserDto>()
+            .ForMember(d => d.NumFanfics, 
+                opt => opt.MapFrom(src => src.Fanfics.Count));
         CreateMap<UserDto, User>();
     }
 }
