@@ -16,7 +16,7 @@ public class UserRepo : IUserRepo
         _dataContext = dataContext;
     }
 
-    public IEnumerable<User> GetUsers(PagingParameters pagingParameters)
+    public PagedList<User> GetUsers(PagingParameters pagingParameters)
     {
         return _dataContext.Users
             .OrderByDescending(u => u.NumLikes)

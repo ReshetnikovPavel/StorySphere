@@ -22,7 +22,8 @@ public class UserService : IUserService
     public IResult GetUsers(PagingParameters pagingParameters)
     {
         var res = _userRepo.GetUsers(pagingParameters);
-        return TypedResults.Ok(_mapper.Map<IEnumerable<User>, IEnumerable<UserDto>>(res));
+        var items = _mapper.Map<IEnumerable<User>, IEnumerable<UserDto>>(res.Items);
+        return TypedResults.Ok(new PagedList<UserDto>(items, res.Metadata));
     }
 
     public async Task<IResult> GetUserByUsername(string name)
