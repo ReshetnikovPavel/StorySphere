@@ -9,9 +9,10 @@ const searchResultRowContainer = document.getElementById('search-result-row-cont
 const leftColumn = document.getElementById('left-column');
 const rightColumn = document.getElementById('right-column');
 
-for (let i = 0; i < 15; i++)
+for (let i = 0; i < 15; i++) {
     addAuthorInList(leftColumn);
     addAuthorInList(rightColumn);
+}
 
 window.addEventListener('scroll', function() {
     addAuthorInList(leftColumn);
@@ -19,6 +20,10 @@ window.addEventListener('scroll', function() {
 });
 
 function addAuthorInList(column) {
+    if (dataIndex + 1 > dataLength) {
+        return;
+    }
+
     info = authorsInfo[dataIndex];
     const authorRow = document.createElement('section');
     authorRow.classList.add('authors-list-author-row');
@@ -82,17 +87,13 @@ function addAuthorInList(column) {
     column.appendChild(authorRow);
 
     dataIndex++;
-    if (dataIndex === dataLength) {
-        dataIndex = 0;
-        cycle++;
-    }
 }
 
 function getAuthorsInfo() {
-    return [['Андрей Куклинов', '/assets/images/img6.png', '4', '17', 'profile.html'],
-    ['SoftOwl256', '/assets/images/img5.png', '42', '172', 'profile.html'],
-    ['Rustовщик', '/assets/images/img7.jpg', '75', '865', 'profile.html'],
-    ['Bibibooooooooooooooooooooooooooooo0000000', '/assets/images/img8.png', '0', '2', 'profile.html'],
+    return [['Андрей Куклинов', '/assets/images/avatars/avatar25.png', '4', '17', 'profile.html'],
+    ['SoftOwl256', '/assets/images/avatars/avatar26.png', '42', '172', 'profile.html'],
+    ['Rustовщик', '/assets/images/avatars/avatar24.png', '75', '865', 'profile.html'],
+    ['Bibibooooooooooooooooooooooooooooo0000000', '/assets/images/avatars/avatar12.png', '0', '2', 'profile.html'],
     ['JojoFun', '/assets/images/profile.svg', '0', '0', 'profile.html']]
 }
 

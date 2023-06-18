@@ -85,9 +85,9 @@ let IsLike = getIsLike();
 if (IsLike) likeButton.style.backgroundColor = 'rgb(112, 36, 20, 0.3)';
 
 likeButton.addEventListener('click', () => {
-IsLike = !IsLike;
-likeButton.style.backgroundColor = IsLike ? 'rgb(112, 36, 20, 0.3)' : 'white';
-setLikeValue();
+    IsLike = !IsLike;
+    likeButton.style.backgroundColor = IsLike ? 'rgb(112, 36, 20, 0.3)' : 'white';
+    setLikeValue();
 });
 
 const openModalButton = document.getElementById('gallery');
@@ -119,14 +119,16 @@ for(let i = 0; i < images.length; i++) {
 }
 
 function getIsLike() {
-    return false;
+    return localStorage.getItem('like') || false;
 }
 
 function setLikeValue() {
     if (IsLike) {
         alert('Вы лайкнули работу!')
+        localStorage.setItem('like', true);
     } else {
         alert('Вы убрали лайк с работы!')
+        localStorage.setItem('like', false);
     }
 }
 

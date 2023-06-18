@@ -20,17 +20,55 @@ allWorksBtn.addEventListener('click', () => {
 const exitBtn = document.querySelector('#exit');
 exitBtn.addEventListener("click", exit);
 
-const image = document.getElementById('profileAvatar');
-image.setAttribute('style', 'cursor: pointer;');
-image.setAttribute('src', getAvatar());
-image.addEventListener('click', () => {
-  setAvatar();
-});
-
 const addWorkBtn = document.querySelector('#addWork');
 addWorkBtn.addEventListener('click', () => {
   window.location.href = 'add-fanfic.html';
 })
+
+const openModalButton = document.getElementById('profileAvatar');
+openModalButton.setAttribute('style', 'cursor: pointer;');
+openModalButton.setAttribute('src', getAvatar());
+const modal = document.getElementById('modal');
+const closeButton = modal.querySelector('.close');
+
+openModalButton.addEventListener('click', () => {
+  modal.style.display = 'block';
+});
+
+closeButton.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
+
+const imageContainer = document.getElementById('image-container');
+const images = getImages();
+
+for(let i = 0; i < images.length; i++) {
+    const image = document.createElement('img');
+    image.setAttribute('style', 'cursor: pointer;');
+    image.setAttribute('id', `avatar${i + 1}`);
+    image.addEventListener('click', () => {
+      setAvatar(`avatar${i + 1}`);
+      openModalButton.setAttribute('src', getAvatar());
+      closeButton.click();
+    });
+
+    image.src = images[i];
+    image.alt = `avatar${i + 1}`;
+
+    image.style.maxWidth = '20rem';
+    image.style.maxHeight = '20rem';
+
+    imageContainer.appendChild(image);
+}
+
+function getImages() {
+  const avatars = [];
+  for (let i = 1; i < 27; i++) {
+      avatars.push(`/assets/images/avatars/avatar${i}.png`);
+  }
+
+  return avatars;
+}
 
 function addFanficsRow() {
   const profileFanficRow = document.getElementById('profile-fanfics-row');
@@ -104,35 +142,15 @@ function getAvatar() {
     return localStorage.getItem('currentAvatar') || "/assets/images/profile-author.svg";
 }
 
-function setAvatar() {
-  const input = document.createElement('input');
-  input.type = 'file';
-  input.multiple = false;
-  input.accept = '.png, .jpg, .jpeg';
-  input.addEventListener('change', () => {
-    const files = input.files;
-    for (let i = 0; i < files.length; i++) {
-      const file = new Image();
-      file.src = URL.createObjectURL(files[i]);
-      const fileName = files[i].name;
-      file.onload = function() {
-        if (file.width !== file.height) {
-          console.log(file.width, file.height);
-          alert('Файл ' + fileName + ' имеет разные высоту и ширину. Ваша картинка должна быть квадратной!');
-          return;
-        }
-
-        loadingAvatarToDataBase();
-        localStorage.setItem('currentAvatar', '/assets/images/' + fileName);
-        image.setAttribute('src', getAvatar());
-      };
-    }
-  })
-  input.click();
+function setAvatar(avatarName) {
+  const link = `/assets/images/avatars/${avatarName}.png`;
+  localStorage.setItem('currentAvatar', link);
+  console.log(localStorage.getItem('currentAvatar'));
+  loadingAvatarToDataBase(link);
 }
 
-function loadingAvatarToDataBase() {
-  alert('Аватар загружен в базу данных');
+function loadingAvatarToDataBase(link) {
+  alert('Аватар загружен в базу данных: ' + link);
 }
 
 function getFanfics() {
@@ -161,3 +179,31 @@ function loadingData(base, id) {
     const textNode = document.createTextNode(base);
     id.appendChild(textNode);
 }
+
+
+// function setAvatar() {
+//   const input = document.createElement('input');
+//   input.type = 'file';
+//   input.multiple = false;
+//   input.accept = '.png, .jpg, .jpeg';
+//   input.addEventListener('change', () => {
+//     const files = input.files;
+//     for (let i = 0; i < files.length; i++) {
+//       const file = new Image();
+//       file.src = URL.createObjectURL(files[i]);
+//       const fileName = files[i].name;
+//       file.onload = function() {
+//         if (file.width !== file.height) {
+//           console.log(file.width, file.height);
+//           alert('Файл ' + fileName + ' имеет разные высоту и ширину. Ваша картинка должна быть квадратной!');
+//           return;
+//         }
+
+//         loadingAvatarToDataBase();
+//         localStorage.setItem('currentAvatar', '/assets/images/' + fileName);
+//         image.setAttribute('src', getAvatar());
+//       };
+//     }
+//   })
+//   input.click();
+// }
