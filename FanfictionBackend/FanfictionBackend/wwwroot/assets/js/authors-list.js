@@ -68,7 +68,7 @@ function addAuthorInList(column) {
 
     const likeIcon = document.createElement('img');
     likeIcon.classList.add('star_likes_icon');
-    likeIcon.setAttribute('src', '/assets/images/star_likes.svg');
+    likeIcon.setAttribute('src', './assets/images/star_likes.svg');
     likeIcon.setAttribute('alt', 'star_likes');
     followersCountContainer.appendChild(likeIcon);
 
@@ -90,20 +90,20 @@ function addAuthorInList(column) {
 }
 
 function getAuthorsInfo() {
-    return [['Андрей Куклинов', '/assets/images/avatars/avatar25.png', '4', '17', 'profile.html'],
-    ['SoftOwl256', '/assets/images/avatars/avatar26.png', '42', '172', 'profile.html'],
-    ['Rustовщик', '/assets/images/avatars/avatar24.png', '75', '865', 'profile.html'],
-    ['Bibibooooooooooooooooooooooooooooo0000000', '/assets/images/avatars/avatar12.png', '0', '2', 'profile.html'],
-    ['JojoFun', '/assets/images/profile.svg', '0', '0', 'profile.html']]
+    return [['Андрей Куклинов', './assets/images/avatars/avatar25.png', '4', '17', 'profile.html'],
+    ['SoftOwl256', './assets/images/avatars/avatar26.png', '42', '172', 'profile.html'],
+    ['Rustовщик', './assets/images/avatars/avatar24.png', '75', '865', 'profile.html'],
+    ['Bibibooooooooooooooooooooooooooooo0000000', './assets/images/avatars/avatar12.png', '0', '2', 'profile.html'],
+    ['JojoFun', './assets/images/profile.svg', '0', '0', 'profile.html']]
 }
 
 // Пример применения fetchAuthorsPage. Выводит полученный список авторов в консоль
 // Предлагаю раскомментировать и запустить, чтобы посмотреть на объект, который он выведет.
 // pageSize - размер одной страницы, pageNumber - номер текущей страницы.
-// fetchAuthorsPage(2, 1) 
-//     .then((pagedList) => {
-//         console.log(pagedList); 
-//     });
+fetchAuthorsPage(2, 1) 
+    .then((pagedList) => {
+        console.log(pagedList); 
+    });
 
 async function fetchAuthorsPage(pageSize, pageNumber) {
     const params = new URLSearchParams({ pageSize, pageNumber });

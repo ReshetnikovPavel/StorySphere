@@ -64,7 +64,7 @@ for(let i = 0; i < images.length; i++) {
 function getImages() {
   const avatars = [];
   for (let i = 1; i < 27; i++) {
-      avatars.push(`/assets/images/avatars/avatar${i}.png`);
+      avatars.push(`./assets/images/avatars/avatar${i}.png`);
   }
 
   return avatars;
@@ -139,11 +139,11 @@ function createWorkContainer(info, number) {
 }
 
 function getAvatar() {
-    return localStorage.getItem('currentAvatar') || "/assets/images/profile-author.svg";
+    return localStorage.getItem('currentAvatar') || "./assets/images/profile-author.svg";
 }
 
 function setAvatar(avatarName) {
-  const link = `/assets/images/avatars/${avatarName}.png`;
+  const link = `./assets/images/avatars/${avatarName}.png`;
   localStorage.setItem('currentAvatar', link);
   console.log(localStorage.getItem('currentAvatar'));
   loadingAvatarToDataBase(link);
@@ -200,7 +200,7 @@ function loadingData(base, id) {
 //         }
 
 //         loadingAvatarToDataBase();
-//         localStorage.setItem('currentAvatar', '/assets/images/' + fileName);
+//         localStorage.setItem('currentAvatar', './assets/images/' + fileName);
 //         image.setAttribute('src', getAvatar());
 //       };
 //     }

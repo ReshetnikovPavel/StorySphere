@@ -72,12 +72,12 @@ function createHeader() {
     const header = document.createElement('header');
     header.innerHTML = `
     <div class="header-container">
-        <img onclick="location.href='/';" class="main-page-button" src="/assets/images/logo.svg" alt="Back to main page" />
+        <img onclick="location.href='/';" class="main-page-button" src="./assets/images/logo.svg" alt="Back to main page" />
         <div class="search-bar">
             <input id="search-input" type="text" placeholder="Поиск" />
-            <img id="search-icon" src="/assets/images/search_icon.svg" alt="Search" />
+            <img id="search-icon" src="./assets/images/search_icon.svg" alt="Search" />
         </div>
-        <img id="profile-button" class="profile-button" src="/assets/images/profile.svg" alt="Go to profile" /> 
+        <img id="profile-button" class="profile-button" src="./assets/images/profile.svg" alt="Go to profile" /> 
     </div>
     `;
     document.body.appendChild(header);
@@ -89,7 +89,7 @@ function createLoginModal() {
     loginModal.innerHTML = `
         <div id="login-modal" class="modal">
             <div class="modal-content">
-                <img src="/assets/images/cross-icon.svg" class="close-button" id="login-close-button"/>
+                <img src="./assets/images/cross-icon.svg" class="close-button" id="login-close-button"/>
                 <h1>Вход</h1>
                 <form>
                     <div class="field">

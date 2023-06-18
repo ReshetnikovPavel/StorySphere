@@ -159,5 +159,5 @@ function loadingData(base, id) {
 }
 
 function getImages() {
-    return ["/assets/images/img5.png", "/assets/images/img6.png", "/assets/images/img7.jpg", "/assets/images/img8.png"];
+    return ["./assets/images/img5.png", "./assets/images/img6.png", "./assets/images/img7.jpg", "./assets/images/img8.png"];
 }
