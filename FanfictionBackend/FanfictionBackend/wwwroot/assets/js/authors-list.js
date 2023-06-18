@@ -95,3 +95,25 @@ function getAuthorsInfo() {
     ['Bibibooooooooooooooooooooooooooooo0000000', '/assets/images/img8.png', '0', '2', 'profile.html'],
     ['JojoFun', '/assets/images/profile.svg', '0', '0', 'profile.html']]
 }
+
+// Пример применения fetchAuthorsPage. Выводит полученный список авторов в консоль
+// Предлагаю раскомментировать и запустить, чтобы посмотреть на объект, который он выведет.
+// fetchAuthorsPage(2, 1) 
+//     .then((pagedList) => {
+//         console.log(pagedList); 
+//     });
+
+async function fetchAuthorsPage(pageSize, pageNumber) {
+    const params = new URLSearchParams({ pageSize, pageNumber });
+    const query = params.toString();
+    const url = `/authors?${query}`;
+  
+    const response = await fetch(url);
+  
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+  
+    const data = await response.json();
+    return data;
+}
