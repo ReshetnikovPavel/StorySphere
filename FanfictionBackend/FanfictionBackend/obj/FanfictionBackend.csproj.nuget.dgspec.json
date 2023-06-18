@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\FanfictionBackend.csproj": {}
+    "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\FanfictionBackend.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\FanfictionBackend.csproj": {
+    "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\FanfictionBackend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\FanfictionBackend.csproj",
+        "projectUniqueName": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\FanfictionBackend.csproj",
         "projectName": "FanfictionBackend",
-        "projectPath": "c:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\FanfictionBackend.csproj",
+        "projectPath": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\FanfictionBackend.csproj",
         "packagesPath": "C:\\Users\\Andrew Kuklinov\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\obj\\",
+        "outputPath": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

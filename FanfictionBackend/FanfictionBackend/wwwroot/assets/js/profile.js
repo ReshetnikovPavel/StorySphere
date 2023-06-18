@@ -1,6 +1,20 @@
-const authorInput = document.getElementById('author-name');
-const authorName = getAuthorName();
-loadingData(authorName, authorInput);
+main()
+
+async function main() {
+  const authorInput = document.getElementById('author-name');
+  const authorName = getAuthorName();
+  let author;
+
+  try {
+    author = await fetchAuthorByName(authorName);
+  } catch (error) {
+    console.error(`Error fetching author: ${error}`);
+  }
+
+  loadingData(author.username, authorInput);
+  //TODO: Совершить все остальные операции с автором тут.
+  // Однако, у автора пока хранится только имя и почта. Это надо исправить.
+}
 
 const timeInput = document.getElementById('online-time');
 const authorTime = getOnlineTime();
@@ -168,7 +182,8 @@ function getHrefAllWorks() {
 }
 
 function getAuthorName() {
-    return 'SoftOwl256';
+  var url = new URL(window.location.href);
+  return url.searchParams.get("username");
 }
 
 function getOnlineTime() {
@@ -180,6 +195,18 @@ function loadingData(base, id) {
     id.appendChild(textNode);
 }
 
+async function fetchAuthorByName(username) {
+  const url = `/author/${username}`;
+
+  const response = await fetch(url);
+
+  if (!response.ok) {
+    throw new Error(`HTTP error! Status: ${response.status}`);
+  }
+
+  const data = await response.json();
+  return data;
+}
 
 // function setAvatar() {
 //   const input = document.createElement('input');
