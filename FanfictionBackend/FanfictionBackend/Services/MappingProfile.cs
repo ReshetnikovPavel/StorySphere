@@ -12,8 +12,6 @@ public class MappingProfile : Profile
         CreateMap<FanficDto, Fanfic>();
         CreateMap<Chapter, ChapterDto>();
         CreateMap<ChapterDto, Chapter>();
-        CreateMap<Tag, TagDto>();
-        CreateMap<TagDto, Tag>();
         CreateMap<User, UserDto>();
         CreateMap<UserDto, User>();
     }

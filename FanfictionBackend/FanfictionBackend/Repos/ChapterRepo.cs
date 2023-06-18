@@ -18,14 +18,15 @@ public class ChapterRepo : IChapterRepo
     
     public async Task AddChapter(Chapter chapter)
     {
-        _dataContext.Chapters.Add(chapter);
-        
-        var fanfic = await _fanficRepo.GetById(chapter.FanficId);
-        if (fanfic != null)
-        {
-            fanfic.Updated = _dateTimeProvider.Now;
-        }
-
-        await _dataContext.SaveChangesAsync();
+        throw new NotImplementedException();
+        // _dataContext.Chapters.Add(chapter);
+        //
+        // var fanfic = await _fanficRepo.GetById(chapter.Fanfic.Id);
+        // if (fanfic != null)
+        // {
+        //     fanfic.Updated = _dateTimeProvider.Now;
+        // }
+        //
+        // await _dataContext.SaveChangesAsync();
     }
 }

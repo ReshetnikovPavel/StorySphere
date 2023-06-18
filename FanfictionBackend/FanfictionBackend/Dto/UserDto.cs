@@ -1,4 +1,6 @@
-﻿namespace FanfictionBackend.Dto;
+﻿using FanfictionBackend.Models;
+
+namespace FanfictionBackend.Dto;
 
 public class UserDto
 {

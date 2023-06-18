@@ -54,13 +54,14 @@ public class FanficService : IFanficService
 
     public async Task<IResult> AddChapter(Chapter chapter, int id)
     {
-        var fanfic = await _fanficRepo.GetById(id);
-        if (fanfic == null)
-            return TypedResults.NotFound("No fanfic with this id exists");
-        
-        chapter.FanficId = id;
-        await _chapterRepo.AddChapter(chapter);
-        fanfic.Updated = _dateTimeProvider.Now;
-        return TypedResults.Ok();
+        throw new NotImplementedException();
+        // var fanfic = await _fanficRepo.GetById(id);
+        // if (fanfic == null)
+        //     return TypedResults.NotFound("No fanfic with this id exists");
+        //
+        // chapter.Fanfic.Id = id;
+        // await _chapterRepo.AddChapter(chapter);
+        // fanfic.Updated = _dateTimeProvider.Now;
+        // return TypedResults.Ok();
     }
 }

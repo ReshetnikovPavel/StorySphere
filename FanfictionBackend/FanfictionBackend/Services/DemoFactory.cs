@@ -29,19 +29,19 @@ public class DemoFactory
         {
             Username = "Capitulation",
             Email = "Andreydolphin@mail.ru"
-        }, "Capitulation");
+        }, "password");
         
         _userService.RegisterUser(new UserDto
         {
             Username = "SoftOwl",
             Email = "anna.sok.03@mail.ru"
-        }, "SoftOwl");
+        }, "password");
         
         _userService.RegisterUser(new UserDto
         {
             Username = "PavelResh",
             Email = "pasha.keyzet@yandex.ru"
-        }, "PavelResh");
+        }, "password");
     }
 
     private static void InitFanfics()
