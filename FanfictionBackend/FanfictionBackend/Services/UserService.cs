@@ -36,20 +36,20 @@ public class UserService : IUserService
         return TypedResults.Ok(_mapper.Map<User, UserDto>(res));
     }
 
-    public IResult RegisterUser(UserDto userDto, string password)
+    public IResult RegisterUser(RegisterDto registerDto, string password)
     {
-        userDto.Username = userDto.Username.ToLower();
-        userDto.Email = userDto.Email.ToLower();
+        registerDto.Username = registerDto.Username.ToLower();
+        registerDto.Email = registerDto.Email.ToLower();
         
-        var existingUser = _userRepo.GetByUsername(userDto.Username);
+        var existingUser = _userRepo.GetByUsername(registerDto.Username);
         if (existingUser != null)
             return TypedResults.Conflict("Username already taken");
         
-        existingUser = _userRepo.GetByEmail(userDto.Username);
+        existingUser = _userRepo.GetByEmail(registerDto.Username);
         if (existingUser != null)
             return TypedResults.Conflict("Email already registered");
         
-        var user = _mapper.Map<UserDto, User>(userDto);
+        var user = _mapper.Map<User>(registerDto);
         user.Password = _hasher.HashPassword(password);
         _userRepo.AddUser(user);
         return TypedResults.Created($"/author/{user.Id}");

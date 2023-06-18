@@ -33,12 +33,7 @@ public class FanficService : IFanficService
         throw new NotImplementedException();
     }
 
-    public IResult AddFanfic(FanficDto fanfic)
-    {
-        throw new NotImplementedException();
-    }
-
-    public IResult AddChapter(ChapterDto chapter, FanficDto toFanfic)
+    public IResult AddFanfic(AddFanficDto fanfic, string authorName)
     {
         throw new NotImplementedException();
     }

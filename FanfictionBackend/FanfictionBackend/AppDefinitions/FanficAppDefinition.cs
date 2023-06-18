@@ -43,8 +43,8 @@ public class FanficAppDefinition : IAppDefinition
         app.MapGet("/fanfic",  (IFanficService fs, string title)
             => fs.GetFanficByTitle(title));
 
-        app.MapPost("/fanfics",  (IFanficService fs, FanficDto fanfic)
-            => fs.AddFanfic(fanfic));
+        app.MapPost("/fanfics",  (IFanficService fs, AddFanficDto fanfic, string userName)
+            => fs.AddFanfic(fanfic, userName));
     }
 
     private static void DefineUserEndpoints(IEndpointRouteBuilder app)
@@ -55,17 +55,10 @@ public class FanficAppDefinition : IAppDefinition
         app.MapGet("/author/{username}",  (IUserService us, string username)
             => us.GetUserByUsername(username));
         
-        app.MapPost("/authors",  (IUserService us, UserDto user, string password)
+        app.MapPost("/authors",  (IUserService us, RegisterDto user, string password)
             => us.RegisterUser(user, password));
         
         app.MapGet("/session",  (IUserService us, string email, string password)
             => us.LoginUser(email, password));
-    }
-
-    private static async Task<IResult> HelloWorld()
-    {
-        async Task<Fanfic> CreateAsync(string title) => new() { Title = title };
-        var res = await CreateAsync("Greetings, thou cosmos!");
-        return TypedResults.Ok(res);
     }
 }

@@ -10,5 +10,5 @@ public interface IFanficService
     IResult GetRecentlyUpdatedFanfics(PagingParameters pagingParameters);
     IResult GetFanficByTitle(string title);
     IResult GetFanficsByAuthor(string authorName, PagingParameters pagingParameters);
-    IResult AddFanfic(FanficDto fanfic);
+    IResult AddFanfic(AddFanficDto fanfic, string authorName);
 }
