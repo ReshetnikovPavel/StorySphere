@@ -12,7 +12,7 @@ if (dataLength === 0) {
     searchResultRowContainer.appendChild(sorry);
 } else {
     for(let i = 0; i < 6; i++){
-        addSearchResultRow();
+        addFanficsRow();
     }
 
     window.addEventListener('scroll', function() {

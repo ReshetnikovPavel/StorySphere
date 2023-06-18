@@ -85,17 +85,17 @@ let IsLike = getIsLike();
 if (IsLike) likeButton.style.backgroundColor = 'rgb(112, 36, 20, 0.3)';
 
 likeButton.addEventListener('click', () => {
-IsLike = !IsLike;
-likeButton.style.backgroundColor = IsLike ? 'rgb(112, 36, 20, 0.3)' : 'white';
-setLikeValue();
+    IsLike = !IsLike;
+    likeButton.style.backgroundColor = IsLike ? 'rgb(112, 36, 20, 0.3)' : 'white';
+    setLikeValue();
 });
 
 const openModalButton = document.getElementById('gallery');
-openModalButton.setAttribute('style', 'cursor: pointer;');
+profileAvatar.setAttribute('style', 'cursor: pointer;');
 const modal = document.getElementById('modal');
 const closeButton = modal.querySelector('.close');
 
-openModalButton.addEventListener('click', () => {
+profileAvatar.addEventListener('click', () => {
   modal.style.display = 'block';
 });
 

@@ -89,9 +89,9 @@ function addAuthorInList(column) {
 }
 
 function getAuthorsInfo() {
-    return [['Андрей Куклинов', '/assets/images/img6.png', '4', '17', 'profile.html'],
-    ['SoftOwl256', '/assets/images/img5.png', '42', '172', 'profile.html'],
-    ['Rustовщик', '/assets/images/img7.jpg', '75', '865', 'profile.html'],
-    ['Bibibooooooooooooooooooooooooooooo0000000', '/assets/images/img8.png', '0', '2', 'profile.html'],
+    return [['Андрей Куклинов', '/assets/images/avatars/avatar25.png', '4', '17', 'profile.html'],
+    ['SoftOwl256', '/assets/images/avatars/avatar26.png', '42', '172', 'profile.html'],
+    ['Rustовщик', '/assets/images/avatars/avatar24.png', '75', '865', 'profile.html'],
+    ['Bibibooooooooooooooooooooooooooooo0000000', '/assets/images/avatars/avatar12.png', '0', '2', 'profile.html'],
     ['JojoFun', '/assets/images/profile.svg', '0', '0', 'profile.html']]
 }
