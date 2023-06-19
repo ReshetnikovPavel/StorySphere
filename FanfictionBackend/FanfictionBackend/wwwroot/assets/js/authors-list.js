@@ -1,63 +1,112 @@
-main()
-
-async function main() {
-    const pageSize = 10; // Число авторов на странице
-    let pageNumber = 1; // Номер запрашиваемой страницы
-    let authorList;
-
-    try {
-        authorList = await fetchAuthorsPage(pageSize, pageNumber);
-    } catch (error) {
-        console.error(`Error fetching authors list: ${error}`);
-    }
-
-    // Вывожу временно в консольку, чтобы можно было посмотреть, что есть.
-
-    console.log(authorList.metadata); // Данные о списке. 
-    // Сколько всего страниц, есть ли куда листать вперед и назад, и т.д.
-
-    console.log(authorList.items); // Сами авторы.
-    // У каждого автора есть такие поля как username и email.
-    // Будут еще другие, но их надо добавить.
-
-    // TODO: перенести все операции со списком авторов сюда.
-}
-
-const authorsInfo = getAuthorsInfo();
-
 let dataIndex = 0; // текущий автор в массиве
-const dataLength = authorsInfo.length; //всего авторов
-let rowIndex = 0; //строчка авторов
-let cycle = 0;
+let dataLength = 0; //всего авторов 
+let authorList;
+let rowCount = 0;
+let maxPageCount;
+let pageNumber;
 
 const searchResultRowContainer = document.getElementById('search-result-row-container');
 const leftColumn = document.getElementById('left-column');
 const rightColumn = document.getElementById('right-column');
 
-for (let i = 0; i < 15; i++) {
-    addAuthorInList(leftColumn);
-    addAuthorInList(rightColumn);
+
+
+// console.log(authorList.metadata); // Данные о списке. 
+// // Сколько всего страниц, есть ли куда листать вперед и назад, и т.д.
+
+// console.log(authorList.items); // Сами авторы.
+// У каждого автора есть такие поля как username и email.
+// Будут еще другие, но их надо добавить.
+
+main()
+
+async function main() {
+    const pageSize = 2; // Число авторов на странице
+    pageNumber = 1; // Номер запрашиваемой страницы
+
+
+
+    try {
+        authorList = await fetchAuthorsPage(pageSize, 1);
+    } catch (error) {
+        // Вывожу временно в консольку, чтобы можно было посмотреть, что есть.
+        console.error(`Error fetching authors list: ${error}`);
+    }
+
+    maxPageCount = Math.min(15, authorList.metadata.totalPages);
+
+    await uploadPagesWithinWindow(pageSize);
+    // // await uploadPagesWithinWindow(pageSize);
+    // while(maxPageCount !== 0) {
+    //     window.addEventListener('scroll', await uploadPagesWithinWindow(pageSize));
+    // }
+
+   
+    
+
+
+    //window.addEventListener('scroll', async function() {
+
+        
+        // if(!authorList.metadata.hasNext && authorList.metadata.totalItems % 2 === 1) {
+        //     dataIndex = 0; // текущий автор в массиве
+        //     dataLength = authorList.items.length; //всего авторов
+        //     console.log(authorList);
+        //     addAuthorInList(leftColumn);
+        //     console.log(authorList);
+        // } else {
+        //     dataIndex = 0; // текущий автор в массиве
+        //     dataLength = authorList.items.length; //всего авторов
+        //     console.log(authorList);
+        //     addAuthorInList(leftColumn);
+        //     addAuthorInList(rightColumn);
+        // }
+    //});
+
 }
 
-window.addEventListener('scroll', function() {
-    addAuthorInList(leftColumn);
-    addAuthorInList(rightColumn);
-});
+async function uploadPagesWithinWindow(pageSize) {
+    for (let i = 0; i < maxPageCount; i++) {
+        try {
+            authorList = await fetchAuthorsPage(pageSize, pageNumber + i);
+        } catch (error) {
+            console.error(`Error fetching authors list: ${error}`);
+        }
+        // pageNumber++;
+        console.log(pageNumber + i);
 
-function addAuthorInList(column) {
+        let column = leftColumn;
+        dataIndex = 0; // текущий автор в массиве
+        dataLength = await authorList.items.length; //всего авторов на странице
+
+        // console.log(authorList);
+
+        for (let i = 0; i < dataLength; i++) {
+            await addAuthorInList(column);
+            column = column === leftColumn ? rightColumn : leftColumn;
+            // console.log(i);
+        }
+    }
+    pageNumber += await maxPageCount;
+    maxPageCount = Math.min(10, await authorList.metadata.totalPages - pageNumber);
+    // console.log(pageNumber);
+    // console.log(maxPageCount);
+}
+
+async function addAuthorInList(column) {
     if (dataIndex + 1 > dataLength) {
         return;
     }
 
-    info = authorsInfo[dataIndex];
+    info = await authorList.items[dataIndex];
     const authorRow = document.createElement('section');
     authorRow.classList.add('authors-list-author-row');
-    authorRow.setAttribute('data-id', cycle * dataLength + dataIndex);
+    authorRow.setAttribute('data-id', dataIndex);
 
     const avatar = document.createElement('img');
     avatar.classList.add('author-profile-button');
-    avatar.setAttribute('src', info[1]);
-    avatar.setAttribute('data-link', info[4]);
+    avatar.setAttribute('src', info.picture !== null ? `/assets/images/avatars/${info.picture}` : '/assets/images/profile.svg'); 
+    avatar.setAttribute('data-link', `/profile.html?username=${info.username}`);
     avatar.setAttribute('style', 'border-radius: 100%;');
     avatar.addEventListener('click', () => {
         const link = avatar.getAttribute('data-link');
@@ -70,11 +119,11 @@ function addAuthorInList(column) {
     authorName.classList.add('author-list-author-name');
 
     const name = document.createElement('label');
-    name.textContent = info[0];
+    name.textContent = info.username;
     name.setAttribute('style', 'cursor: pointer;');
-    name.setAttribute('data-link', info[4]);
+    name.setAttribute('data-link', `/profile.html?username=${info.username}`);
     name.addEventListener('click', () => {
-        const link = name.getAttribute('data-link');
+        const link = avatar.getAttribute('data-link');
         window.location.href = link;
     });
 
@@ -88,7 +137,7 @@ function addAuthorInList(column) {
     followersCountContainer.classList.add('authors-list-followers-count-container');
 
     const followersCount = document.createElement('label');
-    followersCount.textContent = info[3];
+    followersCount.textContent = info.receivedLikes;
     followersCountContainer.appendChild(followersCount);
 
     const likeIcon = document.createElement('img');
@@ -103,13 +152,13 @@ function addAuthorInList(column) {
     worksCountContainer.classList.add('author-list-works-count');
 
     const worksCount = document.createElement('label');
-    worksCount.textContent = info[2];
+    worksCount.textContent = info.numFanfics;
     worksCountContainer.appendChild(worksCount);
 
     valueContainer.appendChild(worksCountContainer);
     authorRow.appendChild(valueContainer);
 
-    column.appendChild(authorRow);
+    await column.appendChild(authorRow);
 
     dataIndex++;
 }

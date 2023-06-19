@@ -2,7 +2,7 @@
 
 public class PagingParameters
 {
-    private const int MaxPageSize = 20;
+    private const int MaxPageSize = 50;
 
     public int PageNumber { get; }
     public int PageSize { get; }
