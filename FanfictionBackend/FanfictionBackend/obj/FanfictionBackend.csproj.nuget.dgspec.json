@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\StorySphere\\FanfictionBackend\\FanfictionBackend\\FanfictionBackend.csproj": {}
+    "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\FanfictionBackend.csproj": {}
   },
   "projects": {
-    "D:\\StorySphere\\FanfictionBackend\\FanfictionBackend\\FanfictionBackend.csproj": {
+    "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\FanfictionBackend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\StorySphere\\FanfictionBackend\\FanfictionBackend\\FanfictionBackend.csproj",
+        "projectUniqueName": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\FanfictionBackend.csproj",
         "projectName": "FanfictionBackend",
-        "projectPath": "D:\\StorySphere\\FanfictionBackend\\FanfictionBackend\\FanfictionBackend.csproj",
-        "packagesPath": "C:\\Users\\HUAWEI\\.nuget\\packages\\",
-        "outputPath": "D:\\StorySphere\\FanfictionBackend\\FanfictionBackend\\obj\\",
+        "projectPath": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\FanfictionBackend.csproj",
+        "packagesPath": "C:\\Users\\Andrew Kuklinov\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\HUAWEI\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Andrew Kuklinov\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -44,6 +44,46 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[8.0.0-preview.3.23174.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.0-preview.3.23174.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0-preview.3.23174.2, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[8.0.0-preview.3.23174.8, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[8.0.0-preview.2, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL.Design": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -55,7 +95,15 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
