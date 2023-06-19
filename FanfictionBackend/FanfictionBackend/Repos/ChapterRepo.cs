@@ -16,16 +16,8 @@ public class ChapterRepo : IChapterRepo
         _fanficRepo = fanficRepo;
     }
     
-    public async Task AddChapter(Chapter chapter)
+    public void AddChapter(Chapter chapter)
     {
-        _dataContext.Chapters.Add(chapter);
-        
-        var fanfic = await _fanficRepo.GetById(chapter.FanficId);
-        if (fanfic != null)
-        {
-            fanfic.Updated = _dateTimeProvider.Now;
-        }
-
-        await _dataContext.SaveChangesAsync();
+        throw new NotImplementedException();
     }
 }

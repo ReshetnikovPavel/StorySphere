@@ -25,23 +25,23 @@ public class DemoFactory
     
     private void InitUsers()
     {
-        _userService.RegisterUser(new UserDto
+        _userService.RegisterUser(new RegisterDto
         {
             Username = "Capitulation",
             Email = "Andreydolphin@mail.ru"
-        }, "Capitulation");
+        }, "password");
         
-        _userService.RegisterUser(new UserDto
+        _userService.RegisterUser(new RegisterDto
         {
             Username = "SoftOwl",
             Email = "anna.sok.03@mail.ru"
-        }, "SoftOwl");
+        }, "password");
         
-        _userService.RegisterUser(new UserDto
+        _userService.RegisterUser(new RegisterDto
         {
             Username = "PavelResh",
             Email = "pasha.keyzet@yandex.ru"
-        }, "PavelResh");
+        }, "password");
     }
 
     private static void InitFanfics()

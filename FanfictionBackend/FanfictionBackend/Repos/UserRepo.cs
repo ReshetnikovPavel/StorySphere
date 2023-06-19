@@ -19,26 +19,26 @@ public class UserRepo : IUserRepo
     public PagedList<User> GetUsers(PagingParameters pagingParameters)
     {
         return _dataContext.Users
-            .OrderByDescending(u => u.NumLikes)
+            .OrderByDescending(u => u.ReceivedLikes)
             .ToPagedList(pagingParameters);
     }
 
-    public async Task AddUser(User user)
+    public async void AddUser(User user)
     {
         await _dataContext.Users.AddAsync(user);
         await _dataContext.Passwords.AddAsync(user.Password);
         await _dataContext.SaveChangesAsync();
     }
 
-    public async Task<User?> GetByUsername(string username)
+    public User? GetByUsername(string username)
     {
-        return await _dataContext.Users.FirstOrDefaultAsync(user => user.Username == username.ToLower());
+        return _dataContext.Users.FirstOrDefault(user => user.Username == username.ToLower());
     }
     
-    public async Task<User?> GetByEmail(string email)
+    public User? GetByEmail(string email)
     {
-        return await _dataContext.Users
+        return _dataContext.Users
             .Include(u => u.Password)
-            .FirstOrDefaultAsync(user => user.Email == email.ToLower());
+            .FirstOrDefault(user => user.Email == email.ToLower());
     }
 }

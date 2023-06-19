@@ -8,16 +8,6 @@ public class LikeConfiguration : IEntityTypeConfiguration<Like>
 {
     public void Configure(EntityTypeBuilder<Like> builder)
     {
-        builder.HasKey(l => new { l.UserId, l.FanficId });
 
-        builder.HasOne(l => l.User)
-            .WithMany(u => u.LikedFanfics)
-            .HasForeignKey(l => l.UserId)
-            .OnDelete(DeleteBehavior.Cascade);
-
-        builder.HasOne(l => l.Fanfic)
-            .WithMany(f => f.Likes)
-            .HasForeignKey(l => l.FanficId)
-            .OnDelete(DeleteBehavior.Cascade);
     }
 }

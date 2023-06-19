@@ -1,4 +1,5 @@
-﻿using FanfictionBackend.Interfaces;
+﻿using FanfictionBackend.Dto;
+using FanfictionBackend.Interfaces;
 using FanfictionBackend.Models;
 using FanfictionBackend.Pagination;
 
@@ -16,51 +17,24 @@ public class FanficService : IFanficService
         _chapterRepo = chapterRepo;
         _dateTimeProvider = dateTimeProvider;
     }
-    
-    public async Task<IResult> GetRecentlyUpdatedFanfics(PagingParameters pagingParameters)
+
+    public IResult GetRecentlyUpdatedFanfics(PagingParameters pagingParameters)
     {
-        try
-        {
-            return TypedResults.Ok(await _fanficRepo.GetRecentlyUpdated(pagingParameters));
-        }
-        catch (ArgumentException e)
-        {
-            return TypedResults.BadRequest(e);
-        }
+        throw new NotImplementedException();
     }
 
-    public async Task<IResult> GetFanficByTitle(string? title)
+    public IResult GetFanficByTitle(string title)
     {
-        if (title == null)
-            return TypedResults.BadRequest("Fanfic title can't be null");
-        var fanfic = await _fanficRepo.GetByTitle(title);
-        return fanfic == null ? TypedResults.NotFound() : TypedResults.Redirect($"/fanfic/{fanfic.Id}");
+        throw new NotImplementedException();
     }
 
-    public async Task<IResult> GetFanficById(int id)
+    public IResult GetFanficsByAuthor(string authorName, PagingParameters pagingParameters)
     {
-        var fanfic = await _fanficRepo.GetById(id);
-        return fanfic == null ? TypedResults.NotFound() : TypedResults.Ok(fanfic);
+        throw new NotImplementedException();
     }
 
-    public async Task<IResult> AddFanfic(Fanfic fanfic)
+    public IResult AddFanfic(AddFanficDto fanfic, string authorName)
     {
-        fanfic.Created = _dateTimeProvider.Now;
-        fanfic.Updated = fanfic.Created;
-        
-        await _fanficRepo.AddFanfic(fanfic);
-        return TypedResults.Ok();
-    }
-
-    public async Task<IResult> AddChapter(Chapter chapter, int id)
-    {
-        var fanfic = await _fanficRepo.GetById(id);
-        if (fanfic == null)
-            return TypedResults.NotFound("No fanfic with this id exists");
-        
-        chapter.FanficId = id;
-        await _chapterRepo.AddChapter(chapter);
-        fanfic.Updated = _dateTimeProvider.Now;
-        return TypedResults.Ok();
+        throw new NotImplementedException();
     }
 }

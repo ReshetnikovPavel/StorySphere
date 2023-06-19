@@ -8,10 +8,6 @@ public class PasswordConfiguration : IEntityTypeConfiguration<Password>
 {
     public void Configure(EntityTypeBuilder<Password> builder)
     {
-        builder.HasKey(p => p.Id);
-
-        builder.Property(p => p.Hash).IsRequired();
-
-        builder.Property(p => p.Salt).IsRequired();
+        
     }
 }

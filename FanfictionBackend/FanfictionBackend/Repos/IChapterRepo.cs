@@ -4,5 +4,5 @@ namespace FanfictionBackend.Interfaces;
 
 public interface IChapterRepo
 {
-    Task AddChapter(Chapter chapter);
+    void AddChapter(Chapter chapter);
 }
