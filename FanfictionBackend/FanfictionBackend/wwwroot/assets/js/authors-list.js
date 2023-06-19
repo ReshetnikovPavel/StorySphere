@@ -1,3 +1,28 @@
+main()
+
+async function main() {
+    const pageSize = 10; // Число авторов на странице
+    let pageNumber = 1; // Номер запрашиваемой страницы
+    let authorList;
+
+    try {
+        authorList = await fetchAuthorsPage(pageSize, pageNumber);
+    } catch (error) {
+        console.error(`Error fetching authors list: ${error}`);
+    }
+
+    // Вывожу временно в консольку, чтобы можно было посмотреть, что есть.
+
+    console.log(authorList.metadata); // Данные о списке. 
+    // Сколько всего страниц, есть ли куда листать вперед и назад, и т.д.
+
+    console.log(authorList.items); // Сами авторы.
+    // У каждого автора есть такие поля как username и email.
+    // Будут еще другие, но их надо добавить.
+
+    // TODO: перенести все операции со списком авторов сюда.
+}
+
 const authorsInfo = getAuthorsInfo();
 
 let dataIndex = 0; // текущий автор в массиве
@@ -97,14 +122,6 @@ function getAuthorsInfo() {
     ['JojoFun', '/assets/images/profile.svg', '0', '0', 'profile.html']]
 }
 
-// Пример применения fetchAuthorsPage. Выводит полученный список авторов в консоль
-// Предлагаю раскомментировать и запустить, чтобы посмотреть на объект, который он выведет.
-// pageSize - размер одной страницы, pageNumber - номер текущей страницы.
-// fetchAuthorsPage(2, 1) 
-//     .then((pagedList) => {
-//         console.log(pagedList); 
-//     });
-
 async function fetchAuthorsPage(pageSize, pageNumber) {
     const params = new URLSearchParams({ pageSize, pageNumber });
     const query = params.toString();
@@ -118,4 +135,10 @@ async function fetchAuthorsPage(pageSize, pageNumber) {
   
     const data = await response.json();
     return data;
+}
+
+// goToAuthorProfile("capitulation")
+
+async function goToAuthorProfile(username) {
+    window.location.href = `/profile.html?username=${username}`;
 }
