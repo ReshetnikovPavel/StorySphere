@@ -3,6 +3,7 @@
 FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/staticwebassets/msbuild.FanfictionBackend.Microsoft.AspNetCore.StaticWebAssets.props
 FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/staticwebassets.development.json
 FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/FanfictionBackend.staticwebassets.runtime.json
+<<<<<<< HEAD
 FanfictionBackend/FanfictionBackend/obj/project.packagespec.json
 FanfictionBackend/.vs/FanfictionBackend/config/applicationhost.config
 FanfictionBackend/.vs/FanfictionBackend/FileContentIndex/70543b06-028b-4b18-b40c-e5e1244ecb57.vsidx
@@ -29,4 +30,20 @@ FanfictionBackend/Tests/obj/Tests.csproj.nuget.dgspec.json
 FanfictionBackend/Tests/obj/Tests.csproj.nuget.g.props
 FanfictionBackend/Tests/obj/Tests.csproj.nuget.g.targets
 FanfictionBackend/Tests/obj/Debug/net7.0/Tests.assets.cache
+=======
+FanfictionBackend/FanfictionBackend/bin/Debug/net7.0/FanfictionBackend.staticwebassets.runtime.json
+FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/FanfictionBackend.assets.cache
+FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/FanfictionBackend.dll
+FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/FanfictionBackend.GeneratedMSBuildEditorConfig.editorconfig
+FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/FanfictionBackend.pdb
+FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/project.razor.json
+FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/staticwebassets.development.json
+FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/staticwebassets.pack.json
+FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/staticwebassets/msbuild.FanfictionBackend.Microsoft.AspNetCore.StaticWebAssets.props
+FanfictionBackend/FanfictionBackend/obj/project.nuget.cache
+FanfictionBackend/Tests/obj/Debug/net7.0/Tests.assets.cache
+FanfictionBackend/Tests/obj/Debug/net7.0/Tests.csproj.AssemblyReference.cache
+FanfictionBackend/Tests/obj/project.assets.json
+FanfictionBackend/Tests/obj/Tests.csproj.nuget.dgspec.json
+>>>>>>> 1a6802444e5a4920b5f68f3c8105c68eb6f0f1ee
 FanfictionBackend/Tests/obj/Debug/net7.0/Tests.csproj.AssemblyReference.cache
