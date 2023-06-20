@@ -89,7 +89,15 @@ public class FanficService : IFanficService
 
     public IResult GetChapter(int fanficId, int chapterNo)
     {
-        throw new NotImplementedException();
+        var fanfic = _fanficRepo.GetById(fanficId);
+        if (fanfic is null)
+            return TypedResults.NotFound($"Fanfic with id {fanficId} not found");
+
+        if (chapterNo <= 0 || fanfic.Chapters.Count < chapterNo)
+            return TypedResults.NotFound($"Chapter with chapterNo {chapterNo} not found");
+
+        var chapter = fanfic.Chapters[chapterNo - 1];
+        return TypedResults.Ok(_mapper.Map<ChapterDto>(chapter));
     }
 
     public IResult AddChapter(int fanficId, AddChapterDto chapterDto)
