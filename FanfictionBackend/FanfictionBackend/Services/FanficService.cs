@@ -27,7 +27,14 @@ public class FanficService : IFanficService
 
     public IResult GetRecentlyUpdatedFanfics(PagingParameters pagingParameters)
     {
-        throw new NotImplementedException();
+        try
+        {
+            return TypedResults.Ok(_fanficRepo.GetRecentlyUpdated(pagingParameters));
+        }
+        catch (ArgumentException e)
+        {
+            return TypedResults.BadRequest(e.Message);
+        }
     }
 
     public IResult GetFanficByTitle(string title)

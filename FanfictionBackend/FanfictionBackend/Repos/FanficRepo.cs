@@ -28,6 +28,8 @@ public class FanficRepo : IFanficRepo
 
     public PagedList<Fanfic> GetRecentlyUpdated(PagingParameters pagingParameters)
     {
-        throw new NotImplementedException();
+        return _dataContext.Fanfics
+            .OrderByDescending(f => f.LastUpdated).
+            ToPagedList(pagingParameters);
     }
 }
