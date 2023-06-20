@@ -40,10 +40,10 @@ public class FanficAppDefinition : IAppDefinition
         app.MapGet("/fanfics/recent",  (IFanficService fs, int? pageSize, int? pageNumber)
             => fs.GetRecentlyUpdatedFanfics(new PagingParameters(pageSize, pageNumber)));
         
-        app.MapGet("/fanfic",  (IFanficService fs, string title)
-            => fs.GetFanficByTitle(title));
+        app.MapGet("/fanfics/title",  (IFanficService fs, string title, int? pageSize, int? pageNumber)
+            => fs.GetFanficsByTitle(title, new PagingParameters(pageSize, pageNumber)));
         
-        app.MapGet("/fanfics",  (IFanficService fs, string authorName, int? pageSize, int? pageNumber)
+        app.MapGet("/fanfics/author",  (IFanficService fs, string authorName, int? pageSize, int? pageNumber)
             => fs.GetFanficsByAuthor(authorName, new PagingParameters(pageSize, pageNumber)));
 
         app.MapPost("/fanfics",  (IFanficService fs, AddFanficDto fanfic, string userName)

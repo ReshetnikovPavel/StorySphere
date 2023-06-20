@@ -21,15 +21,17 @@ public class FanficRepo : IFanficRepo
         await _dataContext.SaveChangesAsync();
     }
 
-    public Fanfic? GetByTitle(string title)
+    public IEnumerable<Fanfic> GetByTitle(string title)
     {
-        throw new NotImplementedException();
+        return _dataContext.Fanfics.Where(f => f.Title == title)
+            .Include(f => f.Author)
+            .Include(f => f.Likes);
     }
 
-    public PagedList<Fanfic> GetRecentlyUpdated(PagingParameters pagingParameters)
+    public IEnumerable<Fanfic> GetRecentlyUpdated(PagingParameters pagingParameters)
     {
-        return _dataContext.Fanfics
-            .OrderByDescending(f => f.LastUpdated).
-            ToPagedList(pagingParameters);
+        return _dataContext.Fanfics.OrderByDescending(f => f.LastUpdated)
+            .Include(f => f.Author)
+            .Include(f => f.Likes);;
     }
 }

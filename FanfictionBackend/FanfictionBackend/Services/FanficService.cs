@@ -27,9 +27,11 @@ public class FanficService : IFanficService
 
     public IResult GetRecentlyUpdatedFanfics(PagingParameters pagingParameters)
     {
+        var fanfics = _fanficRepo.GetRecentlyUpdated(pagingParameters)
+            .Select(f => _mapper.Map<FanficDto>(f));
         try
         {
-            return TypedResults.Ok(_fanficRepo.GetRecentlyUpdated(pagingParameters));
+            return TypedResults.Ok(fanfics.ToPagedList(pagingParameters));
         }
         catch (ArgumentException e)
         {
@@ -37,9 +39,18 @@ public class FanficService : IFanficService
         }
     }
 
-    public IResult GetFanficByTitle(string title)
+    public IResult GetFanficsByTitle(string title, PagingParameters pagingParameters)
     {
-        throw new NotImplementedException();
+        var fanfics = _fanficRepo.GetByTitle(title)
+            .Select(f => _mapper.Map<FanficDto>(f));
+        try
+        {
+            return TypedResults.Ok(fanfics.ToPagedList(pagingParameters));
+        }
+        catch (ArgumentException e)
+        {
+            return TypedResults.BadRequest(e.Message);
+        }
     }
 
     public IResult GetFanficsByAuthor(string authorName, PagingParameters pagingParameters)
@@ -74,5 +85,15 @@ public class FanficService : IFanficService
         _fanficRepo.AddFanfic(fanfic);
         
         return TypedResults.Ok();
+    }
+
+    public IResult GetChapter(int fanficId, int chapter)
+    {
+        throw new NotImplementedException();
+    }
+
+    public IResult AddChapter(int fanficId)
+    {
+        throw new NotImplementedException();
     }
 }
