@@ -1,12 +1,13 @@
-main()
+processAuthor()
 
-async function main() {
+async function processAuthor() {
   const authorInput = document.getElementById('author-name');
   const authorName = getAuthorName();
   let author;
 
   try {
     author = await fetchAuthorByName(authorName);
+    console.log(author);
   } catch (error) {
     console.error(`Error fetching author: ${error}`);
   }
@@ -14,11 +15,57 @@ async function main() {
   loadingData(author.username, authorInput);
   //TODO: Совершить все остальные операции с автором тут.
   // Однако, у автора пока хранится только имя и почта. Это надо исправить.
+
+  const profileAvatar = document.getElementById('profileAvatar');
+  profileAvatar.setAttribute('style', 'cursor: pointer;');
+  profileAvatar.setAttribute('src', getAvatar(author));
+  const modal = document.getElementById('modal');
+  const closeButton = modal.querySelector('.close');
+
+  profileAvatar.addEventListener('click', () => {
+    modal.style.display = 'block';
+  });
+
+  closeButton.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+  const imageContainer = document.getElementById('image-container');
+  const images = getImages();
+
+  for(let i = 0; i < images.length; i++) {
+      const image = document.createElement('img');
+      image.setAttribute('style', 'cursor: pointer;');
+      image.setAttribute('id', `avatar${i + 1}`);
+      image.addEventListener('click', () => {
+        setAvatar(`avatar${i + 1}`);
+        profileAvatar.setAttribute('src', getAvatar(author));
+        closeButton.click();
+      });
+
+      image.src = images[i];
+      image.alt = `avatar${i + 1}`;
+
+      image.style.maxWidth = '20rem';
+      image.style.maxHeight = '20rem';
+
+      imageContainer.appendChild(image);
+  }
+
+
 }
 
-const timeInput = document.getElementById('online-time');
-const authorTime = getOnlineTime();
-loadingData(authorTime, timeInput);
+function getImages() {
+  const avatars = [];
+  for (let i = 1; i < 27; i++) {
+      avatars.push(`/assets/images/avatars/avatar${i}.png`);
+  }
+
+  return avatars;
+}
+// const timeInput = document.getElementById('online-time');
+// const authorTime = getOnlineTime();
+// loadingData(authorTime, timeInput);
 
 const fanficsInfo = getFanfics();
 
@@ -38,51 +85,6 @@ const addWorkBtn = document.querySelector('#addWork');
 addWorkBtn.addEventListener('click', () => {
   window.location.href = 'add-fanfic.html';
 })
-
-const openModalButton = document.getElementById('profileAvatar');
-openModalButton.setAttribute('style', 'cursor: pointer;');
-openModalButton.setAttribute('src', getAvatar());
-const modal = document.getElementById('modal');
-const closeButton = modal.querySelector('.close');
-
-openModalButton.addEventListener('click', () => {
-  modal.style.display = 'block';
-});
-
-closeButton.addEventListener('click', () => {
-  modal.style.display = 'none';
-});
-
-const imageContainer = document.getElementById('image-container');
-const images = getImages();
-
-for(let i = 0; i < images.length; i++) {
-    const image = document.createElement('img');
-    image.setAttribute('style', 'cursor: pointer;');
-    image.setAttribute('id', `avatar${i + 1}`);
-    image.addEventListener('click', () => {
-      setAvatar(`avatar${i + 1}`);
-      openModalButton.setAttribute('src', getAvatar());
-      closeButton.click();
-    });
-
-    image.src = images[i];
-    image.alt = `avatar${i + 1}`;
-
-    image.style.maxWidth = '20rem';
-    image.style.maxHeight = '20rem';
-
-    imageContainer.appendChild(image);
-}
-
-function getImages() {
-  const avatars = [];
-  for (let i = 1; i < 27; i++) {
-      avatars.push(`/assets/images/avatars/avatar${i}.png`);
-  }
-
-  return avatars;
-}
 
 function addFanficsRow() {
   const profileFanficRow = document.getElementById('profile-fanfics-row');
@@ -152,19 +154,12 @@ function createWorkContainer(info, number) {
   return workContainer;
 }
 
-function getAvatar() {
-    return localStorage.getItem('currentAvatar') || "/assets/images/profile-author.svg";
+function getAvatar(author) {
+    return author.picture !== null ? `assets/images/avatars/${picture}`: "/assets/images/profile-author.svg";
 }
 
 function setAvatar(avatarName) {
-  const link = `/assets/images/avatars/${avatarName}.png`;
-  localStorage.setItem('currentAvatar', link);
-  console.log(localStorage.getItem('currentAvatar'));
-  loadingAvatarToDataBase(link);
-}
-
-function loadingAvatarToDataBase(link) {
-  alert('Аватар загружен в базу данных: ' + link);
+  alert('Аватар загружен в базу данных: ' + avatarName);
 }
 
 function getFanfics() {
@@ -186,9 +181,9 @@ function getAuthorName() {
   return url.searchParams.get("username");
 }
 
-function getOnlineTime() {
-    return '17 минут назад';
-}
+// function getOnlineTime() {
+//     return '17 минут назад';
+// }
 
 function loadingData(base, id) {
     const textNode = document.createTextNode(base);
@@ -207,30 +202,3 @@ async function fetchAuthorByName(username) {
   const data = await response.json();
   return data;
 }
-
-// function setAvatar() {
-//   const input = document.createElement('input');
-//   input.type = 'file';
-//   input.multiple = false;
-//   input.accept = '.png, .jpg, .jpeg';
-//   input.addEventListener('change', () => {
-//     const files = input.files;
-//     for (let i = 0; i < files.length; i++) {
-//       const file = new Image();
-//       file.src = URL.createObjectURL(files[i]);
-//       const fileName = files[i].name;
-//       file.onload = function() {
-//         if (file.width !== file.height) {
-//           console.log(file.width, file.height);
-//           alert('Файл ' + fileName + ' имеет разные высоту и ширину. Ваша картинка должна быть квадратной!');
-//           return;
-//         }
-
-//         loadingAvatarToDataBase();
-//         localStorage.setItem('currentAvatar', '/assets/images/' + fileName);
-//         image.setAttribute('src', getAvatar());
-//       };
-//     }
-//   })
-//   input.click();
-// }
