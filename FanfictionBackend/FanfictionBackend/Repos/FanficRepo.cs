@@ -15,9 +15,10 @@ public class FanficRepo : IFanficRepo
         _dataContext = dataContext;
     }
 
-    public void AddFanfic(Fanfic fanfic)
+    public async void AddFanfic(Fanfic fanfic)
     {
-        throw new NotImplementedException();
+        await _dataContext.Fanfics.AddAsync(fanfic);
+        await _dataContext.SaveChangesAsync();
     }
 
     public Fanfic? GetByTitle(string title)
