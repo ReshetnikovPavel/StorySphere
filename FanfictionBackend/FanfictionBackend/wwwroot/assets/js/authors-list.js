@@ -5,7 +5,7 @@ const rightColumn = document.getElementById('right-column');
 main()
 
 async function main() {
-    const pageSize = 10; // Число авторов на странице. Если меняете, ставьте четное
+    const pageSize = 2; // Число авторов на странице. Если меняете, ставьте четное
     let authorList;
 
     try {
