@@ -16,8 +16,9 @@ public class ChapterRepo : IChapterRepo
         _fanficRepo = fanficRepo;
     }
     
-    public void AddChapter(Chapter chapter)
+    public void Add(Chapter chapter)
     {
-        throw new NotImplementedException();
+        _dataContext.Add(chapter);
+        _dataContext.SaveChanges();
     }
 }

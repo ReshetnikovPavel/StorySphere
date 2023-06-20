@@ -11,6 +11,6 @@ public interface IFanficService
     IResult GetFanficsByTitle(string title, PagingParameters pagingParameters);
     IResult GetFanficsByAuthor(string authorName, PagingParameters pagingParameters);
     IResult AddFanfic(AddFanficDto fanfic, string authorName);
-    IResult GetChapter(int fanficId, int chapter);
-    IResult AddChapter(int fanficId);
+    IResult GetChapter(int fanficId, int chapterNo);
+    IResult AddChapter(int fanficId, AddChapterDto chapterDto);
 }

@@ -87,13 +87,21 @@ public class FanficService : IFanficService
         return TypedResults.Ok();
     }
 
-    public IResult GetChapter(int fanficId, int chapter)
+    public IResult GetChapter(int fanficId, int chapterNo)
     {
         throw new NotImplementedException();
     }
 
-    public IResult AddChapter(int fanficId)
+    public IResult AddChapter(int fanficId, AddChapterDto chapterDto)
     {
-        throw new NotImplementedException();
+        var fanfic = _fanficRepo.GetById(fanficId);
+        if (fanfic is null)
+            return TypedResults.NotFound($"Fanfic with id {fanficId} not found");
+        
+        var chapter = _mapper.Map<Chapter>(chapterDto);
+        fanfic.Chapters.Add(chapter);
+        _chapterRepo.Add(chapter);
+
+        return TypedResults.Ok();
     }
 }

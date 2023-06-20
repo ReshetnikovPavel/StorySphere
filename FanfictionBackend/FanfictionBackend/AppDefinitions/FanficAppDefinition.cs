@@ -15,6 +15,7 @@ public class FanficAppDefinition : IAppDefinition
     public void DefineApp(WebApplication app)
     {
         DefineFanficEndpoints(app);
+        DefineChapterEndpoints(app);
         DefineUserEndpoints(app);
     }
 
@@ -48,6 +49,15 @@ public class FanficAppDefinition : IAppDefinition
 
         app.MapPost("/fanfics",  (IFanficService fs, AddFanficDto fanfic, string userName)
             => fs.AddFanfic(fanfic, userName));
+    }
+    
+    private static void DefineChapterEndpoints(IEndpointRouteBuilder app)
+    {
+        app.MapGet("/chapters",  (IFanficService fs, int fanficId, int chapterNo)
+            => fs.GetChapter(fanficId, chapterNo));
+
+        app.MapPost("/chapters",  (IFanficService fs, int fanficId, AddChapterDto chapter)
+            => fs.AddChapter(fanficId, chapter));
     }
 
     private static void DefineUserEndpoints(IEndpointRouteBuilder app)
