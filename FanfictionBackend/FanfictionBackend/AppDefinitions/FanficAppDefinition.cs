@@ -42,6 +42,9 @@ public class FanficAppDefinition : IAppDefinition
         
         app.MapGet("/fanfic",  (IFanficService fs, string title)
             => fs.GetFanficByTitle(title));
+        
+        app.MapGet("/fanfics",  (IFanficService fs, string authorName, int? pageSize, int? pageNumber)
+            => fs.GetFanficsByAuthor(authorName, new PagingParameters(pageSize, pageNumber)));
 
         app.MapPost("/fanfics",  (IFanficService fs, AddFanficDto fanfic, string userName)
             => fs.AddFanfic(fanfic, userName));

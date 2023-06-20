@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using FanfictionBackend.Dto;
+using FanfictionBackend.ExtensionClasses;
 using FanfictionBackend.Interfaces;
 using FanfictionBackend.Models;
 using FanfictionBackend.Pagination;
@@ -36,7 +37,20 @@ public class FanficService : IFanficService
 
     public IResult GetFanficsByAuthor(string authorName, PagingParameters pagingParameters)
     {
-        throw new NotImplementedException();
+        var author = _userRepo.GetByUsername(authorName);
+        if (author is null)
+            return TypedResults.NotFound($"Author named {authorName} does not exist");
+
+        var fanfics = author.Fanfics.Select(f => _mapper.Map<FanficDto>(f));
+        
+        try
+        {
+            return TypedResults.Ok(fanfics.ToPagedList(pagingParameters));
+        }
+        catch (ArgumentException e)
+        {
+            return TypedResults.BadRequest(e.Message);
+        }
     }
 
     public IResult AddFanfic(AddFanficDto addDto, string authorName)
