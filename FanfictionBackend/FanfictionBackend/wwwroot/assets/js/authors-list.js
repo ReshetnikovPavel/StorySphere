@@ -1,30 +1,12 @@
-let dataIndex = 0; // текущий автор в массиве
-let dataLength = 0; //всего авторов 
-let authorList;
-let rowCount = 0;
-let maxPageCount;
-let pageNumber;
-
-const searchResultRowContainer = document.getElementById('search-result-row-container');
+// const searchResultRowContainer = document.getElementById('search-result-row-container');
 const leftColumn = document.getElementById('left-column');
 const rightColumn = document.getElementById('right-column');
-
-
-
-// console.log(authorList.metadata); // Данные о списке. 
-// // Сколько всего страниц, есть ли куда листать вперед и назад, и т.д.
-
-// console.log(authorList.items); // Сами авторы.
-// У каждого автора есть такие поля как username и email.
-// Будут еще другие, но их надо добавить.
 
 main()
 
 async function main() {
-    const pageSize = 2; // Число авторов на странице
-    pageNumber = 1; // Номер запрашиваемой страницы
-
-
+    const pageSize = 10; // Число авторов на странице. Если меняете, ставьте четное
+    let authorList;
 
     try {
         authorList = await fetchAuthorsPage(pageSize, 1);
@@ -33,72 +15,61 @@ async function main() {
         console.error(`Error fetching authors list: ${error}`);
     }
 
-    maxPageCount = Math.min(15, authorList.metadata.totalPages);
+    const size = 10;
+    const total = authorList.metadata.totalPages;
 
-    await uploadPagesWithinWindow(pageSize);
-    // // await uploadPagesWithinWindow(pageSize);
-    // while(maxPageCount !== 0) {
-    //     window.addEventListener('scroll', await uploadPagesWithinWindow(pageSize));
-    // }
-
-   
-    
-
-
-    //window.addEventListener('scroll', async function() {
-
-        
-        // if(!authorList.metadata.hasNext && authorList.metadata.totalItems % 2 === 1) {
-        //     dataIndex = 0; // текущий автор в массиве
-        //     dataLength = authorList.items.length; //всего авторов
-        //     console.log(authorList);
-        //     addAuthorInList(leftColumn);
-        //     console.log(authorList);
-        // } else {
-        //     dataIndex = 0; // текущий автор в массиве
-        //     dataLength = authorList.items.length; //всего авторов
-        //     console.log(authorList);
-        //     addAuthorInList(leftColumn);
-        //     addAuthorInList(rightColumn);
-        // }
-    //});
-
-}
-
-async function uploadPagesWithinWindow(pageSize) {
-    for (let i = 0; i < maxPageCount; i++) {
-        try {
-            authorList = await fetchAuthorsPage(pageSize, pageNumber + i);
-        } catch (error) {
-            console.error(`Error fetching authors list: ${error}`);
-        }
-        // pageNumber++;
-        console.log(pageNumber + i);
-
-        let column = leftColumn;
-        dataIndex = 0; // текущий автор в массиве
-        dataLength = await authorList.items.length; //всего авторов на странице
-
-        // console.log(authorList);
-
-        for (let i = 0; i < dataLength; i++) {
-            await addAuthorInList(column);
-            column = column === leftColumn ? rightColumn : leftColumn;
-            // console.log(i);
-        }
+    for (let pageNumber = 1; pageNumber <= size; pageNumber++) {
+        await uploadPage(pageSize, pageNumber);
     }
-    pageNumber += await maxPageCount;
-    maxPageCount = Math.min(10, await authorList.metadata.totalPages - pageNumber);
-    // console.log(pageNumber);
-    // console.log(maxPageCount);
+
+    let loadedPages = 1;
+    function onScroll() {
+        const position = window.pageYOffset + window.innerHeight;
+        const bottom = document.documentElement.scrollHeight;
+      
+        if (position >= bottom && loadedPages < total) {
+          loadNextBlock();
+        }
+      }
+      
+      async function loadNextBlock() {
+        const startPage = loadedPages * size + 1;
+        const endPage = Math.min((loadedPages + 1) * size, total);
+        
+        for (let pageNumber = startPage; pageNumber <= endPage; pageNumber++) {
+          await uploadPage(pageSize, pageNumber);
+        }
+        
+        loadedPages++;
+      }
+
+      window.addEventListener('scroll', onScroll);
 }
 
-async function addAuthorInList(column) {
+async function uploadPage(pageSize, pageNumber) {
+    let list;
+    try {
+        list = await fetchAuthorsPage(pageSize, pageNumber);
+    } catch (error) {
+        console.error(`Error fetching authors list: ${error}`);
+        console.error(`Ошибка случилась при размере ${pageSize}, и страницах ${pageNumber}`);
+    }
+
+    let column = leftColumn;
+    const dataLength = list.items.length;
+
+    for (let i = 0; i < dataLength; i++) {
+        addAuthorInList(column, i, dataLength, list);
+        column = column === leftColumn ? rightColumn : leftColumn;
+    }
+}
+
+function addAuthorInList(column, dataIndex, dataLength, authorList) {
     if (dataIndex + 1 > dataLength) {
         return;
     }
 
-    info = await authorList.items[dataIndex];
+    info = authorList.items[dataIndex];
     const authorRow = document.createElement('section');
     authorRow.classList.add('authors-list-author-row');
     authorRow.setAttribute('data-id', dataIndex);
@@ -158,17 +129,7 @@ async function addAuthorInList(column) {
     valueContainer.appendChild(worksCountContainer);
     authorRow.appendChild(valueContainer);
 
-    await column.appendChild(authorRow);
-
-    dataIndex++;
-}
-
-function getAuthorsInfo() {
-    return [['Андрей Куклинов', '/assets/images/avatars/avatar25.png', '4', '17', 'profile.html'],
-    ['SoftOwl256', '/assets/images/avatars/avatar26.png', '42', '172', 'profile.html'],
-    ['Rustовщик', '/assets/images/avatars/avatar24.png', '75', '865', 'profile.html'],
-    ['Bibibooooooooooooooooooooooooooooo0000000', '/assets/images/avatars/avatar12.png', '0', '2', 'profile.html'],
-    ['JojoFun', '/assets/images/profile.svg', '0', '0', 'profile.html']]
+    column.appendChild(authorRow);
 }
 
 async function fetchAuthorsPage(pageSize, pageNumber) {
@@ -185,8 +146,6 @@ async function fetchAuthorsPage(pageSize, pageNumber) {
     const data = await response.json();
     return data;
 }
-
-// goToAuthorProfile("capitulation")
 
 async function goToAuthorProfile(username) {
     window.location.href = `/profile.html?username=${username}`;
