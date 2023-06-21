@@ -53,7 +53,7 @@ public class FanficService : IFanficService
         }
     }
 
-    public IResult GetFanficsByAuthor(string authorName, PagingParameters pagingParameters)
+    public IResult GetFanficsByAuthor(string? authorName, PagingParameters pagingParameters)
     {
         var author = _userRepo.GetByUsername(authorName);
         if (author is null)
@@ -71,7 +71,7 @@ public class FanficService : IFanficService
         }
     }
 
-    public IResult AddFanfic(AddFanficDto addDto, string authorName)
+    public IResult AddFanfic(AddFanficDto addDto, string? authorName)
     {
         var fanfic = _mapper.Map<Fanfic>(addDto);
 

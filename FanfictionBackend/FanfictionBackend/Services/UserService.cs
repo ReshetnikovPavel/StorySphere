@@ -26,10 +26,11 @@ public class UserService : IUserService
     {
         var res = _userRepo.GetUsers(pagingParameters);
         var items = _mapper.Map<IEnumerable<User>, IEnumerable<UserDto>>(res.Items);
+        
         return TypedResults.Ok(new PagedList<UserDto>(items, res.Metadata));
     }
 
-    public IResult GetUserByUsername(string name)
+    public IResult GetUserByUsername(string? name)
     {
         var res = _userRepo.GetByUsername(name);
         if (res == null)
@@ -57,11 +58,13 @@ public class UserService : IUserService
         return TypedResults.Created($"/author/{user.Id}");
     }
 
-    public IResult LoginUser(string email, string password)
+    public IResult LoginUser(string? email, string password)
     {
         var user = _userRepo.GetByEmail(email);
         if (user == null || !_hasher.VerifyPassword(password, user.Password))
             return TypedResults.NotFound("Invalid email or password");
-        return Results.Ok(user);
+        var token = _tokenService.GenerateToken(user);
+        
+        return Results.Ok(token);
     }
 }

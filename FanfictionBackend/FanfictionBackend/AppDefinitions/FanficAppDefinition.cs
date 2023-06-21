@@ -1,10 +1,13 @@
-﻿using AutoMapper;
+﻿using System.Security.Claims;
+using AutoMapper;
 using FanfictionBackend.Dto;
 using FanfictionBackend.Interfaces;
 using FanfictionBackend.Models;
 using FanfictionBackend.Pagination;
 using FanfictionBackend.Repos;
 using FanfictionBackend.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -44,11 +47,16 @@ public class FanficAppDefinition : IAppDefinition
         app.MapGet("/fanfics/title",  (IFanficService fs, string title, int? pageSize, int? pageNumber)
             => fs.GetFanficsByTitle(title, new PagingParameters(pageSize, pageNumber)));
         
-        app.MapGet("/fanfics/author",  (IFanficService fs, string authorName, int? pageSize, int? pageNumber)
+        app.MapGet("/fanfics/author",  (IFanficService fs, string? authorName, int? pageSize, int? pageNumber)
             => fs.GetFanficsByAuthor(authorName, new PagingParameters(pageSize, pageNumber)));
-
-        app.MapPost("/fanfics",  (IFanficService fs, AddFanficDto fanfic, string userName)
-            => fs.AddFanfic(fanfic, userName));
+        
+        app.MapPost("/fanfics",
+            [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+            (IFanficService fs, HttpContext context, AddFanficDto fanfic) =>
+            {
+                var userNameClaim = context.User.FindFirst(c => c.Type == ClaimTypes.NameIdentifier);
+                return fs.AddFanfic(fanfic, userNameClaim?.Value);
+            });
     }
     
     private static void DefineChapterEndpoints(IEndpointRouteBuilder app)
@@ -65,13 +73,13 @@ public class FanficAppDefinition : IAppDefinition
         app.MapGet("/authors", (IUserService us, int? pageSize, int? pageNumber)
             => us.GetUsers(new PagingParameters(pageSize, pageNumber)));
         
-        app.MapGet("/author/{username}",  (IUserService us, string username)
+        app.MapGet("/author/{username}",  (IUserService us, string? username)
             => us.GetUserByUsername(username));
         
         app.MapPost("/authors",  (IUserService us, RegisterDto user, string password)
             => us.RegisterUser(user, password));
         
-        app.MapGet("/session",  (IUserService us, string email, string password)
+        app.MapGet("/session",  (IUserService us, string? email, string password)
             => us.LoginUser(email, password));
     }
 }

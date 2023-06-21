@@ -30,14 +30,14 @@ public class UserRepo : IUserRepo
         await _dataContext.SaveChangesAsync();
     }
 
-    public User? GetByUsername(string username)
+    public User? GetByUsername(string? username)
     {
         return _dataContext.Users
             .Include(u => u.Fanfics)
-            .FirstOrDefault(user => user.Username == username.ToLower());
+            .FirstOrDefault(user => username != null && user.Username == username.ToLower());
     }
     
-    public User? GetByEmail(string email)
+    public User? GetByEmail(string? email)
     {
         return _dataContext.Users
             .Include(u => u.Password)
