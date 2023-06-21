@@ -83,8 +83,9 @@ public class FanficService : IFanficService
         fanfic.Created = _dateTimeProvider.Now;
         fanfic.LastUpdated = fanfic.Created;
         _fanficRepo.AddFanfic(fanfic);
-        
-        return TypedResults.Ok();
+
+        var fanficDto = _mapper.Map<FanficDto>(fanfic);
+        return TypedResults.Ok(fanficDto);
     }
 
     public IResult GetChapter(int fanficId, int chapterNo)
@@ -100,16 +101,17 @@ public class FanficService : IFanficService
         return TypedResults.Ok(_mapper.Map<ChapterDto>(chapter));
     }
 
-    public IResult AddChapter(int fanficId, AddChapterDto chapterDto)
+    public IResult AddChapter(int fanficId, AddChapterDto addDto)
     {
         var fanfic = _fanficRepo.GetById(fanficId);
         if (fanfic is null)
             return TypedResults.NotFound($"Fanfic with id {fanficId} not found");
         
-        var chapter = _mapper.Map<Chapter>(chapterDto);
+        var chapter = _mapper.Map<Chapter>(addDto);
         fanfic.Chapters.Add(chapter);
         _chapterRepo.Add(chapter);
 
-        return TypedResults.Ok();
+        var chapterDto = _mapper.Map<ChapterDto>(chapter);
+        return TypedResults.Ok(chapterDto);
     }
 }
