@@ -47,8 +47,8 @@ public class FanficAppDefinition : IAppDefinition
         app.MapGet("/fanfics/author",  (IFanficService fs, string authorName, int? pageSize, int? pageNumber)
             => fs.GetFanficsByAuthor(authorName, new PagingParameters(pageSize, pageNumber)));
 
-        app.MapPost("/fanfics",  (IFanficService fs, AddFanficDto fanfic, string userName)
-            => fs.AddFanfic(fanfic, userName));
+        app.MapPost("/fanfics",  (IFanficService fs, AddFanficDto fanfic)
+            => fs.AddFanfic(fanfic, "Capitulation")); //TODO: взять имя из JWT-токена
     }
     
     private static void DefineChapterEndpoints(IEndpointRouteBuilder app)
