@@ -1,9 +1,7 @@
-﻿using AutoMapper;
-using FanfictionBackend.Dto;
-using FanfictionBackend.Models;
+﻿using FanfictionBackend.Dto;
 using FanfictionBackend.Pagination;
 
-namespace FanfictionBackend.Interfaces;
+namespace FanfictionBackend.Services;
 
 public interface IFanficService
 {
