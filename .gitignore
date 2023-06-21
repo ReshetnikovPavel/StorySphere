@@ -21,3 +21,5 @@ FanfictionBackend/Tests/obj/Debug/net7.0/Tests.csproj.AssemblyReference.cache
 *.dll
 *.pdb
 *.cache
+*.cache
+*.info
