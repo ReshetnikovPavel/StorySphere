@@ -12,6 +12,7 @@ const rating = document.getElementById('rating');
 const _focus = document.getElementById('focus');
 const genre = document.getElementById('genre');
 const warning = document.getElementById('warning');
+const parameters = document.getElementById('parameters');
 const translation = document.getElementById('translation');
 const shortDescription = document.getElementById('shortDescription');
 const note = document.getElementById('note');
@@ -21,17 +22,18 @@ addImage.addEventListener("click", addArt);
 function handleSubmit(event) {
     event.preventDefault();
     const data = {
-        title: _name.value,
+        name: _name.value,
         fandom: fandom.value,
-        characters: persons.value,
+        persons: persons.value,
         pairings: pairings.value,
-        ageLimit: rating.value,
-        category: _focus.value,
+        rating: rating.value,
+        focus: _focus.value,
         genre: genre.value,
-        warnings: warning.value,
-        isTranslation: translation.value,
-        description: shortDescription.value,
-        authorNotes: note.value
+        warning: warning.value,
+        parameters: parameters.value,
+        translation: translation.value,
+        shortDescription: shortDescription.value,
+        note: note.value
     };
     publishFanfic(data)
         .catch(() => alert("Не удалось опубликовать фанфик"));
