@@ -30,8 +30,17 @@
         
         <nav class="button-chapter">
           <button id="publish">Опубликовать</button>
+          <button id="status">Изменить статус</button>
           <button id="draft">Сохранить черновик</button>
         </nav>
+
+        <div id="popup" class="popup">
+          <h2>Выберите вариант:</h2>
+          <button style="background-color: var(--background-color);">В процессе [ … ]</button>
+          <button style="background-color: var(--background-color);">Завершен [ ✓ ]</button>
+          <button style="background-color: var(--background-color);">Заморожен [ ? ]</button>
+        </div>
+
       </div>
     </form>
     <script src="assets/js/add-chapter.js"></script>

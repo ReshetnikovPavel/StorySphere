@@ -79,16 +79,30 @@ prevButton.addEventListener('click', () => {
     }
   });
 
+const authorh = 'aa';
+const user = 'aa';
 const likeButton = document.querySelector('#likeBtn');
-let IsLike = getIsLike();
+let IsLike = getIsLike() || false;
+if (authorh === user) {
+    likeButton.textContent = 'Добавить главу';
+    likeButton.addEventListener('click', () => {
+        window.location.href = 'add-chapter.html';
+    })
+} else {
+    const imgLike = document.createElement('img');
+    imgLike.classList.add('button-star-icon');
+    imgLike.setAttribute('src', 'assets/images/star2.svg');
+    imgLike.setAttribute('alt', 'like');
+    likeButton.appendChild(imgLike);
 
-if (IsLike) likeButton.style.backgroundColor = 'rgb(112, 36, 20, 0.3)';
+    if (IsLike) likeButton.style.backgroundColor = 'rgb(112, 36, 20, 0.3)';
 
-likeButton.addEventListener('click', () => {
-    IsLike = !IsLike;
-    likeButton.style.backgroundColor = IsLike ? 'rgb(112, 36, 20, 0.3)' : 'white';
-    setLikeValue();
-});
+    likeButton.addEventListener('click', () => {
+        IsLike = !IsLike;
+        likeButton.style.backgroundColor = IsLike ? 'rgb(112, 36, 20, 0.3)' : 'white';
+        setLikeValue();
+    });
+}
 
 const openModalButton = document.getElementById('gallery');
 openModalButton.setAttribute('style', 'cursor: pointer;');
