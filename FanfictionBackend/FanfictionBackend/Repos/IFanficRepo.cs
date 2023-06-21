@@ -6,7 +6,8 @@ namespace FanfictionBackend.Interfaces;
 public interface IFanficRepo
 {
     public void AddFanfic(Fanfic fanfic);
-    public Fanfic? GetByTitle(string title);
+    public Fanfic? GetById(int id);
+    public IEnumerable<Fanfic> GetByTitle(string title);
 
-    public PagedList<Fanfic> GetRecentlyUpdated(PagingParameters pagingParameters);
+    public IEnumerable<Fanfic> GetRecentlyUpdated(PagingParameters pagingParameters);
 }

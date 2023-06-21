@@ -32,7 +32,9 @@ public class UserRepo : IUserRepo
 
     public User? GetByUsername(string username)
     {
-        return _dataContext.Users.FirstOrDefault(user => user.Username == username.ToLower());
+        return _dataContext.Users
+            .Include(u => u.Fanfics)
+            .FirstOrDefault(user => user.Username == username.ToLower());
     }
     
     public User? GetByEmail(string email)

@@ -8,7 +8,6 @@ public class MappingProfile : Profile
 {
     public MappingProfile()
     {
-        CreateMap<FanficDto, Fanfic>();
         CreateMap<Fanfic, FanficDto>()
             .ForMember(d => d.AuthorName, opt
                 => opt.MapFrom(src => src.Author.Username))
@@ -17,8 +16,8 @@ public class MappingProfile : Profile
 
         CreateMap<AddFanficDto, Fanfic>();
         
-        CreateMap<ChapterDto, Chapter>();
         CreateMap<Chapter, ChapterDto>();
+        CreateMap<AddChapterDto, Chapter>();
         
         CreateMap<UserDto, User>();
         CreateMap<User, UserDto>()

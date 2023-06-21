@@ -6,7 +6,9 @@ namespace FanfictionBackend.Services;
 public interface IFanficService
 {
     IResult GetRecentlyUpdatedFanfics(PagingParameters pagingParameters);
-    IResult GetFanficByTitle(string title);
+    IResult GetFanficsByTitle(string title, PagingParameters pagingParameters);
     IResult GetFanficsByAuthor(string authorName, PagingParameters pagingParameters);
     IResult AddFanfic(AddFanficDto fanfic, string authorName);
+    IResult GetChapter(int fanficId, int chapterNo);
+    IResult AddChapter(int fanficId, AddChapterDto chapterDto);
 }
