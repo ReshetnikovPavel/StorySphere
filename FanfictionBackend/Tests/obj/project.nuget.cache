@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "JKSgqKbF8TliGGNdWcvQqu3S0v3MgwFaXefkbP3XDWFTT31z1Xm3YdvpoD5UhO6mkdwRFzPwm4RV4+rptq13OA==",
+  "dgSpecHash": "S0j9pneihXLrFDdGq2Z/tKwEOawznod+ActyuhhmZsAzv9V4YixaKKSMqoWTLTQzmvyinp/zNwegsWXPEVzxyQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\Tests\\Tests.csproj",
   "expectedPackageFiles": [
@@ -11,6 +11,7 @@
     "C:\\Users\\Andrew Kuklinov\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\Andrew Kuklinov\\.nuget\\packages\\coverlet.collector\\3.2.0\\coverlet.collector.3.2.0.nupkg.sha512",
     "C:\\Users\\Andrew Kuklinov\\.nuget\\packages\\fluentassertions\\6.11.0\\fluentassertions.6.11.0.nupkg.sha512",
+    "C:\\Users\\Andrew Kuklinov\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.7\\microsoft.aspnetcore.authentication.jwtbearer.7.0.7.nupkg.sha512",
     "C:\\Users\\Andrew Kuklinov\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Andrew Kuklinov\\.nuget\\packages\\microsoft.codecoverage\\17.5.0\\microsoft.codecoverage.17.5.0.nupkg.sha512",
     "C:\\Users\\Andrew Kuklinov\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
