@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using FanfictionBackend.Interfaces;
+using FanfictionBackend.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 
@@ -30,5 +31,7 @@ public class AuthenticationAppDefinition : IAppDefinition
             };
         });
         services.AddAuthorization();
+        
+        services.AddScoped<ITokenService, TokenService>();
     }
 }
