@@ -34,17 +34,24 @@ function handleSubmit(event) {
         authorNotes: note.value
     };
     publishFanfic(data)
+        .then(fanfic => goToAddChapterPage(fanfic.id))
         .catch(() => alert("Не удалось опубликовать фанфик"));
 }
 
 async function publishFanfic(data) {
-    return fetch('/fanfics', {
+    const response= await fetch('/fanfics', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(data)
     });
+    
+    return await response.json()
+}
+
+function goToAddChapterPage(fanficId) {
+    window.location.href = `/add-chapter.html?fanficId=${fanficId}`
 }
 
 function addArt(event) {

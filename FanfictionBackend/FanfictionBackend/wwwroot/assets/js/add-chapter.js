@@ -52,7 +52,7 @@ function publishSubmit(event) {
     }
     
     const data = {
-        name: _name.value,
+        title: _name.value,
         content: content.value,
     };
     publish(data)
@@ -71,12 +71,11 @@ async function saveDraft(data) {
 }
 
 async function publish(data) {
-    const response = await fetch('/chapters', {
+    return await fetch('/chapters', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(data)
     });
-    return await response.json();
 }
