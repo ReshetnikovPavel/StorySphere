@@ -12,12 +12,14 @@ public class UserService : IUserService
     private readonly IUserRepo _userRepo;
     private readonly IPasswordHasher _hasher;
     private readonly IMapper _mapper;
+    private readonly ITokenService _tokenService;
 
-    public UserService(IUserRepo userRepo, IPasswordHasher hasher, IMapper mapper)
+    public UserService(IUserRepo userRepo, IPasswordHasher hasher, IMapper mapper, ITokenService tokenService)
     {
         _userRepo = userRepo;
         _hasher = hasher;
         _mapper = mapper;
+        _tokenService = tokenService;
     }
     
     public IResult GetUsers(PagingParameters pagingParameters)

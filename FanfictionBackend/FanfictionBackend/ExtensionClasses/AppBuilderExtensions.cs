@@ -1,4 +1,5 @@
-﻿using FanfictionBackend.Interfaces;
+﻿using FanfictionBackend.AppDefinitions;
+using FanfictionBackend.Interfaces;
 
 namespace FanfictionBackend.ExtensionClasses;
 
