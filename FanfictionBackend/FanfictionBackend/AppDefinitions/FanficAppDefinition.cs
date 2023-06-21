@@ -55,7 +55,7 @@ public class FanficAppDefinition : IAppDefinition
         app.MapGet("/chapters",  (IFanficService fs, int fanficId, int chapterNo)
             => fs.GetChapter(fanficId, chapterNo));
 
-        app.MapPost("/chapters",  (IFanficService fs, int fanficId, AddChapterDto chapter)
+        app.MapPost("/chapters",  (IFanficService fs, [FromQuery] int fanficId, AddChapterDto chapter)
             => fs.AddChapter(fanficId, chapter));
     }
 
