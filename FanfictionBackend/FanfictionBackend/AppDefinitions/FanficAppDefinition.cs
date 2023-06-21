@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using FanfictionBackend.Dto;
+﻿using FanfictionBackend.Dto;
 using FanfictionBackend.Interfaces;
 using FanfictionBackend.Models;
 using FanfictionBackend.Pagination;

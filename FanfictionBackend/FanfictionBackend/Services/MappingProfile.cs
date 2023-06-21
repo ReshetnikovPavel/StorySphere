@@ -6,7 +6,7 @@ namespace FanfictionBackend.Services;
 
 public class MappingProfile : Profile
 {
-    public MappingProfile(ICategoryParser categoryParser, IAgeLimitParser ageLimitParser)
+    public MappingProfile()
     {
         CreateMap<Fanfic, FanficDto>()
             .ForMember(d => d.AuthorName, opt
@@ -14,15 +14,15 @@ public class MappingProfile : Profile
             .ForMember(d => d.NumLikes, opt
                 => opt.MapFrom(src => src.Likes.Count))
             .ForMember(f => f.Category,
-                opt => opt.MapFrom(src => categoryParser.Parse(src.Category)))
+                opt => opt.MapFrom(src => CategoryParser.Parse(src.Category)))
             .ForMember(f => f.AgeLimit,
-                opt => opt.MapFrom(src => ageLimitParser.Parse(src.AgeLimit)));
+                opt => opt.MapFrom(src => AgeLimitParser.Parse(src.AgeLimit)));
 
         CreateMap<AddFanficDto, Fanfic>()
             .ForMember(f => f.Category,
-                opt => opt.MapFrom(src => categoryParser.Parse(src.Category)))
+                opt => opt.MapFrom(src => CategoryParser.Parse(src.Category)))
             .ForMember(f => f.AgeLimit,
-                opt => opt.MapFrom(src => ageLimitParser.Parse(src.AgeLimit)));
+                opt => opt.MapFrom(src => AgeLimitParser.Parse(src.AgeLimit)));
         
         CreateMap<Chapter, ChapterDto>();
         CreateMap<AddChapterDto, Chapter>();
