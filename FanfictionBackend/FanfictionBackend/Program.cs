@@ -7,8 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 var app = builder.BuildByDefinitions(
     new FanficAppDefinition(),
-    new SwaggerAppDefinition(),
-    new AuthenticationAppDefinition()
+    new SwaggerAppDefinition()
 );
 
 using (var scope = app.Services.CreateScope())
