@@ -64,9 +64,13 @@ app.UseAuthentication();
 
 app.MapPost("/login", (string username) => Login(username));
 
-app.MapDelete("/hello",
+app.MapGet("/hello",
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-    () => "Hello, world!");
+    (ClaimsPrincipal user) => 
+    {
+        var name = user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        return $"Hello, {name}";
+    });
 
 IResult Login(string username)
 {
