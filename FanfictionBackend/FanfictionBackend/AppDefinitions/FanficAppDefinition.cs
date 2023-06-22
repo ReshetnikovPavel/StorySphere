@@ -89,12 +89,15 @@ public class FanficAppDefinition : IAppDefinition
         app.MapGet("/session",  (IUserService us, string? email, string password)
             => us.LoginUser(email, password));
 
-        app.MapGet("/hello",
+        app.MapPost("/fanfics",
             [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-            (ClaimsPrincipal user) => 
+            (ClaimsPrincipal user, IFanficService fs, AddFanficDto fanfic) => 
             {
-                var name = user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-                return $"Hello, {name}";
+                var authorName = user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                fs.AddFanfic(fanfic, authorName);
             });
+        
+        app.MapGet("/fanfics/recent",  (IFanficService fs, int? pageSize, int? pageNumber)
+            => fs.GetRecentlyUpdatedFanfics(new PagingParameters(pageSize, pageNumber)));
     }
 }
