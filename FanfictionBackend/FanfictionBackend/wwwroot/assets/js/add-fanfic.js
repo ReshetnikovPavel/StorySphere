@@ -22,12 +22,12 @@ addImage.addEventListener("click", addArt);
 function handleSubmit(event) {
     event.preventDefault();
     const data = {
-        name: _name.value,
+        title: _name.value,
         fandom: fandom.value,
-        persons: persons.value,
+        characters: persons.value,
         pairings: pairings.value,
-        rating: rating.value,
-        focus: _focus.value,
+        ageLimit: rating.value,
+        category: _focus.value,
         genre: genre.value,
         warnings: warning.value,
         isTranslation: Boolean(translation.value),
