@@ -1,9 +1,13 @@
-﻿using FanfictionBackend.Dto;
+﻿using System.Security.Claims;
+using AutoMapper;
+using FanfictionBackend.Dto;
 using FanfictionBackend.Interfaces;
 using FanfictionBackend.Models;
 using FanfictionBackend.Pagination;
 using FanfictionBackend.Repos;
 using FanfictionBackend.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -22,7 +26,7 @@ public class FanficAppDefinition : IAppDefinition
     {
         services.AddDbContext<FanficDb>(options =>
             options.UseInMemoryDatabase("FanfictionDatabase"));
-        
+
         services.AddScoped<IFanficRepo, FanficRepo>();
         services.AddScoped<IUserRepo, UserRepo>();
         services.AddScoped<IChapterRepo, ChapterRepo>();
@@ -31,7 +35,7 @@ public class FanficAppDefinition : IAppDefinition
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<IFanficService, FanficService>();
         services.AddScoped<DemoFactory>();
-        
+
         services.AddAutoMapper(typeof(MappingProfile));
     }
 
@@ -39,20 +43,25 @@ public class FanficAppDefinition : IAppDefinition
     {
         app.MapGet("/fanfics/recent",  (IFanficService fs, int? pageSize, int? pageNumber)
             => fs.GetRecentlyUpdatedFanfics(new PagingParameters(pageSize, pageNumber)));
-        
+
         app.MapGet("/fanfics/title",  (IFanficService fs, string title, int? pageSize, int? pageNumber)
             => fs.GetFanficsByTitle(title, new PagingParameters(pageSize, pageNumber)));
-        
-        app.MapGet("/fanfics/author",  (IFanficService fs, string authorName, int? pageSize, int? pageNumber)
-            => fs.GetFanficsByAuthor(authorName, new PagingParameters(pageSize, pageNumber)));
 
-        app.MapPost("/fanfics",  (IFanficService fs, AddFanficDto fanfic)
-            => fs.AddFanfic(fanfic, "Capitulation")); //TODO: взять имя из JWT-токена
+        app.MapGet("/fanfics/author",  (IFanficService fs, string? authorName, int? pageSize, int? pageNumber)
+            => fs.GetFanficsByAuthor(authorName, new PagingParameters(pageSize, pageNumber)));
 
         app.MapGet("/fanfics", (IFanficService fs, [FromQuery] int fanficId)
             => fs.GetFanficById(fanficId));
+            
+        app.MapPost("/fanfics",
+            [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+            (ClaimsPrincipal user, IFanficService fs, AddFanficDto fanfic) =>
+            {
+                var authorName = user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                fs.AddFanfic(fanfic, authorName);
+            });
     }
-    
+
     private static void DefineChapterEndpoints(IEndpointRouteBuilder app)
     {
         app.MapGet("/chapters",  (IFanficService fs, [FromQuery] int fanficId, [FromQuery] int chapterNo)
@@ -66,14 +75,14 @@ public class FanficAppDefinition : IAppDefinition
     {
         app.MapGet("/authors", (IUserService us, int? pageSize, int? pageNumber)
             => us.GetUsers(new PagingParameters(pageSize, pageNumber)));
-        
-        app.MapGet("/author/{username}",  (IUserService us, string username)
+
+        app.MapGet("/author/{username}",  (IUserService us, string? username)
             => us.GetUserByUsername(username));
-        
+
         app.MapPost("/authors",  (IUserService us, RegisterDto user, string password)
             => us.RegisterUser(user, password));
-        
-        app.MapGet("/session",  (IUserService us, string email, string password)
+
+        app.MapGet("/session",  (IUserService us, string? email, string password)
             => us.LoginUser(email, password));
     }
 }

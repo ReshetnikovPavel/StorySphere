@@ -1,4 +1,4 @@
-﻿namespace FanfictionBackend.Interfaces;
+﻿namespace FanfictionBackend.AppDefinitions;
 
 public interface IAppDefinition
 {

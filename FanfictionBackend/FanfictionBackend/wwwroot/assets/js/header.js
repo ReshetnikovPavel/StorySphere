@@ -1,4 +1,4 @@
-﻿const ENTER = 13;
+const ENTER = 13;
 
 initHeader();
 
@@ -59,13 +59,26 @@ function initLoginModal() {
 
     loginButton.addEventListener("click", function(e) {
         e.preventDefault();
-        login(email, password);
+        login(email.value, password.value);
         closeModal(loginModal);
     });
 }
 
-function login(email, password) {
-    alert('Вы вошли, мистер');
+async function login(email, password) {
+    const token = await fetchSession(email, password);
+    Cookies.set('session', token, {sameSite: 'strict'});
+}
+
+async function fetchSession(email, password) {
+    const url = `/session?email=${email}&password=${password}`;
+    const response = await fetch(url);
+  
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+  
+    const data = await response.json();
+    return data;
 }
 
 function createHeader() {

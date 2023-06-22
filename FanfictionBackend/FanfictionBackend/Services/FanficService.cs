@@ -53,14 +53,14 @@ public class FanficService : IFanficService
         }
     }
 
-    public IResult GetFanficsByAuthor(string authorName, PagingParameters pagingParameters)
+    public IResult GetFanficsByAuthor(string? authorName, PagingParameters pagingParameters)
     {
         var author = _userRepo.GetByUsername(authorName);
         if (author is null)
             return TypedResults.NotFound($"Author named {authorName} does not exist");
 
         var fanfics = author.Fanfics.Select(f => _mapper.Map<FanficDto>(f));
-        
+
         try
         {
             return TypedResults.Ok(fanfics.ToPagedList(pagingParameters));
@@ -115,7 +115,7 @@ public class FanficService : IFanficService
         var fanfic = _fanficRepo.GetById(fanficId);
         if (fanfic is null)
             return TypedResults.NotFound($"Fanfic with id {fanficId} not found");
-        
+
         var chapter = _mapper.Map<Chapter>(addDto);
         fanfic.Chapters.Add(chapter);
         _chapterRepo.Add(chapter);

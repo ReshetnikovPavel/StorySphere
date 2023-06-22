@@ -12,7 +12,8 @@
   </head>
 
   <body>
-    <script src="assets/js/header.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+    <script src="/assets/js/header.js"></script>
     <h1 class="main-page-heading">Создать работу</h1>
     <form>
       <div class="row-container">
@@ -117,6 +118,26 @@
               <div class="label-container">
                 <label for="warning">Предупреждения</label>
                 <input type="text" id="warning" required>
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="select-container">
+                <label for="parameters">Параметры</label>
+                <select id="parameters" required>
+                  <option value="">
+                    Не указано
+                  </option>
+                  <option value="NoCriticism"> 
+                    Без критики
+                  </option>
+                  <option value="SoftCriticism"> 
+                    Мягкая критика
+                  </option>
+                  <option value="AnyCriticism"> 
+                    Любая критика
+                  </option>
+                </select>
               </div>
             </div>
 
