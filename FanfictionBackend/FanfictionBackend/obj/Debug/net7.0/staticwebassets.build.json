@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "CxFvlczUGUQHI0vnQEl3SXhInu0tX2uxfYANQ9iycgc=",
+  "Hash": "6yPnupQx6iMs0eHgE/A+TQcPypeDMBN81AFwsd7x/V4=",
   "Source": "FanfictionBackend",
   "BasePath": "_content/FanfictionBackend",
   "Mode": "Default",
@@ -1239,6 +1239,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\package-lock.json",
+      "SourceId": "FanfictionBackend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\",
+      "BasePath": "_content/FanfictionBackend",
+      "RelativePath": "package-lock.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\package-lock.json"
+    },
+    {
+      "Identity": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\package.json",
+      "SourceId": "FanfictionBackend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\",
+      "BasePath": "_content/FanfictionBackend",
+      "RelativePath": "package.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\package.json"
     },
     {
       "Identity": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\profile.html",
