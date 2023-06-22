@@ -86,8 +86,8 @@ let IsLike = getIsLike() || false;
 if (authorh === user) {
     likeButton.textContent = 'Добавить главу';
     likeButton.addEventListener('click', () => {
-        window.location.href = 'add-chapter.html';
-    })
+        window.location.href = `/add-chapter.html?fanficId=${fanficId}`;
+    });
 } else {
     const imgLike = document.createElement('img');
     imgLike.classList.add('button-star-icon');
@@ -102,6 +102,33 @@ if (authorh === user) {
         likeButton.style.backgroundColor = IsLike ? 'rgb(112, 36, 20, 0.3)' : 'white';
         setLikeValue();
     });
+}
+
+const statusBtn = document.getElementById('changeStatus');
+if (authorh !== user) {
+    statusBtn.setAttribute('style', 'display: none;');
+} else {
+  statusBtn.setAttribute('style', 'display: block;');
+  const popup = document.getElementById('popup');
+
+  statusBtn.addEventListener('click', () => {
+    console.log('click!');
+    popup.style.display = 'flex';
+  });
+
+  popup.addEventListener('click', function(event) {
+    if (event.target.tagName === 'BUTTON') {
+      const selectedOption = event.target.textContent;
+      console.log('Выбран вариант:', selectedOption); // Засетить статус
+      popup.style.display = 'none';
+    }
+  });
+
+  document.addEventListener('click', function(event) {
+    if (!popup.contains(event.target) && event.target !== statusBtn) {
+    popup.style.display = 'none';
+    }
+  });
 }
 
 const openModalButton = document.getElementById('gallery');
@@ -131,6 +158,8 @@ for(let i = 0; i < images.length; i++) {
 
     imageContainer.appendChild(image);
 }
+
+
 
 function getIsLike() {
     return localStorage.getItem('like') || false;
