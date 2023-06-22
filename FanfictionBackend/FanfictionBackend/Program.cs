@@ -24,16 +24,17 @@ var app = builder.BuildByDefinitions(
 //     demoFactory.InitData();
 // }
 
-DefineJwtTestingEndpoints(app, new JwtService(builder.Configuration));
+
+DefineJwtTestingEndpoints(app);
 
 app.UseFileServer();
 app.Run();
 
-void DefineJwtTestingEndpoints(WebApplication app, ITokenService tokenService)
+void DefineJwtTestingEndpoints(WebApplication app)
 {
-    app.MapPost("/login", (string username) =>
+    app.MapPost("/login", (ITokenService tokenService, string username) =>
     {
-        var tokenString = tokenService.GenerateToken(new User() { Username = username });
+        var tokenString = tokenService.GenerateToken(new User { Username = username });
         return Results.Ok(tokenString);
     });
 

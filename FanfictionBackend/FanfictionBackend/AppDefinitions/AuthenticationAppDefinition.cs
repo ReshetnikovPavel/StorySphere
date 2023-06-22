@@ -31,6 +31,6 @@ public class AuthenticationAppDefinition : IAppDefinition
         });
         services.AddAuthorization();
 
-        // services.AddScoped<ITokenService, JwtService>();
+        services.AddScoped<ITokenService, JwtService>();
     }
 }
