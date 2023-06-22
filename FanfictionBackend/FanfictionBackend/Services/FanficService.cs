@@ -71,6 +71,15 @@ public class FanficService : IFanficService
         }
     }
 
+    public IResult GetFanficById(int fanficId)
+    {
+        var fanfic = _fanficRepo.GetById(fanficId);
+        if (fanfic is null)
+            return TypedResults.NotFound($"Fanfic with {fanficId} does not exist");
+
+        return TypedResults.Ok(_mapper.Map<FanficDto>(fanfic));
+    }
+
     public IResult AddFanfic(AddFanficDto addDto, string authorName)
     {
         var fanfic = _mapper.Map<Fanfic>(addDto);
