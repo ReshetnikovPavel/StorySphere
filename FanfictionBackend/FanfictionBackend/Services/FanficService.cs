@@ -15,14 +15,16 @@ public class FanficService : IFanficService
     private readonly IUserRepo _userRepo;
     private readonly IDateTimeProvider _dateTimeProvider;
     private readonly IMapper _mapper;
+    private readonly IImageService _imageService;
 
-    public FanficService(IFanficRepo fanficRepo, IChapterRepo chapterRepo, IUserRepo userRepo, IDateTimeProvider dateTimeProvider, IMapper mapper)
+    public FanficService(IFanficRepo fanficRepo, IChapterRepo chapterRepo, IUserRepo userRepo, IDateTimeProvider dateTimeProvider, IMapper mapper, IImageService imageService)
     {
         _fanficRepo = fanficRepo;
         _chapterRepo = chapterRepo;
         _userRepo = userRepo;
         _dateTimeProvider = dateTimeProvider;
         _mapper = mapper;
+        _imageService = imageService;
     }
 
     public IResult GetRecentlyUpdatedFanfics(PagingParameters pagingParameters)
