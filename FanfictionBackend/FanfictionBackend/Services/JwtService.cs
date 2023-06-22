@@ -31,9 +31,7 @@ public class JwtService : ITokenService
             expires: DateTime.UtcNow.AddDays(60),
             notBefore: DateTime.UtcNow,
             signingCredentials: new SigningCredentials(
-                new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
-                    _configuration["Jwt:Key"] 
-                    ?? throw new InvalidOperationException("Security key in app config is null"))),
+                new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"])),
                 SecurityAlgorithms.HmacSha256)
         );
 

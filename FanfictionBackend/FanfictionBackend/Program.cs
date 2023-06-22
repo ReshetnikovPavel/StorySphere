@@ -4,6 +4,7 @@ using System.Text;
 using FanfictionBackend.AppDefinitions;
 using FanfictionBackend.ExtensionClasses;
 using FanfictionBackend.Interfaces;
+using FanfictionBackend.Models;
 using FanfictionBackend.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -23,34 +24,16 @@ var app = builder.BuildByDefinitions(
 //     demoFactory.InitData();
 // }
 
-DefineJwtTestingEndpoints(app);
+DefineJwtTestingEndpoints(app, new JwtService(builder.Configuration));
 
 app.UseFileServer();
 app.Run();
 
-void DefineJwtTestingEndpoints(WebApplication app)
+void DefineJwtTestingEndpoints(WebApplication app, ITokenService tokenService)
 {
-    app.MapPost("/login", (string username) => 
+    app.MapPost("/login", (string username) =>
     {
-        var claims = new[]
-        {
-            new Claim(ClaimTypes.NameIdentifier, username),
-        };
-
-        var token = new JwtSecurityToken
-        (
-            issuer: builder.Configuration["Jwt:Issuer"],
-            audience: builder.Configuration["Jwt:Audience"],
-            claims: claims,
-            expires: DateTime.UtcNow.AddDays(60),
-            notBefore: DateTime.UtcNow,
-            signingCredentials: new SigningCredentials(
-                new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"])),
-                SecurityAlgorithms.HmacSha256)
-        );
-
-        var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
-
+        var tokenString = tokenService.GenerateToken(new User() { Username = username });
         return Results.Ok(tokenString);
     });
 
