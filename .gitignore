@@ -13,6 +13,7 @@ FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/staticwebassets.development
 FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/staticwebassets.pack.json
 FanfictionBackend/FanfictionBackend/obj/Debug/net7.0/staticwebassets/msbuild.FanfictionBackend.Microsoft.AspNetCore.StaticWebAssets.props
 FanfictionBackend/FanfictionBackend/obj/project.nuget.cache
+FanfictionBackend/FanfictionBackend/appsettings.json
 FanfictionBackend/Tests/obj/Debug/net7.0/Tests.assets.cache
 FanfictionBackend/Tests/obj/Debug/net7.0/Tests.csproj.AssemblyReference.cache
 FanfictionBackend/Tests/obj/project.assets.json
