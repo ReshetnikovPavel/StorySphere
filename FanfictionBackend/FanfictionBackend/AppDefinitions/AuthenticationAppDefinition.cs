@@ -26,12 +26,11 @@ public class AuthenticationAppDefinition : IAppDefinition
                 ValidateIssuerSigningKey = true,
                 ValidIssuer = config["Jwt:Issuer"],
                 ValidAudience = config["Jwt:Audience"],
-                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
-                    config["Jwt:Key"] ?? throw new InvalidOperationException("Security key can't be null")))
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Jwt:Key"]))
             };
         });
         services.AddAuthorization();
-        
+
         services.AddScoped<ITokenService, JwtService>();
     }
 }
