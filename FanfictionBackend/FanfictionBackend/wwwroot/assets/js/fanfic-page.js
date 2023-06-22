@@ -175,3 +175,25 @@ function loadingData(base, id) {
 function getImages() {
     return ["/assets/images/img5.png", "/assets/images/img6.png", "/assets/images/img7.jpg", "/assets/images/img8.png"];
 }
+
+async function fetchFanfic(fanficId) {
+    const response= await fetch(`/fanfics?fanficId=${fanficId}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    });
+
+    return await response.json();
+}
+
+async function fetchChapter(fanficId, chapterNo) {
+    const response= await fetch(`/chapters?fanficId=${fanficId}&chapterNo=${chapterNo}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    });
+
+    return await response.json();
+}

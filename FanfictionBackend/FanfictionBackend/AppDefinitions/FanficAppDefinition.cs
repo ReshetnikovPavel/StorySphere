@@ -48,11 +48,14 @@ public class FanficAppDefinition : IAppDefinition
 
         app.MapPost("/fanfics",  (IFanficService fs, AddFanficDto fanfic)
             => fs.AddFanfic(fanfic, "Capitulation")); //TODO: взять имя из JWT-токена
+
+        app.MapGet("/fanfics", (IFanficService fs, [FromQuery] int fanficId)
+            => fs.GetFanficById(fanficId));
     }
     
     private static void DefineChapterEndpoints(IEndpointRouteBuilder app)
     {
-        app.MapGet("/chapters",  (IFanficService fs, int fanficId, int chapterNo)
+        app.MapGet("/chapters",  (IFanficService fs, [FromQuery] int fanficId, [FromQuery] int chapterNo)
             => fs.GetChapter(fanficId, chapterNo));
 
         app.MapPost("/chapters",  (IFanficService fs, [FromQuery] int fanficId, AddChapterDto chapter)
