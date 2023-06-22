@@ -17,10 +17,9 @@ public class FanficAppDefinition : IAppDefinition
 {
     public void DefineApp(WebApplication app)
     {
-        // DefineFanficEndpoints(app);
-        // DefineChapterEndpoints(app);
-        // DefineUserEndpoints(app);
-        DefineJwtTestingEndpoints(app);
+        DefineFanficEndpoints(app);
+        DefineChapterEndpoints(app);
+        DefineUserEndpoints(app);
     }
 
     public void DefineServices(IServiceCollection services, IConfiguration config)
@@ -53,10 +52,10 @@ public class FanficAppDefinition : IAppDefinition
 
         app.MapPost("/fanfics",
             [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-            (IFanficService fs, HttpContext context, AddFanficDto fanfic) =>
+            (ClaimsPrincipal user, IFanficService fs, AddFanficDto fanfic) => 
             {
-                var userNameClaim = context.User.FindFirst(c => c.Type == ClaimTypes.NameIdentifier);
-                return fs.AddFanfic(fanfic, userNameClaim?.Value);
+                var authorName = user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                fs.AddFanfic(fanfic, authorName);
             });
     }
 
@@ -82,22 +81,5 @@ public class FanficAppDefinition : IAppDefinition
 
         app.MapGet("/session",  (IUserService us, string? email, string password)
             => us.LoginUser(email, password));
-    }
-    
-    private static void DefineJwtTestingEndpoints(WebApplication app)
-    {
-        app.MapGet("/session",  (IUserService us, string? email, string password)
-            => us.LoginUser(email, password));
-
-        app.MapPost("/fanfics",
-            [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-            (ClaimsPrincipal user, IFanficService fs, AddFanficDto fanfic) => 
-            {
-                var authorName = user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-                fs.AddFanfic(fanfic, authorName);
-            });
-        
-        app.MapGet("/fanfics/recent",  (IFanficService fs, int? pageSize, int? pageNumber)
-            => fs.GetRecentlyUpdatedFanfics(new PagingParameters(pageSize, pageNumber)));
     }
 }
