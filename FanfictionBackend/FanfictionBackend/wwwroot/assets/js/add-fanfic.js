@@ -40,11 +40,16 @@ function handleSubmit(event) {
 }
 
 async function publishFanfic(data) {
+    const token = Cookies.get('session');
+
+    // TODO: Сделать что-то, если токен undefined, потому что юзер еще не залогинился
+
     const response= await fetch('/fanfics', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
-        },
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+          },
         body: JSON.stringify(data)
     });
 
