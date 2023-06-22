@@ -86,11 +86,8 @@ public class FanficAppDefinition : IAppDefinition
     
     private static void DefineJwtTestingEndpoints(WebApplication app)
     {
-        app.MapPost("/login", (ITokenService tokenService, string username) =>
-        {
-            var tokenString = tokenService.GenerateToken(new User { Username = username });
-            return Results.Ok(tokenString);
-        });
+        app.MapPost("/login", (IUserService us, string? email, string password)
+            => us.LoginUser(email, password));
 
         app.MapGet("/hello",
             [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
