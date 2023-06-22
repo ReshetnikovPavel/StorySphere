@@ -51,12 +51,18 @@ function publishSubmit(event) {
         return;
     }
     
-    const data = {
-        name: _name.value,
+    const chapter = {
+        title: _name.value,
         content: content.value,
     };
-    publish(data)
+    
+    publish(chapter, getFanficId())
         .catch(() => alert("Не удалось опубликовать главу"));
+}
+
+function getFanficId() {
+    const url = new URL(window.location.href);
+    return url.searchParams.get("fanficId")
 }
 
 async function saveDraft(data) {
@@ -70,13 +76,12 @@ async function saveDraft(data) {
     return await response.json();
 }
 
-async function publish(data) {
-    const response = await fetch('/chapters', {
+async function publish(chapter, fanficId) {
+    return await fetch(`/chapters?fanficId=${fanficId}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(chapter)
     });
-    return await response.json();
 }

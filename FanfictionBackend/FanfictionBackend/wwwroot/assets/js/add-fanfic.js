@@ -29,58 +29,63 @@ function handleSubmit(event) {
         rating: rating.value,
         focus: _focus.value,
         genre: genre.value,
-        warning: warning.value,
-        parameters: parameters.value,
-        translation: translation.value,
-        shortDescription: shortDescription.value,
-        note: note.value
+        warnings: warning.value,
+        isTranslation: Boolean(translation.value),
+        description: shortDescription.value,
+        authorNotes: note.value
     };
     publishFanfic(data)
+        .then(fanfic => goToAddChapterPage(fanfic.id))
         .catch(() => alert("Не удалось опубликовать фанфик"));
 }
 
 async function publishFanfic(data) {
-    const response = await fetch('/fanfics', {
+    const response= await fetch('/fanfics', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(data)
     });
-    return await response.json();
+
+    return await response.json()
+}
+
+function goToAddChapterPage(fanficId) {
+    window.location.href = `/add-chapter.html?fanficId=${fanficId}`
 }
 
 function addArt(event) {
-  event.preventDefault();
-  const uploadBtn = document.getElementById('addArt');
-  const fileList = document.getElementById('fileList');
-  const uploadedFiles = new Set();
+    event.preventDefault();
+    const uploadBtn = document.getElementById('addArt');
+    const fileList = document.getElementById('fileList');
+    const uploadedFiles = new Set();
 
-  uploadBtn.addEventListener('click', () => {
-    const input = document.createElement('input');
-    input.type = 'file';
-    input.multiple = true;
-    input.accept = '.png, .jpeg, .jpg';
-    input.addEventListener('change', () => {
-      const files = input.files;
-      for (let i = 0; i < files.length; i++) {
-        const file = files[i];
-        if (!uploadedFiles.has(file.name)) {
-          uploadedFiles.add(file.name);
-          const li = document.createElement('li');
-          li.textContent = file.name;
-          fileList.appendChild(li);
-        }
-      }
+    uploadBtn.addEventListener('click', () => {
+        const input = document.createElement('input');
+        input.type = 'file';
+        input.multiple = true;
+        input.accept = '.png, .jpeg, .jpg';
+        input.addEventListener('change', () => {
+            const files = input.files;
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                if (!uploadedFiles.has(file.name)) {
+                    uploadedFiles.add(file.name);
+                    const li = document.createElement('li');
+                    li.textContent = file.name;
+                    fileList.appendChild(li);
+                }
+            }
+        });
+        input.click();
     });
-    input.click();
-  });
 
-  fileList.addEventListener('click', (event) => {
-    if (event.target.tagName === 'LI') {
-      const fileName = event.target.textContent;
-      uploadedFiles.delete(fileName);
-      event.target.remove();
-    }
-  });
+    fileList.addEventListener('click', (event) => {
+        if (event.target.tagName === 'LI') {
+            const fileName = event.target.textContent;
+            uploadedFiles.delete(fileName);
+            event.target.remove();
+        }
+    });
 }

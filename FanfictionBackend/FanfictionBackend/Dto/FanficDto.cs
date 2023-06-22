@@ -10,8 +10,8 @@ public class FanficDto
     public string Fandom { get; set; }
     public string Characters { get; set; }
     public string Pairings { get; set; }
-    public AgeLimit AgeLimit { get; set; }
-    public Category Category { get; set; }
+    public string AgeLimit { get; set; }
+    public string Category { get; set; }
     public string Genre { get; set; }
     public string Warnings { get; set; }
     public string AuthorNotes { get; set; }
