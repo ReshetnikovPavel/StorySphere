@@ -18,11 +18,11 @@ var app = builder.BuildByDefinitions(
     new FanficAppDefinition()
 );
 
-// using (var scope = app.Services.CreateScope())
-// {
-//     var demoFactory = scope.ServiceProvider.GetRequiredService<DemoFactory>();
-//     demoFactory.InitData();
-// }
+using (var scope = app.Services.CreateScope())
+{
+    var demoFactory = scope.ServiceProvider.GetRequiredService<DemoFactory>();
+    demoFactory.InitData();
+}
 
 
 app.UseFileServer();
