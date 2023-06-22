@@ -19,6 +19,7 @@ public class FanficDto
     public bool IsTranslation { get; set; }
     
     public int NumLikes { get; set; }
+    public int NumChapters { get; set; }
     public DateTimeOffset Created { get; set; }
     public DateTimeOffset LastUpdated { get; set; }
 }

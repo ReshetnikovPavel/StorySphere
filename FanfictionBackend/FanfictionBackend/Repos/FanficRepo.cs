@@ -39,6 +39,8 @@ public class FanficRepo : IFanficRepo
     {
         return _dataContext.Fanfics
             .Include(f => f.Chapters)
+            .Include(f => f.Author)
+            .Include(f => f.Likes)
             .FirstOrDefault(f => f.Id == id);
     }
 }
