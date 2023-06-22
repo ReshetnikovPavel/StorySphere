@@ -58,7 +58,7 @@ public class FanficAppDefinition : IAppDefinition
             (ClaimsPrincipal user, IFanficService fs, AddFanficDto fanfic) =>
             {
                 var authorName = user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-                fs.AddFanfic(fanfic, authorName);
+                return fs.AddFanfic(fanfic, authorName);
             });
     }
 
