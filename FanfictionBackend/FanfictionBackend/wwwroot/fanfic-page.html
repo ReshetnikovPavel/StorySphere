@@ -54,9 +54,15 @@
           <div class="info-size-container">
             <label>Размер:</label>
             <div class="info-size" id="sizeChapters"></div>
-            <label>глав,</label>
-            <div class="info-size" id="sizePages"></div>
-            <label>страниц</label>
+            <label>глав</label>
+          </div>
+
+          
+          <div class="info-container">
+            <label>Фандом</label>
+            <div class="info-text-container">
+              <textarea id="fandom" readonly></textarea>
+            </div>
           </div>
 
           <div class="info-container">
@@ -84,7 +90,7 @@
         <section class="info-right-column">
           <div class="info-container">
             <label>Описание</label>
-            <div class="info-big-text-container">
+            <div class="info-big-text-container" style="height: 40rem;">
               <textarea id="description" readonly></textarea>
             </div>
           </div>
@@ -97,6 +103,15 @@
           </div>
         </section>
 
+      </section>
+
+      <section>
+        <div class="info-container">
+          <label>Примечания</label>
+          <div class="info-big-text-container" style="width: calc(60rem - 1rem - 1.4rem);">
+            <textarea id="notes" readonly></textarea>
+          </div>
+        </div>
       </section>
 
       <div id="popup" class="popup">

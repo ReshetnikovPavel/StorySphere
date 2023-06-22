@@ -1,3 +1,40 @@
+let fanficId = 1;
+
+let fanficNameInfo;
+let authorInfo;
+let ratingInfo;
+let focusInfo;
+let likesInfo;
+// const sizeChaptersInfo = fanfic.numChapter;
+let charactersInfo;
+let pairingsInfo;
+let genresInfo;
+let warningsInfo;
+let descriptionInfo;
+let notesInfo;
+let fandomInfo;
+
+const fanfic = fetchFanfic(fanficId)
+    .then((fanfic) => {
+        console.log(fanfic.title);
+        fanficNameInfo = fanfic.title;
+        console.log(fanficNameInfo);
+        authorInfo = fanfic.authorName;
+        ratingInfo = fanfic.ageLimit;
+        focusInfo = fanfic.category;
+        likesInfo = fanfic.numLikes;
+        // const sizeChaptersInfo = fanfic.numChapter;
+        charactersInfo = fanfic.characters;
+        pairingsInfo = fanfic.pairings;
+        genresInfo = fanfic.genre;
+        warningsInfo = fanfic.warnings;
+        descriptionInfo = fanfic.description;
+        notesInfo = fanfic.notes;
+        fandomInfo = fanfic.fandom;
+
+console.log(fanfic);
+console.log(fetchChapter(fanficId, 1));
+
 const fanficName = document.getElementById('fanficName');
 const rating = document.getElementById('rating');
 const _status = document.getElementById('status');
@@ -12,27 +49,29 @@ author.addEventListener('click', () => {
     window.location.href = link;
 });
 
+const fandom = document.getElementById('fandom');
+const notes = document.getElementById('notes');
 const sizeChapters = document.getElementById('sizeChapters');
-const sizePages = document.getElementById('sizePages');
+// const sizePages = document.getElementById('sizePages');
 const characters = document.getElementById('characters');
 const pairings = document.getElementById('pairings');
 const genres = document.getElementById('genres');
 const warnings = document.getElementById('warnings');
 const description = document.getElementById('description');
 
-const [fanficNameInfo, ratingInfo, statusInfo, focusInfo,
-        likesInfo, authorInfo, sizeChaptersInfo, 
-        sizePagesInfo, charactersInfo, pairingsInfo,
-        genresInfo, warningsInfo, descriptionInfo] = getFanficInfo();
+// const [fanficNameInfo, ratingInfo, statusInfo, focusInfo,
+//         likesInfo, authorInfo, sizeChaptersInfo, 
+//         sizePagesInfo, charactersInfo, pairingsInfo,
+//         genresInfo, warningsInfo, descriptionInfo] = getFanficInfo();
 
 loadingData(fanficNameInfo, fanficName);
 loadingData(ratingInfo, rating);
-loadingData(statusInfo, _status);
+// loadingData(statusInfo, _status);
 loadingData(focusInfo, _focus);
 loadingData(likesInfo, likes);
 loadingData(authorInfo, author);
-loadingData(sizeChaptersInfo, sizeChapters);
-loadingData(sizePagesInfo, sizePages);
+// loadingData(sizeChaptersInfo, sizeChapters);
+// loadingData(sizePagesInfo, sizePages);
 loadingData(charactersInfo, characters);
 loadingData(pairingsInfo, pairings);
 loadingData(genresInfo, genres);
@@ -164,7 +203,7 @@ for(let i = 0; i < images.length; i++) {
     imageContainer.appendChild(image);
 }
 
-
+});
 
 function getIsLike() {
     return localStorage.getItem('like') || false;
@@ -195,6 +234,7 @@ function getFanficInfo() {
 }
 
 function getChapterInfo(curr) {
+    let sizeChaptersInfo = 2;
     const chapterInfo = [['Глава 1: Ах, как хорош этот ваш ДнД', 'Я плакаль'], ['Как я устал от ДнД, глава 2', 'я все еще плакаль'], ['11', '111']];
     if (curr > parseInt(sizeChaptersInfo) - 1) return chapterInfo[parseInt(sizeChaptersInfo) - 1];
     return chapterInfo[curr];
@@ -202,6 +242,7 @@ function getChapterInfo(curr) {
 }
 
 function loadingData(base, id) {
+    console.log(base);
     const textNode = document.createTextNode(base);
     id.appendChild(textNode);
 }
@@ -210,8 +251,13 @@ function getImages() {
     return ["/assets/images/img5.png", "/assets/images/img6.png", "/assets/images/img7.jpg", "/assets/images/img8.png"];
 }
 
+function getFanficId() {
+    var url = new URL(window.location.href);
+    return url.searchParams.get("fanficId");
+}
+
 async function fetchFanfic(fanficId) {
-    const response= await fetch(`/fanfics?fanficId=${fanficId}`, {
+    const response = await fetch(`/fanfics?fanficId=${fanficId}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
@@ -222,7 +268,7 @@ async function fetchFanfic(fanficId) {
 }
 
 async function fetchChapter(fanficId, chapterNo) {
-    const response= await fetch(`/chapters?fanficId=${fanficId}&chapterNo=${chapterNo}`, {
+    const response = await fetch(`/chapters?fanficId=${fanficId}&chapterNo=${chapterNo}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'

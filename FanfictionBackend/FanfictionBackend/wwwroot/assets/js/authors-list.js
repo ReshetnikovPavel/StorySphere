@@ -15,6 +15,7 @@ async function main() {
         console.error(`Error fetching authors list: ${error}`);
     }
 
+    console.log(authorList);
     const size = 10;
     const total = authorList.metadata.totalPages;
 
