@@ -34,13 +34,15 @@ public class UserRepo : IUserRepo
     {
         return _dataContext.Users
             .Include(u => u.Fanfics)
-            .FirstOrDefault(user => username != null && user.Username == username.ToLower());
+            .FirstOrDefault(user => username != null && string.Equals(
+                user.Username, username, StringComparison.CurrentCultureIgnoreCase));
     }
     
     public User? GetByEmail(string? email)
     {
         return _dataContext.Users
             .Include(u => u.Password)
-            .FirstOrDefault(user => user.Email == email.ToLower());
+            .FirstOrDefault(user => string.Equals(
+                user.Email, email, StringComparison.CurrentCultureIgnoreCase));
     }
 }

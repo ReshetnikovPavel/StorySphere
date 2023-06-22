@@ -41,14 +41,11 @@ public class UserService : IUserService
 
     public IResult RegisterUser(RegisterDto registerDto, string password)
     {
-        registerDto.Username = registerDto.Username.ToLower();
-        registerDto.Email = registerDto.Email.ToLower();
-        
         var existingUser = _userRepo.GetByUsername(registerDto.Username);
         if (existingUser != null)
             return TypedResults.Conflict("Username already taken");
         
-        existingUser = _userRepo.GetByEmail(registerDto.Username);
+        existingUser = _userRepo.GetByEmail(registerDto.Email);
         if (existingUser != null)
             return TypedResults.Conflict("Email already registered");
         
@@ -60,14 +57,11 @@ public class UserService : IUserService
 
     public IResult LoginUser(string? email, string password)
     {
-        // var user = _userRepo.GetByEmail(email);
-        // if (user == null || !_hasher.VerifyPassword(password, user.Password))
-        //     return TypedResults.NotFound("Invalid email or password");
-        // var token = _tokenService.GenerateToken(user);
-        //
-        // return Results.Ok(token);
-        
-        var tokenString = _tokenService.GenerateToken(new User { Username = "Capitulation" });
+        var user = _userRepo.GetByEmail(email);
+        if (user == null || !_hasher.VerifyPassword(password, user.Password))
+            return TypedResults.NotFound("Invalid email or password");
+
+        var tokenString = _tokenService.GenerateToken(user);
         return Results.Ok(tokenString);
     }
 }

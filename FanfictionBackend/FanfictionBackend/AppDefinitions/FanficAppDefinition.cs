@@ -86,7 +86,7 @@ public class FanficAppDefinition : IAppDefinition
     
     private static void DefineJwtTestingEndpoints(WebApplication app)
     {
-        app.MapPost("/login", (IUserService us, string? email, string password)
+        app.MapGet("/session",  (IUserService us, string? email, string password)
             => us.LoginUser(email, password));
 
         app.MapGet("/hello",
