@@ -1,4 +1,4 @@
-﻿const ENTER = 13;
+const ENTER = 13;
 
 initHeader();
 
@@ -64,8 +64,24 @@ function initLoginModal() {
     });
 }
 
-function login(email, password) {
-    alert('Вы вошли, мистер');
+async function login(email, password) {
+    const token = await fetchSession(email, password);
+    Cookies.set('session', token, {sameSite: 'strict'});
+}
+
+async function fetchSession(email, password) {
+    email = "Andreydolphin@mail.ru";
+    password = "password";
+
+    const url = `/session?email=${email}&password=${password}`;
+    const response = await fetch(url);
+  
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+  
+    const data = await response.json();
+    return data;
 }
 
 function createHeader() {
