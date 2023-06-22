@@ -59,7 +59,7 @@ function initLoginModal() {
 
     loginButton.addEventListener("click", function(e) {
         e.preventDefault();
-        login(email, password);
+        login(email.value, password.value);
         closeModal(loginModal);
     });
 }
@@ -70,9 +70,6 @@ async function login(email, password) {
 }
 
 async function fetchSession(email, password) {
-    email = "Andreydolphin@mail.ru";
-    password = "password";
-
     const url = `/session?email=${email}&password=${password}`;
     const response = await fetch(url);
   
