@@ -79,21 +79,23 @@ prevButton.addEventListener('click', () => {
     }
   });
 
-const authorh = 'aa';
-const user = 'aa';
+const user = 'SoftOwl256';
 const likeButton = document.querySelector('#likeBtn');
 let IsLike = getIsLike() || false;
-if (authorh === user) {
-    likeButton.textContent = 'Добавить главу';
-    likeButton.addEventListener('click', () => {
-        window.location.href = `/add-chapter.html?fanficId=${fanficId}`;
-    });
-} else {
+
+const addChapterBtn = document.getElementById('addChapter');
+const statusBtn = document.getElementById('changeStatus');
+
+if (authorInfo !== user) {
+    statusBtn.setAttribute('style', 'display: none;');
+    addChapterBtn.setAttribute('style', 'display: none;');
+
     const imgLike = document.createElement('img');
     imgLike.classList.add('button-star-icon');
     imgLike.setAttribute('src', 'assets/images/star2.svg');
     imgLike.setAttribute('alt', 'like');
     likeButton.appendChild(imgLike);
+
 
     if (IsLike) likeButton.style.backgroundColor = 'rgb(112, 36, 20, 0.3)';
 
@@ -102,33 +104,36 @@ if (authorh === user) {
         likeButton.style.backgroundColor = IsLike ? 'rgb(112, 36, 20, 0.3)' : 'white';
         setLikeValue();
     });
-}
-
-const statusBtn = document.getElementById('changeStatus');
-if (authorh !== user) {
-    statusBtn.setAttribute('style', 'display: none;');
 } else {
-  statusBtn.setAttribute('style', 'display: block;');
-  const popup = document.getElementById('popup');
+    likeButton.setAttribute('style', 'display: none;');
 
-  statusBtn.addEventListener('click', () => {
+    addChapterBtn.setAttribute('style', 'display: block;');
+    addChapterBtn.addEventListener('click', () => {
+        // window.location.href = `/add-chapter.html?fanficId=${fanficId}`;
+        window.location.href = `add-chapter.html`;
+    });
+
+    statusBtn.setAttribute('style', 'display: block;');
+    const popup = document.getElementById('popup');
+
+    statusBtn.addEventListener('click', () => {
     console.log('click!');
     popup.style.display = 'flex';
-  });
+    });
 
-  popup.addEventListener('click', function(event) {
+    popup.addEventListener('click', function(event) {
     if (event.target.tagName === 'BUTTON') {
-      const selectedOption = event.target.textContent;
-      console.log('Выбран вариант:', selectedOption); // Засетить статус
-      popup.style.display = 'none';
+        const selectedOption = event.target.textContent;
+        console.log('Выбран вариант:', selectedOption); // Засетить статус
+        popup.style.display = 'none';
     }
-  });
+    });
 
-  document.addEventListener('click', function(event) {
+    document.addEventListener('click', function(event) {
     if (!popup.contains(event.target) && event.target !== statusBtn) {
     popup.style.display = 'none';
     }
-  });
+    });
 }
 
 const openModalButton = document.getElementById('gallery');
