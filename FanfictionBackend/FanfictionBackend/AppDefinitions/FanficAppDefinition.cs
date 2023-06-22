@@ -17,9 +17,10 @@ public class FanficAppDefinition : IAppDefinition
 {
     public void DefineApp(WebApplication app)
     {
-        DefineFanficEndpoints(app);
-        DefineChapterEndpoints(app);
-        DefineUserEndpoints(app);
+        // DefineFanficEndpoints(app);
+        // DefineChapterEndpoints(app);
+        // DefineUserEndpoints(app);
+        DefineJwtTestingEndpoints(app);
     }
 
     public void DefineServices(IServiceCollection services, IConfiguration config)
@@ -81,5 +82,22 @@ public class FanficAppDefinition : IAppDefinition
 
         app.MapGet("/session",  (IUserService us, string? email, string password)
             => us.LoginUser(email, password));
+    }
+    
+    private static void DefineJwtTestingEndpoints(WebApplication app)
+    {
+        app.MapPost("/login", (ITokenService tokenService, string username) =>
+        {
+            var tokenString = tokenService.GenerateToken(new User { Username = username });
+            return Results.Ok(tokenString);
+        });
+
+        app.MapGet("/hello",
+            [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+            (ClaimsPrincipal user) => 
+            {
+                var name = user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                return $"Hello, {name}";
+            });
     }
 }

@@ -14,8 +14,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 var app = builder.BuildByDefinitions(
     new SwaggerAppDefinition(),
-    new AuthenticationAppDefinition()
-    // new FanficAppDefinition()
+    new AuthenticationAppDefinition(),
+    new FanficAppDefinition()
 );
 
 // using (var scope = app.Services.CreateScope())
@@ -25,24 +25,6 @@ var app = builder.BuildByDefinitions(
 // }
 
 
-DefineJwtTestingEndpoints(app);
-
 app.UseFileServer();
 app.Run();
 
-void DefineJwtTestingEndpoints(WebApplication app)
-{
-    app.MapPost("/login", (ITokenService tokenService, string username) =>
-    {
-        var tokenString = tokenService.GenerateToken(new User { Username = username });
-        return Results.Ok(tokenString);
-    });
-
-    app.MapGet("/hello",
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-        (ClaimsPrincipal user) => 
-        {
-            var name = user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            return $"Hello, {name}";
-        });
-}
