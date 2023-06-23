@@ -32,7 +32,7 @@
 
       <section class="fanfic-name-row-container">
         <div class="fanfic-rating-and-status-container"><label id="rating"></label></div>
-        <div class="fanfic-rating-and-status-container"><label id="status"></label></div>    <!-- ✓ … ? -->
+        <!-- <div class="fanfic-rating-and-status-container"><label id="status"></label></div>    ✓ … ? -->
         <div class="fanfic-rating-and-status-container"><label id="focus"></label></div>    <!-- ⚣ ⚤ ⚢ ⚔︎ ◯ ✒ 〰 -->
         <div class="fanfic-page-likes-container ">
           <label id="likes"></label>
@@ -54,7 +54,7 @@
           <div class="info-size-container">
             <label>Размер:</label>
             <div class="info-size" id="sizeChapters"></div>
-            <label>глав</label>
+            <label id="chapterLabel"></label>
           </div>
 
           
@@ -91,7 +91,7 @@
           <div class="info-container">
             <label>Описание</label>
             <div class="info-big-text-container" style="height: 40rem;">
-              <textarea id="description" readonly></textarea>
+              <textarea id="description" style="height: 40rem;" readonly></textarea>
             </div>
           </div>
 
@@ -108,18 +108,18 @@
       <section>
         <div class="info-container">
           <label>Примечания</label>
-          <div class="info-big-text-container" style="width: calc(60rem - 1rem - 1.4rem);">
-            <textarea id="notes" readonly></textarea>
+          <div class="info-big-text-container" style="width: calc(60rem - 1rem - 1.4rem); height: 10rem;">
+            <textarea id="notes" style="height: 10rem;" readonly></textarea>
           </div>
         </div>
       </section>
-
+<!-- 
       <div id="popup" class="popup">
         <h2>Выберите вариант:</h2>
         <button style="background-color: var(--background-color);">В процессе [ … ]</button>
         <button style="background-color: var(--background-color);">Завершен [ ✓ ]</button>
         <button style="background-color: var(--background-color);">Заморожен [ ? ]</button>
-      </div>
+      </div> -->
 
       <article>
         <h1 id="nameChapter"></h1>
@@ -133,7 +133,7 @@
         <button class="like-Btn" id="likeBtn">
         </button>
         <button id="addChapter">Добавить главу</button>
-        <button id="changeStatus">Изменить статус</button>
+        <!-- <button id="changeStatus">Изменить статус</button> -->
         <button id="nextChapter">Следующая глава</button>
       </nav>
 

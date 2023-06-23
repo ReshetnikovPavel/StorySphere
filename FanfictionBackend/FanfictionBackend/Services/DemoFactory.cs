@@ -10,7 +10,7 @@ public class DemoFactory
 {
     private readonly IUserService _userService;
     private readonly IFanficService _fanficService;
-    
+
     public DemoFactory(IUserService userService, IFanficService fanficService)
     {
         _userService = userService;
@@ -22,7 +22,7 @@ public class DemoFactory
         InitUsers();
         InitFanfics();
     }
-    
+
     private void InitUsers()
     {
         _userService.RegisterUser(new RegisterDto
@@ -30,13 +30,13 @@ public class DemoFactory
             Username = "Capitulation",
             Email = "Andreydolphin@mail.ru"
         }, "password");
-        
+
         _userService.RegisterUser(new RegisterDto
         {
             Username = "SoftOwl",
             Email = "anna.sok.03@mail.ru"
         }, "password");
-        
+
         _userService.RegisterUser(new RegisterDto
         {
             Username = "PavelResh",
@@ -325,14 +325,14 @@ public class DemoFactory
                 Title = "Система баллов в вузе: все, что нужно знать",
                 Fandom = "Образование",
                 Characters = "Студенты, преподаватели, деканат",
-                Pairings = "",
-                AgeLimit = AgeLimit.G.ToString(),
-                Category = Category.Other.ToString(),
+                Pairings = "Деканат/Студент",
+                AgeLimit = "G",
+                Category = "Другое",
                 Genre = "Обучение, Учебная литература",
                 Warnings = "Отсутствует",
                 AuthorNotes = "Эта книга перечисляет основные правила системы баллов в моем университете, которые действуют в университетах России в целом. Это практический гайд, который поможет сэкономить время и избежать ненужных проблем.",
                 Description = "Как работает система баллов в университетах? Как определить количество баллов за каждый предмет? Что делать, если оценка ниже проходного балла? Ответы на эти вопросы и многое другое вы найдете в этой книге.",
-                IsTranslation = false
+                IsTranslation = true
             },
             "SoftOwl");
         _fanficService.AddChapter(1, new AddChapterDto
@@ -346,7 +346,7 @@ public class DemoFactory
             Content = "В этой главе вы научитесь вычислять средний балл за семестр, рассчитывать проходной балл и понимать, как он влияет на вашу успеваемость и дальнейшую учебу."
         });
 
-        
+
         _fanficService.AddFanfic(new AddFanficDto
             {
                 Title = "ООП на C# - это просто прекрасно!",
@@ -372,8 +372,8 @@ public class DemoFactory
             Title = "Основные принципы C#",
             Content = "В этой главе вы научитесь создавать классы и объекты в C#, а также узнаете об основных принципах ООП на примере этого языка программирования."
         });
-        
-        
+
+
         _fanficService.AddFanfic(new AddFanficDto
         {
             Title = "Rust - лучший язык программирования!",
@@ -401,4 +401,3 @@ public class DemoFactory
         });
     }
 }
-
