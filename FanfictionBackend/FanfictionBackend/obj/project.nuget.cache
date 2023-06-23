@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "E2O8O3lDFz7f5R4vq4HRxV62K9J5cE9hBECnwCiUEp2nymbsL1Zik8Fml9OaKnIl//I53/lX/bo8FP+t5EwJHA==",
+  "dgSpecHash": "5juFNHyCXH1dzYqJPttYowkc3sSG2u9QgCXAPZaPCY3Fiz9KtMOHF0ZDIbcJ4rVDpa7FMTyBYYiNFDXaZ3vOcw==",
   "success": true,
-  "projectFilePath": "c:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\FanfictionBackend.csproj",
+  "projectFilePath": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\FanfictionBackend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Andrew Kuklinov\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Andrew Kuklinov\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

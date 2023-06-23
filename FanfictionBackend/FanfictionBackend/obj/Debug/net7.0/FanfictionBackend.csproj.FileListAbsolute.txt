@@ -286,3 +286,4 @@ C:\Users\hp\Documents\GitHub\StorySphere\FanfictionBackend\FanfictionBackend\obj
 C:\Users\hp\Documents\GitHub\StorySphere\FanfictionBackend\FanfictionBackend\bin\Debug\net7.0\FanfictionBackend.staticwebassets.runtime.json
 C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\bin\Debug\net7.0\FanfictionBackend.staticwebassets.runtime.json
 C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Andrew Kuklinov\YandexDisk\College\Semester 4\Project\fanfiction\FanfictionBackend\FanfictionBackend\bin\Debug\net7.0\Imgur.API.dll
