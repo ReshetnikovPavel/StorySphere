@@ -1,14 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "NOIVYdtqdYayLXmsBRRxNHs6Netrn0FkRoEzxNmCBEzydEXwSPDi2+ORaFF4qhGhuojlFapB26Xss8nPqU+ztg==",
+  "dgSpecHash": "E2O8O3lDFz7f5R4vq4HRxV62K9J5cE9hBECnwCiUEp2nymbsL1Zik8Fml9OaKnIl//I53/lX/bo8FP+t5EwJHA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\FanfictionBackend.csproj",
+  "projectFilePath": "c:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\FanfictionBackend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Andrew Kuklinov\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Andrew Kuklinov\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\Andrew Kuklinov\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Andrew Kuklinov\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
     "C:\\Users\\Andrew Kuklinov\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\Andrew Kuklinov\\.nuget\\packages\\imgur.api\\5.0.0\\imgur.api.5.0.0.nupkg.sha512",
     "C:\\Users\\Andrew Kuklinov\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.7\\microsoft.aspnetcore.authentication.jwtbearer.7.0.7.nupkg.sha512",
     "C:\\Users\\Andrew Kuklinov\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Andrew Kuklinov\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

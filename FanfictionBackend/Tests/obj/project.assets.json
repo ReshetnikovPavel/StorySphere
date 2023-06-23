@@ -113,6 +113,22 @@
           }
         }
       },
+      "Imgur.API/5.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Text.Json": "4.7.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/Imgur.API.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Imgur.API.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.AspNetCore.Authentication.JwtBearer/7.0.7": {
         "type": "package",
         "dependencies": {
@@ -1651,6 +1667,7 @@
         "dependencies": {
           "AutoMapper": "12.0.1",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
+          "Imgur.API": "5.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "7.0.7",
           "Microsoft.EntityFrameworkCore.InMemory": "8.0.0-preview.3.23174.2",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.0-preview.3.23174.2",
@@ -1844,6 +1861,21 @@
         "lib/netstandard2.1/FluentAssertions.dll",
         "lib/netstandard2.1/FluentAssertions.pdb",
         "lib/netstandard2.1/FluentAssertions.xml"
+      ]
+    },
+    "Imgur.API/5.0.0": {
+      "sha512": "Iso2lol4tCvSQjyJ7PVVKyPb6k6FPf4ajRb0c6qUPTUV20nT5j9tyxHvHSiSU1uhRON4dZCK9VlfMtwumDQCOw==",
+      "type": "package",
+      "path": "imgur.api/5.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "icon.png",
+        "imgur.api.5.0.0.nupkg.sha512",
+        "imgur.api.nuspec",
+        "lib/netstandard2.0/Imgur.API.dll",
+        "lib/netstandard2.0/Imgur.API.xml"
       ]
     },
     "Microsoft.AspNetCore.Authentication.JwtBearer/7.0.7": {
