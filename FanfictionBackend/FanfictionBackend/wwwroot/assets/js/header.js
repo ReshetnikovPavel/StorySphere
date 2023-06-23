@@ -72,9 +72,10 @@ function initLoginModal() {
 
 async function login(email, password) {
     try {
-        const userData = await fetchSession(email, password);
+        userData = await fetchSession(email, password);
         Cookies.set('sessionToken', userData.token, {sameSite: 'strict'});
         Cookies.set('username', userData.user.username, {sameSite: 'strict'});
+        window.location.href = `/profile.html?username=${userData.user.username}`;
     }
     catch (err) {
         alert('Неверная почта или пароль. Попробуйте еще раз!');

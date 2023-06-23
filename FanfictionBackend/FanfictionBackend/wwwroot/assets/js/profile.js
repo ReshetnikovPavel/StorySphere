@@ -169,7 +169,9 @@ function getFanfics() {
 }
 
 function exit() {
-    alert('Вы вышли из профиля');
+    Cookies.remove("username");
+    Cookies.remove("sessionToken");
+    window.location.href = `/`;
 }
 
 function getHrefAllWorks() {
