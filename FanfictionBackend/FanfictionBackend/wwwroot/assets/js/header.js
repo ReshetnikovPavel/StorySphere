@@ -65,8 +65,9 @@ function initLoginModal() {
 }
 
 async function login(email, password) {
-    const token = await fetchSession(email, password);
-    Cookies.set('session', token, {sameSite: 'strict'});
+    const userData = await fetchSession(email, password);
+    Cookies.set('sessionToken', userData.token, {sameSite: 'strict'});
+    Cookies.set('username', userData.user.username, {sameSite: 'strict'});
 }
 
 async function fetchSession(email, password) {

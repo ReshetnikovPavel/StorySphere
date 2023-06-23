@@ -36,7 +36,7 @@ async function publish(chapter, fanficId) {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
+            'Authorization': `Bearer ${sessionToken}`
         },
         body: JSON.stringify(chapter)
     });
