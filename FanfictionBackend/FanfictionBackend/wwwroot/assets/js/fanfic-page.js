@@ -41,7 +41,7 @@ async function main() {
     }
 
     const likesInfo = fanfic.numLikes;
-    const sizeChaptersInfo = 2; //fanfic.numChapter;
+    const sizeChaptersInfo = fanfic.numChapter;
     const charactersInfo = fanfic.characters;
     const pairingsInfo = fanfic.pairings;
     const genresInfo = fanfic.genre;
@@ -49,9 +49,6 @@ async function main() {
     const descriptionInfo = fanfic.description;
     const notesInfo = fanfic.authorNotes;
     const fandomInfo = fanfic.fandom;
-
-    // console.log();
-    // console.log(fetchChapter(fanficId, 1));
 
     const fanficName = document.getElementById('fanficName');
     const rating = document.getElementById('rating');
@@ -114,7 +111,6 @@ async function main() {
         console.error(fanficId, currentChapter);
     }
 
-    // let [nameChapterInfo, contentChapterInfo] = getChapterInfo(currentChapter);
     let nameChapterInfo = chapter.title;
     let contentChapterInfo = chapter.content;
 
@@ -213,7 +209,6 @@ async function main() {
         addChapterBtn.setAttribute('style', 'display: block;');
         addChapterBtn.addEventListener('click', () => {
             window.location.href = `/add-chapter.html?fanficId=${fanficId}`;
-            // window.location.href = `add-chapter.html`;
         });
 
         // statusBtn.setAttribute('style', 'display: block;');
@@ -290,18 +285,6 @@ function changeChapter(NCI, CCI, textNodeName, textNodeChapter) {
     contentChapter.removeChild(textNodeChapter);
     textNodeChapter = document.createTextNode(CCI);
     contentChapter.appendChild(textNodeChapter);
-}
-
-function getFanficInfo() {
-    return ['Как Андрей в ДнД играл', 'NC-17', '✓', '〰', '3012', 'SoftOwl256', '3', '590', 'Андрей Куклинов, Ангелина Шманцарь, Павел Решетников, Анна Соколова', 'Соня Мелькова/Глеб Иванов, Гаврилов Никита/Анна Васильева, Павел Решетников/Rust', 'Жанры', 'Предупреждения', 'Описание']
-}
-
-function getChapterInfo(curr) {
-    let sizeChaptersInfo = 2;
-    const chapterInfo = [['Глава 1: Ах, как хорош этот ваш ДнД', 'Я плакаль'], ['Как я устал от ДнД, глава 2', 'я все еще плакаль'], ['11', '111']];
-    if (curr > parseInt(sizeChaptersInfo) - 1) return chapterInfo[parseInt(sizeChaptersInfo) - 1];
-    return chapterInfo[curr];
-
 }
 
 function loadingData(base, id) {
