@@ -73,8 +73,13 @@ public class FanficAppDefinition : IAppDefinition
         app.MapGet("/chapters",  (IFanficService fs, [FromQuery] int fanficId, [FromQuery] int chapterNo)
             => fs.GetChapter(fanficId, chapterNo));
 
-        app.MapPost("/chapters",  (IFanficService fs, [FromQuery] int fanficId, AddChapterDto chapter)
-            => fs.AddChapter(fanficId, chapter));
+        app.MapPost("/chapters",
+            [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+            (ClaimsPrincipal user, IFanficService fs, [FromQuery] int fanficId, AddChapterDto chapter) =>
+        {
+            var authorName = user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            return fs.AddChapter(fanficId, chapter, authorName);
+        });
     }
 
     private static void DefineUserEndpoints(IEndpointRouteBuilder app)
