@@ -16,7 +16,8 @@ public class MappingProfile : Profile
             .ForMember(f => f.Category,
                 opt => opt.MapFrom(src => CategoryParser.Parse(src.Category)))
             .ForMember(f => f.AgeLimit,
-                opt => opt.MapFrom(src => AgeLimitParser.Parse(src.AgeLimit)));
+                opt => opt.MapFrom(src => AgeLimitParser.Parse(src.AgeLimit)))
+            .ForMember(f => f.NumChapters, opt => opt.MapFrom(src => src.Chapters.Count));
 
         CreateMap<AddFanficDto, Fanfic>()
             .ForMember(f => f.Category,

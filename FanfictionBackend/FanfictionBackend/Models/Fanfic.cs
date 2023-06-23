@@ -18,6 +18,7 @@ public class Fanfic
     
     public List<Chapter> Chapters { get; set; }
     public List<Like> Likes { get; set; }
+    public List<Image> Images { get; set; }
     public DateTimeOffset Created { get; set; }
     public DateTimeOffset LastUpdated { get; set; }
 }

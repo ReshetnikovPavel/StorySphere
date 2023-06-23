@@ -2,7 +2,6 @@
 using AutoMapper;
 using FanfictionBackend.Dto;
 using FanfictionBackend.Interfaces;
-using FanfictionBackend.Models;
 using FanfictionBackend.Pagination;
 using FanfictionBackend.Repos;
 using FanfictionBackend.Services;
@@ -10,6 +9,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+
 
 namespace FanfictionBackend.AppDefinitions;
 
@@ -20,6 +20,7 @@ public class FanficAppDefinition : IAppDefinition
         DefineFanficEndpoints(app);
         DefineChapterEndpoints(app);
         DefineUserEndpoints(app);
+        DefineImageEndpoints(app);
     }
 
     public void DefineServices(IServiceCollection services, IConfiguration config)
@@ -35,6 +36,11 @@ public class FanficAppDefinition : IAppDefinition
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<IFanficService, FanficService>();
         services.AddScoped<DemoFactory>();
+
+        var imgurKey = config.GetSection("ImgurKey").Value;
+        if (imgurKey is null)
+            throw new Exception("ImgurKey is not in appsettings.json");
+        services.AddScoped<IImageService, ImgurImageService>(provider => new ImgurImageService(imgurKey));
 
         services.AddAutoMapper(typeof(MappingProfile));
     }
@@ -52,7 +58,7 @@ public class FanficAppDefinition : IAppDefinition
 
         app.MapGet("/fanfics", (IFanficService fs, [FromQuery] int fanficId)
             => fs.GetFanficById(fanficId));
-            
+
         app.MapPost("/fanfics",
             [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
             (ClaimsPrincipal user, IFanficService fs, AddFanficDto fanfic) =>
@@ -84,5 +90,11 @@ public class FanficAppDefinition : IAppDefinition
 
         app.MapGet("/session",  (IUserService us, string? email, string password)
             => us.LoginUser(email, password));
+    }
+
+    private static void DefineImageEndpoints(IEndpointRouteBuilder app)
+    {
+        app.MapPost("/image", (IImageService imageService, IFormFile image)
+            => imageService.Upload(image));
     }
 }
