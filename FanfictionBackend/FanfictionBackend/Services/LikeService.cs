@@ -28,10 +28,10 @@ public class LikeService : ILikeService
         if (user == null)
             return TypedResults.NotFound($"User with username {userName} not found");
         
-        var like = new Like { FanficId = fanficId, Username = userName };
-        
-        if (_likeRepo.Exists(like))
+        if (_likeRepo.Exists(fanficId, userName))
             return TypedResults.Conflict($"Like by {userName} on fanfic with id {fanficId} already exists");
+        
+        var like = new Like { FanficId = fanficId, Username = userName };
         
         fanfic.Likes.Add(like);
         user.Likes.Add(like);
@@ -62,5 +62,10 @@ public class LikeService : ILikeService
         _likeRepo.RemoveLike(like);
         
         return TypedResults.Ok();
+    }
+
+    public IResult GetLike(int fanficId, string username)
+    {
+        return TypedResults.Ok(_likeRepo.Exists(fanficId, username));
     }
 }

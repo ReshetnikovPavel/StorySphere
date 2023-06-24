@@ -108,6 +108,14 @@ public class FanficAppDefinition : IAppDefinition
 
     private static void DefineLikeEndpoints(IEndpointRouteBuilder app)
     {
+        app.MapGet("/likes",
+            [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+            (ClaimsPrincipal user, ILikeService ls, int fanficId) =>
+            {
+                var username = user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                return ls.GetLike(fanficId, username);
+            });
+        
         app.MapPost("/likes",
             [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
             (ClaimsPrincipal user, ILikeService ls, int fanficId) =>

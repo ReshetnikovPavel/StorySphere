@@ -23,11 +23,11 @@ public class LikeRepo : ILikeRepo
         _dataContext.SaveChanges();
     }
 
-    public bool Exists(Like like)
+    public bool Exists(int fanficId, string username)
     {
         return _dataContext.Likes
             .Any(l => 
-                l.FanficId == like.FanficId && string.Equals(l.Username, like.Username, 
+                l.FanficId == fanficId && string.Equals(l.Username, username, 
                     StringComparison.CurrentCultureIgnoreCase));
     }
 
