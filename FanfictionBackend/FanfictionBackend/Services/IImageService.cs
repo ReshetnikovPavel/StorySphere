@@ -4,6 +4,6 @@ namespace FanfictionBackend.Services;
 
 public interface IImageService
 {
-    public Task<IResult> Upload(IFormFile imageFile);
-    public Task<IResult> Get(Image imageId);
+    public Task<IResult> Upload(IFormFileCollection images, Fanfic fanfic);
+    public Task<IResult> Get(string imageId);
 }

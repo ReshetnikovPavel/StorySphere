@@ -14,6 +14,7 @@ public class FanficDb : DbContext
     public DbSet<Password> Passwords { get; set; }
     public DbSet<User> Users { get; set; }
     public DbSet<Like> Likes { get; set; }
+    public DbSet<Image> Images { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

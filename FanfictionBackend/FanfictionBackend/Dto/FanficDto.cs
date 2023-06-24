@@ -20,6 +20,7 @@ public class FanficDto
     
     public int NumLikes { get; set; }
     public int NumChapters { get; set; }
+    public List<string> ImageLinks { get; set; }
     public DateTimeOffset Created { get; set; }
     public DateTimeOffset LastUpdated { get; set; }
 }
