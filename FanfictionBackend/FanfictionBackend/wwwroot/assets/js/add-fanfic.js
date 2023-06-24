@@ -16,6 +16,7 @@ const parameters = document.getElementById('parameters');
 const translation = document.getElementById('translation');
 const shortDescription = document.getElementById('shortDescription');
 const note = document.getElementById('note');
+const uploadedFiles = new Set();
 
 publish.addEventListener("click", handleSubmit);
 addImage.addEventListener("click", addArt);
@@ -35,12 +36,37 @@ function handleSubmit(event) {
         authorNotes: note.value
     };
     publishFanfic(data)
-        .then(fanfic => goToAddChapterPage(fanfic.id))
+        .then(fanfic => {
+            publishImages(fanfic.id)
+                .then(() => goToAddChapterPage())
+                .catch("Не удалось загрузить изображения");
+        })
         .catch(() => alert("Не удалось опубликовать фанфик"));
 }
 
+async function publishImages(fanficId) {
+    const token = Cookies.get('sessionToken');
+
+    // TODO: Сделать что-то, если токен undefined, потому что юзер еще не залогинился
+    if(token === undefined) {
+        window.location.href = 'registration.html';
+        return;
+    }
+
+    const response= await fetch(`/images?fanficId=${fanficId}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${uploadedFiles}`,
+        },
+        body: JSON.stringify(uploadedFiles)
+    });
+
+    return await response.json()
+}
+
 async function publishFanfic(data) {
-    const token = Cookies.get('session');
+    const token = Cookies.get('sessionToken');
 
     // TODO: Сделать что-то, если токен undefined, потому что юзер еще не залогинился
     if(token === undefined) {
@@ -68,7 +94,7 @@ function addArt(event) {
     event.preventDefault();
     const uploadBtn = document.getElementById('addArt');
     const fileList = document.getElementById('fileList');
-    const uploadedFiles = new Set();
+    
 
     uploadBtn.addEventListener('click', () => {
         const input = document.createElement('input');
