@@ -35,6 +35,7 @@ public class FanficAppDefinition : IAppDefinition
         services.AddScoped<IDateTimeProvider, UtcDateTimeProvider>();
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<IFanficService, FanficService>();
+        services.AddScoped<ILikeRepo, LikeRepo>();
         services.AddScoped<ILikeService, LikeService>();
         services.AddScoped<DemoFactory>();
 
