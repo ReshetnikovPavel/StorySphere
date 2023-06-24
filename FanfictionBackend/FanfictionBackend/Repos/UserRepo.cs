@@ -19,6 +19,7 @@ public class UserRepo : IUserRepo
     public PagedList<User> GetUsers(PagingParameters pagingParameters)
     {
         return _dataContext.Users
+            .Include(u => u.Fanfics)
             .OrderByDescending(u => u.ReceivedLikes)
             .ToPagedList(pagingParameters);
     }
@@ -41,6 +42,7 @@ public class UserRepo : IUserRepo
     public User? GetByEmail(string? email)
     {
         return _dataContext.Users
+            .Include(u => u.Fanfics)
             .Include(u => u.Password)
             .FirstOrDefault(user => string.Equals(
                 user.Email, email, StringComparison.CurrentCultureIgnoreCase));
