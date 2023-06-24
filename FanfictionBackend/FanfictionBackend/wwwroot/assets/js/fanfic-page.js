@@ -178,7 +178,7 @@ async function main() {
         }
     });
 
-    const user = 'softowl256';
+    const user = Cookies.get('username');
     const likeButton = document.querySelector('#likeBtn');
     let IsLike = getIsLike() || false;
 

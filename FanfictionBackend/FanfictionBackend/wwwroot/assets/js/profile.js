@@ -13,8 +13,21 @@ async function processAuthor() {
   }
 
   loadingData(author.username, authorInput);
-  //TODO: Совершить все остальные операции с автором тут.
-  // Однако, у автора пока хранится только имя и почта. Это надо исправить.
+
+  const exitBtn = document.querySelector('#exit');
+  const addWorkBtn = document.querySelector('#addWork');
+
+  let user = Cookies.get('username');
+  if (user === author.username) {
+    exitBtn.addEventListener('click', exit);
+
+    addWorkBtn.addEventListener('click', () => {
+      window.location.href = 'add-fanfic.html';
+    });
+  } else {
+    exitBtn.setAttribute('style', 'display: none;');
+    addWorkBtn.setAttribute('style', 'display: none;');
+  }
 
   const profileAvatar = document.getElementById('profileAvatar');
   profileAvatar.setAttribute('style', 'cursor: pointer;');
@@ -52,7 +65,7 @@ async function processAuthor() {
     imageContainer.appendChild(image);
   }
 
-  const pageSize = 3; //число фанфиков на странице. если меняете - %3
+  const pageSize = 3; 
   let fanficsList;
 
   try {
@@ -93,14 +106,6 @@ async function processAuthor() {
   }
 
   window.addEventListener('scroll', onScroll);
-
-  const exitBtn = document.querySelector('#exit');
-  exitBtn.addEventListener("click", exit);
-
-  const addWorkBtn = document.querySelector('#addWork');
-  addWorkBtn.addEventListener('click', () => {
-    window.location.href = 'add-fanfic.html';
-  });
 }
 
 async function uploadPage(username, pageSize, pageNumber) {
@@ -233,9 +238,12 @@ function setAvatar(avatarName) {
 }
 
 function exit() {
+  var userAnswer = confirm("Вы действительно хотите выйти?");
+  if (userAnswer) {
     Cookies.remove("username");
     Cookies.remove("sessionToken");
     window.location.href = `/`;
+  }
 }
 
 function getHrefAllWorks(username) {

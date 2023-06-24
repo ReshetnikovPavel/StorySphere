@@ -65,21 +65,21 @@ function initLoginModal() {
 
     loginButton.addEventListener("click", function(e) {
         e.preventDefault();
-        login(email.value, password.value);
-        closeModal(loginModal);
+        login(email.value, password.value, loginModal);
     });
 }
 
-async function login(email, password) {
+async function login(email, password, loginModal) {
+    const alertMessage = document.getElementById('alert');
     try {
         userData = await fetchSession(email, password);
         Cookies.set('sessionToken', userData.token, {sameSite: 'strict'});
         Cookies.set('username', userData.user.username, {sameSite: 'strict'});
         window.location.href = `/profile.html?username=${userData.user.username}`;
+        closeModal(loginModal);
     }
     catch (err) {
-        alert('Неверная почта или пароль. Попробуйте еще раз!');
-        // TODO: Поменять с алерта на что-то адекватное
+        alertMessage.setAttribute('style', 'display: flex; color: red; justify-content: center; margin: 0; padding-left: 1rem;');
     }
 }
 
@@ -118,6 +118,7 @@ function createLoginModal() {
             <div class="modal-content">
                 <img src="/assets/images/cross-icon.svg" class="close-button" id="login-close-button"/>
                 <h1>Вход</h1>
+                <label style="display: flex; color: transparent; justify-content: center;  margin: 0;" id="alert">Неверные почта или пароль</label>
                 <form>
                     <div class="field">
                         <label for="email">Электронная почта:</label>

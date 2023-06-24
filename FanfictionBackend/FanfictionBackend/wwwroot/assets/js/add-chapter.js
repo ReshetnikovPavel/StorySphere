@@ -30,7 +30,10 @@ function getFanficId() {
 async function publish(chapter, fanficId) {
     const token = Cookies.get('session');
 
-    // TODO: Сделать что-то, если токен undefined, потому что юзер еще не залогинился
+    if(token === undefined) {
+        window.location.href = 'registration.html';
+        return;
+    }
 
     return await fetch(`/chapters?fanficId=${fanficId}`, {
         method: 'POST',
