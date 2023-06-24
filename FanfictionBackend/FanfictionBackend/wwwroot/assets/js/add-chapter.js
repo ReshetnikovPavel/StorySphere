@@ -28,7 +28,7 @@ function getFanficId() {
 }
 
 async function publish(chapter, fanficId) {
-    const token = Cookies.get('session');
+    const token = Cookies.get('sessionToken');
 
     if(token === undefined) {
         window.location.href = 'registration.html';

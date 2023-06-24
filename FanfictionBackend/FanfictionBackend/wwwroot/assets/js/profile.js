@@ -16,28 +16,28 @@ async function processAuthor() {
 
   const exitBtn = document.querySelector('#exit');
   const addWorkBtn = document.querySelector('#addWork');
+  const profileAvatar = document.getElementById('profileAvatar');
+  profileAvatar.setAttribute('src', getAvatar(author));
+  const modal = document.getElementById('modal');
+  const closeButton = modal.querySelector('.close');
 
   let user = Cookies.get('username');
+  let token = Cookies.get('sessionToken');
   if (user === author.username) {
     exitBtn.addEventListener('click', exit);
 
     addWorkBtn.addEventListener('click', () => {
       window.location.href = 'add-fanfic.html';
     });
+
+    profileAvatar.setAttribute('style', 'cursor: pointer;');
+    profileAvatar.addEventListener('click', () => {
+      modal.style.display = 'block';
+    });
   } else {
     exitBtn.setAttribute('style', 'display: none;');
     addWorkBtn.setAttribute('style', 'display: none;');
   }
-
-  const profileAvatar = document.getElementById('profileAvatar');
-  profileAvatar.setAttribute('style', 'cursor: pointer;');
-  profileAvatar.setAttribute('src', getAvatar(author));
-  const modal = document.getElementById('modal');
-  const closeButton = modal.querySelector('.close');
-
-  profileAvatar.addEventListener('click', () => {
-    modal.style.display = 'block';
-  });
 
   closeButton.addEventListener('click', () => {
     modal.style.display = 'none';
@@ -50,8 +50,8 @@ async function processAuthor() {
     const image = document.createElement('img');
     image.setAttribute('style', 'cursor: pointer;');
     image.setAttribute('id', `avatar${i + 1}`);
-    image.addEventListener('click', () => {
-      setAvatar(`avatar${i + 1}`);
+    image.addEventListener('click', async () => {
+      await postProfilePicture(`avatar${i + 1}`, token);
       profileAvatar.setAttribute('src', getAvatar(author));
       closeButton.click();
     });
@@ -65,14 +65,17 @@ async function processAuthor() {
     imageContainer.appendChild(image);
   }
 
+  console.log(author);
+
   const pageSize = 3;
   let fanficsList;
 
   try {
       fanficsList = await fetchFanficsByAuthor(author.username, pageSize, 1);
   } catch (error) {
-      // Вывожу временно в консольку, чтобы можно было посмотреть, что есть.
-      console.error(`Error fetching authors list: ${error}`);
+    const sorry = document.getElementById('search-result-row-container');
+    sorry.textContent = 'У этого автора пока нет работ';
+    return;
   }
 
   console.log(fanficsList);
@@ -230,11 +233,7 @@ function createWorkContainer(info, number) {
 }
 
 function getAvatar(author) {
-    return author.picture !== null ? `assets/images/avatars/${picture}`: "/assets/images/profile-author.svg";
-}
-
-function setAvatar(avatarName) {
-  alert('Аватар загружен в базу данных: ' + avatarName);
+    return author.picture !== null ? `assets/images/avatars/${author.picture}.png`: "/assets/images/profile-author.svg";
 }
 
 function exit() {
@@ -293,7 +292,7 @@ function checkResponse(response) {
   }
 }
 
-async function postProfilePicture(picture) {
+async function postProfilePicture(picture, sessionToken) {
   const response = await fetch(`/profilePicture?picture=${picture}`, {
       method: 'POST',
       headers: {
@@ -304,5 +303,5 @@ async function postProfilePicture(picture) {
 
   checkResponse(response);
 
-  return await response.json();
+  // return await response.json();
 }

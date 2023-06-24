@@ -9,8 +9,9 @@ async function processSearch() {
   try {
       fanficsList = await fetchFanficsByTitle(title, pageSize, 1);
   } catch (error) {
-      // Вывожу временно в консольку, чтобы можно было посмотреть, что есть.
-      console.error(`Error fetching authors list: ${error}`);
+    const sorry = document.getElementById('search-result-row-container');
+    sorry.textContent = 'Извините, по вашему запросу ничего не нашлось :(';
+    return;
   }
 
   console.log(fanficsList);

@@ -40,9 +40,8 @@ function handleSubmit(event) {
 }
 
 async function publishFanfic(data) {
-    const token = Cookies.get('session');
+    const token = Cookies.get('sessionToken');
 
-    // TODO: Сделать что-то, если токен undefined, потому что юзер еще не залогинился
     if(token === undefined) {
         window.location.href = 'registration.html';
         return;

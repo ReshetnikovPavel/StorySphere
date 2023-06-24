@@ -186,7 +186,8 @@ async function main() {
 
     const user = Cookies.get('username');
     const likeButton = document.querySelector('#likeBtn');
-    let IsLike = getIsLike() || false;
+    let IsLike = await getIsLike();
+    if (IsLike === null) return;
 
     const addChapterBtn = document.getElementById('addChapter');
     // const statusBtn = document.getElementById('changeStatus');
@@ -205,9 +206,10 @@ async function main() {
         if (IsLike) likeButton.style.backgroundColor = 'rgb(112, 36, 20, 0.3)';
 
         likeButton.addEventListener('click', () => {
+            const token = Cookies.get('sessionToken');
             IsLike = !IsLike;
             likeButton.style.backgroundColor = IsLike ? 'rgb(112, 36, 20, 0.3)' : 'white';
-            setLikeValue(IsLike);
+            setLikeValue(IsLike, token);
         });
     } else {
         likeButton.setAttribute('style', 'display: none;');
@@ -269,17 +271,29 @@ async function main() {
     }
 }
 
-function getIsLike() {
-    return localStorage.getItem('like') || false;
+async function getIsLike() {
+    const token = Cookies.get('sessionToken');
+
+    if(token === undefined) {
+        window.location.href = 'registration.html';
+        return;
+    }
+
+    let like;
+    try {
+        like = await fetchLike(fanficId, token);
+    } catch (error) {
+        console.error(`Error fetching: ${error}`);
+    }
+
+    return like || false;
 }
 
-function setLikeValue(IsLike) {
+function setLikeValue(IsLike, token) {
     if (IsLike) {
-        alert('Вы лайкнули работу!')
-        localStorage.setItem('like', true);
+        postLike(fanficId, token);
     } else {
-        alert('Вы убрали лайк с работы!')
-        localStorage.setItem('like', false);
+        deleteLike(fanficId, token);
     }
 }
 
@@ -329,7 +343,7 @@ async function fetchChapter(fanficId, chapterNo) {
     return await response.json();
 }
 
-async function fetchLike(fanficId) {
+async function fetchLike(fanficId, sessionToken) {
     const response = await fetch(`/likes?fanficId=${fanficId}`, {
         method: 'GET',
         headers: {
@@ -341,7 +355,7 @@ async function fetchLike(fanficId) {
     return await response.json();
 }
 
-async function postLike(fanficId) {
+async function postLike(fanficId, sessionToken) {
     const response = await fetch(`/likes?fanficId=${fanficId}`, {
         method: 'POST',
         headers: {
@@ -350,10 +364,10 @@ async function postLike(fanficId) {
         },
     });
 
-    return await response.json();
+    // return await response.json();
 }
 
-async function deleteLike(fanficId) {
+async function deleteLike(fanficId, sessionToken) {
     const response = await fetch(`/likes?fanficId=${fanficId}`, {
         method: 'DELETE',
         headers: {
@@ -362,5 +376,5 @@ async function deleteLike(fanficId) {
         },
     });
 
-    return await response.json();
+    // return await response.json();
 }

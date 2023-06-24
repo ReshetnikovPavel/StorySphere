@@ -11,8 +11,9 @@ async function processIndex() {
   try {
       fanficsList = await fetchRecentFanfics(pageSize, 1);
   } catch (error) {
-      // Вывожу временно в консольку, чтобы можно было посмотреть, что есть.
-      console.error(`Error fetching authors list: ${error}`);
+    const sorry = document.getElementById('search-result-row-container');
+    sorry.textContent = 'Извините, на нашем сайте пока нет ни одной работы!';
+    return;
   }
 
   console.log(fanficsList);
