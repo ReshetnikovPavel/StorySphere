@@ -64,4 +64,14 @@ public class UserService : IUserService
         var tokenString = _tokenService.GenerateToken(user);
         return Results.Ok(new SessionDto {User = _mapper.Map<User, UserDto>(user), Token = tokenString});
     }
+
+    public IResult SetProfilePicture(string picture, string username)
+    {
+        var user = _userRepo.GetByUsername(username);
+        if (user == null)
+            return TypedResults.NotFound($"User {username} not found");
+
+        _userRepo.SetPicture(picture, user);
+        return TypedResults.Ok();
+    }
 }

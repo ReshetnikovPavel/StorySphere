@@ -65,7 +65,7 @@ async function processAuthor() {
     imageContainer.appendChild(image);
   }
 
-  const pageSize = 3; 
+  const pageSize = 3;
   let fanficsList;
 
   try {
@@ -97,11 +97,11 @@ async function processAuthor() {
   async function loadNextBlock() {
     const startPage = loadedPages * size + 1;
     const endPage = Math.min((loadedPages + 1) * size, total);
-    
+
     for (let pageNumber = startPage; pageNumber <= endPage; pageNumber++) {
       await uploadPage(author.username, pageSize, pageNumber);
     }
-    
+
     loadedPages++;
   }
 
@@ -149,7 +149,7 @@ function addFanficsRow(dataIndex, dataLength, list) {
           workContainerNull.style.visibility = "hidden";
           searchResultRow.appendChild(workContainerNull);
       }
-      
+
       searchResultRowContainer.appendChild(searchResultRow);
   } else {
     const searchResultRowContainer = document.getElementById('search-result-row-container');
@@ -291,4 +291,14 @@ function checkResponse(response) {
   if (!response.ok) {
     throw new Error(`HTTP error! Status: ${response.status}`);
   }
+async function postProfilePicture(picture) {
+  const response = await fetch(`/profilePicture?picture=${picture}`, {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${sessionToken}`,
+      },
+  });
+
+  return await response.json();
 }

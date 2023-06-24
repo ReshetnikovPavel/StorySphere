@@ -9,4 +9,5 @@ public interface IUserRepo
     public void AddUser(User user);
     public User? GetByUsername(string? name);
     public User? GetByEmail(string? email);
+    public void SetPicture(string picture, User user);
 }

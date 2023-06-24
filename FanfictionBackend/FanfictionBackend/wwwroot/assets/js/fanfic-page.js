@@ -328,3 +328,39 @@ async function fetchChapter(fanficId, chapterNo) {
 
     return await response.json();
 }
+
+async function fetchLike(fanficId) {
+    const response = await fetch(`/likes?fanficId=${fanficId}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${sessionToken}`,
+        },
+    });
+
+    return await response.json();
+}
+
+async function postLike(fanficId) {
+    const response = await fetch(`/likes?fanficId=${fanficId}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${sessionToken}`,
+        },
+    });
+
+    return await response.json();
+}
+
+async function deleteLike(fanficId) {
+    const response = await fetch(`/likes?fanficId=${fanficId}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${sessionToken}`,
+        },
+    });
+
+    return await response.json();
+}
