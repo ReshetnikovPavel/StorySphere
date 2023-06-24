@@ -9,6 +9,8 @@ async function main() {
         console.error(`Error fetching: ${error}`);
     }
 
+    console.log(fanfic);
+
     const fanficNameInfo = fanfic.title;
     const authorInfo = fanfic.authorName;
     const ratingInfo = fanfic.ageLimit;
@@ -46,6 +48,10 @@ async function main() {
     const pairingsInfo = fanfic.pairings;
     const genresInfo = fanfic.genre;
     const warningsInfo = fanfic.warnings;
+
+    const authorLabel = document.getElementById('authorLabel');
+    authorLabel.textContent = fanfic.isTranslation ? 'Переводчик:' : 'Автор:';
+
     const descriptionInfo = fanfic.description;
     const notesInfo = fanfic.authorNotes;
     const fandomInfo = fanfic.fandom;
