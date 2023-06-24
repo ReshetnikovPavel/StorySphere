@@ -327,7 +327,7 @@ public class DemoFactory
                 Characters = "Студенты, преподаватели, деканат",
                 Pairings = "Деканат/Студент",
                 AgeLimit = "G",
-                Category = "Другое",
+                Category = "Other",
                 Genre = "Обучение, Учебная литература",
                 Warnings = "Отсутствует",
                 AuthorNotes = "Эта книга перечисляет основные правила системы баллов в моем университете, которые действуют в университетах России в целом. Это практический гайд, который поможет сэкономить время и избежать ненужных проблем.",
@@ -339,12 +339,12 @@ public class DemoFactory
         {
             Title = "Основные правила системы баллов",
             Content = "В этой главе вы узнаете, как работает система баллов в университетах, как определяются баллы за каждый предмет, а также какие правила действуют при пересдачах и других ситуациях."
-        });
+        }, "SoftOwl");
         _fanficService.AddChapter(1, new AddChapterDto
         {
             Title = "Средний балл и проходной балл",
             Content = "В этой главе вы научитесь вычислять средний балл за семестр, рассчитывать проходной балл и понимать, как он влияет на вашу успеваемость и дальнейшую учебу."
-        });
+        }, "SoftOwl");
 
 
         _fanficService.AddFanfic(new AddFanficDto
@@ -353,8 +353,8 @@ public class DemoFactory
                 Fandom = "Технологии",
                 Characters = "Программисты, C#-эксперты",
                 Pairings = "",
-                AgeLimit = AgeLimit.G.ToString(),
-                Category = Category.Other.ToString(),
+                AgeLimit = "G",
+                Category = "Other",
                 Genre = "Обучение, Учебная литература",
                 Warnings = "Отсутствует",
                 AuthorNotes = "Я увлекаюсь программированием на C# уже несколько лет, и я просто обожаю ООП. Надеюсь, мой фанфик будет полезен для начинающих программистов!",
@@ -366,12 +366,12 @@ public class DemoFactory
         {
             Title = "Что такое ООП?",
             Content = "В этой главе вы узнаете, что такое объектно-ориентированное программирование (ООП) и каковы его основные принципы."
-        });
+        }, "Capitulation");
         _fanficService.AddChapter(2, new AddChapterDto
         {
             Title = "Основные принципы C#",
             Content = "В этой главе вы научитесь создавать классы и объекты в C#, а также узнаете об основных принципах ООП на примере этого языка программирования."
-        });
+        }, "Capitulation");
 
 
         _fanficService.AddFanfic(new AddFanficDto
@@ -380,8 +380,8 @@ public class DemoFactory
             Fandom = "Технологии",
             Characters = "Программисты, Rust-эксперты",
             Pairings = "",
-            AgeLimit = AgeLimit.G.ToString(),
-            Category = Category.Other.ToString(),
+            AgeLimit = "G",
+            Category = "Other",
             Genre = "Обучение, Учебная литература",
             Warnings = "Отсутствует",
             AuthorNotes = "Это моя первая попытка писать фанфик о технологиях. Буду очень благодарен за отзывы!",
@@ -393,11 +393,11 @@ public class DemoFactory
         {
             Title = "Введение в Rust",
             Content = "Rust - это мощный и быстрый язык программирования, разработанный в Mozilla. В этой главе вы узнаете, что такое Rust, каковы его основные принципы и какие преимущества он предлагает по сравнению с другими языками программирования."
-        });
+        }, "PavelResh");
         _fanficService.AddChapter(3, new AddChapterDto
         {
             Title = "Основы Rust",
             Content = "В этой главе вы научитесь создавать переменные и основные типы данных в Rust, а также узнаете о ссылках и привязках на основе области видимости переменных."
-        });
+        }, "PavelResh");
     }
 }

@@ -41,6 +41,36 @@ public class FanficService : IFanficService
         }
     }
 
+    IResult IFanficService.GetFanficsByTitle(string title, PagingParameters pagingParameters)
+    {
+        return GetFanficsByTitle(title, pagingParameters);
+    }
+
+    IResult IFanficService.GetFanficsByAuthor(string authorName, PagingParameters pagingParameters)
+    {
+        return GetFanficsByAuthor(authorName, pagingParameters);
+    }
+
+    IResult IFanficService.GetFanficById(int fanficId)
+    {
+        return GetFanficById(fanficId);
+    }
+
+    IResult IFanficService.AddFanfic(AddFanficDto fanfic, string authorName)
+    {
+        return AddFanfic(fanfic, authorName);
+    }
+
+    IResult IFanficService.GetChapter(int fanficId, int chapterNo)
+    {
+        return GetChapter(fanficId, chapterNo);
+    }
+
+    IResult IFanficService.GetRecentlyUpdatedFanfics(PagingParameters pagingParameters)
+    {
+        return GetRecentlyUpdatedFanfics(pagingParameters);
+    }
+
     public IResult GetFanficsByTitle(string title, PagingParameters pagingParameters)
     {
         var fanfics = _fanficRepo.GetByTitle(title)
@@ -112,11 +142,14 @@ public class FanficService : IFanficService
         return TypedResults.Ok(_mapper.Map<ChapterDto>(chapter));
     }
 
-    public IResult AddChapter(int fanficId, AddChapterDto addDto)
+    public IResult AddChapter(int fanficId, AddChapterDto addDto, string authorName)
     {
         var fanfic = _fanficRepo.GetById(fanficId);
         if (fanfic is null)
             return TypedResults.NotFound($"Fanfic with id {fanficId} not found");
+
+        if (fanfic.Author.Username != authorName)
+            return TypedResults.Forbid();
 
         var chapter = _mapper.Map<Chapter>(addDto);
         fanfic.Chapters.Add(chapter);

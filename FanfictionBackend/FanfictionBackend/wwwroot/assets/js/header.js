@@ -33,7 +33,13 @@ function initLoginModal() {
     const modal = document.querySelector('.modal');
 
     profileButton.addEventListener("click", function() {
-        openModal(loginModal);
+        const username = Cookies.get("username");
+        if (username === undefined) {
+            openModal(loginModal);
+        }
+        else {
+            window.location.href = `/profile.html?username=${username}`;
+        }        
     });
     
     closeButton.addEventListener("click", function() {
@@ -65,8 +71,16 @@ function initLoginModal() {
 }
 
 async function login(email, password) {
-    const token = await fetchSession(email, password);
-    Cookies.set('session', token, {sameSite: 'strict'});
+    try {
+        userData = await fetchSession(email, password);
+        Cookies.set('sessionToken', userData.token, {sameSite: 'strict'});
+        Cookies.set('username', userData.user.username, {sameSite: 'strict'});
+        window.location.href = `/profile.html?username=${userData.user.username}`;
+    }
+    catch (err) {
+        alert('Неверная почта или пароль. Попробуйте еще раз!');
+        // TODO: Поменять с алерта на что-то адекватное
+    }
 }
 
 async function fetchSession(email, password) {

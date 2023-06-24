@@ -6,13 +6,31 @@ public static class CategoryParser
 {
     public static Category Parse(string category)
     {
-        // TODO
-        return Category.Other;
+        return category switch
+        {
+            "Slash" => Category.MM,
+            "Femslash" => Category.FF,
+            "Hetero" => Category.FM,
+            "General" => Category.None,
+            "Mixed" => Category.Multi,
+            "Article" => Category.Article,
+            "Other" => Category.Other,
+            _ => throw new ArgumentException($"{category} is not a proper category")
+        };
     }
 
     public static string Parse(Category category)
     {
-        // TODO
-        return "Другое";
+        return category switch
+        {
+            Category.FF => "Slash",
+            Category.FM => "Femslash",
+            Category.MM => "Hetero",
+            Category.Multi => "Mixed",
+            Category.None => "General",
+            Category.Other => "Other",
+            Category.Article => "Article",
+            _ => throw new ArgumentException($"Can't convert {category} to string")
+        };
     }
 }

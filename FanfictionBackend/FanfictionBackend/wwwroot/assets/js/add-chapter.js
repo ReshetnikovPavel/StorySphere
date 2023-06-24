@@ -28,10 +28,15 @@ function getFanficId() {
 }
 
 async function publish(chapter, fanficId) {
+    const token = Cookies.get('session');
+
+    // TODO: Сделать что-то, если токен undefined, потому что юзер еще не залогинился
+
     return await fetch(`/chapters?fanficId=${fanficId}`, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${sessionToken}`
         },
         body: JSON.stringify(chapter)
     });

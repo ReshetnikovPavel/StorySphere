@@ -7,5 +7,6 @@ public enum Category
     MM,
     Multi,
     None,
-    Other
+    Other,
+    Article
 }

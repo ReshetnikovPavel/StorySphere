@@ -62,6 +62,6 @@ public class UserService : IUserService
             return TypedResults.NotFound("Invalid email or password");
 
         var tokenString = _tokenService.GenerateToken(user);
-        return Results.Ok(tokenString);
+        return Results.Ok(new SessionDto {User = _mapper.Map<User, UserDto>(user), Token = tokenString});
     }
 }
