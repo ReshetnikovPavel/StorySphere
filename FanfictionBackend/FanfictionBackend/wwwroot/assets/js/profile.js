@@ -204,3 +204,15 @@ async function fetchAuthorByName(username) {
   const data = await response.json();
   return data;
 }
+
+async function postProfilePicture(picture) {
+  const response = await fetch(`/profilePicture?picture=${picture}`, {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${sessionToken}`,
+      },
+  });
+
+  return await response.json();
+}

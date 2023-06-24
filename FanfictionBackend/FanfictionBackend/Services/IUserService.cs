@@ -9,4 +9,5 @@ public interface IUserService
     IResult GetUserByUsername(string? username);
     IResult RegisterUser(RegisterDto registerDto, string password);
     IResult LoginUser(string? email, string password);
+    IResult SetProfilePicture(string profilePicture, string username);
 }
