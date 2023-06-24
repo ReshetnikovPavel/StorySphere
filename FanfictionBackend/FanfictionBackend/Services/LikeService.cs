@@ -35,6 +35,7 @@ public class LikeService : ILikeService
         
         fanfic.Likes.Add(like);
         user.Likes.Add(like);
+        fanfic.Author.ReceivedLikes++;
         _likeRepo.AddLike(like);
 
         return TypedResults.Ok(like);
@@ -57,6 +58,7 @@ public class LikeService : ILikeService
 
         fanfic.Likes.Remove(like);
         user.Likes.Remove(like);
+        fanfic.Author.ReceivedLikes--;
         _likeRepo.RemoveLike(like);
         
         return TypedResults.Ok();
