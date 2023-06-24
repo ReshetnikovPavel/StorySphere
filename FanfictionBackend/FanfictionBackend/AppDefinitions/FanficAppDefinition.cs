@@ -21,6 +21,7 @@ public class FanficAppDefinition : IAppDefinition
         DefineChapterEndpoints(app);
         DefineUserEndpoints(app);
         DefineImageEndpoints(app);
+        DefineLikeEndpoints(app);
     }
 
     public void DefineServices(IServiceCollection services, IConfiguration config)
@@ -35,6 +36,8 @@ public class FanficAppDefinition : IAppDefinition
         services.AddScoped<IDateTimeProvider, UtcDateTimeProvider>();
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<IFanficService, FanficService>();
+        services.AddScoped<ILikeRepo, LikeRepo>();
+        services.AddScoped<ILikeService, LikeService>();
         services.AddScoped<DemoFactory>();
 
         var imgurKey = config.GetSection("ImgurKey").Value;
@@ -101,5 +104,24 @@ public class FanficAppDefinition : IAppDefinition
     {
         app.MapPost("/image", (IImageService imageService, IFormFile image)
             => imageService.Upload(image));
+    }
+
+    private static void DefineLikeEndpoints(IEndpointRouteBuilder app)
+    {
+        app.MapPost("/likes",
+            [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+            (ClaimsPrincipal user, ILikeService ls, int fanficId) =>
+            {
+                var username = user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                return ls.AddLike(fanficId, username);
+            });
+        
+        app.MapDelete("/likes",
+            [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+            (ClaimsPrincipal user, ILikeService ls, int fanficId) =>
+            {
+                var username = user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                return ls.RemoveLike(fanficId, username);
+            });
     }
 }
