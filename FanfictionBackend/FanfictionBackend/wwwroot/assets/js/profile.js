@@ -71,8 +71,9 @@ async function processAuthor() {
   try {
       fanficsList = await fetchFanficsByAuthor(author.username, pageSize, 1);
   } catch (error) {
-      // Вывожу временно в консольку, чтобы можно было посмотреть, что есть.
-      console.error(`Error fetching authors list: ${error}`);
+    const sorry = document.getElementById('search-result-row-container');
+    sorry.textContent = 'У этого автора пока нет работ';
+    return;
   }
 
   console.log(fanficsList);
