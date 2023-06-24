@@ -2,7 +2,7 @@
 const leftColumn = document.getElementById('left-column');
 const rightColumn = document.getElementById('right-column');
 
-main()
+main();
 
 async function main() {
     const pageSize = 2; // Число авторов на странице. Если меняете, ставьте четное
@@ -15,9 +15,8 @@ async function main() {
         console.error(`Error fetching authors list: ${error}`);
     }
 
-    console.log(authorList);
-    const size = 10;
     const total = authorList.metadata.totalPages;
+    const size = Math.min(10, total);
 
     for (let pageNumber = 1; pageNumber <= size; pageNumber++) {
         await uploadPage(pageSize, pageNumber);

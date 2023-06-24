@@ -1,4 +1,4 @@
-processAuthor()
+processAuthor();
 
 async function processAuthor() {
   const authorInput = document.getElementById('author-name');
@@ -34,25 +34,89 @@ async function processAuthor() {
   const images = getImages();
 
   for(let i = 0; i < images.length; i++) {
-      const image = document.createElement('img');
-      image.setAttribute('style', 'cursor: pointer;');
-      image.setAttribute('id', `avatar${i + 1}`);
-      image.addEventListener('click', () => {
-        setAvatar(`avatar${i + 1}`);
-        profileAvatar.setAttribute('src', getAvatar(author));
-        closeButton.click();
-      });
+    const image = document.createElement('img');
+    image.setAttribute('style', 'cursor: pointer;');
+    image.setAttribute('id', `avatar${i + 1}`);
+    image.addEventListener('click', () => {
+      setAvatar(`avatar${i + 1}`);
+      profileAvatar.setAttribute('src', getAvatar(author));
+      closeButton.click();
+    });
 
-      image.src = images[i];
-      image.alt = `avatar${i + 1}`;
+    image.src = images[i];
+    image.alt = `avatar${i + 1}`;
 
-      image.style.maxWidth = '20rem';
-      image.style.maxHeight = '20rem';
+    image.style.maxWidth = '20rem';
+    image.style.maxHeight = '20rem';
 
-      imageContainer.appendChild(image);
+    imageContainer.appendChild(image);
   }
 
+  const pageSize = 3; //число фанфиков на странице. если меняете - %3
+  let fanficsList;
 
+  try {
+      fanficsList = await fetchFanficsByAuthor(author.username, pageSize, 1);
+  } catch (error) {
+      // Вывожу временно в консольку, чтобы можно было посмотреть, что есть.
+      console.error(`Error fetching authors list: ${error}`);
+  }
+
+  console.log(fanficsList);
+
+  const total = fanficsList.metadata.totalPages;
+  const size = Math.min(10, total);
+
+  for (let pageNumber = 1; pageNumber <= size; pageNumber++) {
+    await uploadPage(author.username, pageSize, pageNumber);
+  }
+
+  let loadedPages = 1;
+  function onScroll() {
+    const position = window.pageYOffset + window.innerHeight;
+    const bottom = document.documentElement.scrollHeight;
+
+    if (position >= bottom && loadedPages < total) {
+      loadNextBlock();
+    }
+  }
+
+  async function loadNextBlock() {
+    const startPage = loadedPages * size + 1;
+    const endPage = Math.min((loadedPages + 1) * size, total);
+    
+    for (let pageNumber = startPage; pageNumber <= endPage; pageNumber++) {
+      await uploadPage(author.username, pageSize, pageNumber);
+    }
+    
+    loadedPages++;
+  }
+
+  window.addEventListener('scroll', onScroll);
+
+  const exitBtn = document.querySelector('#exit');
+  exitBtn.addEventListener("click", exit);
+
+  const addWorkBtn = document.querySelector('#addWork');
+  addWorkBtn.addEventListener('click', () => {
+    window.location.href = 'add-fanfic.html';
+  });
+}
+
+async function uploadPage(username, pageSize, pageNumber) {
+  let list;
+  try {
+      list = await fetchFanficsByAuthor(username, pageSize, pageNumber);
+  } catch (error) {
+      console.error(`Error fetching authors list: ${error}`);
+      console.error(`Ошибка случилась при размере ${pageSize}, и страницах ${pageNumber}`);
+  }
+
+  const dataLength = list.items.length;
+
+  for (let i = 0; i < dataLength; i += 3) {
+      addFanficsRow(i, dataLength, list);
+  }
 }
 
 function getImages() {
@@ -63,38 +127,44 @@ function getImages() {
 
   return avatars;
 }
-// const timeInput = document.getElementById('online-time');
-// const authorTime = getOnlineTime();
-// loadingData(authorTime, timeInput);
 
-const fanficsInfo = getFanfics();
+function addFanficsRow(dataIndex, dataLength, list) {
+  if (dataIndex > dataLength) return;
 
-addFanficsRow();
+  if (dataLength - dataIndex < 3) {
 
-const allWorksBtn = document.querySelector('#allWorks');
-const hrefAllWorks = getHrefAllWorks();
-allWorksBtn.setAttribute('href', hrefAllWorks);
-allWorksBtn.addEventListener('click', () => {
-  window.location.href = hrefAllWorks;
-});
+      const searchResultRowContainer = document.getElementById('search-result-row-container');
+      const searchResultRow = createRow(dataLength % 3, dataIndex, list);
 
-const exitBtn = document.querySelector('#exit');
-exitBtn.addEventListener("click", exit);
+      let mod = 3 - dataLength % 3;
 
-const addWorkBtn = document.querySelector('#addWork');
-addWorkBtn.addEventListener('click', () => {
-  window.location.href = 'add-fanfic.html';
-})
-
-function addFanficsRow() {
-  const profileFanficRow = document.getElementById('profile-fanfics-row');
-
-  for (let j = 0; j < 3; j++) {
-      const info = fanficsInfo[j];
-      if (info[0] == null) continue;
-      const workContainer = createWorkContainer(info, j);
-      profileFanficRow.appendChild(workContainer);
+      for (let i = 0; i < mod; i++) {
+          let info = [null, null, null, null];
+          const workContainerNull = createWorkContainer(info, dataLength + i);
+          workContainerNull.style.visibility = "hidden";
+          searchResultRow.appendChild(workContainerNull);
+      }
+      
+      searchResultRowContainer.appendChild(searchResultRow);
+  } else {
+    const searchResultRowContainer = document.getElementById('search-result-row-container');
+    const searchResultRow = createRow(3, dataIndex, list);
+    searchResultRowContainer.appendChild(searchResultRow);
   }
+}
+
+function createRow(countContainers, dataIndex, list) {
+  const searchResultRow = document.createElement('section');
+  searchResultRow.classList.add('search-result-row');
+
+  for (let j = 0; j < countContainers; j++) {
+      let info = list.items[dataIndex + j];
+      const workContainer = createWorkContainer(info, dataIndex + j);
+
+      searchResultRow.appendChild(workContainer);
+  }
+
+  return searchResultRow;
 }
 
 function createWorkContainer(info, number) {
@@ -110,7 +180,7 @@ function createWorkContainer(info, number) {
   likesContainer.classList.add('likes-container');
 
   const labelLikes = document.createElement('label');
-  labelLikes.textContent = info[1] || 0;
+  labelLikes.textContent = info.numLikes || 0;
 
   const starLikesIcon = document.createElement('img');
   starLikesIcon.classList.add('star_likes_icon');
@@ -129,10 +199,10 @@ function createWorkContainer(info, number) {
   workNameContainer.classList.add('work-name-container');
 
   const nameFanfic = document.createElement('h3');
-  nameFanfic.textContent = info[0];
+  nameFanfic.textContent = info.title;
   nameFanfic.setAttribute('style', 'cursor: pointer;');
 
-  nameFanfic.setAttribute('data-link', info[3]);
+  nameFanfic.setAttribute('data-link', `fanfic-page.html?fanficId=${info.id}`);
   nameFanfic.addEventListener('click', () => {
       const link = nameFanfic.getAttribute('data-link');
       window.location.href = link;
@@ -146,7 +216,7 @@ function createWorkContainer(info, number) {
   workDescriptionContainer.classList.add('work-description-container');
 
   const descriptionFanfic = document.createElement('p');
-  descriptionFanfic.textContent = info[2];
+  descriptionFanfic.textContent = info.description;
 
   workDescriptionContainer.appendChild(descriptionFanfic);
   workContainer.appendChild(workDescriptionContainer);
@@ -162,28 +232,18 @@ function setAvatar(avatarName) {
   alert('Аватар загружен в базу данных: ' + avatarName);
 }
 
-function getFanfics() {
-    return [['Автомобилисты плачут и платят', '9', 'Это история о том, как бедный студент Василий решил преобрести себе машину, чтобы ездить на пары. Но он не знал, оо! Он не знал, что есть бензин и налоги. А еще кривые дороги!', 'fanfic-page.html'], 
-['Юра и пельмехи', '999', 'Юра решил сварить пельмехи. Кто знал, что в этот момент в его стене откроется портал в другое измерение и оттуда выпадет жуткое существо? Что ж, теперь ужин не будет таким одиноким', 'fanfic-page.html'],
-[null, null, null, null]];
-}
-
 function exit() {
     alert('Вы вышли из профиля');
 }
 
-function getHrefAllWorks() {
-    return 'all-author\'s-work.html'
+function getHrefAllWorks(username) {
+    return `all-author\'s-work.html?username=${username}`;
 }
 
 function getAuthorName() {
   var url = new URL(window.location.href);
   return url.searchParams.get("username");
 }
-
-// function getOnlineTime() {
-//     return '17 минут назад';
-// }
 
 function loadingData(base, id) {
     const textNode = document.createTextNode(base);
@@ -201,4 +261,24 @@ async function fetchAuthorByName(username) {
 
   const data = await response.json();
   return data;
+}
+
+async function fetchFanficsByAuthor(authorName, pageSize, pageNumber) {
+  const params = new URLSearchParams({ authorName, pageSize, pageNumber }).toString();
+  const response = await fetch(`/fanfics/author?${params}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+  });
+
+  checkResponse(response);
+
+  return await response.json()
+}
+
+function checkResponse(response) {
+  if (!response.ok) {
+    throw new Error(`HTTP error! Status: ${response.status}`);
+  }
 }

@@ -1,4 +1,4 @@
-let fanficId = 2; //getFanficId();
+let fanficId = getFanficId();
 main();
 
 async function main() {
@@ -15,25 +15,25 @@ async function main() {
     let focusInfo;
 
     switch (fanfic.category) {
-    case 'Слэш':
+    case 'Slash':
         focusInfo = '⚣';
         break;
-    case 'Фемслэш':
+    case 'Femslash':
         focusInfo = '⚢';
         break;
-    case 'Гет':
+    case 'Hetero':
         focusInfo = '⚤';
         break;
-    case 'Джен':
+    case 'General':
         focusInfo = '⚔︎';
         break;
-    case 'Смешанная':
+    case 'Mixed':
         focusInfo = '〰';
         break;
-    case 'Статья':
+    case 'Article':
         focusInfo = '✒';
         break;
-    case 'Другое':
+    case 'Other':
         focusInfo = '◯';
         break;
     default:
@@ -41,7 +41,7 @@ async function main() {
     }
 
     const likesInfo = fanfic.numLikes;
-    const sizeChaptersInfo = fanfic.numChapter;
+    const sizeChaptersInfo = fanfic.numChapters;
     const charactersInfo = fanfic.characters;
     const pairingsInfo = fanfic.pairings;
     const genresInfo = fanfic.genre;
