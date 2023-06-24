@@ -26,14 +26,16 @@ public class LikeRepo : ILikeRepo
     public bool Exists(Like like)
     {
         return _dataContext.Likes
-            .Any(l => l.Fanfic.Id == like.Fanfic.Id && l.User.Id == like.User.Id);
+            .Any(l => 
+                l.FanficId == like.FanficId && string.Equals(l.Username, like.Username, 
+                    StringComparison.CurrentCultureIgnoreCase));
     }
 
     public Like? GetLike(int fanficId, string username)
     {
         return _dataContext.Likes
             .FirstOrDefault(l => 
-                l.Fanfic.Id == fanficId && string.Equals(l.User.Username, username, 
+                l.FanficId == fanficId && string.Equals(l.Username, username, 
                     StringComparison.CurrentCultureIgnoreCase));
     }
 }

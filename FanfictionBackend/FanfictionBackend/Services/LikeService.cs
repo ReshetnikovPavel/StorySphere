@@ -23,13 +23,13 @@ public class LikeService : ILikeService
         var fanfic = _fanficRepo.GetById(fanficId);
         if (fanfic == null)
             return TypedResults.NotFound($"Fanfic with id {fanficId} not found");
-
+        
         var user = _userRepo.GetByUsername(userName);
         if (user == null)
             return TypedResults.NotFound($"User with username {userName} not found");
-
-        var like = new Like { Fanfic = fanfic, User = user };
-
+        
+        var like = new Like { FanficId = fanficId, Username = userName };
+        
         if (_likeRepo.Exists(like))
             return TypedResults.Conflict($"Like by {userName} on fanfic with id {fanficId} already exists");
         
@@ -42,13 +42,21 @@ public class LikeService : ILikeService
 
     public IResult RemoveLike(int fanficId, string username)
     {
+        var fanfic = _fanficRepo.GetById(fanficId);
+        if (fanfic == null)
+            return TypedResults.NotFound($"Fanfic with id {fanficId} not found");
+
+        var user = _userRepo.GetByUsername(username);
+        if (user == null)
+            return TypedResults.NotFound($"User with username {username} not found");
+        
         var like = _likeRepo.GetLike(fanficId, username);
 
         if (like == null)
             return TypedResults.NotFound($"Like for fanfic with {fanficId} by {username} does not exist");
 
-        like.Fanfic.Likes.Remove(like);
-        like.User.Likes.Remove(like);
+        fanfic.Likes.Remove(like);
+        user.Likes.Remove(like);
         _likeRepo.RemoveLike(like);
         
         return TypedResults.Ok();
