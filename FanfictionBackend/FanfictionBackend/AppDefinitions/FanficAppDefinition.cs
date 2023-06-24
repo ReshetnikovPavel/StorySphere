@@ -40,9 +40,7 @@ public class FanficAppDefinition : IAppDefinition
         if (imgurKey is null)
             throw new Exception("ImgurKey is not in appsettings.json");
         services.AddScoped<IImageService, ImgurImageService>(
-            provider => new ImgurImageService(imgurKey, 
-            provider.GetService<FanficDb>()!, 
-            provider.GetService<IFanficRepo>()!));
+            provider => new ImgurImageService(imgurKey, provider.GetService<FanficDb>()!));
 
         services.AddAutoMapper(typeof(MappingProfile));
     }
