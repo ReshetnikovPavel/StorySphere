@@ -291,6 +291,8 @@ function checkResponse(response) {
   if (!response.ok) {
     throw new Error(`HTTP error! Status: ${response.status}`);
   }
+}
+
 async function postProfilePicture(picture) {
   const response = await fetch(`/profilePicture?picture=${picture}`, {
       method: 'POST',
