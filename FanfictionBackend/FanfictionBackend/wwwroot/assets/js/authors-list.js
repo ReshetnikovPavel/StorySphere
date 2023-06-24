@@ -11,8 +11,9 @@ async function main() {
     try {
         authorList = await fetchAuthorsPage(pageSize, 1);
     } catch (error) {
-        // Вывожу временно в консольку, чтобы можно было посмотреть, что есть.
-        console.error(`Error fetching authors list: ${error}`);
+        const sorry = document.getElementById('search-result-row-container');
+        sorry.textContent = 'Извините, пока ни одного пользователя нет';
+        return;
     }
 
     const total = authorList.metadata.totalPages;
