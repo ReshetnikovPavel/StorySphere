@@ -21,6 +21,7 @@ public class FanficAppDefinition : IAppDefinition
         DefineChapterEndpoints(app);
         DefineUserEndpoints(app);
         DefineImageEndpoints(app);
+        DefineLikeEndpoints(app);
     }
 
     public void DefineServices(IServiceCollection services, IConfiguration config)
@@ -115,7 +116,7 @@ public class FanficAppDefinition : IAppDefinition
                 return ls.AddLike(fanficId, username);
             });
         
-        app.MapPost("/delete",
+        app.MapDelete("/likes",
             [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
             (ClaimsPrincipal user, ILikeService ls, int fanficId) =>
             {
