@@ -53,6 +53,12 @@ button {
 .central-container {
     display: flex;
     justify-content: center;
+    position: fixed;
+    bottom: 0;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    background-color: var(--background-color);
+    margin: 0;
 }
 
 
