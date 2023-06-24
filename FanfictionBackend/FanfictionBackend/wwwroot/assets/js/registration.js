@@ -4,17 +4,16 @@ form.addEventListener('submit', handleSubmit);
 const email = document.getElementById('emailRegistration');
 const password = document.getElementById('passwordRegistration');
 const confirmPassword = document.getElementById('confirm-password');
-const name = document.getElementById('name');
+const username = document.getElementById('name');
 
 function handleSubmit(event) {
     event.preventDefault();
 
     const data = {
         email: email.value,
-        password: password.value,
-        name: name.value
+        username: username.value
     };
-    registerUser(data)
+    registerUser(data, password.value)
         .catch(() => alert("Не удалось зарегистрироваться"));
 }
 
@@ -26,8 +25,8 @@ function validatePassword() {
     }
 }
 
-async function registerUser(data) {
-    const response = await fetch('/authors', {
+async function registerUser(data, password) {
+    const response = await fetch(`/authors?password=${password}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

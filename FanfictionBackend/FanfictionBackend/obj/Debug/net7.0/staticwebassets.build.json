@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "6yPnupQx6iMs0eHgE/A+TQcPypeDMBN81AFwsd7x/V4=",
+  "Hash": "Cxv75SN1izHhp2su9DQcsVVHReQqrhVbTSaLI4piF9A=",
   "Source": "FanfictionBackend",
   "BasePath": "_content/FanfictionBackend",
   "Mode": "Default",
@@ -49,23 +49,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\add-fanfic.html"
-    },
-    {
-      "Identity": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\all-author's-work.html",
-      "SourceId": "FanfictionBackend",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\",
-      "BasePath": "_content/FanfictionBackend",
-      "RelativePath": "all-author's-work.html",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\all-author's-work.html"
     },
     {
       "Identity": "C:\\Users\\Andrew Kuklinov\\YandexDisk\\College\\Semester 4\\Project\\fanfiction\\FanfictionBackend\\FanfictionBackend\\wwwroot\\assets\\css\\app-header.css",
