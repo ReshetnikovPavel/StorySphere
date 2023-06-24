@@ -302,5 +302,7 @@ async function postProfilePicture(picture) {
       },
   });
 
+  checkResponse(response);
+
   return await response.json();
 }
