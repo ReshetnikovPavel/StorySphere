@@ -252,7 +252,7 @@ function getHrefAllWorks(username) {
 
 function getAuthorName() {
   var url = new URL(window.location.href);
-  return url.searchParams.get("username");
+  return url.searchParams.get('username');
 }
 
 function loadingData(base, id) {
