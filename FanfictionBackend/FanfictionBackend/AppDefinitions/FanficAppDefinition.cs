@@ -1,5 +1,4 @@
 ﻿using System.Security.Claims;
-using AutoMapper;
 using FanfictionBackend.Dto;
 using FanfictionBackend.Interfaces;
 using FanfictionBackend.Pagination;
@@ -40,7 +39,10 @@ public class FanficAppDefinition : IAppDefinition
         var imgurKey = config.GetSection("ImgurKey").Value;
         if (imgurKey is null)
             throw new Exception("ImgurKey is not in appsettings.json");
-        services.AddScoped<IImageService, ImgurImageService>(provider => new ImgurImageService(imgurKey));
+        services.AddScoped<IImageService, ImgurImageService>(
+            provider => new ImgurImageService(imgurKey, 
+            provider.GetService<FanficDb>()!, 
+            provider.GetService<IFanficRepo>()!));
 
         services.AddAutoMapper(typeof(MappingProfile));
     }
@@ -94,7 +96,21 @@ public class FanficAppDefinition : IAppDefinition
 
     private static void DefineImageEndpoints(IEndpointRouteBuilder app)
     {
-        app.MapPost("/image", (IImageService imageService, IFormFile image)
-            => imageService.Upload(image));
+        app.MapPost("/images", 
+            [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+            async (ClaimsPrincipal user, IImageService imageService, IFanficRepo fanficRepo, IFormFileCollection images,
+                    [FromQuery] int fanficId)
+            =>
+            {
+                var fanfic = fanficRepo.GetById(fanficId);
+                if (fanfic is null)
+                    return TypedResults.NotFound($"Fanfic with id {fanficId} not found");
+
+                var senderName = user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                if (fanfic.Author.Username != senderName)
+                    return TypedResults.Forbid();
+                
+                return await imageService.Upload(images, fanfic);
+            });
     }
 }

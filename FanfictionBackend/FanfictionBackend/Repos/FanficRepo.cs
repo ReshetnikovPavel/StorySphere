@@ -25,14 +25,16 @@ public class FanficRepo : IFanficRepo
     {
         return _dataContext.Fanfics.Where(f => f.Title == title)
             .Include(f => f.Author)
-            .Include(f => f.Likes);
+            .Include(f => f.Likes)
+            .Include(f => f.Images);
     }
 
     public IEnumerable<Fanfic> GetRecentlyUpdated(PagingParameters pagingParameters)
     {
         return _dataContext.Fanfics.OrderByDescending(f => f.LastUpdated)
             .Include(f => f.Author)
-            .Include(f => f.Likes);;
+            .Include(f => f.Likes)
+            .Include(f => f.Images);
     }
 
     public Fanfic? GetById(int id)
@@ -41,6 +43,7 @@ public class FanficRepo : IFanficRepo
             .Include(f => f.Chapters)
             .Include(f => f.Author)
             .Include(f => f.Likes)
+            .Include(f => f.Images)
             .FirstOrDefault(f => f.Id == id);
     }
 }
