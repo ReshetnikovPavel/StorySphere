@@ -47,4 +47,10 @@ public class UserRepo : IUserRepo
             .FirstOrDefault(user => string.Equals(
                 user.Email, email, StringComparison.CurrentCultureIgnoreCase));
     }
+
+    public void SetPicture(string picture, User user)
+    {
+        user.Picture = picture;
+        _dataContext.SaveChanges();
+    }
 }

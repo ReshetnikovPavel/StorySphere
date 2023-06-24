@@ -98,6 +98,14 @@ public class FanficAppDefinition : IAppDefinition
 
         app.MapGet("/session",  (IUserService us, string? email, string password)
             => us.LoginUser(email, password));
+        
+        app.MapPost("/profilePicture",
+            [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+            (ClaimsPrincipal user, IUserService us, string picture) =>
+            {
+                var username = user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                return us.SetProfilePicture(picture, username);
+            });
     }
 
     private static void DefineImageEndpoints(IEndpointRouteBuilder app)
