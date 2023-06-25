@@ -256,7 +256,7 @@ async function main() {
     });
 
     const imageContainer = document.getElementById('image-container');
-    const images = getImages();
+    const images = getImages(fanfic);
 
     for(let i = 0; i < images.length; i++) {
         const image = document.createElement('img');
@@ -312,8 +312,9 @@ function loadingData(base, id) {
     id.appendChild(textNode);
 }
 
-function getImages() {
-    return ["/assets/images/img5.png", "/assets/images/img6.png", "/assets/images/img7.jpg", "/assets/images/img8.png"];
+function getImages(fanfic) {
+    return fanfic.imageLinks;
+    //return ["/assets/images/img5.png", "/assets/images/img6.png", "/assets/images/img7.jpg", "/assets/images/img8.png"];
 }
 
 function getFanficId() {
