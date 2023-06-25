@@ -1,7 +1,7 @@
 // const form = document.querySelector('form');
 // form.addEventListener('submit', handleSubmit);
 
-const publish = document.querySelector('#publish');
+const publishBtn = document.querySelector('#publish');
 const addImage = document.querySelector('#addArt');
 
 const _name = document.getElementById('name');
@@ -34,10 +34,10 @@ const uploadedFiles = new Set();
 
 // });
 
-publish.addEventListener("click", handleSubmit);
+publishBtn.addEventListener("click", handleSubmit);
 addImage.addEventListener("click", addArt);
 
-function handleSubmit(event) {
+async function handleSubmit(event) {
     event.preventDefault();
     const requiredFields = document.querySelectorAll('[required]'); // выбираем все поля с классом "required"
     console.log(requiredFields.length);
