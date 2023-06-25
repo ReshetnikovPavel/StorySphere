@@ -20,7 +20,7 @@ const uploadedFiles = new Set();
 // publish.addEventListener("click", () => {
 //     const isFull = true;
 //     const requiredFields = document.querySelectorAll('.required'); // выбираем все поля с классом "required"
-  
+
 //     for (let i = 0; i < requiredFields.length; i++) {
 //       if (requiredFields[i].value === '') {
 //         isFull = false; // если хотя бы одно поле пустое, возвращаем false
@@ -40,11 +40,11 @@ addImage.addEventListener("click", addArt);
 async function handleSubmit(event) {
     event.preventDefault();
     const requiredFields = document.querySelectorAll('[required]'); // выбираем все поля с классом "required"
-    console.log(requiredFields.length);
-    
+
     for (let i = 0; i < requiredFields.length; i++) {
         if (requiredFields[i].value === '') {
-            return; 
+            alert('Заполните обязательные поля');
+            return;
         }
     }
 
@@ -118,7 +118,7 @@ function addArt(event) {
     event.preventDefault();
     const uploadBtn = document.getElementById('addArt');
     const fileList = document.getElementById('fileList');
-    
+
 
     uploadBtn.addEventListener('click', () => {
         const input = document.createElement('input');
