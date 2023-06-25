@@ -187,7 +187,6 @@ async function main() {
     const user = Cookies.get('username');
     const likeButton = document.querySelector('#likeBtn');
     let IsLike = await getIsLike();
-    if (IsLike === null) return;
 
     const addChapterBtn = document.getElementById('addChapter');
     // const statusBtn = document.getElementById('changeStatus');
@@ -206,10 +205,15 @@ async function main() {
         if (IsLike) likeButton.style.backgroundColor = 'rgb(112, 36, 20, 0.3)';
 
         likeButton.addEventListener('click', () => {
-            const token = Cookies.get('sessionToken');
-            IsLike = !IsLike;
-            likeButton.style.backgroundColor = IsLike ? 'rgb(112, 36, 20, 0.3)' : 'white';
-            setLikeValue(IsLike, token);
+            if (user !== undefined) {
+                const token = Cookies.get('sessionToken');
+                IsLike = !IsLike;
+                likeButton.style.backgroundColor = IsLike ? 'rgb(112, 36, 20, 0.3)' : 'white';
+                console.log(user);
+                setLikeValue(IsLike, token);
+            } else {
+                window.location.href = 'registration.html';
+            }
         });
     } else {
         likeButton.setAttribute('style', 'display: none;');
@@ -218,56 +222,37 @@ async function main() {
         addChapterBtn.addEventListener('click', () => {
             window.location.href = `/add-chapter.html?fanficId=${fanficId}`;
         });
-
-        // statusBtn.setAttribute('style', 'display: block;');
-        // const popup = document.getElementById('popup');
-
-        // statusBtn.addEventListener('click', () => {
-        // console.log('click!');
-        // popup.style.display = 'flex';
-        // });
-
-        // popup.addEventListener('click', function(event) {
-        // if (event.target.tagName === 'BUTTON') {
-        //     const selectedOption = event.target.textContent;
-        //     console.log('Выбран вариант:', selectedOption); // Засетить статус
-        //     popup.style.display = 'none';
-        // }
-        // });
-
-        // document.addEventListener('click', function(event) {
-        // if (!popup.contains(event.target) && event.target !== statusBtn) {
-        // popup.style.display = 'none';
-        // }
-        // });
     }
-
-    const openModalButton = document.getElementById('gallery');
-    openModalButton.setAttribute('style', 'cursor: pointer;');
-    const modal = document.getElementById('modal');
-    const closeButton = modal.querySelector('.close');
-
-    openModalButton.addEventListener('click', () => {
-    modal.style.display = 'block';
-    });
-
-    closeButton.addEventListener('click', () => {
-    modal.style.display = 'none';
-    });
 
     const imageContainer = document.getElementById('image-container');
     const images = getImages();
 
-    for(let i = 0; i < images.length; i++) {
-        const image = document.createElement('img');
-
-        image.src = images[i];
-        image.alt = 'illustration';
-
-        image.style.maxWidth = '30rem';
-        image.style.maxHeight = '30rem';
-
-        imageContainer.appendChild(image);
+    const modal = document.getElementById('modal');
+    const closeButton = modal.querySelector('.close');
+    const openModalButton = document.getElementById('gallery');
+    if (images !== null) {
+        openModalButton.setAttribute('style', 'cursor: pointer;');
+        openModalButton.addEventListener('click', () => {
+            modal.style.display = 'block';
+        });
+    
+        closeButton.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+    
+        for(let i = 0; i < images.length; i++) {
+            const image = document.createElement('img');
+    
+            image.src = images[i];
+            image.alt = 'illustration';
+    
+            image.style.maxWidth = '30rem';
+            image.style.maxHeight = '30rem';
+    
+            imageContainer.appendChild(image);
+        }
+    } else {
+        openModalButton.setAttribute('style', 'display: none;')
     }
 }
 
@@ -275,8 +260,7 @@ async function getIsLike() {
     const token = Cookies.get('sessionToken');
 
     if(token === undefined) {
-        window.location.href = 'registration.html';
-        return;
+        return false;
     }
 
     let like;
@@ -313,7 +297,7 @@ function loadingData(base, id) {
 }
 
 function getImages() {
-    return ["/assets/images/img5.png", "/assets/images/img6.png", "/assets/images/img7.jpg", "/assets/images/img8.png"];
+    return null;
 }
 
 function getFanficId() {
