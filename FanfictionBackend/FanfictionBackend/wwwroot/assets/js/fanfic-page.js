@@ -104,85 +104,100 @@ async function main() {
         chapterLabel.textContent = 'глав';
     }
 
-    let chapter;
-
     const nameChapter = document.getElementById('nameChapter');
     const contentChapter = document.getElementById('contentChapter');
+    const textContainer = document.getElementById('сhapter-text-container');
     let currentChapter = parseInt(localStorage.getItem('currentChapter')) || 1;
 
-    try {
-        chapter = await fetchChapter(fanficId, currentChapter);
-    } catch (error) {
-        console.error(`Error fetching: ${error}`);
-        console.error(fanficId, currentChapter);
-    }
 
-    let nameChapterInfo = chapter.title;
-    let contentChapterInfo = chapter.content;
+    let chapter;
 
-    let textNodeName = document.createTextNode(nameChapterInfo);
-    nameChapter.appendChild(textNodeName);
-
-    let textNodeChapter = document.createTextNode(contentChapterInfo);
-    contentChapter.appendChild(textNodeChapter);
 
     const nextButton = document.querySelector('#nextChapter');
     const prevButton = document.querySelector('#prevChapter');
 
-    if(currentChapter === parseInt(sizeChaptersInfo)) {
+    if(fanfic.numChapters === 0) {
+        textContainer.style.visibility = 'hidden';
+        nameChapter.style.visibility = 'hidden';
         nextButton.style.visibility = 'hidden';
-    }
-
-    if(currentChapter === 1) {
         prevButton.style.visibility = 'hidden';
     }
 
-    nextButton.addEventListener('click', async () => {
-        currentChapter = Math.min(currentChapter + 1, parseInt(sizeChaptersInfo));
-        localStorage.setItem('currentChapter', currentChapter.toString());
+    else {
+
         try {
             chapter = await fetchChapter(fanficId, currentChapter);
         } catch (error) {
             console.error(`Error fetching: ${error}`);
             console.error(fanficId, currentChapter);
         }
-        nameChapter.removeChild(textNodeName);
-        textNodeName = document.createTextNode(chapter.title);
-        nameChapter.appendChild(textNodeName);
 
-        contentChapter.removeChild(textNodeChapter);
-        textNodeChapter = document.createTextNode(chapter.content);
+        let nameChapterInfo = chapter.title;
+        let contentChapterInfo = chapter.content;
+
+        let textNodeName = document.createTextNode(nameChapterInfo);
+        nameChapter.appendChild(textNodeName);
+        
+        let textNodeChapter = document.createTextNode(contentChapterInfo);
         contentChapter.appendChild(textNodeChapter);
 
-        prevButton.style.visibility = 'visible';
+
         if(currentChapter === parseInt(sizeChaptersInfo)) {
             nextButton.style.visibility = 'hidden';
         }
-    });
-
-    prevButton.addEventListener('click', async () => {
-        currentChapter = Math.max(currentChapter - 1, 1);
-        localStorage.setItem('currentChapter', currentChapter.toString());
-        try {
-            chapter = await fetchChapter(fanficId, currentChapter);
-        } catch (error) {
-            console.error(`Error fetching: ${error}`);
-            console.error(fanficId, currentChapter);
-        }
-
-        nameChapter.removeChild(textNodeName);
-        textNodeName = document.createTextNode(chapter.title);
-        nameChapter.appendChild(textNodeName);
-
-        contentChapter.removeChild(textNodeChapter);
-        textNodeChapter = document.createTextNode(chapter.content);
-        contentChapter.appendChild(textNodeChapter);
-
-        nextButton.style.visibility = 'visible';
+    
         if(currentChapter === 1) {
             prevButton.style.visibility = 'hidden';
         }
-    });
+
+        nextButton.addEventListener('click', async () => {
+            currentChapter = Math.min(currentChapter + 1, parseInt(sizeChaptersInfo));
+            localStorage.setItem('currentChapter', currentChapter.toString());
+            try {
+                chapter = await fetchChapter(fanficId, currentChapter);
+            } catch (error) {
+                console.error(`Error fetching: ${error}`);
+                console.error(fanficId, currentChapter);
+            }
+            nameChapter.removeChild(textNodeName);
+            textNodeName = document.createTextNode(chapter.title);
+            nameChapter.appendChild(textNodeName);
+    
+            contentChapter.removeChild(textNodeChapter);
+            textNodeChapter = document.createTextNode(chapter.content);
+            contentChapter.appendChild(textNodeChapter);
+    
+            prevButton.style.visibility = 'visible';
+            if(currentChapter === parseInt(sizeChaptersInfo)) {
+                nextButton.style.visibility = 'hidden';
+            }
+        });
+    
+        prevButton.addEventListener('click', async () => {
+            currentChapter = Math.max(currentChapter - 1, 1);
+            localStorage.setItem('currentChapter', currentChapter.toString());
+            try {
+                chapter = await fetchChapter(fanficId, currentChapter);
+            } catch (error) {
+                console.error(`Error fetching: ${error}`);
+                console.error(fanficId, currentChapter);
+            }
+    
+            nameChapter.removeChild(textNodeName);
+            textNodeName = document.createTextNode(chapter.title);
+            nameChapter.appendChild(textNodeName);
+    
+            contentChapter.removeChild(textNodeChapter);
+            textNodeChapter = document.createTextNode(chapter.content);
+            contentChapter.appendChild(textNodeChapter);
+    
+            nextButton.style.visibility = 'visible';
+            if(currentChapter === 1) {
+                prevButton.style.visibility = 'hidden';
+            }
+        });
+    }
+
 
     const user = Cookies.get('username');
     const likeButton = document.querySelector('#likeBtn');
