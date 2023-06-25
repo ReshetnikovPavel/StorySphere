@@ -15,13 +15,39 @@ const warning = document.getElementById('warning');
 const parameters = document.getElementById('parameters');
 const translation = document.getElementById('translation');
 const shortDescription = document.getElementById('shortDescription');
-const note = document.getElementById('note');
 const uploadedFiles = new Set();
+
+// publish.addEventListener("click", () => {
+//     const isFull = true;
+//     const requiredFields = document.querySelectorAll('.required'); // выбираем все поля с классом "required"
+  
+//     for (let i = 0; i < requiredFields.length; i++) {
+//       if (requiredFields[i].value === '') {
+//         isFull = false; // если хотя бы одно поле пустое, возвращаем false
+//       }
+//     }
+
+//     if (isFull) {
+//         handleSubmit;
+//         return;
+//     }
+
+// });
 
 publish.addEventListener("click", handleSubmit);
 addImage.addEventListener("click", addArt);
+
 function handleSubmit(event) {
     event.preventDefault();
+    const requiredFields = document.querySelectorAll('[required]'); // выбираем все поля с классом "required"
+    console.log(requiredFields.length);
+    
+    for (let i = 0; i < requiredFields.length; i++) {
+        if (requiredFields[i].value === '') {
+            return; 
+        }
+    }
+
     const data = {
         title: _name.value,
         fandom: fandom.value,
@@ -47,7 +73,6 @@ function handleSubmit(event) {
 async function publishImages(fanficId) {
     const token = Cookies.get('sessionToken');
 
-    // TODO: Сделать что-то, если токен undefined, потому что юзер еще не залогинился
     if(token === undefined) {
         window.location.href = 'registration.html';
         return;

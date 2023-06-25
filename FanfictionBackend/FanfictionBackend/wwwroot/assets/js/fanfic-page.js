@@ -230,7 +230,7 @@ async function main() {
     const modal = document.getElementById('modal');
     const closeButton = modal.querySelector('.close');
     const openModalButton = document.getElementById('gallery');
-    if (images !== null) {
+    if (images.length !== 0) {
         openModalButton.setAttribute('style', 'cursor: pointer;');
         openModalButton.addEventListener('click', () => {
             modal.style.display = 'block';
