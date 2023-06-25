@@ -8,6 +8,5 @@ public enum Category
     Multi,
     None,
     Other,
-    Article,
-    NotStated
+    Article
 }

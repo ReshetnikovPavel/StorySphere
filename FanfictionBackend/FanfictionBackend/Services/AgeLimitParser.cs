@@ -13,7 +13,7 @@ public static class AgeLimitParser
             "R" => AgeLimit.R,
             "NC-17" => AgeLimit.NC17,
             "NC-21" => AgeLimit.NC21,
-            _ => AgeLimit.NotStated,
+            _ => throw new ArgumentException($"{ageLimit} is not a proper age limit")
         };
     }
 
@@ -26,7 +26,7 @@ public static class AgeLimitParser
             AgeLimit.R => "R",
             AgeLimit.NC17 => "NC-17",
             AgeLimit.NC21 => "NC-21",
-            _ => "Не указано"
+            _ => throw new ArgumentException($"Can't parse {ageLimit} to string")
         };
     }
 }

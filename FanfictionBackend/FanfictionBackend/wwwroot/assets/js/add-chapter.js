@@ -6,7 +6,7 @@ publishBtn.addEventListener("click", publishSubmit);
 const _name = document.getElementById('name');
 const content = document.getElementById('content');
 
-async function publishSubmit(event) {
+function publishSubmit(event) {
     event.preventDefault();
     if (_name.value.trim() === '') {
         alert('Введите название главы');
@@ -17,14 +17,9 @@ async function publishSubmit(event) {
         title: _name.value,
         content: content.value,
     };
-    const fanficId = getFanficId();
-    await publish(chapter, fanficId)
+    
+    publish(chapter, getFanficId())
         .catch(() => alert("Не удалось опубликовать главу"));
-    goToFanficPage(fanficId);
-}
-
-function goToFanficPage(fanficId) {
-    window.location.href = `/fanfic-page.html?fanficId=${fanficId}`
 }
 
 function getFanficId() {
@@ -44,7 +39,7 @@ async function publish(chapter, fanficId) {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
+            'Authorization': `Bearer ${sessionToken}`
         },
         body: JSON.stringify(chapter)
     });

@@ -239,14 +239,10 @@ function getAvatar(author) {
 function exit() {
   var userAnswer = confirm("Вы действительно хотите выйти?");
   if (userAnswer) {
-    logout();
+    Cookies.remove("username");
+    Cookies.remove("sessionToken");
     window.location.href = `/`;
   }
-}
-
-function logout() {
-  Cookies.remove("username");
-  Cookies.remove("sessionToken");
 }
 
 function getHrefAllWorks(username) {
@@ -268,7 +264,9 @@ async function fetchAuthorByName(username) {
 
   const response = await fetch(url);
 
-  checkResponse(response);
+  if (!response.ok) {
+    throw new Error(`HTTP error! Status: ${response.status}`);
+  }
 
   const data = await response.json();
   return data;
@@ -289,15 +287,6 @@ async function fetchFanficsByAuthor(authorName, pageSize, pageNumber) {
 }
 
 function checkResponse(response) {
-  if (response.status === 404) {
-    alert("Пользователь не найден");
-    if (Cookies.get('username') === getAuthorName()) {
-      logout();
-    }
-    window.location.href = '/';
-    return;
-  }
-
   if (!response.ok) {
     throw new Error(`HTTP error! Status: ${response.status}`);
   }

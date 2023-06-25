@@ -6,6 +6,5 @@ public enum AgeLimit
     PG13,
     R,
     NC17,
-    NC21,
-    NotStated
+    NC21
 };
