@@ -144,11 +144,11 @@ function addFanficsRow(dataIndex, dataLength, list) {
 
   const nameFanfic = document.createElement('h3');
   nameFanfic.textContent = info.title;
-  nameFanfic.setAttribute('style', 'cursor: pointer;');
+  workContainer.setAttribute('style', 'cursor: pointer;');
 
-  nameFanfic.setAttribute('data-link', `fanfic-page.html?fanficId=${info.id}`);
-  nameFanfic.addEventListener('click', () => {
-      const link = nameFanfic.getAttribute('data-link');
+  workContainer.setAttribute('data-link', `fanfic-page.html?fanficId=${info.id}`);
+  workContainer.addEventListener('click', () => {
+      const link = workContainer.getAttribute('data-link');
       window.location.href = link;
   });
 
