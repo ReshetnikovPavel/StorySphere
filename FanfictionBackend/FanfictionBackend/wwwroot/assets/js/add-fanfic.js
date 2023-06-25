@@ -65,8 +65,8 @@ async function handleSubmit(event) {
         publish.disabled = true;
         const fanfic = await publishFanfic(data);
         publishImages(fanfic.id)
-            .then(() => goToAddChapterPage(fanfic.id));
-        setTimeout(() => goToAddChapterPage(fanfic.id), 500);
+            .then(() => goToFanficPage(fanfic.id));
+        setTimeout(() => goToFanficPage(fanfic.id), 500);
     } catch (e) {
         alert("Не удалось опубликовать фанфик или загрузить изображения: " + e);
     }
@@ -118,8 +118,8 @@ async function publishFanfic(data) {
     return await response.json()
 }
 
-function goToAddChapterPage(fanficId) {
-    window.location.href = `/add-chapter.html?fanficId=${fanficId}`
+function goToFanficPage(fanficId) {
+    window.location.href = `/fanfic-page.html?fanficId=${fanficId}`
 }
 
 function addArt(event) {
