@@ -35,6 +35,7 @@ public class UserRepo : IUserRepo
     {
         return _dataContext.Users
             .Include(u => u.Fanfics)
+            .ThenInclude(f => f.Likes)
             .FirstOrDefault(user => username != null && string.Equals(
                 user.Username, username, StringComparison.CurrentCultureIgnoreCase));
     }
