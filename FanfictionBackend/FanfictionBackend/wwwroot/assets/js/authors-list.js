@@ -77,7 +77,7 @@ function addAuthorInList(column, dataIndex, dataLength, authorList) {
 
     const avatar = document.createElement('img');
     avatar.classList.add('author-profile-button');
-    avatar.setAttribute('src', info.picture !== null ? `/assets/images/avatars/${info.picture}` : '/assets/images/profile.svg'); 
+    avatar.setAttribute('src', info.picture !== null ? `/assets/images/avatars/${info.picture}.png` : '/assets/images/profile.svg'); 
     avatar.setAttribute('data-link', `/profile.html?username=${info.username}`);
     avatar.setAttribute('style', 'border-radius: 100%;');
     avatar.addEventListener('click', () => {
