@@ -21,13 +21,17 @@ public class ImgurImageService : IImageService
     public async Task<IResult> Upload(IFormFileCollection files, Fanfic fanfic)
     {
         var images = new List<Image>();
-        var uploadTasks = new List<Task<Imgur.API.Models.IImage>>();
-
         try
         {
-            uploadTasks.AddRange(files.Select(file => _endpoint.UploadImageAsync(file.OpenReadStream())));
-            var imgurImages = await Task.WhenAll(uploadTasks);
-            images.AddRange(imgurImages.Select(imgurImage => new Image { Id = imgurImage.Id, Link = imgurImage.Link }));
+            foreach (var file in files)
+            {
+                var imgurImage = await _endpoint.UploadImageAsync(file.OpenReadStream());
+                images.Add(new Image
+                {
+                    Id = imgurImage.Id,
+                    Link = imgurImage.Link
+                });
+            }
         }
         catch (Imgur.API.ImgurException)
         {
