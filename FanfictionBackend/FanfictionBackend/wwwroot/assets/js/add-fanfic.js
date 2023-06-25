@@ -40,10 +40,10 @@ addImage.addEventListener("click", addArt);
 async function handleSubmit(event) {
     event.preventDefault();
     const requiredFields = document.querySelectorAll('[required]'); // выбираем все поля с классом "required"
-    console.log(requiredFields.length);
 
     for (let i = 0; i < requiredFields.length; i++) {
         if (requiredFields[i].value === '') {
+            alert('Заполните обязательные поля');
             return;
         }
     }
