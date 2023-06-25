@@ -37,6 +37,7 @@ async function handleSubmit(event) {
         authorNotes: note.value
     };
     try {
+        publish.disabled = true;
         const fanfic = await publishFanfic(data);
         publishImages(fanfic.id)
             .then(() => goToAddChapterPage(fanfic.id));
@@ -44,6 +45,7 @@ async function handleSubmit(event) {
     } catch (e) {
         alert("Не удалось опубликовать фанфик или загрузить изображения: " + e);
     }
+    publish.disabled = false;
 }
 
 async function publishImages(fanficId) {
