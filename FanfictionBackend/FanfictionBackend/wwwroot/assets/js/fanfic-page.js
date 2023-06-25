@@ -96,7 +96,7 @@ async function main() {
     loadingData(notesInfo, notes);
 
     if (sizeChaptersInfo % 10 === 1 && sizeChaptersInfo % 100 !== 11) {
-        chapterLabel.textContent = 'глав';
+        chapterLabel.textContent = 'глава';
     } else if (sizeChaptersInfo % 10 >= 2 && sizeChaptersInfo % 10 <= 4 
         && (sizeChaptersInfo % 100 < 10 || sizeChaptersInfo % 100 >= 20)) {
         chapterLabel.textContent = 'главы';
