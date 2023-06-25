@@ -15,14 +15,39 @@ const warning = document.getElementById('warning');
 const parameters = document.getElementById('parameters');
 const translation = document.getElementById('translation');
 const shortDescription = document.getElementById('shortDescription');
-const note = document.getElementById('note');
 const uploadedFiles = new Set();
+
+// publish.addEventListener("click", () => {
+//     const isFull = true;
+//     const requiredFields = document.querySelectorAll('.required'); // выбираем все поля с классом "required"
+
+//     for (let i = 0; i < requiredFields.length; i++) {
+//       if (requiredFields[i].value === '') {
+//         isFull = false; // если хотя бы одно поле пустое, возвращаем false
+//       }
+//     }
+
+//     if (isFull) {
+//         handleSubmit;
+//         return;
+//     }
+
+// });
 
 publish.addEventListener("click", handleSubmit);
 addImage.addEventListener("click", addArt);
-async function handleSubmit(event) {
+
+function handleSubmit(event) {
     event.preventDefault();
-    console.log(translation.value);
+    const requiredFields = document.querySelectorAll('[required]'); // выбираем все поля с классом "required"
+    console.log(requiredFields.length);
+
+    for (let i = 0; i < requiredFields.length; i++) {
+        if (requiredFields[i].value === '') {
+            return;
+        }
+    }
+
     const data = {
         title: _name.value,
         fandom: fandom.value,
@@ -98,7 +123,7 @@ function addArt(event) {
     event.preventDefault();
     const uploadBtn = document.getElementById('addArt');
     const fileList = document.getElementById('fileList');
-    
+
 
     uploadBtn.addEventListener('click', () => {
         const input = document.createElement('input');
