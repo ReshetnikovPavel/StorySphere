@@ -23,9 +23,9 @@ public static class CategoryParser
     {
         return category switch
         {
-            Category.FF => "Slash",
-            Category.FM => "Femslash",
-            Category.MM => "Hetero",
+            Category.FF => "Femslash",
+            Category.FM => "Hetero",
+            Category.MM => "Slash",
             Category.Multi => "Mixed",
             Category.None => "General",
             Category.Other => "Other",
