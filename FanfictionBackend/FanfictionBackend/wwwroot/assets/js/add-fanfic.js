@@ -32,14 +32,15 @@ async function handleSubmit(event) {
         category: _focus.value,
         genre: genre.value,
         warnings: warning.value,
-        isTranslation: translation.checked,
+        isTranslation: translation.value === 'on',
         description: shortDescription.value,
         authorNotes: note.value
     };
     try {
         const fanfic = await publishFanfic(data);
-        await Promise.all([publishImages(fanfic.id)]);
-        goToAddChapterPage(fanfic.id);
+        publishImages(fanfic.id)
+            .then(() => goToAddChapterPage(fanfic.id));
+        setTimeout(() => goToAddChapterPage(fanfic.id), 500);
     } catch (e) {
         alert("Не удалось опубликовать фанфик или загрузить изображения: " + e);
     }
