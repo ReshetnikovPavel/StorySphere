@@ -225,7 +225,7 @@ async function main() {
                 IsLike = !IsLike;
                 likeButton.style.backgroundColor = IsLike ? 'rgb(112, 36, 20, 0.3)' : 'white';
                 console.log(user);
-                setLikeValue(IsLike, token);
+                setLikeValue(IsLike, token, likes);
             } else {
                 window.location.href = 'registration.html';
             }
@@ -288,11 +288,13 @@ async function getIsLike() {
     return like || false;
 }
 
-function setLikeValue(IsLike, token) {
+function setLikeValue(IsLike, token, likes) {
     if (IsLike) {
         postLike(fanficId, token);
+        likes.textContent = parseInt(likes.textContent) + 1;
     } else {
         deleteLike(fanficId, token);
+        likes.textContent = parseInt(likes.textContent) - 1;
     }
 }
 
