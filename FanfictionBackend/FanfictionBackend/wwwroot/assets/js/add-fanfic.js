@@ -1,8 +1,7 @@
-// const form = document.querySelector('form');
-// form.addEventListener('submit', handleSubmit);
 
 const publishBtn = document.querySelector('#publish');
 const addImage = document.querySelector('#addArt');
+const form = document.querySelector('#add-fanfic-form');
 
 const _name = document.getElementById('name');
 const fandom = document.getElementById('fandom');
@@ -17,36 +16,11 @@ const translation = document.getElementById('translation');
 const shortDescription = document.getElementById('shortDescription');
 const uploadedFiles = new Set();
 
-// publish.addEventListener("click", () => {
-//     const isFull = true;
-//     const requiredFields = document.querySelectorAll('.required'); // выбираем все поля с классом "required"
-
-//     for (let i = 0; i < requiredFields.length; i++) {
-//       if (requiredFields[i].value === '') {
-//         isFull = false; // если хотя бы одно поле пустое, возвращаем false
-//       }
-//     }
-
-//     if (isFull) {
-//         handleSubmit;
-//         return;
-//     }
-
-// });
-
-publishBtn.addEventListener("click", handleSubmit);
+form.addEventListener("submit", handleSubmit);
 addImage.addEventListener("click", addArt);
 
 async function handleSubmit(event) {
     event.preventDefault();
-    const requiredFields = document.querySelectorAll('[required]'); // выбираем все поля с классом "required"
-
-    for (let i = 0; i < requiredFields.length; i++) {
-        if (requiredFields[i].value === '') {
-            alert('Заполните обязательные поля');
-            return;
-        }
-    }
 
     const data = {
         title: _name.value,
@@ -62,7 +36,6 @@ async function handleSubmit(event) {
         authorNotes: note.value
     };
     try {
-        publish.disabled = true;
         const fanfic = await publishFanfic(data);
         publishImages(fanfic.id)
             .then(() => goToFanficPage(fanfic.id));
@@ -70,7 +43,6 @@ async function handleSubmit(event) {
     } catch (e) {
         alert("Не удалось опубликовать фанфик или загрузить изображения: " + e);
     }
-    publish.disabled = false;
 }
 
 async function publishImages(fanficId) {

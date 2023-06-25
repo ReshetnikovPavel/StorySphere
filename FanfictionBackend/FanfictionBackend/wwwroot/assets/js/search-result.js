@@ -25,7 +25,7 @@ async function processSearch() {
 
   let loadedPages = 1;
   function onScroll() {
-      const position = window.pageYOffset + window.innerHeight;
+      const position = window.pageYOffset + window.innerHeight + 10;
       const bottom = document.documentElement.scrollHeight;
     
       if (position >= bottom && loadedPages < total) {

@@ -48,8 +48,75 @@ public class DemoFactory
 
         _userService.RegisterUser(new RegisterDto
         {
-            Username = "Demotivator_Stepan",
-            Email = "stepa.zet2@gmail.com"
+            Username = "RedSquid",
+            Email = " asvjqflr2018@gmail.com"
+        }, "password");
+
+        _userService.RegisterUser(new RegisterDto
+        {
+            Username = "Angel_Sm",
+            Email = "a@gmail.com"
+        }, "password");
+
+        _userService.RegisterUser(new RegisterDto
+        {
+            Username = "AnyAnya",
+            Email = "b@gmail.com"
+        }, "password");
+
+        _userService.RegisterUser(new RegisterDto
+        {
+            Username = "Ham2681",
+            Email = "c@gmail.com"
+        }, "password");
+
+        _userService.RegisterUser(new RegisterDto
+        {
+            Username = "OiOiOiOiiii",
+            Email = "d@gmail.com"
+        }, "password");
+
+        _userService.RegisterUser(new RegisterDto
+        {
+            Username = "FraerMan",
+            Email = "e@gmail.com"
+        }, "password");
+
+        _userService.RegisterUser(new RegisterDto
+        {
+            Username = "Gogi",
+            Email = "f@gmail.com"
+        }, "password");
+
+                _userService.RegisterUser(new RegisterDto
+        {
+            Username = "Gog",
+            Email = "ddd@gmail.com"
+        }, "password");
+                _userService.RegisterUser(new RegisterDto
+        {
+            Username = "ogi",
+            Email = "sssf@gmail.com"
+        }, "password");
+                _userService.RegisterUser(new RegisterDto
+        {
+            Username = "Gssssogi",
+            Email = "fssss@gmail.com"
+        }, "password");
+                _userService.RegisterUser(new RegisterDto
+        {
+            Username = "Gogssssssi",
+            Email = "f@gmssssssssail.com"
+        }, "password");
+                _userService.RegisterUser(new RegisterDto
+        {
+            Username = "Gogssssssssi",
+            Email = "f@gmaisssssssssssl.com"
+        }, "password");
+                _userService.RegisterUser(new RegisterDto
+        {
+            Username = "Gssogi",
+            Email = "f@sssssssssssgmail.com"
         }, "password");
     }
 
@@ -60,9 +127,9 @@ public class DemoFactory
                 Title = "Система баллов в вузе: все, что нужно знать",
                 Fandom = "Образование",
                 Characters = "Студенты, преподаватели, деканат",
-                Pairings = "Деканат/Студент",
+                Pairings = "Нет",
                 AgeLimit = "G",
-                Category = "Other",
+                Category = "Article",
                 Genre = "Обучение, Учебная литература",
                 Warnings = "Отсутствует",
                 AuthorNotes = "Эта книга перечисляет основные правила системы баллов в моем университете, которые действуют в университетах России в целом. Это практический гайд, который поможет сэкономить время и избежать ненужных проблем.",
@@ -79,6 +146,16 @@ public class DemoFactory
         {
             Title = "Средний балл и проходной балл",
             Content = "В этой главе вы научитесь вычислять средний балл за семестр, рассчитывать проходной балл и понимать, как он влияет на вашу успеваемость и дальнейшую учебу."
+        }, "SoftOwl");
+        _fanficService.AddChapter(1, new AddChapterDto
+        {
+            Title = "Как отследить все, что у вас есть?",
+            Content = "В этой главе вы научитесь создавать себе красивую табличку в экселе, в которой сможете отслеживать свои драгоценные чиселки!"
+        }, "SoftOwl");
+        _fanficService.AddChapter(1, new AddChapterDto
+        {
+            Title = "Почему автоматы - очень классная вещь?",
+            Content = "Тут мы поймем, когда автомат - хорошо и здорово, а когда вы останетесь грустным школьником без стипендии и с единственной тройкой!"
         }, "SoftOwl");
 
 
@@ -108,6 +185,165 @@ public class DemoFactory
             Content = "В этой главе вы научитесь создавать классы и объекты в C#, а также узнаете об основных принципах ООП на примере этого языка программирования."
         }, "Capitulation");
 
+        _fanficService.AddFanfic(new AddFanficDto
+        {
+            Title = "Rust - лучший язык программирования!",
+            Fandom = "Технологии",
+            Characters = "Программисты, Rust-эксперты",
+            Pairings = "",
+            AgeLimit = "G",
+            Category = "Other",
+            Genre = "Обучение, Учебная литература",
+            Warnings = "Отсутствует",
+            AuthorNotes = "AAAA",
+            Description = "Купить книгу о программировании или начать изучать зарубежные уроки на YouTube - как выбрать правильный вариант? Книга посвящена языку программирования Rust и помогает сделать первые шаги в изучении языка.",
+            IsTranslation = false
+        },
+            "SoftOwl");
+
+        _fanficService.AddFanfic(new AddFanficDto
+        {
+            Title = "Гоги любит ооп!",
+            Fandom = "Технологии",
+            Characters = "Программисты",
+            Pairings = "",
+            AgeLimit = "PG-13",
+            Category = "Article",
+            Genre = "Обучение, Учебная литература",
+            Warnings = "Отсутствует",
+            AuthorNotes = "AAAA",
+            Description = "Гоги любит ооп! Да! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит!",
+            IsTranslation = false
+        },
+            "Gogi");
+
+        _fanficService.AddFanfic(new AddFanficDto
+        {
+            Title = "Гоги любит Раст!",
+            Fandom = "Технологии",
+            Characters = "Программисты",
+            Pairings = "",
+            AgeLimit = "PG-13",
+            Category = "Article",
+            Genre = "Обучение, Учебная литература",
+            Warnings = "Отсутствует",
+            AuthorNotes = "AAAA",
+            Description = "Гоги любит Раст! Да! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит!",
+            IsTranslation = false
+        },
+            "Gogi");
+
+        _fanficService.AddFanfic(new AddFanficDto
+        {
+            Title = "Гоги любит Матмех!",
+            Fandom = "Технологии",
+            Characters = "Программисты",
+            Pairings = "",
+            AgeLimit = "PG-13",
+            Category = "Article",
+            Genre = "Обучение, Учебная литература",
+            Warnings = "Отсутствует",
+            AuthorNotes = "AAAA",
+            Description = "Гоги любит Матмех! Да! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит!",
+            IsTranslation = false
+        },
+            "Gogi");
+
+        _fanficService.AddFanfic(new AddFanficDto
+        {
+            Title = "Гоги любит Маму!",
+            Fandom = "Технологии",
+            Characters = "Программисты",
+            Pairings = "",
+            AgeLimit = "PG-13",
+            Category = "Article",
+            Genre = "Обучение, Учебная литература",
+            Warnings = "Отсутствует",
+            AuthorNotes = "AAAA",
+            Description = "Гоги любит Маму! Да! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит!",
+            IsTranslation = false
+        },
+            "Gogi");
+
+        _fanficService.AddFanfic(new AddFanficDto
+        {
+            Title = "Гоги любит Солнышко!",
+            Fandom = "Технологии",
+            Characters = "Программисты",
+            Pairings = "",
+            AgeLimit = "PG-13",
+            Category = "Article",
+            Genre = "Обучение, Учебная литература",
+            Warnings = "Отсутствует",
+            AuthorNotes = "AAAA",
+            Description = "Гоги любит Солнышко! Да! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит!",
+            IsTranslation = false
+        },
+            "Gogi");
+
+        _fanficService.AddFanfic(new AddFanficDto
+        {
+            Title = "Гоги любит Горох!",
+            Fandom = "Технологии",
+            Characters = "Программисты",
+            Pairings = "",
+            AgeLimit = "PG-13",
+            Category = "Article",
+            Genre = "Обучение, Учебная литература",
+            Warnings = "Отсутствует",
+            AuthorNotes = "AAAA",
+            Description = "Гоги любит Горох! Да! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит!",
+            IsTranslation = false
+        },
+            "Gogi");
+
+        _fanficService.AddFanfic(new AddFanficDto
+        {
+            Title = "Гоги любит себя!",
+            Fandom = "Технологии",
+            Characters = "Программисты",
+            Pairings = "",
+            AgeLimit = "PG-13",
+            Category = "Article",
+            Genre = "Обучение, Учебная литература",
+            Warnings = "Отсутствует",
+            AuthorNotes = "AAAA",
+            Description = "Гоги любит себя! Да! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит!",
+            IsTranslation = false
+        },
+            "Gogi");
+
+        _fanficService.AddFanfic(new AddFanficDto
+        {
+            Title = "Гоги любит Рыбок!",
+            Fandom = "Технологии",
+            Characters = "Программисты",
+            Pairings = "",
+            AgeLimit = "PG-13",
+            Category = "Article",
+            Genre = "Обучение, Учебная литература",
+            Warnings = "Отсутствует",
+            AuthorNotes = "AAAA",
+            Description = "Гоги любит Рыбок! Да! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит!",
+            IsTranslation = false
+        },
+            "Gogi");
+
+        _fanficService.AddFanfic(new AddFanficDto
+        {
+            Title = "Гоги любит Стулья!",
+            Fandom = "Технологии",
+            Characters = "Программисты",
+            Pairings = "",
+            AgeLimit = "PG-13",
+            Category = "Article",
+            Genre = "Обучение, Учебная литература",
+            Warnings = "Отсутствует",
+            AuthorNotes = "AAAA",
+            Description = "Гоги любит Стулья! Да! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит! Любит!",
+            IsTranslation = false
+        },
+            "Gogi");
 
         _fanficService.AddFanfic(new AddFanficDto
         {
@@ -144,5 +380,6 @@ public class DemoFactory
         _likeService.AddLike(3, "SoftOwl");
         _likeService.AddLike(2, "PavelResh");
         _likeService.AddLike(2, "SoftOwl");
+        _likeService.AddLike(2, "Gogi");
     }
 }

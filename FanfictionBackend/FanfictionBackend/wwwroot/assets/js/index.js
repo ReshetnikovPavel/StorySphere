@@ -19,7 +19,7 @@ async function processIndex() {
   console.log(fanficsList);
 
   const total = fanficsList.metadata.totalPages;
-  const size = Math.min(10, total);
+  const size = Math.min(4, total);
 
   for (let pageNumber = 1; pageNumber <= size; pageNumber++) {
     await uploadPage(pageSize, pageNumber);
@@ -27,7 +27,8 @@ async function processIndex() {
 
   let loadedPages = 1;
   function onScroll() {
-      const position = window.pageYOffset + window.innerHeight;
+      const position = window.pageYOffset + window.innerHeight + 10;
+      console.log(position);
       const bottom = document.documentElement.scrollHeight;
     
       if (position >= bottom && loadedPages < total) {
@@ -63,15 +64,6 @@ async function uploadPage(pageSize, pageNumber) {
   for (let i = 0; i < dataLength; i += 3) {
     addFanficsRow(i, dataLength, list);
   }
-}
-
-function getImages() {
-  const avatars = [];
-  for (let i = 1; i < 27; i++) {
-      avatars.push(`/assets/images/avatars/avatar${i}.png`);
-  }
-
-  return avatars;
 }
 
 function addFanficsRow(dataIndex, dataLength, list) {

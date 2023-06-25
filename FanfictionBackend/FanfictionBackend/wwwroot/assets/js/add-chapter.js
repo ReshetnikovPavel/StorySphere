@@ -1,7 +1,8 @@
 
 const publishBtn = document.querySelector('#publish');
+const form = document.querySelector('#add-chapter-form');
 
-publishBtn.addEventListener("click", publishSubmit);
+form.addEventListener("submit", publishSubmit);
 
 const _name = document.getElementById('name');
 const content = document.getElementById('content');

@@ -17,7 +17,7 @@ async function main() {
     }
 
     const total = authorList.metadata.totalPages;
-    const size = Math.min(10, total);
+    const size = Math.min(8, total);
 
     for (let pageNumber = 1; pageNumber <= size; pageNumber++) {
         await uploadPage(pageSize, pageNumber);

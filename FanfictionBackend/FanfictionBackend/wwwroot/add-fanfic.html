@@ -16,7 +16,7 @@
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
     <script src="/assets/js/header.js"></script>
     <h1 class="main-page-heading">Создать работу</h1>
-    <form>
+    <form id="add-fanfic-form">
       <div class="row-container">
 
         <section class="first-row">
@@ -25,21 +25,21 @@
             <div class="field-row">
               <div class="label-container">
                 <label for="name">Название</label>
-                <input type="text" id="name" maxlength="35" required>
+                <input class="requiredInput" type="text" id="name" maxlength="35" required>
               </div>
             </div>
 
             <div class="field-row">
               <div class="label-container">
                 <label for="fandom">Фандом</label>
-                <input type="text" id="fandom" required>
+                <input class="requiredInput" type="text" id="fandom" required>
               </div>
             </div>
 
             <div class="field-row">
               <div class="label-container">
                 <label for="persons">Персонажи</label>
-                <input type="text" id="persons" required>
+                <input class="requiredInput" type="text" id="persons" required>
               </div>
             </div>
 
@@ -53,7 +53,7 @@
             <div class="field-row">
               <div class="select-container">
                 <label for="rating">Рейтинг</label>
-                <select id="rating" required>
+                <select class="requiredInput" id="rating" required>
                   <option value="" disabled selected>
                     Не указано
                   </option>
@@ -79,7 +79,7 @@
             <div class="field-row">
               <div class="select-container">
                 <label for="focus">Направленность</label>
-                <select id="focus" required>
+                <select class="requiredInput" id="focus" required>
                   <option value="" disabled selected>
                     Не указано
                   </option>
@@ -111,7 +111,7 @@
             <div class="field-row">
               <div class="label-container">
                 <label for="genre">Жанры</label>
-                <input type="text" id="genre" required>
+                <input class="requiredInput" type="text" id="genre" required>
               </div>
             </div>
 
@@ -134,7 +134,7 @@
 
             <div class="text-container">
               <label for="shortDescription">Краткое описание</label>
-              <textarea id="shortDescription" required maxlength="500"></textarea>
+              <textarea class="requiredInput" id="shortDescription" required maxlength="500"></textarea>
             </div>
           </section>
 
@@ -149,7 +149,7 @@
 
         <nav class="third-row">
           <button id="addArt">Добавить арты</button>
-          <button id="publish">Опубликовать</button>
+          <input type="submit" id="publish"></input>
         </nav>
         <label>Выбранные файлы (нажмите для удаления):</label>
         <ul id="fileList"></ul>
