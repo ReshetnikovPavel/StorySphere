@@ -107,7 +107,7 @@ async function main() {
     const nameChapter = document.getElementById('nameChapter');
     const contentChapter = document.getElementById('contentChapter');
     const textContainer = document.getElementById('сhapter-text-container');
-    let currentChapter = parseInt(localStorage.getItem('currentChapter')) || 1;
+    let currentChapter = 1;
 
 
     let chapter;
@@ -152,7 +152,6 @@ async function main() {
 
         nextButton.addEventListener('click', async () => {
             currentChapter = Math.min(currentChapter + 1, parseInt(sizeChaptersInfo));
-            localStorage.setItem('currentChapter', currentChapter.toString());
             try {
                 chapter = await fetchChapter(fanficId, currentChapter);
             } catch (error) {
@@ -175,7 +174,6 @@ async function main() {
     
         prevButton.addEventListener('click', async () => {
             currentChapter = Math.max(currentChapter - 1, 1);
-            localStorage.setItem('currentChapter', currentChapter.toString());
             try {
                 chapter = await fetchChapter(fanficId, currentChapter);
             } catch (error) {

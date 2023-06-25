@@ -48,8 +48,44 @@ public class DemoFactory
 
         _userService.RegisterUser(new RegisterDto
         {
-            Username = "Demotivator_Stepan",
-            Email = "stepa.zet2@gmail.com"
+            Username = "RedSquid",
+            Email = " asvjqflr2018@gmail.com"
+        }, "password");
+
+        _userService.RegisterUser(new RegisterDto
+        {
+            Username = "Angel_Sm",
+            Email = "a@gmail.com"
+        }, "password");
+
+        _userService.RegisterUser(new RegisterDto
+        {
+            Username = "AnyAnya",
+            Email = "b@gmail.com"
+        }, "password");
+
+        _userService.RegisterUser(new RegisterDto
+        {
+            Username = "Ham2681",
+            Email = "c@gmail.com"
+        }, "password");
+
+        _userService.RegisterUser(new RegisterDto
+        {
+            Username = "OiOiOiOiiii",
+            Email = "d@gmail.com"
+        }, "password");
+
+        _userService.RegisterUser(new RegisterDto
+        {
+            Username = "FraerMan",
+            Email = "e@gmail.com"
+        }, "password");
+
+        _userService.RegisterUser(new RegisterDto
+        {
+            Username = "Gogi",
+            Email = "f@gmail.com"
         }, "password");
     }
 
@@ -60,9 +96,9 @@ public class DemoFactory
                 Title = "Система баллов в вузе: все, что нужно знать",
                 Fandom = "Образование",
                 Characters = "Студенты, преподаватели, деканат",
-                Pairings = "Деканат/Студент",
+                Pairings = "Нет",
                 AgeLimit = "G",
-                Category = "Other",
+                Category = "Article",
                 Genre = "Обучение, Учебная литература",
                 Warnings = "Отсутствует",
                 AuthorNotes = "Эта книга перечисляет основные правила системы баллов в моем университете, которые действуют в университетах России в целом. Это практический гайд, который поможет сэкономить время и избежать ненужных проблем.",
@@ -79,6 +115,16 @@ public class DemoFactory
         {
             Title = "Средний балл и проходной балл",
             Content = "В этой главе вы научитесь вычислять средний балл за семестр, рассчитывать проходной балл и понимать, как он влияет на вашу успеваемость и дальнейшую учебу."
+        }, "SoftOwl");
+        _fanficService.AddChapter(1, new AddChapterDto
+        {
+            Title = "Как отследить все, что у вас есть?",
+            Content = "В этой главе вы научитесь создавать себе красивую табличку в экселе, в которой сможете отслеживать свои драгоценные чиселки!"
+        }, "SoftOwl");
+        _fanficService.AddChapter(1, new AddChapterDto
+        {
+            Title = "Почему автоматы - очень классная вещь?",
+            Content = "Тут мы поймем, когда автомат - хорошо и здорово, а когда вы останетесь грустным школьником без стипендии и с единственной тройкой!"
         }, "SoftOwl");
 
 
