@@ -22,6 +22,7 @@ publish.addEventListener("click", handleSubmit);
 addImage.addEventListener("click", addArt);
 async function handleSubmit(event) {
     event.preventDefault();
+    console.log(translation.value);
     const data = {
         title: _name.value,
         fandom: fandom.value,
@@ -31,7 +32,7 @@ async function handleSubmit(event) {
         category: _focus.value,
         genre: genre.value,
         warnings: warning.value,
-        isTranslation: Boolean(translation.value),
+        isTranslation: translation.checked,
         description: shortDescription.value,
         authorNotes: note.value
     };
