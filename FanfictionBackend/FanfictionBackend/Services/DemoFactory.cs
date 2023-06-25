@@ -408,9 +408,9 @@ public class DemoFactory
     {
         _likeService.AddLike(1, "Capitulation");
         _likeService.AddLike(1, "PavelResh");
-        _likeService.AddLike(3, "PavelResh");
+        _likeService.AddLike(3, "Capitulation");
         _likeService.AddLike(3, "SoftOwl");
-        _likeService.AddLike(2, "Capitulation");
+        _likeService.AddLike(2, "PavelResh");
         _likeService.AddLike(2, "SoftOwl");
     }
 }
