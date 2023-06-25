@@ -15,7 +15,7 @@ public static class CategoryParser
             "Mixed" => Category.Multi,
             "Article" => Category.Article,
             "Other" => Category.Other,
-            _ => throw new ArgumentException($"{category} is not a proper category")
+            _ => Category.NotStated,
         };
     }
 
@@ -30,7 +30,7 @@ public static class CategoryParser
             Category.None => "General",
             Category.Other => "Other",
             Category.Article => "Article",
-            _ => throw new ArgumentException($"Can't convert {category} to string")
+            _ => "Не указано"
         };
     }
 }

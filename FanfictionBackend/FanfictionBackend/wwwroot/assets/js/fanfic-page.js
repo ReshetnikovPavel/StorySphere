@@ -96,8 +96,8 @@ async function main() {
     loadingData(notesInfo, notes);
 
     if (sizeChaptersInfo % 10 === 1 && sizeChaptersInfo % 100 !== 11) {
-        chapterLabel.textContent = 'глав';
-    } else if (sizeChaptersInfo % 10 >= 2 && sizeChaptersInfo % 10 <= 4 
+        chapterLabel.textContent = 'глава';
+    } else if (sizeChaptersInfo % 10 >= 2 && sizeChaptersInfo % 10 <= 4
         && (sizeChaptersInfo % 100 < 10 || sizeChaptersInfo % 100 >= 20)) {
         chapterLabel.textContent = 'главы';
     } else {
@@ -149,7 +149,7 @@ async function main() {
         nameChapter.removeChild(textNodeName);
         textNodeName = document.createTextNode(chapter.title);
         nameChapter.appendChild(textNodeName);
-    
+
         contentChapter.removeChild(textNodeChapter);
         textNodeChapter = document.createTextNode(chapter.content);
         contentChapter.appendChild(textNodeChapter);
@@ -173,7 +173,7 @@ async function main() {
         nameChapter.removeChild(textNodeName);
         textNodeName = document.createTextNode(chapter.title);
         nameChapter.appendChild(textNodeName);
-    
+
         contentChapter.removeChild(textNodeChapter);
         textNodeChapter = document.createTextNode(chapter.content);
         contentChapter.appendChild(textNodeChapter);
@@ -225,7 +225,7 @@ async function main() {
     }
 
     const imageContainer = document.getElementById('image-container');
-    const images = getImages();
+    const images = getImages(fanfic);
 
     const modal = document.getElementById('modal');
     const closeButton = modal.querySelector('.close');
@@ -235,20 +235,20 @@ async function main() {
         openModalButton.addEventListener('click', () => {
             modal.style.display = 'block';
         });
-    
+
         closeButton.addEventListener('click', () => {
             modal.style.display = 'none';
         });
-    
+
         for(let i = 0; i < images.length; i++) {
             const image = document.createElement('img');
-    
+
             image.src = images[i];
             image.alt = 'illustration';
-    
+
             image.style.maxWidth = '30rem';
             image.style.maxHeight = '30rem';
-    
+
             imageContainer.appendChild(image);
         }
     } else {
@@ -296,8 +296,9 @@ function loadingData(base, id) {
     id.appendChild(textNode);
 }
 
-function getImages() {
-    return null;
+function getImages(fanfic) {
+    return fanfic.imageLinks;
+    //return ["/assets/images/img5.png", "/assets/images/img6.png", "/assets/images/img7.jpg", "/assets/images/img8.png"];
 }
 
 function getFanficId() {

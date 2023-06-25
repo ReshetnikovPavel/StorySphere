@@ -10,17 +10,20 @@ public class DemoFactory
 {
     private readonly IUserService _userService;
     private readonly IFanficService _fanficService;
+    private readonly ILikeService _likeService;
 
-    public DemoFactory(IUserService userService, IFanficService fanficService)
+    public DemoFactory(IUserService userService, IFanficService fanficService, ILikeService likeService)
     {
         _userService = userService;
         _fanficService = fanficService;
+        _likeService = likeService;
     }
 
     public void InitData()
     {
         InitUsers();
         InitFanfics();
+        InitLikes();
     }
 
     private void InitUsers()
@@ -399,5 +402,15 @@ public class DemoFactory
             Title = "Основы Rust",
             Content = "В этой главе вы научитесь создавать переменные и основные типы данных в Rust, а также узнаете о ссылках и привязках на основе области видимости переменных."
         }, "PavelResh");
+    }
+    
+    private void InitLikes()
+    {
+        _likeService.AddLike(1, "Capitulation");
+        _likeService.AddLike(1, "PavelResh");
+        _likeService.AddLike(3, "Capitulation");
+        _likeService.AddLike(3, "SoftOwl");
+        _likeService.AddLike(2, "PavelResh");
+        _likeService.AddLike(2, "SoftOwl");
     }
 }

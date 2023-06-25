@@ -20,7 +20,7 @@ const uploadedFiles = new Set();
 // publish.addEventListener("click", () => {
 //     const isFull = true;
 //     const requiredFields = document.querySelectorAll('.required'); // выбираем все поля с классом "required"
-  
+
 //     for (let i = 0; i < requiredFields.length; i++) {
 //       if (requiredFields[i].value === '') {
 //         isFull = false; // если хотя бы одно поле пустое, возвращаем false
@@ -41,10 +41,10 @@ function handleSubmit(event) {
     event.preventDefault();
     const requiredFields = document.querySelectorAll('[required]'); // выбираем все поля с классом "required"
     console.log(requiredFields.length);
-    
+
     for (let i = 0; i < requiredFields.length; i++) {
         if (requiredFields[i].value === '') {
-            return; 
+            return;
         }
     }
 
@@ -57,38 +57,43 @@ function handleSubmit(event) {
         category: _focus.value,
         genre: genre.value,
         warnings: warning.value,
-        isTranslation: Boolean(translation.value),
+        isTranslation: translation.checked,
         description: shortDescription.value,
         authorNotes: note.value
     };
-    publishFanfic(data)
-        .then(fanfic => {
-            publishImages(fanfic.id)
-                .then(() => goToAddChapterPage())
-                .catch("Не удалось загрузить изображения");
-        })
-        .catch(() => alert("Не удалось опубликовать фанфик"));
+    try {
+        const fanfic = await publishFanfic(data);
+        await Promise.all([publishImages(fanfic.id)]);
+        goToAddChapterPage(fanfic.id);
+    } catch (e) {
+        alert("Не удалось опубликовать фанфик или загрузить изображения: " + e);
+    }
 }
 
 async function publishImages(fanficId) {
     const token = Cookies.get('sessionToken');
 
-    if(token === undefined) {
+    if (token === undefined) {
         window.location.href = 'registration.html';
         return;
     }
 
-    const response= await fetch(`/images?fanficId=${fanficId}`, {
+    const formData = new FormData();
+    for (const file of uploadedFiles) {
+        formData.append('images[]', file, file.name);
+    }
+
+    const response = await fetch(`/images?fanficId=${fanficId}`, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${uploadedFiles}`,
+            'Authorization': `Bearer ${token}`,
         },
-        body: JSON.stringify(uploadedFiles)
+        body: formData
     });
 
     return await response.json()
 }
+
 
 async function publishFanfic(data) {
     const token = Cookies.get('sessionToken');
@@ -102,8 +107,8 @@ async function publishFanfic(data) {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${sessionToken}`,
-          },
+            'Authorization': `Bearer ${token}`,
+        },
         body: JSON.stringify(data)
     });
 
@@ -118,7 +123,7 @@ function addArt(event) {
     event.preventDefault();
     const uploadBtn = document.getElementById('addArt');
     const fileList = document.getElementById('fileList');
-    
+
 
     uploadBtn.addEventListener('click', () => {
         const input = document.createElement('input');
@@ -129,8 +134,8 @@ function addArt(event) {
             const files = input.files;
             for (let i = 0; i < files.length; i++) {
                 const file = files[i];
-                if (!uploadedFiles.has(file.name)) {
-                    uploadedFiles.add(file.name);
+                if (!uploadedFiles.has(file)) {
+                    uploadedFiles.add(file);
                     const li = document.createElement('li');
                     li.textContent = file.name;
                     fileList.appendChild(li);
